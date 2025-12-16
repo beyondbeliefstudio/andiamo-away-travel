@@ -36,7 +36,7 @@ import lambologo from "@/assets/lambo-logo.png";
 
     <!-- Hamburger -->
     <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">
-      <div class="circle"></div>
+      <!-- <div class="circle"></div> -->
       <span class="line top"></span>
       <span class="line middle"></span>
       <span class="line bottom"></span>
@@ -93,6 +93,10 @@ import lambologo from "@/assets/lambo-logo.png";
       img {
         height: 50px !important;
         width: auto !important;
+
+        @media (max-width: 1010px) {
+          height: 35px !important;
+        }
       }
     }
 
@@ -105,6 +109,10 @@ import lambologo from "@/assets/lambo-logo.png";
       img {
         height: 50px !important;
         width: auto !important;
+
+        @media (max-width: 1010px) {
+          height: 35px !important;
+        }
       }
     }
 
@@ -205,8 +213,8 @@ import lambologo from "@/assets/lambo-logo.png";
   /* Hamburger Button */
   .hamburger {
     position: relative;
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 20px;
     border: none;
     background: none;
     cursor: pointer;
@@ -216,19 +224,19 @@ import lambologo from "@/assets/lambo-logo.png";
     z-index: 1000;
   }
 
-  .circle {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    background-color: var(--brand-primary); /* Customize */
-    border-radius: 5px;
-    z-index: -1;
-    transform: scale(1);
-    transition: background-color 0.3s ease;
-  }
+  // .circle {
+  //   position: absolute;
+  //   width: 48px;
+  //   height: 48px;
+  //   background-color: var(--brand-primary); /* Customize */
+  //   border-radius: 5px;
+  //   z-index: -1;
+  //   transform: scale(1);
+  //   transition: background-color 0.3s ease;
+  // }
 
   .line {
-    position: absolute;
+    // position: absolute;
     width: 24px;
     height: 3px;
     background-color: var(--dark-900);
@@ -256,15 +264,9 @@ import lambologo from "@/assets/lambo-logo.png";
   @media (max-width: 1010px) {
     .nav {
       &__container {
-        margin: 1rem auto;
-      }
-
-      &__logo-img {
-        svg,
-        img {
-          height: 70px;
-          width: fit-content;
-        }
+        margin: 0.5rem auto;
+        max-width: calc(100% - 1rem);
+        padding: 0.5rem;
       }
 
       &__links {
@@ -281,6 +283,8 @@ import lambologo from "@/assets/lambo-logo.png";
 
     .hamburger {
       display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
   }
 </style>

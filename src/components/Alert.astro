@@ -6,7 +6,7 @@ import Links from "@/components/Links.astro";
   <div class="container container-md">
     <div class="content-md">
       <p class="alert__message">
-        <strong>Garage Door Emergency? Call Now. Available 24/7.</strong>
+        <strong>Garage Door Emergency? Available 24/7.</strong>
       </p>
     </div>
   </div>
@@ -33,7 +33,7 @@ import Links from "@/components/Links.astro";
     &__message {
       margin: 0;
       color: var(--light-100);
-      font-size: 1.25rem;
+      font-size: var(--_typography---font-size--text-large);
       font-weight: 500;
       display: flex;
       align-items: center;
@@ -47,20 +47,6 @@ import Links from "@/components/Links.astro";
 
       .btn {
         margin: 0;
-      }
-    }
-
-    @media (max-width: 640px) {
-      padding: 0.5rem 0;
-
-      &__message {
-        font-size: 0.9rem;
-
-        strong {
-          display: block;
-          width: 100%;
-          margin-bottom: 0.25rem;
-        }
       }
     }
   }

@@ -65,12 +65,8 @@ const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
     flex-wrap: nowrap;
     animation: scroll-left 250s linear infinite;
 
-    // &:hover {
-    //   animation-play-state: paused;
-    // }
-
     @media screen and (max-width: 768px) {
-      animation: scroll-left 100s linear infinite;
+      animation: scroll-left 500s linear infinite;
     }
   }
 

@@ -62,6 +62,10 @@ const { items } = Astro.props;
       width: max-content;
       flex-wrap: nowrap;
       animation: scrollPhotos 80s reverse linear infinite;
+
+      @media screen and (max-width: 768px) {
+        animation: scrollPhotos 150s reverse linear infinite;
+      }
     }
 
     &__item {

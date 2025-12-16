@@ -98,7 +98,7 @@ import mailIcon from "@/assets/mail.svg";
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
-      padding: 4rem;
+      padding: var(--_spacing---section-space--main);
       overflow: hidden;
       border-radius: var(--border-radius-medium);
     }
@@ -129,7 +129,7 @@ import mailIcon from "@/assets/mail.svg";
       mix-blend-mode: lighten;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       &__content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -166,7 +166,7 @@ import mailIcon from "@/assets/mail.svg";
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: 1.25rem;
+      font-size: var(--_typography---font-size--text-large);
       font-weight: 400;
       color: var(--light-100);
       text-decoration: none;
@@ -201,7 +201,7 @@ import mailIcon from "@/assets/mail.svg";
       position: relative;
       z-index: 2;
       background: var(--light-100);
-      padding: 2.5rem;
+      padding: var(--_spacing---section-space--small);
       border-radius: var(--border-radius-medium);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
@@ -222,7 +222,7 @@ import mailIcon from "@/assets/mail.svg";
           font-weight: 600;
           margin-bottom: 0.75rem;
           color: var(--dark-900);
-          font-size: 1rem;
+          font-size: var(--_typography---font-size--text-main);
           text-align: left;
         }
 

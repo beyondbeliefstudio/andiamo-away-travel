@@ -28,13 +28,15 @@ const { ariaLabel, classes, ...rest } = Astro.props;
     <div class="column column-main flex-1">
       <div class="content-lg hero__content">
         <div class="hero__reviews">
-          <img
-            src="https://www.gstatic.com/images/branding/product/1x/googleg_24dp.png"
-            alt="Google"
-            class="hero__reviews-logo"
-          />
-          <div class="hero__reviews-stars">
-            <span>★★★★★</span>
+          <div class="hero__reviews-wrapper">
+            <img
+              src="https://www.gstatic.com/images/branding/product/1x/googleg_24dp.png"
+              alt="Google"
+              class="hero__reviews-logo"
+            />
+            <div class="hero__reviews-stars">
+              <span>★★★★★</span>
+            </div>
           </div>
           <p class="hero__reviews-text small">4.9 Based on 46+ Reviews</p>
         </div>
@@ -106,6 +108,10 @@ const { ariaLabel, classes, ...rest } = Astro.props;
         justify-content: center;
         margin-top: 53px;
 
+        @media screen and (max-width: 1010px) {
+          margin-top: 42px;
+        }
+
         &__bg {
           position: absolute;
           top: 0;
@@ -153,6 +159,10 @@ const { ariaLabel, classes, ...rest } = Astro.props;
             max-width: 250px;
             width: 40%;
           }
+
+          @media (max-width: 1450px) {
+            bottom: -1vw;
+          }
         }
 
         &__container {
@@ -181,16 +191,6 @@ const { ariaLabel, classes, ...rest } = Astro.props;
           text-align: left;
           margin-left: 0;
 
-          // h1,
-          // h2,
-          // h3,
-          // h4,
-          // h5,
-          // h6,
-          // p {
-          //   color: var(--light-200);
-          // }
-
           .eyebrow {
             background-color: var(--light-200);
             color: var(--brand-primary-dark);
@@ -207,6 +207,14 @@ const { ariaLabel, classes, ...rest } = Astro.props;
           width: fit-content;
           margin-bottom: 1.5rem;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        &__reviews-wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.75rem;
         }
 
         &__reviews-logo {
@@ -227,6 +235,7 @@ const { ariaLabel, classes, ...rest } = Astro.props;
           color: var(--dark-900) !important;
           font-weight: 600;
           line-height: 1;
+          min-width: fit-content;
         }
 
         &__title {
@@ -279,6 +288,9 @@ const { ariaLabel, classes, ...rest } = Astro.props;
 
             h3 {
               letter-spacing: 0.5px;
+              width: 100%;
+              text-wrap: auto;
+              line-height: 1.3;
             }
           }
         }

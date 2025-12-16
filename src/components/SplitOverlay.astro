@@ -89,6 +89,10 @@ const {
       gap: var(--_spacing---section-space--main);
       grid-template-columns: 1fr 1fr;
       min-height: 50vh;
+
+      @media (max-width: 1010px) {
+        grid-template-columns: 1fr;
+      }
     }
 
     &__wrapper {

@@ -161,7 +161,7 @@ a {
   font-size: inherit;
   font-family: inherit;
   color: var(--content-primary);
-  font-size: 1rem;
+  font-size: var(--_typography---font-size--text-main);
 }
 
 .eyebrow {
@@ -193,6 +193,10 @@ a {
   font-family: var(--primary-family);
   color: var(--content-primary);
   font-size: 1.25rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 // UTILITIES
@@ -546,7 +550,7 @@ select,
 textarea {
   padding: 0.5rem;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: var(--_typography---font-size--text-main);
   background: var(--glass);
   border: 1px solid var(--border-color);
   backdrop-filter: blur(18px);
