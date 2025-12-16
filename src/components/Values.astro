@@ -1,0 +1,134 @@
+---
+import Heading from "@/components/Heading.astro";
+import { Image } from "astro:assets";
+
+import local from "@/assets/local.svg";
+import lambo from "@/assets/lambo.svg";
+import pricing from "@/assets/pricing.svg";
+import fast from "@/assets/fast.svg";
+import available from "@/assets/available.svg";
+import quality from "@/assets/quality.svg";
+
+const values = [
+  {
+    title: "Local One on One Service",
+    description:
+      "You deal directly with me from the first phone call until the job is done. No call centers or subcontractors.",
+    icon: local,
+  },
+  {
+    title: "Lambo on Every Job",
+    description:
+      "Lambo comes to every appointment. He sits calmly nearby while I work and brings a friendly, personal touch that customers appreciate.",
+    icon: lambo,
+  },
+  {
+    title: "Honest Pricing",
+    description:
+      "You get straightforward guidance on what is needed. No unnecessary repairs or sales tactics.",
+    icon: pricing,
+  },
+  {
+    title: "Fast Response Times",
+    description:
+      "Most garage door repairs in Estill Springs, Tullahoma and Murfreesboro are completed the same day.",
+    icon: fast,
+  },
+  {
+    title: "Available When You Need Me",
+    description:
+      "Open 7 days a week from 8 am to 11 pm with 24 hour emergency service for urgent issues.",
+    icon: available,
+  },
+  {
+    title: "Quality Workmanship",
+    description:
+      "Every repair and installation is done right the first time with attention to detail and lasting results.",
+    icon: quality,
+  },
+];
+---
+
+<section class="values bg-light">
+  <div class="container container-md column-main">
+    <div class="content-md">
+      <Heading
+        tag="h2"
+        size="xl"
+        fontFamily="primary"
+        marginBottom="l"
+        weight="fw500"
+        textTransform="uppercase"
+      >
+        Why Choose Lambo's Garage Door Service
+      </Heading>
+      <p class="margin-bottom-xl">
+        When you hire Lambo's Garage Door Service, you are getting more than just a repair or
+        installation. You are working with a locally owned business that values quality, honesty and
+        personal service.
+      </p>
+    </div>
+    <div class="content-full">
+      <div class="values__grid grid-auto-3">
+        {
+          values.map(value => (
+            <div class="values__card">
+              <div class="values__icon">
+                <Image src={value.icon} alt="" aria-hidden="true" />
+              </div>
+              <div class="values__content">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m" weight="fw500">
+                  {value.title}
+                </Heading>
+                <p>{value.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .values {
+    &__card {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-medium);
+      background-color: var(--light-100);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &__icon {
+      width: 60px;
+      height: 60px;
+      background: var(--brand-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--dark-900);
+
+      img {
+        width: 32px;
+        height: 32px;
+        filter: invert(1);
+      }
+    }
+
+    &__content {
+      text-align: left;
+    }
+  }
+</style>

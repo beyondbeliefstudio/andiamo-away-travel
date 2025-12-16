@@ -1,0 +1,94 @@
+---
+import Heading from "@/components/Heading.astro";
+import { Picture } from "astro:assets";
+
+import garageHome from "@/assets/garageHome.jpg";
+---
+
+<section>
+  <div class="container container-full split">
+    <div class="content-full split__grid">
+      <div class="split__col">
+        <div class="split__img-wrapper">
+          <Picture
+            src={garageHome}
+            alt="Garage Door Technician"
+            class="split__img"
+            loading="eager"
+            width={1000}
+            height={1000}
+          />
+        </div>
+      </div>
+      <div class="split__col split__content">
+        <Heading tag="h1" size="display" fontFamily="primary" marginBottom="m" weight="fw500"
+          >Why Choose Lambo’s Garage Door Service?</Heading
+        >
+        <p class="margin-bottom-m">
+          At Lambo’s Garage Door Service, I am committed to providing top-notch garage door services
+          that exceed your expectations. Here are just a few reasons why homeowners throughout
+          Middle Tennessee choose me for their garage door needs:
+        </p>
+        <ul class="margin-bottom-m">
+          <li>Experienced and Skilled Technicians</li>
+          <li>Fast and Reliable Service</li>
+          <li>High-Quality Products and Parts</li>
+          <li>Competitive Pricing</li>
+          <li>Excellent Customer Service</li>
+        </ul>
+        <p>
+          When you choose Lambo’s Garage Door Service, you can rest assured that you are getting the
+          best service possible. I take pride in my work and strive to ensure that every customer is
+          completely satisfied with the results.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  // SPLIT OVERLAY
+  .split {
+    border-radius: var(--border-radius-medium);
+    padding-left: var(--site--margin);
+    padding-right: var(--site--margin);
+
+    &__grid {
+      display: grid;
+      gap: var(--site--margin);
+      grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+    }
+
+    &__wrapper {
+      padding: 10rem;
+    }
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    &__img-wrapper {
+      height: 100%;
+      border-radius: var(--border-radius-small);
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+
+    &__content {
+      text-align: left;
+      padding: 3rem 0;
+      background: var(--light-200);
+
+      h4 {
+        margin-bottom: 0.25rem;
+        line-height: 1;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+    }
+  }
+</style>

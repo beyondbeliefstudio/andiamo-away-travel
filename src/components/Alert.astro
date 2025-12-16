@@ -1,0 +1,67 @@
+---
+import Links from "@/components/Links.astro";
+---
+
+<aside class="alert" role="alert" aria-label="Emergency contact information">
+  <div class="container container-md">
+    <div class="content-md">
+      <p class="alert__message">
+        <strong>Garage Door Emergency? Call Now. Available 24/7.</strong>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<style lang="scss">
+  .alert {
+    background: var(--brand-primary);
+    padding: 0.5rem 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    .container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &__message {
+      margin: 0;
+      color: var(--light-100);
+      font-size: 1.25rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      strong {
+        font-weight: 700;
+      }
+
+      .btn {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      padding: 0.5rem 0;
+
+      &__message {
+        font-size: 0.9rem;
+
+        strong {
+          display: block;
+          width: 100%;
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+  }
+</style>

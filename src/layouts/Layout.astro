@@ -1,0 +1,25 @@
+---
+// Components
+import BaseHead from "@/layouts/BaseHead.astro";
+import Footer from "@/layouts/Footer.astro";
+import Nav from "@/layouts/Nav.astro";
+import Alert from "@/components/Alert.astro";
+import CTA from "@/components/CTA.astro";
+
+// Styles
+import "@/styles/global.scss";
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseHead {...Astro.props} />
+  <body>
+    <Alert />
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <CTA />
+    <Footer />
+  </body>
+</html>

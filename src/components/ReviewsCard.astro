@@ -1,0 +1,43 @@
+---
+// Content
+import Heading from "@/components/Heading.astro";
+import type { CollectionEntry } from "astro:content";
+
+// Components
+type Props = { reviews: CollectionEntry<"reviews"> };
+
+const { reviews } = Astro.props;
+
+const { description, isFeatured, location, name, stars } = reviews.data;
+---
+
+<li class="card">
+  <span class="stars">{stars}</span>
+  <p class="review">{description}</p>
+  <Heading tag="h3" size="s" fontFamily="primary" marginBottom="xs" weight="fw500">{name}</Heading>
+  <p class="review-company">{location}</p>
+</li>
+
+<style lang="scss">
+  li {
+    height: fit-content;
+    max-width: 500px;
+    cursor: pointer;
+    align-items: start;
+    background-color: var(--light-100);
+
+    @media screen and (max-width: 768px) {
+      max-width: 350px;
+    }
+
+    .review {
+      margin-bottom: 1rem;
+    }
+  }
+  span.stars {
+    display: block;
+    margin: 0 0 0.5rem;
+    letter-spacing: 5px;
+    font-size: 1.15rem;
+  }
+</style>

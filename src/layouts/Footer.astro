@@ -1,0 +1,291 @@
+---
+import Links from "@/components/Links.astro";
+import { Image } from "astro:assets";
+
+// Content
+import { navData } from "@/data/navData";
+import { baseData } from "@/data/siteData";
+
+// Images
+import facebook from "@/assets/facebook.png";
+import instagram from "@/assets/instagram.png";
+import mail from "@/assets/mail.png";
+import yelp from "@/assets/yelp.svg";
+import wordmark from "@/assets/wordmark.svg";
+import Heading from "@/components/Heading.astro";
+import lambologo from "@/assets/lambo-logo.png";
+---
+
+<footer class="footer">
+  <div class="container container-md">
+    <div class="content-full footer__content">
+      <div class="footer__info">
+        <a href="https://beyondbeliefstudio.com/">
+          <Image src={lambologo} alt="Lambo Logo" class="footer__wordmark" />
+        </a>
+        <p>{baseData.description}</p>
+        <div class="social-grid">
+          <a
+            class="social"
+            href={baseData.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src={facebook} alt="Facebook Icon" />
+          </a>
+          <a class="social" href={baseData.social.yelp} target="_blank" rel="noopener noreferrer">
+            <Image src={yelp} alt="Yelp Icon" />
+          </a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <Heading
+            tag="h3"
+            size="m"
+            fontFamily="primary"
+            marginBottom="m"
+            weight="fw500"
+            textTransform="uppercase">Quick Links</Heading
+          >
+          <nav class="footer__nav-links">
+            {
+              navData.map(i => {
+                return (
+                  <Links variant="nav-link" href={i.href}>
+                    {i.title}
+                  </Links>
+                );
+              })
+            }
+          </nav>
+        </div>
+        <div class="footer__col">
+          <Heading
+            tag="h3"
+            size="m"
+            fontFamily="primary"
+            marginBottom="m"
+            weight="fw500"
+            textTransform="uppercase">Opening Hours</Heading
+          >
+          <nav class="footer__nav-links">
+            <p>{baseData.hours.regular.days}:<br /> {baseData.hours.regular.hours}</p>
+            <p>{baseData.hours.emergency.days} {baseData.hours.emergency.hours}</p>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <Heading
+            tag="h3"
+            size="m"
+            fontFamily="primary"
+            marginBottom="m"
+            weight="fw500"
+            textTransform="uppercase">Contact Us</Heading
+          >
+          <nav class="footer__nav-links lowercase">
+            <Links variant="nav-link" href={`mailto:${baseData.email}`}>{baseData.email}</Links>
+            <Links variant="nav-link" href={`tel:${baseData.phone.replace(/\D/g, "")}`}
+              >{baseData.phone}</Links
+            >
+            <p>{baseData.address.full}</p>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom container container-md">
+    <div class="footer__bottom-content">
+      <p class="footer__copyright">
+        © {new Date().getFullYear()}
+        {baseData.title}. | Designed by <a
+          href="https://beyondbeliefwebdesign.com/"
+          target="_blank"
+          rel="noopener noreferrer">Beyond Belief Web Design</a
+        >
+      </p>
+      <div class="footer__legal">
+        <Links variant="nav-link" href="/privacy-policy">Privacy Policy</Links>
+        <span class="footer__divider">•</span>
+        <Links variant="nav-link" href="/terms-and-conditions">Terms & Conditions</Links>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  .footer {
+    &__content {
+      gap: 2rem;
+      justify-content: space-between;
+      width: 100%;
+      display: flex;
+      text-align: left;
+    }
+
+    &__info {
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
+      flex-flow: column;
+      width: 44%;
+      display: flex;
+      max-width: 400px;
+    }
+
+    &__links {
+      justify-content: end;
+      align-items: flex-start;
+      width: 100%;
+      display: grid;
+      max-width: 850px;
+      grid-template-columns: auto auto auto;
+      grid-gap: 4rem;
+    }
+
+    &__col {
+      p {
+        font-family: var(--primary-family);
+        margin-bottom: 0rem;
+      }
+    }
+
+    &__nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .nav-link {
+        font-weight: 400;
+        text-transform: capitalize;
+        letter-spacing: 0px;
+        width: fit-content;
+        font-size: 1.1rem;
+      }
+
+      &.lowercase .nav-link {
+        text-transform: initial !important;
+      }
+    }
+
+    &__wordmark {
+      max-width: 100%;
+      background-size: contain;
+      height: fit-content;
+      max-width: 250px;
+      margin-bottom: 1rem;
+
+      @media screen and (max-width: 768px) {
+        max-width: 175px;
+      }
+    }
+
+    .social-grid {
+      display: flex;
+      gap: 0.5rem;
+
+      .social {
+        background: var(--brand-primary);
+        border-radius: 100%;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 1px;
+        transition: 0.25s ease-in-out all;
+        cursor: pointer;
+
+        img {
+          width: 20px;
+          height: 20px;
+          filter: invert(1);
+        }
+
+        &:hover {
+          background: var(--dark-900);
+        }
+      }
+    }
+
+    &__bottom {
+      border-top: 1px solid var(--brand-secondary-dark);
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
+
+    &__bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    &__copyright {
+      font-size: 1rem;
+      color: var(--dark-900);
+      margin: 0;
+      font-family: var(--primary-family);
+
+      a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        font-size: 1rem;
+
+        &:hover {
+          color: var(--brand-primary-dark);
+        }
+      }
+    }
+
+    &__legal {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .nav-link {
+        font-size: 1rem;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+    }
+
+    &__divider {
+      color: var(--dark-500);
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 1010px) {
+    .footer {
+      &__info {
+        width: 50%;
+      }
+      &__links {
+        width: 50%;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      &__content {
+        flex-direction: column;
+      }
+      &__info {
+        width: 100%;
+      }
+      &__links {
+        width: 100%;
+      }
+    }
+  }
+</style>

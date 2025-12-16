@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "stars": "★★★★★",
+    "name": "Woody's Bicycles",
+    "location": "Tullahoma, TN",
+    "description": "Sean was punctual, professional, personable, excellent in his knowledge, and he very willing to make sure all was explained and understood. The garage door opener was of excellent quality and installed in a timely manner.",
+    "isFeatured": true
+  },
+  {
+    "id": 2,
+    "stars": "★★★★★",
+    "name": "Jim Koontz",
+    "location": "Murfreesboro, TN",
+    "description": "Sean was very informative on what he was checking and why. He replaced our spring wasn't satisfied with it and replaced it with a stronger one. I would recommend him to do your garage door.",
+    "isFeatured": true
+  },
+  {
+    "id": 3,
+    "stars": "★★★★★",
+    "name": "John",
+    "location": "Estill Springs, TN",
+    "description": "We had a garage door malfunction. We called Lambos and received a return phone call in in just a few minutes. Sean was able to come and do the repair. Excellent communication and service that was above and beyond what we expected and had experienced from past experiences with other companies. I would recommend Lambos to anyone needing any repair services. Thanks again Sean.",
+    "isFeatured": true
+  },
+  {
+    "id": 4,
+    "stars": "★★★★★",
+    "name": "Becky Cunat",
+    "location": "Manchester, TN",
+    "description": "Sean came to our house the same day super nice guy. We are so grateful to have this fixed broken torsion spring and bracket on panel coming off. He fixed this in a timely manner and was great at fixing it. We just want to thank Sean again he just got off work and still came to fix our garage. The price was totally reasonable and would recommend him to anyone who needs garage work done.",
+    "isFeatured": true
+  },
+  {
+    "id": 5,
+    "stars": "★★★★★",
+    "name": "Peg Stumer",
+    "location": "Winchester, TN",
+    "description": "Sean did a terrific job fixing my garage door mechanics. It works like new now. He was prompt experienced and a pleasure to do business with. I just wish he would fix all my other broken down things!!",
+    "isFeatured": true
+  },
+  {
+    "id": 6,
+    "stars": "★★★★★",
+    "name": "Marty Schefcik",
+    "location": "Shelbyville, TN",
+    "description": "Sean arrived within 30 minutes to repaired broken torsion springs on our overhead garage door. Repairs were completed and door balanced in 2 hours. I would highly recommend him for your overhead door needs.",
+    "isFeatured": true
+  },
+  {
+    "id": 7,
+    "stars": "★★★★★",
+    "name": "Bryan Chansky",
+    "location": "Tullahoma, TN",
+    "description": "What a great experience with Sean at Lambo's Garage door service. Professional, knowledgeable and respectful. He did a great job replacing our springs and installing a new garage door opener at our home. We never knew we had a cheap builder grade model until he used his expertise to inform us of the difference a newer one would make. Thoroughly explaining the differences as well. WOW!! We would highly recommend him to anyone. Thanks again Sean.",
+    "isFeatured": true
+  },
+  {
+    "id": 8,
+    "stars": "★★★★★",
+    "name": "Angela Jennings",
+    "location": "Murfreesboro, TN",
+    "description": "Sean was kind and honest. He educated me on the importance of the work that needed to take place. He is indeed a professional at what he does. I highly recommend him for you garage repair needs.",
+    "isFeatured": true
+  },
+  {
+    "id": 9,
+    "stars": "★★★★★",
+    "name": "Jami Hill",
+    "location": "Lynchburg, TN",
+    "description": "If your looking for a garage door work he is the best.. So glad I found him.. Just give him a call and he can fix you right up.",
+    "isFeatured": true
+  },
+  {
+    "id": 10,
+    "stars": "★★★★★",
+    "name": "James Simmons",
+    "location": "Estill Springs, TN",
+    "description": "Lambo's Garage Door Service is the best in town. Shawn is honesty the most pleasant person to work with. His service is second to none and his honesty will blow you away. I highly recommend his services on any garage door repair!",
+    "isFeatured": true
+  },
+  {
+    "id": 11,
+    "stars": "★★★★★",
+    "name": "James Stewart",
+    "location": "Manchester, TN",
+    "description": "Sean was awesome. We were actually locked out of our garage and he showed up within an hour very reasonable rates and he did a great job repairing our garage door.",
+    "isFeatured": true
+  }
+]

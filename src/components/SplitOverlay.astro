@@ -1,0 +1,166 @@
+---
+import { Picture } from "astro:assets";
+import Heading from "./Heading.astro";
+
+import type { HTMLAttributes } from "astro/types";
+
+export interface SplitProps extends HTMLAttributes<"section"> {
+  title: string;
+  eyebrow?: string;
+  imgSrc?: string;
+  imgAlt?: string;
+  imgText?: string;
+  bgImgSrc?: string;
+  bgImgAlt?: string;
+  background?:
+    | "bg-dark"
+    | "bg-primary"
+    | "bg-white"
+    | "bg-secondary"
+    | "bg-secondary-light"
+    | "bg-pattern";
+  orientation?: "left" | "right";
+}
+
+const {
+  title,
+  eyebrow,
+  imgSrc,
+  imgAlt,
+  background,
+  orientation,
+  bgImgSrc,
+  bgImgAlt,
+  imgText,
+  ...rest
+} = Astro.props;
+---
+
+<section aria-label={title} class:list={["split", background]} {...rest}>
+  <div class="container container-md">
+    <div
+      class="content-full split__grid"
+      class:list={orientation === "left" ? "split--reverse" : ""}
+    >
+      <div class="split__col">
+        <div class="split__img-wrapper">
+          <Picture
+            src={imgSrc}
+            alt={imgAlt}
+            class="split__img"
+            loading="eager"
+            width={1000}
+            height={1000}
+          />
+        </div>
+      </div>
+      <div class="split__col split__content">
+        <Heading
+          tag="h2"
+          size="xs"
+          fontFamily="primary"
+          marginBottom="m"
+          weight="fw400"
+          class="split__eyebrow"
+          textTransform="uppercase"
+        >
+          {eyebrow}
+        </Heading>
+        <Heading
+          tag="h3"
+          size="xl"
+          fontFamily="primary"
+          marginBottom="m"
+          weight="fw500"
+          textTransform="uppercase"
+        >
+          {title}
+        </Heading>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  .split {
+    &__grid {
+      display: grid;
+      gap: var(--_spacing---section-space--main);
+      grid-template-columns: 1fr 1fr;
+      min-height: 50vh;
+    }
+
+    &__wrapper {
+      padding: 10rem;
+    }
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+    }
+
+    &__img-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      margin-right: 0;
+      margin-left: auto;
+      border-radius: var(--border-radius-small);
+      overflow: hidden;
+    }
+
+    &__content {
+      text-align: left;
+      padding: 3rem 0;
+
+      h4 {
+        margin-bottom: 0.25rem;
+        line-height: 1;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+    }
+
+    &__eyebrow {
+      width: fit-content;
+      letter-spacing: 0px;
+      width: fit-content;
+      letter-spacing: 1px;
+      background: var(--light-200);
+      padding: 0.5rem 0.5rem;
+      border-radius: 5px;
+    }
+
+    .btn {
+      width: fit-content;
+    }
+  }
+
+  .split--reverse .split__col:first-child {
+    order: 2;
+  }
+
+  .bg-dark .split__content {
+    *:not(.btn) {
+      color: var(--light-200);
+    }
+
+    .split__eyebrow {
+      color: var(--dark-900);
+    }
+  }
+
+  @media (max-width: 1010px) {
+    .split--reverse .split__col:first-child {
+      order: -1 !important;
+    }
+
+    .split__content {
+      padding: 0;
+    }
+  }
+</style>

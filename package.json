@@ -1,5 +1,5 @@
 {
-  "name": "hilarious-houston",
+  "name": "start-here",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.12.9"
+    "@astrojs/mdx": "^4.3.3",
+    "@astrojs/sitemap": "^3.4.2",
+    "astro": "^5.12.9",
+    "astro-icon": "^1.1.5",
+    "gsap": "^3.13.0",
+    "sass": "^1.90.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

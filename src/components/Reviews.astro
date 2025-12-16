@@ -1,0 +1,85 @@
+---
+import Heading from "@/components/Heading.astro";
+import { getCollection } from "astro:content";
+import ReviewsCard from "./ReviewsCard.astro";
+
+const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
+---
+
+<section id="reviews" class="bg-primary reviews">
+  <div class="container container-full column-main">
+    <div class="content-md reviews__intro">
+      <Heading
+        tag="h2"
+        size="xl"
+        fontFamily="primary"
+        marginBottom="l"
+        weight="fw500"
+        class="reviews__heading"
+        textTransform="uppercase">Trusted by Homeowners Across Middle Tennessee</Heading
+      >
+      <p>
+        See why homeowners across Middle Tennessee choose us for fast repairs, spring replacements
+        and new garage door installations. These reviews highlight the care, communication and
+        professionalism we bring to every service call. Your neighbors trust us and we work hard to
+        earn that trust on every job.
+      </p>
+    </div>
+    <div class="content-full">
+      <div class="scroller-image">
+        <ul class="scroller-inner-image">
+          {reviews.map(review => <ReviewsCard reviews={review} />)}
+          {/* Duplicate for seamless loop */}
+          {reviews.map(review => <ReviewsCard reviews={review} />)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .reviews {
+    // &__heading {
+    //   color: var(--light-100);
+    // }
+
+    &__intro {
+      * {
+        color: var(--light-100);
+      }
+    }
+  }
+  .scroller-image {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .scroller-image .scroller-inner-image {
+    margin: 0;
+    padding: 1rem 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll-left 250s linear infinite;
+
+    // &:hover {
+    //   animation-play-state: paused;
+    // }
+
+    @media screen and (max-width: 768px) {
+      animation: scroll-left 100s linear infinite;
+    }
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

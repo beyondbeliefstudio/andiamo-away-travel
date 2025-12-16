@@ -1,0 +1,295 @@
+---
+import Heading from "@/components/Heading.astro";
+import Links from "@/components/Links.astro";
+
+import type { HTMLAttributes } from "astro/types";
+
+// Images
+import heroImage from "@/assets/heroPlaceholder.jpg";
+import garageDoor from "@/assets/garage-door.jpg";
+import heroGraphic from "@/assets/heroGraphic.png";
+import garageHome from "@/assets/garageHome.jpg";
+
+export interface HeroProps extends HTMLAttributes<"section"> {
+  ariaLabel?: string;
+  classes?: string;
+}
+
+const { ariaLabel, classes, ...rest } = Astro.props;
+---
+
+<section class:list={["hero", classes]} aria-label={ariaLabel} {...rest}>
+  <div class="hero__bg" style={`background-image: url(${garageDoor.src});`}></div>
+  <div class="hero__overlay"></div>
+  <div class="container container-md hero__graphic--wrapper">
+    <img src={heroGraphic.src} alt="Lambo and owner illustration" class="hero__graphic" />
+  </div>
+  <div class="container container-md hero__container">
+    <div class="column column-main flex-1">
+      <div class="content-lg hero__content">
+        <div class="hero__reviews">
+          <img
+            src="https://www.gstatic.com/images/branding/product/1x/googleg_24dp.png"
+            alt="Google"
+            class="hero__reviews-logo"
+          />
+          <div class="hero__reviews-stars">
+            <span>★★★★★</span>
+          </div>
+          <p class="hero__reviews-text small">4.9 Based on 46+ Reviews</p>
+        </div>
+        <Heading
+          tag="h1"
+          size="xxl"
+          fontFamily="primary"
+          marginBottom="l"
+          weight="fw500"
+          textTransform="uppercase">Fast, Professional Garage Door Repair You Can Trust</Heading
+        >
+        <Heading
+          tag="h2"
+          size="xs"
+          fontFamily="secondary"
+          marginBottom="m"
+          weight="fw500"
+          lineHeight={1.4}
+        >
+          Broken spring? Stuck door? Opener not working? I provide fast, dependable solutions for
+          homeowners across Middle Tennessee.
+        </Heading>
+        <ul class="hero__key-points">
+          <li>
+            <Heading
+              tag="h3"
+              size="xs"
+              fontFamily="primary"
+              marginBottom="none"
+              weight="fw400"
+              textTransform="uppercase"
+              >Fast fixes for broken springs and stuck garage doors</Heading
+            >
+          </li>
+          <li>
+            <Heading
+              tag="h3"
+              size="xs"
+              fontFamily="primary"
+              marginBottom="none"
+              weight="fw400"
+              textTransform="uppercase">Same day repair and 24 hour emergency service</Heading
+            >
+          </li>
+          <li>
+            <Heading
+              tag="h3"
+              size="xs"
+              fontFamily="primary"
+              marginBottom="none"
+              weight="fw400"
+              textTransform="uppercase">Local, owner operated service with honest pricing</Heading
+            >
+          </li>
+        </ul>
+        <div class="hero__btn-group">
+          <Links variant="primary" href={"tel:+19312229963"}>Call (931) 222-9963</Links>
+          <Links href="/services" variant="outline">Our Services</Links>
+        </div>
+      </div>
+    </div>
+
+    <style lang="scss">
+      .hero {
+        position: relative;
+        z-index: 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 53px;
+
+        &__bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.4; // Adjust this value (0 to 1) to control image opacity
+          z-index: 0;
+          background-attachment: fixed;
+        }
+
+        &__overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          pointer-events: none;
+          background: rgba(255 255 255 / 0.2);
+          mix-blend-mode: lighten;
+        }
+
+        &__graphic--wrapper {
+          position: absolute;
+          bottom: 0;
+          height: fit-content;
+        }
+
+        &__graphic {
+          position: absolute;
+          bottom: -15px;
+          right: 3rem;
+          max-width: 600px;
+          width: 45%;
+          height: auto;
+          z-index: 2;
+          pointer-events: none;
+          right: 0;
+
+          @media (max-width: 768px) {
+            max-width: 250px;
+            width: 40%;
+          }
+        }
+
+        &__container {
+          padding-top: var(--_spacing---section-space--xl);
+          padding-bottom: var(--_spacing---section-space--xl);
+          position: relative;
+          z-index: 2;
+          margin-top: 3rem;
+          margin-bottom: 3rem;
+        }
+
+        .img-wrapper {
+          width: 100%;
+          border-radius: var(--border-radius-medium);
+          overflow: hidden;
+          height: 100%;
+          aspect-ratio: 16 / 9;
+        }
+
+        .column {
+          position: relative;
+          z-index: 2;
+        }
+
+        &__content {
+          text-align: left;
+          margin-left: 0;
+
+          // h1,
+          // h2,
+          // h3,
+          // h4,
+          // h5,
+          // h6,
+          // p {
+          //   color: var(--light-200);
+          // }
+
+          .eyebrow {
+            background-color: var(--light-200);
+            color: var(--brand-primary-dark);
+          }
+        }
+
+        &__reviews {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          background: rgba(255, 255, 255, 0.95);
+          padding: 0.5rem 1rem;
+          border-radius: var(--border-radius-small);
+          width: fit-content;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        &__reviews-logo {
+          width: 24px;
+          height: 24px;
+        }
+
+        &__reviews-stars {
+          span {
+            color: #fbbc04;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+          }
+        }
+
+        &__reviews-text {
+          margin: 0;
+          color: var(--dark-900) !important;
+          font-weight: 600;
+          line-height: 1;
+        }
+
+        &__title {
+          width: fit-content;
+          margin-left: auto;
+          /* text-transform: uppercase; */
+          letter-spacing: 0px;
+          padding: 0.5rem;
+          border-radius: 5px;
+          margin-right: auto;
+        }
+
+        &__key-points {
+          list-style: none;
+          padding: 0;
+          margin: 1.5rem 0;
+          display: grid;
+          gap: 1rem;
+
+          li {
+            position: relative;
+            padding-left: 2.25rem;
+            color: var(--dark-900);
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+            background: var(--light-100);
+            width: fit-content;
+            padding: 0.5rem 1rem;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+            border-radius: var(--border-radius-small);
+
+            &::before {
+              content: "";
+              display: block;
+              left: 0;
+              top: 0;
+              width: 24px;
+              height: 24px;
+              background-color: var(--brand-primary);
+              background-image: url("/src/assets/check.svg");
+              background-size: 16px 16px;
+              background-repeat: no-repeat;
+              background-position: center;
+              border-radius: 50%;
+            }
+
+            h3 {
+              letter-spacing: 0.5px;
+            }
+          }
+        }
+
+        &__btn-group {
+          display: flex;
+          gap: 1rem;
+          margin-top: 2rem;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </div>
+</section>

@@ -1,16 +1,90 @@
 ---
+import HeroSplit from "@/components/home/HeroSplit.astro";
+import Services from "@/components/home/Services.astro";
+import InternalHero from "@/components/InternalHero.astro";
+import MainHero from "@/components/MainHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Reviews from "@/components/Reviews.astro";
+import ScrollingText from "@/components/ScrollingText.astro";
+import Values from "@/components/Values.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
+import CTA from "@/components/CTA.astro";
 
+// IMAGES
+import garageDoor from "@/assets/garage-door.jpg";
+import garageHome from "@/assets/garageHome.jpg";
+import seanLambo from "@/assets/seanLambo.png";
+import lambo1 from "@/assets/lambo1.jpeg";
+import lambo2 from "@/assets/lambo2.jpeg";
+import lambo3 from "@/assets/lambo3.jpg";
+import lambo4 from "@/assets/lambo4.jpg";
+import lambo5 from "@/assets/lambo5.mp4";
+import lambo6 from "@/assets/lambo6.jpg";
+import Links from "@/components/Links.astro";
+
+// Array of carousel images and videos
+const marqueeImages = [
+  { src: lambo1, alt: "Lambo and customer", type: "image" },
+  { src: lambo2, alt: "Lambo and customer", type: "image" },
+  { src: lambo3, alt: "Lambo and customer", type: "image" },
+  { src: lambo4, alt: "Lambo and customer", type: "image" },
+  { src: lambo5, alt: "Lambo in action", type: "video" },
+  { src: lambo6, alt: "Lambo and customer", type: "image" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Lambos Garage Door Service"
+  description="Professional garage door services including installation, repair, and maintenance. Serving residential and commercial clients with quality workmanship."
+>
+  <!-- <HeroSplit /> -->
+  <MainHero
+    pageTitle="Lambos Garage Door Service"
+    title="Reliable Garage Door Repair and Installation in Middle Tennessee"
+    subtitle="Expert installation, repair, and maintenance services for residential and commercial garage doors."
+    ariaLabel="Main Hero Section"
+    classes="main-hero"
+  />
+  <ScrollingText
+    >We are committed to providing the highest quality garage door services to our customers.</ScrollingText
+  >
+
+  <Services />
+
+  <SplitOverlay
+    eyebrow="Meet Your Technician"
+    title="Sean & Lambo"
+    imgSrc={seanLambo}
+    imgAlt="Sean and Lambo"
+    imgText="Your local garage door team"
+    background="bg-dark"
+    orientation="right"
+  >
+    <p>
+      You are not calling a big company. You are calling me, Sean, your local garage door technician
+      here in Middle Tennessee. I show up to every job in person and work directly with every
+      homeowner, bringing years of experience with garage door repair, spring replacement, opener
+      repair and full installations.
+    </p>
+
+    <p>
+      Along for the ride on every job is Lambo, my dog and the heart of the company. Customers love
+      him and he keeps things friendly and relaxed while I work. Lambo has met hundreds of
+      homeowners across Estill Springs, Tullahoma, Murfreesboro and the surrounding towns.
+    </p>
+
+    <p>
+      <strong>Lambo is more than a mascot.</strong> He helps set the tone for the type of service I believe
+      in: honest, local and personal.
+    </p>
+    <Links href="/about" variant="outline-light">Learn More About Sean & Lambo</Links>
+  </SplitOverlay>
+
+  <ScrollingMarquee items={marqueeImages} />
+
+  <Values />
+
+  <!-- REVIEWS -->
+  <Reviews />
+</Layout>
