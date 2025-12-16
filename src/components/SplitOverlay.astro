@@ -142,6 +142,48 @@ const {
     .btn {
       width: fit-content;
     }
+
+    .callouts {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+    }
+
+    .callout {
+      position: relative;
+      padding: 0.5rem 1rem;
+      padding-left: 2.75rem;
+      border-radius: var(--border-radius-small);
+      font-weight: 500;
+      font-size: var(--_typography---font-size--text-large);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: var(--primary-family);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: fit-content;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0.5rem;
+        width: 30px;
+        height: 30px;
+        background-color: var(--brand-primary);
+        background-image: url("/src/assets/check.svg");
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+      }
+    }
   }
 
   .split--reverse .split__col:first-child {

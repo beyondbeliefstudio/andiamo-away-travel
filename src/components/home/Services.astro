@@ -181,6 +181,10 @@ const services = [
       }
     }
 
+    &__image {
+      transition: transform 0.3s ease;
+    }
+
     &__card {
       padding: 1rem;
       padding-bottom: 0.5rem;
@@ -212,6 +216,11 @@ const services = [
           svg path {
             color: var(--dark-900) !important;
           }
+        }
+
+        .services__image {
+          transform: scale(1.05);
+          transition: transform 0.3s ease;
         }
       }
 

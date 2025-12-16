@@ -124,6 +124,10 @@ const { ariaLabel, classes, ...rest } = Astro.props;
           opacity: 0.4; // Adjust this value (0 to 1) to control image opacity
           z-index: 0;
           background-attachment: fixed;
+
+          @media screen and (max-width: 768px) {
+            background-attachment: scroll;
+          }
         }
 
         &__overlay {
