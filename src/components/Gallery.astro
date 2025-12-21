@@ -1,0 +1,54 @@
+---
+import { Image, Picture } from "astro:assets";
+
+const { items } = Astro.props;
+---
+
+<div class="content-full">
+  <div class="projects grid-auto-3">
+    {
+      items.map((item: { src: string; alt?: string; id?: string }) => (
+        <div class="projects__img-wrapper">
+          <Picture
+            src={item.src}
+            alt={item.alt ?? null}
+            class="projects__img"
+            id={item.id}
+            loading="eager"
+            width={2000}
+            height={1000}
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  .projects {
+    &__img-wrapper {
+      overflow: hidden;
+      border-radius: var(--border-radius-medium);
+      cursor: pointer;
+      aspect-ratio: 1/1;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imageWrappers = document.querySelectorAll(".projects__img-wrapper");
+
+    imageWrappers.forEach(item => {
+      const img = item.querySelector("img");
+      if (img) {
+        img.addEventListener("click", function () {
+          // Use the global LighthouseGalleryModal function
+          if (window.LighthouseGalleryModal) {
+            window.LighthouseGalleryModal.open(img.src, img.alt || "Gallery Image");
+          }
+        });
+      }
+    });
+  });
+</script>

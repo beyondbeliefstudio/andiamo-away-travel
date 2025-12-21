@@ -157,13 +157,14 @@ import lambologo from "@/assets/lambo-logo.png";
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      font-size: var(--_typography---font-size--h6);
 
       .nav-link {
         font-weight: 400;
         text-transform: capitalize;
         letter-spacing: 0px;
         width: fit-content;
-        font-size: 1.1rem;
+        font-size: var(--_typography---font-size--h6);
       }
 
       &.lowercase .nav-link {
@@ -231,16 +232,17 @@ import lambologo from "@/assets/lambo-logo.png";
     }
 
     &__copyright {
-      font-size: 1rem;
+      font-size: var(--_typography---font-size--text-main);
       color: var(--dark-900);
       margin: 0;
       font-family: var(--primary-family);
+      text-wrap: balance;
 
       a {
         color: var(--brand-primary);
         text-decoration: none;
         transition: color 0.2s ease;
-        font-size: 1rem;
+        font-size: var(--_typography---font-size--text-main);
 
         &:hover {
           color: var(--brand-primary-dark);
@@ -254,15 +256,10 @@ import lambologo from "@/assets/lambo-logo.png";
       gap: 0.75rem;
 
       .nav-link {
-        font-size: 1rem;
+        font-size: var(--_typography---font-size--text-main);
         font-weight: 400;
         text-transform: capitalize;
       }
-    }
-
-    &__divider {
-      color: var(--dark-500);
-      font-size: 0.9rem;
     }
   }
 

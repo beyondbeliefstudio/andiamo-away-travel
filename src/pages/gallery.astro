@@ -1,0 +1,43 @@
+---
+import CTA from "@/components/CTA.astro";
+import GalleryComponent from "@/components/Gallery.astro";
+import Layout from "@/layouts/Layout.astro";
+import InternalHero from "@/components/InternalHero.astro";
+
+// Import images for the gallery
+import garageHome from "@/assets/garageHome.jpg";
+
+// Data for Image Slider
+const projects = [
+  { src: garageHome, alt: "Garage Home", id: "slide-1" },
+  { src: garageHome, alt: "Garage Home", id: "slide-2" },
+  { src: garageHome, alt: "Garage Home", id: "slide-3" },
+  { src: garageHome, alt: "Garage Home", id: "slide-4" },
+  { src: garageHome, alt: "Garage Home", id: "slide-5" },
+  { src: garageHome, alt: "Garage Home", id: "slide-6" },
+  { src: garageHome, alt: "Garage Home", id: "slide-7" },
+  { src: garageHome, alt: "Garage Home", id: "slide-8" },
+  { src: garageHome, alt: "Garage Home", id: "slide-9" },
+  { src: garageHome, alt: "Garage Home", id: "slide-10" },
+  { src: garageHome, alt: "Garage Home", id: "slide-11" },
+  { src: garageHome, alt: "Garage Home", id: "slide-12" },
+];
+---
+
+<Layout title="Projects">
+  <InternalHero
+    pageTitle="Projects"
+    title="Our Recent Work"
+    subtitle="Explore our latest projects and see how we can help you achieve your goals."
+    ariaLabel="Projects Hero Section"
+    imageSrc={garageHome}
+    imageAlt="Lambo's Garage Door Service Projects"
+  />
+  <section class="projects bg-light" aria-label="Projects Gallery">
+    <div class="container container-md projects__container">
+      <GalleryComponent items={projects} />
+    </div>
+  </section>
+
+  <CTA />
+</Layout>

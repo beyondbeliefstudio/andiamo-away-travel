@@ -1,0 +1,113 @@
+---
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import garageHome from "@/assets/garageHome.jpg";
+import Heading from "@/components/Heading.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import FAQ from "@/components/FAQ.astro";
+
+// Data for FAQ section
+import { getCollection } from "astro:content";
+import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
+const faq = await getCollection("aboutFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
+---
+
+<Layout
+  pageTitle="About Us"
+  description="Learn more about Lambo's Garage Door Service, our mission, values, and the team dedicated to providing top-notch garage door solutions."
+>
+  <InternalHero
+    pageTitle="About Us"
+    title="Local Garage Door Service Built on Trust and Personal Care"
+    subtitle="Lambo’s Garage Door Service was created to give homeowners across Middle Tennessee a better experience when they need garage door repair or installation. No call centers. No rushed appointments. Just honest work from a local technician who takes pride in every job. We proudly serve Estill Springs, Tullahoma, Murfreesboro and the surrounding towns with reliable garage door repair, spring replacement, new garage door installation and 24 hour emergency service."
+    ariaLabel="About Us Hero Section"
+    imageSrc={garageHome}
+    imageAlt="About Lambo's Garage Door Service"
+  />
+  <!-- Content for the About Us page goes here -->
+  <section class="bg-primary">
+    <div class="container container-md">
+      <div class="content-md">
+        <Heading
+          tag="h2"
+          size="xl"
+          fontFamily="primary"
+          marginBottom="l"
+          weight="fw500"
+          textTransform="uppercase">A Different Kind of Garage Door Company</Heading
+        >
+        <p>
+          Garage door problems are stressful. A door that will not open, a broken spring or a failed
+          opener can interrupt your entire day. Our goal is to make the repair process simple, clear
+          and comfortable from the first call to the final test of your door.
+        </p>
+
+        <p>
+          Lambo’s Garage Door Service focuses on clear communication, fair pricing and quality
+          workmanship. When you call, you speak directly with the technician who will be working on
+          your home. There are no middlemen, no salespeople and no upselling. Just honest, reliable
+          service from a local expert who cares about getting the job done right.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SplitOverlay
+    eyebrow="About Sean"
+    title="Meet Sean, Your Local Garage Door Technician"
+    imgSrc={garageHome}
+    imgAlt="Garage door service and repair"
+    imgText="Trusted garage door solutions"
+    background="bg-light"
+    orientation="left"
+  >
+    <p>
+      Sean is the owner and operator of Lambo’s Garage Door Service. After years of working in
+      education and coaching, he built this business around service, responsibility and community.
+    </p>
+
+    <p>
+      Sean handles every garage door repair and installation personally. That means the same person
+      who answers the phone shows up to your home and completes the work. He specializes in garage
+      door repair, broken spring replacement, opener repair and full garage door installation for
+      homes across Middle Tennessee.
+    </p>
+
+    <p>
+      Homeowners appreciate the straightforward approach, dependable scheduling and attention to
+      detail that Sean brings to every service call.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    eyebrow="About Lambo"
+    title="Meet Lambo, The Heart of the Company"
+    imgSrc={garageHome}
+    imgAlt="Garage door service and repair"
+    imgText="Committed to quality service"
+    background="bg-dark"
+    orientation="right"
+  >
+    <p>Lambo is more than a mascot. He is part of the service experience.</p>
+
+    <p>
+      Lambo rides along on every job and has become a favorite among customers and their pets. His
+      calm and friendly presence helps make stressful garage door situations feel easier. Many
+      customers ask for photos with Lambo and remember the visit long after the repair is done.
+    </p>
+
+    <p>
+      Lambo represents what the company stands for. Friendly service. Local values. A personal touch
+      you do not get from large companies.
+    </p>
+  </SplitOverlay>
+  <ScrollingMarquee />
+  <FAQ faq={faqData} />
+</Layout>

@@ -11,7 +11,7 @@ import mailIcon from "@/assets/mail.svg";
 
 <section class="CTA">
   <div class="container container-md CTA__container">
-    <div class="CTA__content">
+    <div class="CTA__content grid-auto-2">
       <Image src={garageHome} alt="Garage door service" class="CTA__bg" />
       <div class="CTA__overlay"></div>
       <div class="CTA__text">
@@ -49,7 +49,7 @@ import mailIcon from "@/assets/mail.svg";
             tag="h3"
             size="l"
             fontFamily="primary"
-            marginBottom="l"
+            marginBottom="none"
             weight="fw500"
             textTransform="uppercase">Book Your Service</Heading
           >
@@ -83,7 +83,7 @@ import mailIcon from "@/assets/mail.svg";
           </div>
 
           <!-- <button type="submit" class="CTA__submit">Make An Appointment</button> -->
-          <Buttons variant="primary" type="submit" class="CTA__submit">Make An Appointment</Buttons>
+          <Buttons variant="primary" type="submit">Make An Appointment</Buttons>
         </form>
       </div>
     </div>
@@ -94,13 +94,15 @@ import mailIcon from "@/assets/mail.svg";
   .CTA {
     &__content {
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: var(--_spacing---section-space--main);
       align-items: center;
       padding: var(--_spacing---section-space--main);
       overflow: hidden;
       border-radius: var(--border-radius-medium);
+
+      @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+      }
     }
 
     &__bg {
@@ -129,13 +131,6 @@ import mailIcon from "@/assets/mail.svg";
       mix-blend-mode: lighten;
     }
 
-    @media (max-width: 1024px) {
-      &__content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
     &__text {
       position: relative;
       z-index: 2;
@@ -148,18 +143,11 @@ import mailIcon from "@/assets/mail.svg";
       }
     }
 
-    &__eyebrow {
-      font-size: 0.9rem;
-      text-transform: lowercase;
-      color: var(--light-300);
-      margin-bottom: 1rem;
-    }
-
     &__contact-info {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     &__contact-item {
@@ -167,7 +155,6 @@ import mailIcon from "@/assets/mail.svg";
       align-items: center;
       gap: 1rem;
       font-size: var(--_typography---font-size--text-large);
-      font-weight: 400;
       color: var(--light-100);
       text-decoration: none;
       transition: all 0.2s ease;
@@ -198,83 +185,8 @@ import mailIcon from "@/assets/mail.svg";
     }
 
     &__form-wrapper {
-      position: relative;
-      z-index: 2;
-      background: var(--light-100);
-      padding: var(--_spacing---section-space--small);
-      border-radius: var(--border-radius-medium);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    &__form {
-      width: 100%;
-      text-align: center;
-      display: grid;
-      gap: 1rem;
-
       h3 {
         text-align: center;
-      }
-
-      .form-group {
-        label {
-          display: block;
-          font-weight: 600;
-          margin-bottom: 0.75rem;
-          color: var(--dark-900);
-          font-size: var(--_typography---font-size--text-main);
-          text-align: left;
-        }
-
-        input,
-        select {
-          width: 100%;
-          padding: 0.75rem 1rem;
-          transition: all 0.2s ease;
-
-          &:hover {
-            border-color: #9ca3af;
-          }
-
-          &:focus {
-            outline: none;
-            border-color: var(--brand-primary);
-            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
-          }
-
-          &::placeholder {
-            color: #9ca3af;
-          }
-        }
-
-        select {
-          cursor: pointer;
-          appearance: none;
-          background-color: #ffffff;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 1.25rem center;
-          padding-right: 3rem;
-        }
-      }
-    }
-
-    &__submit {
-      width: 100%;
-      padding: 1rem;
-      background: var(--brand-primary);
-      color: var(--light-100);
-      border: none;
-      border-radius: var(--border-radius-small);
-      font-size: 1.05rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      &:hover {
-        background: var(--brand-primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
     }
   }

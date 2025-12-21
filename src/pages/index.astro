@@ -1,5 +1,4 @@
 ---
-import HeroSplit from "@/components/home/HeroSplit.astro";
 import Services from "@/components/home/Services.astro";
 import InternalHero from "@/components/InternalHero.astro";
 import MainHero from "@/components/MainHero.astro";
@@ -9,29 +8,12 @@ import ScrollingText from "@/components/ScrollingText.astro";
 import Values from "@/components/Values.astro";
 import SplitOverlay from "@/components/SplitOverlay.astro";
 import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
-import CTA from "@/components/CTA.astro";
 
 // IMAGES
 import garageDoor from "@/assets/garage-door.jpg";
 import garageHome from "@/assets/garageHome.jpg";
 import seanLambo from "@/assets/SeanLambo.png";
-import lambo1 from "@/assets/lambo1.jpeg";
-import lambo2 from "@/assets/lambo2.jpeg";
-import lambo3 from "@/assets/lambo3.jpg";
-import lambo4 from "@/assets/lambo4.jpg";
-import lambo5 from "@/assets/lambo5.mp4";
-import lambo6 from "@/assets/lambo6.jpg";
 import Links from "@/components/Links.astro";
-
-// Array of carousel images and videos
-const marqueeImages = [
-  { src: lambo1, alt: "Lambo and customer", type: "image" },
-  { src: lambo2, alt: "Lambo and customer", type: "image" },
-  { src: lambo3, alt: "Lambo and customer", type: "image" },
-  { src: lambo4, alt: "Lambo and customer", type: "image" },
-  { src: lambo5, alt: "Lambo in action", type: "video" },
-  { src: lambo6, alt: "Lambo and customer", type: "image" },
-];
 ---
 
 <Layout
@@ -81,10 +63,10 @@ const marqueeImages = [
     <Links href="/about" variant="outline-light">Learn More About Sean & Lambo</Links>
   </SplitOverlay>
 
-  <ScrollingMarquee items={marqueeImages} />
+  <ScrollingMarquee />
 
   <Values />
 
   <!-- REVIEWS -->
-  <Reviews />
+  <!-- <Reviews /> -->
 </Layout>

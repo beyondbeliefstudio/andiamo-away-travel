@@ -8,10 +8,6 @@ export const navData = [
     href: "/services",
   },
   {
-    title: "Service Areas",
-    href: "/service-areas",
-  },
-  {
     title: "Gallery",
     href: "/gallery",
   },

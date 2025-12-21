@@ -1,44 +1,54 @@
 ---
-import { Image, Picture } from "astro:assets";
+import { Picture } from "astro:assets";
+import lambo1 from "@/assets/lambo1.jpeg";
+import lambo2 from "@/assets/lambo2.jpeg";
+import lambo3 from "@/assets/lambo3.jpg";
+import lambo4 from "@/assets/lambo4.jpg";
+import lambo5 from "@/assets/lambo5.mp4";
+import lambo6 from "@/assets/lambo6.jpg";
 
-const { items } = Astro.props;
+const items = [
+  { src: lambo1, alt: "Lambo the dog", type: "photo" },
+  { src: lambo2, alt: "Lambo the dog", type: "photo" },
+  { src: lambo3, alt: "Lambo the dog", type: "photo" },
+  { src: lambo4, alt: "Lambo the dog", type: "photo" },
+  { src: lambo5, alt: "Lambo the dog video", type: "video" },
+  { src: lambo6, alt: "Lambo the dog", type: "photo" },
+];
 ---
 
 <section>
   <div class="scrolling-photos">
     <div class="scrolling-photos__inner">
       {
-        items.map(
-          (item: { src: string; alt?: string; id?: string; imgText?: string; type?: string }) => (
-            <div class="scrolling-photos__item">
-              <div class="scrolling-photos__img-wrapper">
-                {item.type === "video" ? (
-                  <video
-                    src={item.src}
-                    class="scrolling-photos__img"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    aria-label={item.alt ?? "Video content"}
-                    disablepictureinpicture
-                    preload="metadata"
-                  />
-                ) : (
-                  <Picture
-                    src={item.src}
-                    alt={item.alt ?? null}
-                    class="scrolling-photos__img"
-                    id={item.id}
-                    loading="eager"
-                    width={2000}
-                    height={1000}
-                  />
-                )}
-              </div>
+        items.map(item => (
+          <div class="scrolling-photos__item">
+            <div class="scrolling-photos__img-wrapper">
+              {item.type === "video" ? (
+                <video
+                  src={item.src as any}
+                  class="scrolling-photos__img"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  aria-label={item.alt}
+                  disablepictureinpicture
+                  preload="metadata"
+                />
+              ) : (
+                <Picture
+                  src={item.src as any}
+                  alt={item.alt}
+                  class="scrolling-photos__img"
+                  loading="eager"
+                  width={2000}
+                  height={1000}
+                />
+              )}
             </div>
-          )
-        )
+          </div>
+        ))
       }
     </div>
   </div>

@@ -35,6 +35,7 @@ section {
   --dark-900: #0a0a0a;
   --dark-900--transparency: rgba(25, 25, 25, 0.6);
   --dark-800: #202020;
+  --dark-700: #656565;
 
   --border-light: #ffffff21;
 
@@ -83,8 +84,6 @@ section {
   --_typography---font-size--text-large: clamp(1rem, 0.942rem + 0.29vw, 1.2rem);
   --_typography---font-size--text-main: clamp(0.88rem, 0.846rem + 0.17vw, 1rem);
   --_typography---font-size--text-small: clamp(0.77rem, 0.752rem + 0.09vw, 0.83rem);
-  --_spacing---section-space--large: clamp(7.23rem, 5.444rem + 8.93vw, 15.266rem);
-  --_spacing---section-space--main: clamp(5.17rem, 4.062rem + 5.54vw, 10.158rem);
   --_spacing---section-space--xl: clamp(3.69rem, 3.01rem + 3.4vw, 6.75rem);
   --_spacing---section-space--large: clamp(2.33rem, 1.558rem + 3.86vw, 5.03rem);
   --_spacing---section-space--main: clamp(1.86rem, 1.328rem + 2.66vw, 3.72rem);
@@ -165,11 +164,15 @@ a {
 }
 
 .eyebrow {
-  text-transform: uppercase;
-  font-family: var(--secondary-family);
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-  font-weight: 700;
+  text-transform: uppercase !important;
+  letter-spacing: 2px;
+  background-color: var(--light-100);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-small);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: var(--_typography---font-size--h6) !important;
 }
 
 .btn {
@@ -192,11 +195,7 @@ a {
   font-size: inherit;
   font-family: var(--primary-family);
   color: var(--content-primary);
-  font-size: 1.25rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1rem;
-  }
+  font-size: var(--_typography---font-size--text-large);
 }
 
 // UTILITIES
@@ -225,6 +224,10 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .grid-auto-3 {
@@ -545,15 +548,50 @@ select {
 }
 
 // FORM STYLING
+form {
+  position: relative;
+  z-index: 2;
+  background: var(--light-100);
+  padding: var(--_spacing---section-space--small);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--dark-900);
+  font-size: var(--_typography---font-size--text-main);
+  text-align: left;
+
+  .required {
+    color: #d32f2f;
+  }
+}
+
 input,
 select,
 textarea {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 8px;
   font-size: var(--_typography---font-size--text-main);
-  background: var(--glass);
   border: 1px solid var(--border-color);
-  backdrop-filter: blur(18px);
+  width: 100%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #9ca3af;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+  }
 }
 
 textarea {
@@ -561,7 +599,62 @@ textarea {
   resize: vertical;
 }
 
+select {
+  cursor: pointer;
+  appearance: none;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  padding-right: 3rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide honeypot field */
+.hidden {
+  position: absolute !important;
+  left: -9999px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
 // SPACING
 .hero + section:has(.split) {
   padding-top: 0 !important;
+}
+
+// ADDITIONAL STYLES
+.bg-primary,
+.bg-primary-dark {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: var(--light-100);
+  }
+
+  .eyebrow {
+    color: var(--brand-primary-dark);
+  }
 }

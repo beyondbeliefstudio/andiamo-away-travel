@@ -141,7 +141,8 @@ heroImages.forEach((card, index) => {
 // Arrow click listeners
 if (prevBtn) {
   prevBtn.addEventListener("click", () => {
-    const nextIndex = currentIndex === null ? 0 : (currentIndex - 1 + heroImages.length) % heroImages.length;
+    const nextIndex =
+      currentIndex === null ? 0 : (currentIndex - 1 + heroImages.length) % heroImages.length;
     animateToCard(nextIndex);
   });
 }

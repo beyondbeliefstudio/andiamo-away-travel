@@ -1,0 +1,61 @@
+---
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import garageHome from "@/assets/garageHome.jpg";
+import ServicesCard from "@/components/ServicesCard.astro";
+import Heading from "@/components/Heading.astro";
+import Links from "@/components/Links.astro";
+---
+
+<Layout
+  pageTitle="Services"
+  description="Discover the range of professional services we offer to meet your needs."
+>
+  <InternalHero
+    pageTitle="Our Services"
+    title="Comprehensive Garage Door Solutions"
+    subtitle="From spring replacements and opener repairs to complete installations and emergency service, we provide a full suite of garage door services tailored to your needs throughout Estill Springs, Tullahoma, Murfreesboro, Winchester, Manchester, and surrounding Middle Tennessee areas."
+    ariaLabel="Services Hero Section"
+    imageSrc={garageHome}
+    imageAlt="Garage door service and repair"
+  />
+
+  <!-- Additional content for the services page can be added here -->
+  <section class="bg-light">
+    <div class="container container-md">
+      <div class="content-md">
+        <Heading
+          tag="h2"
+          size="xl"
+          fontFamily="primary"
+          marginBottom="l"
+          weight="fw500"
+          textTransform="uppercase"
+        >
+          Our Garage Door Services
+        </Heading>
+        <p>
+          At Lambo's Garage Door Service, I provide a full range of garage door services to
+          homeowners throughout Middle Tennessee. Whether you need a quick repair, a new door
+          installation or regular maintenance, I am here to help. Below are some of the most popular
+          services I offer:
+        </p>
+        <div class="btn-wrapper">
+          <Links variant="primary" href={"tel:+19312229963"}>Call (931) 222-9963</Links>
+          <Links variant="outline" href={"tel:+19312229963"}>Call (931) 222-9963</Links>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container container-md">
+      <div class="content-full">
+        <div class="services-grid grid-auto-2">
+          <ServicesCard />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

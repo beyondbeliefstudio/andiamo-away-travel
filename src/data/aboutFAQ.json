@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "question": "What areas do you serve?",
+    "answer": "We serve homeowners across Middle Tennessee, including Estill Springs, Tullahoma, Murfreesboro and surrounding towns.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "Do you offer emergency garage door repair?",
+    "answer": "Yes. We offer 24 hour emergency garage door service for urgent issues like broken springs or stuck doors.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "Do you install new garage doors?",
+    "answer": "Yes. We provide professional garage door installation and can help you choose the right door for your home.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "Can you replace broken garage door springs?",
+    "answer": "Yes. Spring replacement is one of our most common services and can usually be completed the same day.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "Do you repair garage door openers?",
+    "answer": "Yes. We repair and install most major garage door opener brands.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Will Sean be the technician who comes to my home?",
+    "answer": "Yes. Sean handles every job personally. No subcontractors.",
+    "tag": "a6"
+  },
+  {
+    "id": 7,
+    "question": "Is Lambo always on the job?",
+    "answer": "Yes. Lambo rides along to every appointment and stays nearby while work is completed.",
+    "tag": "a7"
+  },
+  {
+    "id": 8,
+    "question": "How do I schedule service?",
+    "answer": "You can call, text or request service through the website. We respond quickly and schedule appointments as soon as possible.",
+    "tag": "a8"
+  }
+]

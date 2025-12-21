@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Garage Door Repair",
+    "description": "Fixing doors that will not open or close. Loud doors. Off track doors. Broken rollers. Damaged panels.",
+    "image": "@/assets/stock-repair.jpg",
+    "imageAlt": "Professional garage door repair service in Middle Tennessee",
+    "cta": "Learn More",
+    "href": "/services/repair"
+  },
+  {
+    "id": 2,
+    "title": "Spring Replacement",
+    "description": "Torsion and extension spring replacement for broken or worn garage door springs.",
+    "image": "@/assets/stock-spring.jpg",
+    "imageAlt": "Same day garage door spring replacement service",
+    "cta": "Learn More",
+    "href": "/services/spring-replacement"
+  },
+  {
+    "id": 3,
+    "title": "Garage Door Installation",
+    "description": "New garage doors installed for homes in Middle Tennessee. Professional setup and removal of old doors.",
+    "image": "@/assets/garage-install.jpg",
+    "imageAlt": "New garage door installation for homes in Middle Tennessee",
+    "cta": "Learn More",
+    "href": "/services/installation"
+  },
+  {
+    "id": 4,
+    "title": "Opener Repair and Installation",
+    "description": "Fixing non responsive garage door openers. Installing new LiftMaster and Chamberlain style openers.",
+    "image": "@/assets/garage-fix.jpg",
+    "imageAlt": "Garage door opener repair and installation with WiFi features",
+    "cta": "Learn More",
+    "href": "/services/opener"
+  },
+  {
+    "id": 5,
+    "title": "Garage Door Maintenance",
+    "description": "Tune ups. Lubrication. Safety checks. Balance adjustments.",
+    "image": "@/assets/heroPlaceholder.jpg",
+    "imageAlt": "Regular garage door maintenance and tune-up service",
+    "cta": "Learn More",
+    "href": "/services/maintenance"
+  },
+  {
+    "id": 6,
+    "title": "24 Hour Emergency Service",
+    "description": "Fast emergency garage door repair in Estill Springs, Tullahoma, Murfreesboro and surrounding areas.",
+    "image": "@/assets/garage-emergency.jpg",
+    "imageAlt": "24 hour emergency garage door repair service in Middle Tennessee",
+    "cta": "Learn More",
+    "href": "tel:615-555-0123"
+  }
+]
