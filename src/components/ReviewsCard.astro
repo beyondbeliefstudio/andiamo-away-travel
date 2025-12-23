@@ -1,9 +1,11 @@
 ---
-// Content
+// COMPONENTS
 import Heading from "@/components/Heading.astro";
+
+// HELPERS
 import type { CollectionEntry } from "astro:content";
 
-// Components
+// TYPES
 type Props = { reviews: CollectionEntry<"reviews"> };
 
 const { reviews } = Astro.props;

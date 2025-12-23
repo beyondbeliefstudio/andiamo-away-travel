@@ -1,11 +1,14 @@
 ---
+// HELPERS
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+
+// COMPONENTS
 import Links from "@/components/Links.astro";
 
+// DATA
 import { navData } from "@/data/navData";
 
-import wordmark from "@/assets/wordmark.svg";
+// IMAGES
 import lambologo from "@/assets/lambo-logo.png";
 ---
 
@@ -64,7 +67,7 @@ import lambologo from "@/assets/lambo-logo.png";
 <style lang="scss">
   .nav {
     position: fixed;
-    top: 53px; // Height of alert (0.75rem padding * 2 + text height ~= 38px)
+    top: 53px;
     width: 100%;
     z-index: 1000;
 
@@ -80,8 +83,14 @@ import lambologo from "@/assets/lambo-logo.png";
       position: relative;
       z-index: 10;
       padding: 1rem;
-      border-radius: var(--border-radius-medium);
+      border-radius: var(--border-radius-small);
       border: 1px solid var(--dark-900);
+
+      @media (max-width: 1010px) {
+        margin: 0.5rem auto;
+        max-width: calc(100% - 1rem);
+        padding: 0.5rem;
+      }
     }
 
     &__logo-img {
@@ -119,7 +128,11 @@ import lambologo from "@/assets/lambo-logo.png";
     &__links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: var(--_spacing---space--8);
+
+      @media (max-width: 1010px) {
+        display: none;
+      }
 
       .btn {
         margin: 0;
@@ -137,6 +150,11 @@ import lambologo from "@/assets/lambo-logo.png";
 
       .nav__container {
         background-color: var(--light-100);
+
+        @media (max-width: 1010px) {
+          width: 100%;
+          padding-left: 0.5rem;
+        }
       }
     }
 
@@ -144,10 +162,9 @@ import lambologo from "@/assets/lambo-logo.png";
     &__mobile {
       display: none;
       position: absolute;
-      background-color: #ffffffd1;
-      backdrop-filter: blur(0.35rem);
+      background-color: var(--light-100);
       border-radius: var(--border-radius-small);
-      outline: 1px solid var(--light-100);
+      outline: 1px solid var(--dark-900);
       width: 100%;
       padding: 0.5rem;
       flex-direction: column;
@@ -157,9 +174,9 @@ import lambologo from "@/assets/lambo-logo.png";
       transform: translateY(100%);
       height: fit-content;
       top: 100%;
-      max-width: var(--container--main--md);
-      left: var(--site--margin);
-      right: var(--site--margin);
+      max-width: calc(100% - 1rem);
+      left: 0.5rem;
+      right: 0.5rem;
     }
 
     &__mobile a:not(.btn) {
@@ -187,7 +204,7 @@ import lambologo from "@/assets/lambo-logo.png";
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(2px);
       z-index: 0;
       opacity: 0;
@@ -205,11 +222,6 @@ import lambologo from "@/assets/lambo-logo.png";
     }
   }
 
-  .nav-link {
-    font-size: var(--_typography---font-size--h6) !important;
-    text-transform: capitalize;
-  }
-
   /* Hamburger Button */
   .hamburger {
     position: relative;
@@ -222,21 +234,15 @@ import lambologo from "@/assets/lambo-logo.png";
     align-items: center;
     justify-content: center;
     z-index: 1000;
+
+    @media (max-width: 1010px) {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
   }
 
-  // .circle {
-  //   position: absolute;
-  //   width: 48px;
-  //   height: 48px;
-  //   background-color: var(--brand-primary); /* Customize */
-  //   border-radius: 5px;
-  //   z-index: -1;
-  //   transform: scale(1);
-  //   transition: background-color 0.3s ease;
-  // }
-
   .line {
-    // position: absolute;
     width: 24px;
     height: 3px;
     background-color: var(--dark-900);
@@ -258,34 +264,6 @@ import lambologo from "@/assets/lambo-logo.png";
 
   body.menu-open {
     overflow: hidden;
-  }
-
-  /* Responsive Behavior */
-  @media (max-width: 1010px) {
-    .nav {
-      &__container {
-        margin: 0.5rem auto;
-        max-width: calc(100% - 1rem);
-        padding: 0.5rem;
-      }
-
-      &__links {
-        display: none;
-      }
-    }
-
-    .nav.scrolled {
-      .nav__container {
-        width: 100%;
-        padding-left: 0.5rem;
-      }
-    }
-
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
   }
 </style>
 

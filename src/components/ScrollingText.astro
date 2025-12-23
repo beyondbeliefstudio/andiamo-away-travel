@@ -1,7 +1,11 @@
 ---
+// IMAGES
 import gear from "@/assets/gear-icon.svg";
+
+// HELPERS
 import { Image } from "astro:assets";
 
+// DATA
 const towns = [
   "Estill Springs",
   "Tullahoma",
@@ -59,16 +63,12 @@ const towns = [
   }
 
   .town-item {
-    font-size: 2rem;
+    font-size: var(--_typography---font-size--h3);
     font-weight: 400;
     color: var(--light-100);
     white-space: nowrap;
     font-family: var(--primary-family);
     text-transform: uppercase;
-
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
-    }
   }
 
   .gear-icon {

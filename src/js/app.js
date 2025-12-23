@@ -223,3 +223,69 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// LIGHTHOUSE GALLERY MODAL FUNCTIONS
+window.LighthouseGalleryModal = {
+  open: function (imageSrc, imageAlt = "Gallery Image") {
+    const modal = document.getElementById("lighthouse-gallery-modal");
+    const modalImage = document.getElementById("lighthouse-gallery-modal__image");
+
+    if (modal && modalImage) {
+      modalImage.src = imageSrc;
+      modalImage.alt = imageAlt;
+      modal.classList.add("active");
+
+      // Lock body scroll
+      document.body.style.overflow = "hidden";
+
+      // Focus management for accessibility
+      modal.focus();
+    }
+  },
+
+  close: function () {
+    const modal = document.getElementById("lighthouse-gallery-modal");
+    const modalImage = document.getElementById("lighthouse-gallery-modal__image");
+
+    if (modal) {
+      modal.classList.remove("active");
+
+      // Clear the image source to prevent flash of previous image
+      if (modalImage) {
+        modalImage.src = "";
+        modalImage.alt = "";
+      }
+
+      // Restore body scroll
+      document.body.style.overflow = "";
+    }
+  },
+};
+
+// Initialize modal event listeners when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("lighthouse-gallery-modal");
+  const closeButton = document.querySelector(".lighthouse-gallery-modal__close");
+  const backdrop = document.querySelector(".lighthouse-gallery-modal__backdrop");
+
+  // Close button click
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      window.LighthouseGalleryModal.close();
+    });
+  }
+
+  // Backdrop click
+  if (backdrop) {
+    backdrop.addEventListener("click", () => {
+      window.LighthouseGalleryModal.close();
+    });
+  }
+
+  // Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+      window.LighthouseGalleryModal.close();
+    }
+  });
+});

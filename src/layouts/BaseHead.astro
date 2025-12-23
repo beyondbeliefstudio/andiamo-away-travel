@@ -1,7 +1,11 @@
 ---
-import { baseData } from "@/data/siteData";
+// COMPONENTS
 import Analytics from "@/components/Analytics.astro";
 
+// DATA
+import { baseData } from "@/data/siteData";
+
+// PROPS
 const { title = baseData.title, description = baseData.description } = Astro.props;
 const GA_MEASUREMENT_ID = "xxx";
 ---

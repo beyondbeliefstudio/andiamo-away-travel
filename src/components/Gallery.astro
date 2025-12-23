@@ -1,6 +1,6 @@
 ---
+// HELPERS
 import { Image, Picture } from "astro:assets";
-
 const { items } = Astro.props;
 ---
 
@@ -28,7 +28,7 @@ const { items } = Astro.props;
   .projects {
     &__img-wrapper {
       overflow: hidden;
-      border-radius: var(--border-radius-medium);
+      border-radius: var(--border-radius-small);
       cursor: pointer;
       aspect-ratio: 1/1;
     }

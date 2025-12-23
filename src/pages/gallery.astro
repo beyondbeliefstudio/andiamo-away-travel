@@ -1,11 +1,13 @@
 ---
+// COMPONENTS
 import CTA from "@/components/CTA.astro";
 import GalleryComponent from "@/components/Gallery.astro";
 import Layout from "@/layouts/Layout.astro";
 import InternalHero from "@/components/InternalHero.astro";
 
-// Import images for the gallery
+// IMAGES
 import garageHome from "@/assets/garageHome.jpg";
+import garageHome4 from "@/assets/garageHome4.jpg";
 
 // Data for Image Slider
 const projects = [
@@ -24,13 +26,16 @@ const projects = [
 ];
 ---
 
-<Layout title="Projects">
+<Layout
+  title="Projects"
+  description="Discover the quality and craftsmanship of Lambo's Garage Door Service through our recent projects. From installations to repairs, see how we bring garage door solutions to life."
+>
   <InternalHero
     pageTitle="Projects"
     title="Our Recent Work"
     subtitle="Explore our latest projects and see how we can help you achieve your goals."
     ariaLabel="Projects Hero Section"
-    imageSrc={garageHome}
+    imageSrc={garageHome4}
     imageAlt="Lambo's Garage Door Service Projects"
   />
   <section class="projects bg-light" aria-label="Projects Gallery">

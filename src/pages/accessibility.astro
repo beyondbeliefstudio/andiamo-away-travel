@@ -1,0 +1,62 @@
+---
+import Heading from "@/components/Heading.astro";
+import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  pageTitle="Accessibility"
+  description="Learn about the accessibility features and commitment of Lambo's Garage Door Service to ensure an inclusive experience for all users."
+>
+  <InternalHeroAlt
+    pageTitle="Accessibility"
+    title="Our Commitment to Accessibility"
+    subtitle="Lambo's Garage Door Service LLC is committed to making our website accessible and usable for as many people as possible, including individuals with disabilities."
+    ariaLabel="Accessibility Hero Section"
+  />
+
+  <section class="bg-light terms">
+    <div class="container container-md">
+      <div class="content-md terms__content-wrapper">
+        <div class="terms__content">
+          <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500"
+            >Accessibility Statement</Heading
+          >
+          <p>
+            We aim to follow best practices for accessibility and usability by designing and
+            maintaining our website with accessibility in mind. Our site is custom coded and built
+            using semantic HTML, proper heading structure, image alt text, and keyboard-friendly
+            navigation to support assistive technologies.
+          </p>
+        </div>
+        <div class="terms__content">
+          <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500"
+            >Ongoing Efforts</Heading
+          >
+          <p>
+            Accessibility is an ongoing effort. We continue to review and improve our website to
+            enhance accessibility and ensure a positive experience for all visitors.
+          </p>
+
+          <p>
+            If you experience difficulty accessing any part of our website or need assistance,
+            please contact us and we will do our best to help.
+          </p>
+        </div>
+
+        <div class="terms__content">
+          <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500"
+            >Contact Information</Heading
+          >
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:lambosgaragedoor@gmail.com">lambosgaragedoor@gmail.com</a><br />
+            <strong>Phone:</strong>
+            <a href="tel:+19312229963">(931) 222-9963</a>
+          </p>
+        </div>
+        <p><i>Last Updated: December 22, 2025</i></p>
+      </div>
+    </div>
+  </section>
+</Layout>

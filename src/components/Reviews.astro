@@ -1,8 +1,12 @@
 ---
+// COMPONENTS
 import Heading from "@/components/Heading.astro";
-import { getCollection } from "astro:content";
-import ReviewsCard from "./ReviewsCard.astro";
+import ReviewsCard from "@/components/ReviewsCard.astro";
 
+// HELPERS
+import { getCollection } from "astro:content";
+
+// DATA
 const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
 ---
 
@@ -29,8 +33,6 @@ const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
       <div class="scroller-image">
         <ul class="scroller-inner-image">
           {reviews.map(review => <ReviewsCard reviews={review} />)}
-          {/* Duplicate for seamless loop */}
-          {reviews.map(review => <ReviewsCard reviews={review} />)}
         </ul>
       </div>
     </div>
@@ -38,17 +40,6 @@ const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
 </section>
 
 <style lang="scss">
-  .reviews {
-    // &__heading {
-    //   color: var(--light-100);
-    // }
-
-    &__intro {
-      * {
-        color: var(--light-100);
-      }
-    }
-  }
   .scroller-image {
     max-width: 100%;
     width: 100%;
@@ -75,7 +66,7 @@ const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(calc(-50% - 0.5rem));
     }
   }
 </style>

@@ -1,0 +1,60 @@
+---
+// COMPONENTS
+import Heading from "@/components/Heading.astro";
+
+// HELPERS
+import type { HTMLAttributes } from "astro/types";
+import { Picture } from "astro:assets";
+
+export interface HeroProps extends HTMLAttributes<"section"> {
+  pageTitle?: string;
+  title: string;
+  subtitle?: string;
+  ariaLabel?: string;
+  classes?: string;
+}
+
+const { pageTitle, title, subtitle, ariaLabel, classes, ...rest } = Astro.props;
+---
+
+<section class:list={["internal-hero", classes]} aria-label={ariaLabel} {...rest}>
+  <div class="container container-md internal-hero__container">
+    <div class="content-md internal-hero__content">
+      <Heading
+        tag="h1"
+        size="xs"
+        fontFamily="primary"
+        marginBottom="m"
+        weight="fw500"
+        class="internal-hero__title eyebrow">{pageTitle}</Heading
+      >
+      <Heading tag="h2" size="xxl" fontFamily="primary" marginBottom="m" weight="fw500"
+        >{title}</Heading
+      >
+      <p class="">
+        {subtitle}
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .internal-hero {
+    overflow: hidden;
+    position: relative;
+    padding-top: 124px;
+
+    &__container {
+      padding-top: var(--_spacing---section-space--xl);
+      padding-bottom: var(--_spacing---section-space--main);
+
+      @media (max-width: 768px) {
+        padding-top: var(--_spacing---section-space--main);
+      }
+    }
+
+    &__title {
+      background: var(--light-200);
+    }
+  }
+</style>

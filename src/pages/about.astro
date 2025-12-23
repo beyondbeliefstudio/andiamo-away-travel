@@ -1,11 +1,16 @@
 ---
+// COMPONENTS
 import InternalHero from "@/components/InternalHero.astro";
 import Layout from "@/layouts/Layout.astro";
-
-import garageHome from "@/assets/garageHome.jpg";
 import Heading from "@/components/Heading.astro";
 import SplitOverlay from "@/components/SplitOverlay.astro";
 import FAQ from "@/components/FAQ.astro";
+
+// IMAGES
+import lamboChristmas from "@/assets/lamboChristmas.jpg";
+import garageHome from "@/assets/garageHome.jpg";
+import sean from "@/assets/sean.jpg";
+import garageHome3 from "@/assets/garageHome3.jpg";
 
 // Data for FAQ section
 import { getCollection } from "astro:content";
@@ -28,7 +33,7 @@ const faqData = faq.map(item => ({
     title="Local Garage Door Service Built on Trust and Personal Care"
     subtitle="Lambo’s Garage Door Service was created to give homeowners across Middle Tennessee a better experience when they need garage door repair or installation. No call centers. No rushed appointments. Just honest work from a local technician who takes pride in every job. We proudly serve Estill Springs, Tullahoma, Murfreesboro and the surrounding towns with reliable garage door repair, spring replacement, new garage door installation and 24 hour emergency service."
     ariaLabel="About Us Hero Section"
-    imageSrc={garageHome}
+    imageSrc={garageHome3}
     imageAlt="About Lambo's Garage Door Service"
   />
   <!-- Content for the About Us page goes here -->
@@ -62,7 +67,7 @@ const faqData = faq.map(item => ({
   <SplitOverlay
     eyebrow="About Sean"
     title="Meet Sean, Your Local Garage Door Technician"
-    imgSrc={garageHome}
+    imgSrc={sean}
     imgAlt="Garage door service and repair"
     imgText="Trusted garage door solutions"
     background="bg-light"
@@ -89,7 +94,7 @@ const faqData = faq.map(item => ({
   <SplitOverlay
     eyebrow="About Lambo"
     title="Meet Lambo, The Heart of the Company"
-    imgSrc={garageHome}
+    imgSrc={lamboChristmas}
     imgAlt="Garage door service and repair"
     imgText="Committed to quality service"
     background="bg-dark"

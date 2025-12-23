@@ -1,33 +1,24 @@
 ---
-import Services from "@/components/home/Services.astro";
-import InternalHero from "@/components/InternalHero.astro";
-import MainHero from "@/components/MainHero.astro";
+// COMPONENTS
 import Layout from "@/layouts/Layout.astro";
-import Reviews from "@/components/Reviews.astro";
+import Services from "@/components/home/Services.astro";
+import MainHero from "@/components/MainHero.astro";
 import ScrollingText from "@/components/ScrollingText.astro";
 import Values from "@/components/Values.astro";
 import SplitOverlay from "@/components/SplitOverlay.astro";
 import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
+import Links from "@/components/Links.astro";
 
 // IMAGES
-import garageDoor from "@/assets/garage-door.jpg";
-import garageHome from "@/assets/garageHome.jpg";
 import seanLambo from "@/assets/SeanLambo.png";
-import Links from "@/components/Links.astro";
 ---
 
 <Layout
   title="Lambos Garage Door Service"
   description="Professional garage door services including installation, repair, and maintenance. Serving residential and commercial clients with quality workmanship."
 >
-  <!-- <HeroSplit /> -->
-  <MainHero
-    pageTitle="Lambos Garage Door Service"
-    title="Reliable Garage Door Repair and Installation in Middle Tennessee"
-    subtitle="Expert installation, repair, and maintenance services for residential and commercial garage doors."
-    ariaLabel="Main Hero Section"
-    classes="main-hero"
-  />
+  <MainHero />
+
   <ScrollingText
     >We are committed to providing the highest quality garage door services to our customers.</ScrollingText
   >
@@ -66,7 +57,4 @@ import Links from "@/components/Links.astro";
   <ScrollingMarquee />
 
   <Values />
-
-  <!-- REVIEWS -->
-  <!-- <Reviews /> -->
 </Layout>

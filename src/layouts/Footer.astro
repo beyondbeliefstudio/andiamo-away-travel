@@ -1,5 +1,8 @@
 ---
+// COMPONENTS
 import Links from "@/components/Links.astro";
+
+// HELPERS
 import { Image } from "astro:assets";
 
 // Content
@@ -8,10 +11,7 @@ import { baseData } from "@/data/siteData";
 
 // Images
 import facebook from "@/assets/facebook.png";
-import instagram from "@/assets/instagram.png";
-import mail from "@/assets/mail.png";
 import yelp from "@/assets/yelp.svg";
-import wordmark from "@/assets/wordmark.svg";
 import Heading from "@/components/Heading.astro";
 import lambologo from "@/assets/lambo-logo.png";
 ---
@@ -83,8 +83,10 @@ import lambologo from "@/assets/lambo-logo.png";
             weight="fw500"
             textTransform="uppercase">Contact Us</Heading
           >
-          <nav class="footer__nav-links lowercase">
-            <Links variant="nav-link" href={`mailto:${baseData.email}`}>{baseData.email}</Links>
+          <nav class="footer__nav-links">
+            <Links variant="nav-link" href={`mailto:${baseData.email}`} classes="lowercase"
+              >{baseData.email}</Links
+            >
             <Links variant="nav-link" href={`tel:${baseData.phone.replace(/\D/g, "")}`}
               >{baseData.phone}</Links
             >
@@ -108,6 +110,8 @@ import lambologo from "@/assets/lambo-logo.png";
         <Links variant="nav-link" href="/privacy-policy">Privacy Policy</Links>
         <span class="footer__divider">•</span>
         <Links variant="nav-link" href="/terms-and-conditions">Terms & Conditions</Links>
+        <span class="footer__divider">•</span>
+        <Links variant="nav-link" href="/accessibility">Accessibility</Links>
       </div>
     </div>
   </div>
@@ -116,33 +120,44 @@ import lambologo from "@/assets/lambo-logo.png";
 <style lang="scss">
   .footer {
     &__content {
-      gap: 2rem;
+      gap: var(--_spacing---space--8);
       justify-content: space-between;
       width: 100%;
       display: flex;
       text-align: left;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
     }
 
     &__info {
-      grid-column-gap: 5px;
-      grid-row-gap: 5px;
       flex-flow: column;
       width: 44%;
       display: flex;
       max-width: 400px;
+
+      @media (max-width: 1010px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
 
     &__links {
       justify-content: end;
       align-items: flex-start;
-      width: 100%;
+      min-width: fit-content;
       display: grid;
       max-width: 850px;
       grid-template-columns: auto auto auto;
-      grid-gap: 4rem;
+      grid-gap: var(--_spacing---section-space--main);
 
       @media (max-width: 1010px) {
         grid-template-columns: 1fr;
+        width: 50%;
       }
     }
 
@@ -159,16 +174,8 @@ import lambologo from "@/assets/lambo-logo.png";
       gap: 0.5rem;
       font-size: var(--_typography---font-size--h6);
 
-      .nav-link {
-        font-weight: 400;
-        text-transform: capitalize;
-        letter-spacing: 0px;
-        width: fit-content;
-        font-size: var(--_typography---font-size--h6);
-      }
-
-      &.lowercase .nav-link {
-        text-transform: initial !important;
+      .lowercase {
+        text-transform: lowercase !important;
       }
     }
 
@@ -181,34 +188,6 @@ import lambologo from "@/assets/lambo-logo.png";
 
       @media screen and (max-width: 768px) {
         max-width: 175px;
-      }
-    }
-
-    .social-grid {
-      display: flex;
-      gap: 0.5rem;
-
-      .social {
-        background: var(--brand-primary);
-        border-radius: 100%;
-        height: 35px;
-        width: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-right: 1px;
-        transition: 0.25s ease-in-out all;
-        cursor: pointer;
-
-        img {
-          width: 20px;
-          height: 20px;
-          filter: invert(1);
-        }
-
-        &:hover {
-          background: var(--dark-900);
-        }
       }
     }
 
@@ -259,33 +238,6 @@ import lambologo from "@/assets/lambo-logo.png";
         font-size: var(--_typography---font-size--text-main);
         font-weight: 400;
         text-transform: capitalize;
-      }
-    }
-  }
-
-  @media (max-width: 1010px) {
-    .footer {
-      &__info {
-        width: 50%;
-      }
-      &__links {
-        width: 50%;
-        flex-direction: column;
-        gap: 2rem;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .footer {
-      &__content {
-        flex-direction: column;
-      }
-      &__info {
-        width: 100%;
-      }
-      &__links {
-        width: 100%;
       }
     }
   }

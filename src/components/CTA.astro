@@ -1,9 +1,15 @@
 ---
+// COMPONENTS
 import Heading from "@/components/Heading.astro";
 import Buttons from "@/components/Buttons.astro";
-import Links from "@/components/Links.astro";
+
+// DATA
 import { baseData } from "@/data/siteData";
+
+// HELPERS
 import { Image } from "astro:assets";
+
+// IMAGES
 import garageHome from "@/assets/garageHome.jpg";
 import callIcon from "@/assets/call.svg";
 import mailIcon from "@/assets/mail.svg";
@@ -98,7 +104,7 @@ import mailIcon from "@/assets/mail.svg";
       align-items: center;
       padding: var(--_spacing---section-space--main);
       overflow: hidden;
-      border-radius: var(--border-radius-medium);
+      border-radius: var(--border-radius-small);
 
       @media (max-width: 1024px) {
         grid-template-columns: 1fr;
@@ -177,10 +183,20 @@ import mailIcon from "@/assets/mail.svg";
       border-radius: 50%;
       border: 1px solid var(--dark-900);
 
+      @media screen and (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+      }
+
       img {
         width: 32px;
         height: 32px;
         filter: invert(1);
+
+        @media screen and (max-width: 768px) {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
 

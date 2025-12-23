@@ -1,11 +1,13 @@
 ---
+// COMPONENTS
 import InternalHero from "@/components/InternalHero.astro";
 import Layout from "@/layouts/Layout.astro";
-
-import garageHome from "@/assets/garageHome.jpg";
 import ServicesCard from "@/components/ServicesCard.astro";
 import Heading from "@/components/Heading.astro";
 import Links from "@/components/Links.astro";
+
+// IMAGES
+import garageHome2 from "@/assets/garageHome2.jpg";
 ---
 
 <Layout
@@ -17,7 +19,7 @@ import Links from "@/components/Links.astro";
     title="Comprehensive Garage Door Solutions"
     subtitle="From spring replacements and opener repairs to complete installations and emergency service, we provide a full suite of garage door services tailored to your needs throughout Estill Springs, Tullahoma, Murfreesboro, Winchester, Manchester, and surrounding Middle Tennessee areas."
     ariaLabel="Services Hero Section"
-    imageSrc={garageHome}
+    imageSrc={garageHome2}
     imageAlt="Garage door service and repair"
   />
 
@@ -41,10 +43,6 @@ import Links from "@/components/Links.astro";
           installation or regular maintenance, I am here to help. Below are some of the most popular
           services I offer:
         </p>
-        <div class="btn-wrapper">
-          <Links variant="primary" href={"tel:+19312229963"}>Call (931) 222-9963</Links>
-          <Links variant="outline" href={"tel:+19312229963"}>Call (931) 222-9963</Links>
-        </div>
       </div>
     </div>
   </section>

@@ -1,7 +1,11 @@
 ---
+// HELPERS
 import type { HTMLAttributes } from "astro/types";
+
+// COMPONENTS
 import Heading from "@/components/Heading.astro";
 
+// FAQ DATA
 let { faq } = Astro.props;
 
 export interface LinkProps extends HTMLAttributes<"section"> {
@@ -72,27 +76,23 @@ const { id, ariaLabel, ...rest } = Astro.props;
 
     &__item {
       border-radius: var(--border-radius-small);
-      padding: 1.5rem;
+      padding: var(--_spacing---space--7);
       display: flex;
       flex-direction: column;
       gap: 1rem;
       background-color: var(--light-200);
-
-      @media screen and (max-width: 768px) {
-        padding: 1rem;
-      }
     }
 
     &__question {
       display: flex;
       width: 100%;
-      gap: 2rem;
+      gap: var(--_spacing---space--8);
       align-items: center;
       cursor: pointer;
 
-      @media screen and (max-width: 768px) {
-        gap: 1rem;
-      }
+      // @media screen and (max-width: 768px) {
+      //   gap: 1rem;
+      // }
     }
 
     &__button {
@@ -103,11 +103,6 @@ const { id, ariaLabel, ...rest } = Astro.props;
       height: 35px;
       position: relative;
       border: 0px;
-
-      @media screen and (max-width: 768px) {
-        width: 35px;
-        height: 35px;
-      }
 
       .circle {
         background: var(--brand-primary);
@@ -128,10 +123,6 @@ const { id, ariaLabel, ...rest } = Astro.props;
         background-color: var(--light-100);
         transition: background-color 0.3s ease;
         border-radius: 2px;
-
-        @media screen and (max-width: 768px) {
-          width: 16px;
-        }
       }
 
       .horizontal {
@@ -148,22 +139,13 @@ const { id, ariaLabel, ...rest } = Astro.props;
     &__headings {
       width: fit-content;
       text-align: left;
-      max-width: calc(100% - 88px);
-
-      @media screen and (max-width: 768px) {
-        max-width: calc(100% - 60px);
-        font-size: 1.1rem !important;
-      }
+      max-width: calc(100% - calc(35px + var(--_spacing---space--8)));
     }
 
     &__content {
       line-height: 1.5;
       text-align: left;
-      margin-left: calc(35px + 2rem);
-
-      @media screen and (max-width: 768px) {
-        margin-left: calc(35px + 1rem);
-      }
+      margin-left: calc(38px + var(--_spacing---space--8));
 
       ol {
         padding-left: 1.5rem;

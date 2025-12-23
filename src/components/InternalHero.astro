@@ -1,6 +1,8 @@
 ---
+// COMPONENTS
 import Heading from "@/components/Heading.astro";
 
+// HELPERS
 import type { HTMLAttributes } from "astro/types";
 import { Picture } from "astro:assets";
 
@@ -19,7 +21,7 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
 
 <section class:list={["internal-hero", classes]} aria-label={ariaLabel} {...rest}>
   <div class="container container-md internal-hero__container column-main">
-    <div class="content-full internal-hero__content">
+    <div class="content-full internal-hero__content grid-auto-2">
       <div class="internal-hero__headings">
         <Heading
           tag="h1"
@@ -63,20 +65,13 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
     }
 
     &__content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--_spacing---space--8);
       text-align: left;
       align-items: end;
-
-      @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-      }
     }
 
     .img-wrapper {
       width: 100%;
-      border-radius: var(--border-radius-medium);
+      border-radius: var(--border-radius-small);
       overflow: hidden;
       height: 100%;
       aspect-ratio: 16 / 9;
@@ -90,6 +85,12 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
     &__title {
       margin-left: 0;
       background: var(--light-200);
+    }
+
+    &__copy {
+      p {
+        margin-bottom: 0;
+      }
     }
   }
 </style>

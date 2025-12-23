@@ -1,8 +1,12 @@
 ---
+// HELPERS
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
-import Heading from "./Heading.astro";
 
+// COMPONENTS
+import Heading from "@/components/Heading.astro";
+
+// DATA
 const services = await getCollection("services");
 ---
 
@@ -59,7 +63,7 @@ const services = await getCollection("services");
   .services-card {
     padding: 1rem;
     padding-bottom: 0.5rem;
-    border-radius: var(--border-radius-medium);
+    border-radius: var(--border-radius-small);
     background-color: var(--light-200);
     display: flex;
     flex-direction: column;

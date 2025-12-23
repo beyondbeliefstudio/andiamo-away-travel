@@ -1,9 +1,14 @@
 ---
+// HELPERS
 import { Picture } from "astro:assets";
-import Heading from "./Heading.astro";
 
+// COMPONENTS
+import Heading from "@/components/Heading.astro";
+
+// TYPES
 import type { HTMLAttributes } from "astro/types";
 
+// PROPS
 export interface SplitProps extends HTMLAttributes<"section"> {
   title: string;
   eyebrow?: string;
@@ -95,10 +100,6 @@ const {
       }
     }
 
-    &__wrapper {
-      padding: 10rem;
-    }
-
     &__col {
       display: flex;
       flex-direction: column;
@@ -119,7 +120,6 @@ const {
 
     &__content {
       text-align: left;
-      padding: 3rem 0;
 
       h4 {
         margin-bottom: 0.25rem;
@@ -188,6 +188,10 @@ const {
 
   .split--reverse .split__col:first-child {
     order: 2;
+
+    @media (max-width: 1010px) {
+      order: -1 !important;
+    }
   }
 
   .bg-dark .split__content {
@@ -203,16 +207,6 @@ const {
   .bg-light {
     .split__eyebrow {
       background: var(--light-100);
-    }
-  }
-
-  @media (max-width: 1010px) {
-    .split--reverse .split__col:first-child {
-      order: -1 !important;
-    }
-
-    .split__content {
-      padding: 0;
     }
   }
 </style>
