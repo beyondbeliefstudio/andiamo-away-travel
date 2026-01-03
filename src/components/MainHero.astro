@@ -2,6 +2,7 @@
 // COMPONENTS
 import Heading from "@/components/Heading.astro";
 import Links from "@/components/Links.astro";
+import { Picture } from "astro:assets";
 
 // IMAGES
 import garageDoor from "@/assets/garage-door.jpg";
@@ -9,10 +10,35 @@ import seanLamboHero from "@/assets/seanLamboHero.png";
 ---
 
 <section class="hero">
-  <div class="hero__bg" style={`background-image: url(${garageDoor.src});`}></div>
+  <div class="hero__bg">
+    <Picture
+      src={garageDoor}
+      formats={["avif", "webp"]}
+      alt=""
+      loading="eager"
+      quality={70}
+      width={1920}
+      height={1080}
+      widths={[768, 1200, 1600, 1920]}
+      sizes="100vw"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
   <div class="hero__overlay"></div>
   <div class="container container-md hero__graphic--wrapper">
-    <img src={seanLamboHero.src} alt="Lambo and owner illustration" class="hero__graphic" />
+    <Picture
+      src={seanLamboHero}
+      formats={["avif", "webp"]}
+      alt="Lambo and owner illustration"
+      class="hero__graphic"
+      loading="eager"
+      quality={80}
+      width={600}
+      height={800}
+      widths={[250, 400, 600]}
+      sizes="(max-width: 768px) 250px, 600px"
+    />
   </div>
   <div class="container container-md hero__container">
     <div class="column column-main flex-1">
@@ -53,6 +79,7 @@ import seanLamboHero from "@/assets/seanLamboHero.png";
         align-items: center;
         justify-content: center;
         margin-top: 53px;
+        overflow: hidden;
 
         @media screen and (max-width: 1010px) {
           margin-top: 42px;
@@ -64,15 +91,14 @@ import seanLamboHero from "@/assets/seanLamboHero.png";
           left: 0;
           right: 0;
           bottom: 0;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          opacity: 0.4; // Adjust this value (0 to 1) to control image opacity
           z-index: 0;
-          background-attachment: fixed;
+          opacity: 0.4;
 
-          @media screen and (max-width: 768px) {
-            background-attachment: scroll;
+          :global(img) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
           }
         }
 
@@ -97,13 +123,17 @@ import seanLamboHero from "@/assets/seanLamboHero.png";
         &__graphic {
           position: absolute;
           bottom: 0px;
-          right: 3rem;
+          right: 0;
           max-width: 600px;
           width: 45%;
           height: auto;
           z-index: 2;
           pointer-events: none;
-          right: 0;
+
+          :global(img) {
+            width: 100%;
+            height: auto;
+          }
 
           @media (max-width: 768px) {
             max-width: 250px;

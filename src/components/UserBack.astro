@@ -1,11 +1,25 @@
 <script is:inline>
   // @ts-nocheck
-  window.Userback = window.Userback || {};
-  Userback.access_token = "A-jykzHFeoHBje2WWOkCRoM7vX9";
-  (function (d) {
-    var s = d.createElement("script");
-    s.async = true;
-    s.src = "https://static.userback.io/widget/v1.js";
-    (d.head || d.body).appendChild(s);
-  })(document);
+  // Lazy load UserBack after user interaction
+  let userbackLoaded = false;
+
+  function loadUserback() {
+    if (userbackLoaded) return;
+    userbackLoaded = true;
+
+    window.Userback = window.Userback || {};
+    Userback.access_token = "A-jykzHFeoHBje2WWOkCRoM7vX9";
+    (function (d) {
+      var s = d.createElement("script");
+      s.async = true;
+      s.src = "https://static.userback.io/widget/v1.js";
+      (d.head || d.body).appendChild(s);
+    })(document);
+  }
+
+  // Load after 3 seconds or on first user interaction
+  setTimeout(loadUserback, 3000);
+  ["click", "scroll", "touchstart"].forEach(event => {
+    document.addEventListener(event, loadUserback, { once: true });
+  });
 </script>

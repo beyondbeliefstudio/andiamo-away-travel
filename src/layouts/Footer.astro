@@ -206,7 +206,7 @@ import lambologo from "@/assets/lambo-logo.png";
 
       @media (max-width: 768px) {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
       }
     }
 
@@ -233,6 +233,16 @@ import lambologo from "@/assets/lambo-logo.png";
       display: flex;
       align-items: center;
       gap: 0.75rem;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: start;
+
+        .footer__divider {
+          display: none;
+        }
+      }
 
       .nav-link {
         font-size: var(--_typography---font-size--text-main);
