@@ -51,11 +51,15 @@ const {
         <div class="split__img-wrapper">
           <Picture
             src={imgSrc}
+            formats={["avif", "webp"]}
             alt={imgAlt}
             class="split__img"
             loading="eager"
+            quality={70}
             width={1000}
             height={1000}
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 1010px) 100vw, 50vw"
           />
         </div>
       </div>

@@ -11,12 +11,16 @@ const { items } = Astro.props;
         <div class="projects__img-wrapper">
           <Picture
             src={item.src}
+            formats={["avif", "webp"]}
             alt={item.alt ?? null}
             class="projects__img"
             id={item.id}
             loading="eager"
+            quality={70}
             width={2000}
             height={1000}
+            widths={[400, 800, 1200, 1600]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       ))

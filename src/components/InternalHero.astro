@@ -43,7 +43,19 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
     </div>
     <div class="content-full internal-hero__img">
       <div class="internal-hero__img-wrapper img-wrapper">
-        <Picture src={imageSrc} alt={imageAlt} width={1200} height={675} loading="eager" />
+        <Picture
+          src={imageSrc}
+          formats={["avif", "webp"]}
+          alt=""
+          width={1920}
+          height={1080}
+          widths={[480, 768, 1280, 1920]}
+          sizes="100vw"
+          quality={65}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
     </div>
   </div>

@@ -42,11 +42,15 @@ const items = [
               ) : (
                 <Picture
                   src={item.src as any}
+                  formats={["avif", "webp"]}
                   alt={item.alt}
                   class="scrolling-photos__img"
                   loading="eager"
+                  quality={70}
                   width={2000}
                   height={1000}
+                  widths={[400, 800, 1200, 1600]}
+                  sizes="(max-width: 768px) 80vw, 600px"
                 />
               )}
             </div>
