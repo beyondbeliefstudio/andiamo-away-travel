@@ -111,22 +111,22 @@ function initNavActiveStates() {
 // ==========================================
 function initParallaxEffects() {
   // Split overlay images
-  gsap.utils.toArray(".split__img-wrapper").forEach(wrapper => {
-    const img = wrapper.querySelector("img");
+  // gsap.utils.toArray(".split__img-wrapper").forEach(wrapper => {
+  //   const img = wrapper.querySelector("img");
 
-    if (img) {
-      gsap.to(img, {
-        yPercent: 30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: wrapper,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
-  });
+  //   if (img) {
+  //     gsap.to(img, {
+  //       yPercent: 30,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: wrapper,
+  //         start: "top bottom",
+  //         end: "bottom top",
+  //         scrub: true,
+  //       },
+  //     });
+  //   }
+  // });
 
   // Hero background - disable on mobile for better LCP
   const heroBg = document.querySelector(".hero__bg");
