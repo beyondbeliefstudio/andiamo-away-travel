@@ -6,28 +6,29 @@ import Layout from "@/layouts/Layout.astro";
 import InternalHero from "@/components/InternalHero.astro";
 
 // IMAGES
-import garageHome from "@/assets/garageHome.jpg";
 import garageHome4 from "@/assets/garageHome4.jpg";
+import homeGarage1 from "@/assets/homeGarage1.jpeg";
+import homeGarage2 from "@/assets/homeGarage2.jpeg";
+import homeGarage3 from "@/assets/homeGarage3.jpeg";
+import homeGarage4 from "@/assets/homeGarage4.jpeg";
+import doorInsulation from "@/assets/doorInsulation.jpeg";
+import doorInsulation2 from "@/assets/doorInsulation2.jpeg";
+import doorInsulation3 from "@/assets/doorInsulation3.jpeg";
 
 // Data for Image Slider
 const projects = [
-  { src: garageHome, alt: "Garage Home", id: "slide-1" },
-  { src: garageHome, alt: "Garage Home", id: "slide-2" },
-  { src: garageHome, alt: "Garage Home", id: "slide-3" },
-  { src: garageHome, alt: "Garage Home", id: "slide-4" },
-  { src: garageHome, alt: "Garage Home", id: "slide-5" },
-  { src: garageHome, alt: "Garage Home", id: "slide-6" },
-  { src: garageHome, alt: "Garage Home", id: "slide-7" },
-  { src: garageHome, alt: "Garage Home", id: "slide-8" },
-  { src: garageHome, alt: "Garage Home", id: "slide-9" },
-  { src: garageHome, alt: "Garage Home", id: "slide-10" },
-  { src: garageHome, alt: "Garage Home", id: "slide-11" },
-  { src: garageHome, alt: "Garage Home", id: "slide-12" },
+  { src: homeGarage1, alt: "Garage Home", id: "slide-1" },
+  { src: homeGarage2, alt: "Garage Home", id: "slide-2" },
+  { src: homeGarage3, alt: "Garage Home", id: "slide-3" },
+  { src: homeGarage4, alt: "Garage Home", id: "slide-4" },
+  { src: doorInsulation, alt: "Door Insulation", id: "slide-5" },
+  { src: doorInsulation2, alt: "Door Insulation", id: "slide-6" },
+  { src: doorInsulation3, alt: "Door Insulation", id: "slide-7" },
 ];
 ---
 
 <Layout
-  title="Projects"
+  pageTitle="Projects"
   description="Discover the quality and craftsmanship of Lambo's Garage Door Service through our recent projects. From installations to repairs, see how we bring garage door solutions to life."
 >
   <InternalHero

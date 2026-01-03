@@ -1,0 +1,60 @@
+---
+// COMPONENTS
+import Heading from "@/components/Heading.astro";
+import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
+import Layout from "@/layouts/Layout.astro";
+import Links from "@/components/Links.astro";
+---
+
+<Layout
+  pageTitle="404 - Page Not Found"
+  description="The page you're looking for couldn't be found. Return to Lambo's Garage Door Service homepage or explore our services."
+>
+  <InternalHeroAlt
+    pageTitle="404 Error"
+    title="Page Not Found"
+    subtitle="We couldn't find the page you're looking for. It may have been moved or no longer exists."
+    ariaLabel="404 Error Hero Section"
+    class:list={["bg-primary-dark"]}
+  />
+
+  <section class="bg-light terms">
+    <div class="container container-md">
+      <div class="content-md terms__content-wrapper">
+        <div class="terms__content">
+          <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500"
+            >What Happened?</Heading
+          >
+          <p>
+            The page you requested doesn't exist or has been moved. This could be due to a broken
+            link, a mistyped URL, or the page may have been removed.
+          </p>
+        </div>
+
+        <div class="terms__content">
+          <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500"
+            >Where Can You Go?</Heading
+          >
+          <p>Here are some helpful links to get you back on track:</p>
+          <ul>
+            <li><p><a href="/">Return to Homepage</a></p></li>
+            <li><p><a href="/about">Learn About Us</a></p></li>
+            <li><p><a href="/services">View Our Services</a></p></li>
+            <li><p><a href="/#contact">Contact Us</a></p></li>
+          </ul>
+        </div>
+
+        <div class="terms__content">
+          <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500"
+            >Need Help?</Heading
+          >
+          <p>
+            If you believe this is an error or need assistance finding something specific, please
+            don't hesitate to contact us.
+          </p>
+          <Links variant="primary" href="/contact">Contact Us</Links>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

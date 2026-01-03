@@ -1,7 +1,9 @@
 ---
+// COMPONENTS
 import Heading from "@/components/Heading.astro";
 import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
 import Layout from "@/layouts/Layout.astro";
+import { baseData } from "@/data/siteData";
 ---
 
 <Layout
@@ -96,11 +98,11 @@ import Layout from "@/layouts/Layout.astro";
           >
           <p>If you have questions about these Terms and Conditions, please contact:</p>
           <p>
-            <strong>Lambo's Garage Door Service LLC</strong><br />
+            <strong>{baseData.title}</strong><br />
             <strong>Email:</strong>
-            <a href="mailto:lambosgaragedoor@gmail.com">lambosgaragedoor@gmail.com</a><br />
+            <a href={`mailto:${baseData.email}`}>{baseData.email}</a><br />
             <strong>Phone:</strong>
-            <a href="tel:+19312229963">(931) 222-9963</a>
+            <a href={`tel:${baseData.phone.replace(/\D/g, "")}`}>{baseData.phone}</a>
           </p>
         </div>
         <p><i>Last Updated: December 22, 2025</i></p>

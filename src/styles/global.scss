@@ -80,10 +80,11 @@ section {
   --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2.26rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
   --_typography---font-size--h5: clamp(1.19rem, 1.136rem + 0.27vw, 1.38rem);
-  --_typography---font-size--h6: clamp(1.03rem, 1.016rem + 0.07vw, 1.08rem);
+  --_typography---font-size--h6: clamp(0.9rem, 1.016rem + 0.07vw, 1.08rem);
   --_typography---font-size--text-large: clamp(1rem, 0.942rem + 0.29vw, 1.2rem);
   --_typography---font-size--text-main: clamp(0.88rem, 0.846rem + 0.17vw, 1rem);
   --_typography---font-size--text-small: clamp(0.77rem, 0.752rem + 0.09vw, 0.83rem);
+
   --_spacing---section-space--xl: clamp(3.69rem, 3.01rem + 3.4vw, 6.75rem);
   --_spacing---section-space--large: clamp(2.33rem, 1.558rem + 3.86vw, 5.03rem);
   --_spacing---section-space--main: clamp(1.86rem, 1.328rem + 2.66vw, 3.72rem);
@@ -196,6 +197,19 @@ a {
   font-family: var(--primary-family);
   color: var(--content-primary);
   font-size: var(--_typography---font-size--text-large);
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .btn {
+    margin: 0;
+  }
 }
 
 .nav-link {
@@ -590,7 +604,6 @@ form {
   background: var(--light-100);
   padding: var(--_spacing---section-space--small);
   border-radius: var(--border-radius-small);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -718,7 +731,7 @@ select {
       }
     }
 
-    a:hover {
+    a:not(.btn):hover {
       text-decoration: underline;
     }
   }

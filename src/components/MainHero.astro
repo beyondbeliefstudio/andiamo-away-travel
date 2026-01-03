@@ -3,16 +3,16 @@
 import Heading from "@/components/Heading.astro";
 import Links from "@/components/Links.astro";
 
-// Images
+// IMAGES
 import garageDoor from "@/assets/garage-door.jpg";
-import heroGraphic from "@/assets/heroGraphic.png";
+import seanLamboHero from "@/assets/seanLamboHero.png";
 ---
 
 <section class="hero">
   <div class="hero__bg" style={`background-image: url(${garageDoor.src});`}></div>
   <div class="hero__overlay"></div>
   <div class="container container-md hero__graphic--wrapper">
-    <img src={heroGraphic.src} alt="Lambo and owner illustration" class="hero__graphic" />
+    <img src={seanLamboHero.src} alt="Lambo and owner illustration" class="hero__graphic" />
   </div>
   <div class="container container-md hero__container">
     <div class="column column-main flex-1">
@@ -33,51 +33,12 @@ import heroGraphic from "@/assets/heroGraphic.png";
         <Heading tag="h1" size="xxl" fontFamily="primary" marginBottom="l" weight="fw500"
           >Fast, Professional Garage Door Repair You Can Trust</Heading
         >
-        <Heading
-          tag="h2"
-          size="xs"
-          fontFamily="secondary"
-          marginBottom="m"
-          weight="fw500"
-          lineHeight={1.4}
-        >
-          Broken spring? Stuck door? Opener not working? I provide fast, dependable solutions for
-          homeowners across Middle Tennessee.
-        </Heading>
         <ul class="hero__key-points">
-          <li>
-            <Heading
-              tag="h3"
-              size="xs"
-              fontFamily="primary"
-              marginBottom="none"
-              weight="fw400"
-              textTransform="uppercase"
-              >Fast fixes for broken springs and stuck garage doors</Heading
-            >
-          </li>
-          <li>
-            <Heading
-              tag="h3"
-              size="xs"
-              fontFamily="primary"
-              marginBottom="none"
-              weight="fw400"
-              textTransform="uppercase">Same day repair and 24 hour emergency service</Heading
-            >
-          </li>
-          <li>
-            <Heading
-              tag="h3"
-              size="xs"
-              fontFamily="primary"
-              marginBottom="none"
-              weight="fw400"
-              textTransform="uppercase">Local, owner operated service with honest pricing</Heading
-            >
-          </li>
+          <li><p>Fast fixes for broken springs and stuck garage doors</p></li>
+          <li><p>Same day repair and 24 hour emergency service</p></li>
+          <li><p>Local, owner operated service with honest pricing</p></li>
         </ul>
-        <div class="hero__btn-group">
+        <div class="hero__btn-group btn-wrapper">
           <Links variant="primary" href={"tel:+19312229963"}>Call (931) 222-9963</Links>
           <Links href="/services" variant="outline">Our Services</Links>
         </div>
@@ -135,7 +96,7 @@ import heroGraphic from "@/assets/heroGraphic.png";
 
         &__graphic {
           position: absolute;
-          bottom: -15px;
+          bottom: 0px;
           right: 3rem;
           max-width: 600px;
           width: 45%;
@@ -146,11 +107,7 @@ import heroGraphic from "@/assets/heroGraphic.png";
 
           @media (max-width: 768px) {
             max-width: 250px;
-            width: 40%;
-          }
-
-          @media (max-width: 1450px) {
-            bottom: -1vw;
+            width: 50%;
           }
         }
 
@@ -161,6 +118,10 @@ import heroGraphic from "@/assets/heroGraphic.png";
           z-index: 2;
           margin-top: 3rem;
           margin-bottom: 3rem;
+
+          @media screen and (max-width: 768px) {
+            margin-bottom: 134px;
+          }
         }
 
         .img-wrapper {
@@ -191,11 +152,16 @@ import heroGraphic from "@/assets/heroGraphic.png";
           align-items: center;
           gap: 0.75rem;
           background: rgba(255, 255, 255, 0.95);
-          padding: 0.5rem 1rem;
+          padding: 0.5rem;
           border-radius: var(--border-radius-small);
           width: fit-content;
           margin-bottom: 1.5rem;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+          @media screen and (max-width: 768px) {
+            padding: 0.5rem;
+            gap: 0.5rem;
+          }
         }
 
         &__reviews-wrapper {
@@ -204,11 +170,20 @@ import heroGraphic from "@/assets/heroGraphic.png";
           flex-direction: row;
           align-items: center;
           gap: 0.75rem;
+
+          @media screen and (max-width: 768px) {
+            gap: 0.5rem;
+          }
         }
 
         &__reviews-logo {
           width: 24px;
           height: 24px;
+
+          @media screen and (max-width: 768px) {
+            width: 18px;
+            height: 18px;
+          }
         }
 
         &__reviews-stars {
@@ -219,6 +194,10 @@ import heroGraphic from "@/assets/heroGraphic.png";
             font-size: 1.1rem;
             letter-spacing: 2px;
             line-height: 1;
+
+            @media screen and (max-width: 768px) {
+              font-size: 0.9rem;
+            }
           }
         }
 
@@ -257,6 +236,18 @@ import heroGraphic from "@/assets/heroGraphic.png";
             align-items: center;
             border-radius: var(--border-radius-small);
 
+            p {
+              font-size: var(--_typography---font-size--h6);
+              font-family: var(--primary-family);
+              margin-bottom: 0;
+              font-weight: 400;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              width: 100%;
+              text-wrap: auto;
+              line-height: 1.3;
+            }
+
             &::before {
               content: "";
               display: block;
@@ -271,20 +262,11 @@ import heroGraphic from "@/assets/heroGraphic.png";
               background-position: center;
               border-radius: 50%;
             }
-
-            h3 {
-              letter-spacing: 0.5px;
-              width: 100%;
-              text-wrap: auto;
-              line-height: 1.3;
-            }
           }
         }
 
         &__btn-group {
-          display: flex;
-          gap: 1rem;
-          flex-wrap: wrap;
+          justify-content: flex-start;
         }
       }
     </style>

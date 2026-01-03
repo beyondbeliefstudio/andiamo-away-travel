@@ -6,13 +6,20 @@ import { Picture } from "astro:assets";
 // COMPONENTS
 import Heading from "@/components/Heading.astro";
 
+// PROPS
+interface Props {
+  descriptionType?: "short" | "full";
+}
+
+const { descriptionType = "short" } = Astro.props;
+
 // DATA
 const services = await getCollection("services");
 ---
 
 {
   services.map(({ data }) => (
-    <a href={data.href} class="services-card">
+    <div class="services-card">
       <div class="services-card__img-wrapper">
         <Picture
           src={data.image as any}
@@ -28,27 +35,23 @@ const services = await getCollection("services");
           <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500">
             {data.title}
           </Heading>
-          <p>{data.description}</p>
-        </div>
-        <div class="services-card__arrow">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 12h14m0 0l-7-7m7 7l-7 7"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          {descriptionType === "short" ? (
+            <p>{data.shortDescription}</p>
+          ) : (
+            <>
+              <p>{data.description}</p>
+              <ul class="services-card__features">
+                {data.features.map((feature: string) => (
+                  <li>
+                    <p>{feature}</p>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
-    </a>
+    </div>
   ))
 }
 
@@ -64,33 +67,6 @@ const services = await getCollection("services");
     transition: 0.3s ease all;
     text-decoration: none;
     color: inherit;
-
-    &:hover {
-      background-color: var(--brand-primary);
-      color: var(--light-100);
-
-      * {
-        color: var(--light-100) !important;
-      }
-
-      .services-card__arrow {
-        background-color: var(--light-100);
-
-        svg {
-          transition: 0.3s ease all;
-          transform: rotate(-25deg);
-        }
-
-        svg path {
-          color: var(--dark-900) !important;
-        }
-      }
-
-      .services-card__image {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-      }
-    }
 
     &__img-wrapper {
       aspect-ratio: 2 / 1;
@@ -112,40 +88,36 @@ const services = await getCollection("services");
       justify-content: space-between;
     }
 
-    &__info {
-      width: calc(100% - 6rem);
-
-      @media screen and (max-width: 768px) {
-        width: calc(100% - 4rem);
-      }
-    }
-
-    &__arrow {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 50%;
-      background-color: var(--brand-primary);
-      border: 1px solid #000;
+    &__features {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
+      flex-direction: column;
+      gap: 1rem;
 
-      @media screen and (max-width: 768px) {
-        width: 3rem;
-        height: 3rem;
-      }
+      li {
+        position: relative;
+        padding-left: 2rem;
 
-      svg {
-        width: 2rem;
-        height: 2rem;
-        color: var(--light-100);
-        transform: rotate(0deg);
-        transition: color 0.3s ease;
+        p {
+          margin-bottom: 0;
+          line-height: 1.3;
+        }
 
-        @media screen and (max-width: 768px) {
-          width: 1.5rem;
-          height: 1.5rem;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 24px;
+          height: 24px;
+          background-color: var(--brand-primary);
+          background-image: url("/src/assets/check.svg");
+          background-size: 16px 16px;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-radius: 50%;
         }
       }
     }

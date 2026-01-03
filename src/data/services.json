@@ -2,8 +2,14 @@
   {
     "id": 1,
     "title": "Garage Door Repair",
-    "description": "Fixing doors that will not open or close. Loud doors. Off track doors. Broken rollers. Damaged panels.",
-    "image": "@/assets/stock-repair.jpg",
+    "shortDescription": "Fixing doors that will not open or close. Loud doors. Off track doors. Broken rollers. Damaged panels.",
+    "description": "When your garage door stops working properly, it can disrupt your entire day. We diagnose and fix all types of garage door problems with same-day service available across Middle Tennessee.",
+    "features": [
+      "Same-day repair service for most issues",
+      "Full inspection included with every repair",
+      "We carry replacement parts on our truck"
+    ],
+    "image": "@/assets/homeGarage1.jpeg",
     "imageAlt": "Professional garage door repair service in Middle Tennessee",
     "cta": "Learn More",
     "href": "/services/repair"
@@ -11,8 +17,14 @@
   {
     "id": 2,
     "title": "Spring Replacement",
-    "description": "Torsion and extension spring replacement for broken or worn garage door springs.",
-    "image": "@/assets/stock-spring.jpg",
+    "shortDescription": "Torsion and extension spring replacement for broken or worn garage door springs.",
+    "description": "Broken garage door springs are one of the most common reasons doors stop working. If your door won't open, feels unusually heavy, or you heard a loud bang, you likely have a broken spring.",
+    "features": [
+      "Same-day spring replacement available",
+      "High-quality springs designed to last",
+      "Most jobs completed in under an hour"
+    ],
+    "image": "@/assets/springs.png",
     "imageAlt": "Same day garage door spring replacement service",
     "cta": "Learn More",
     "href": "/services/spring-replacement"
@@ -20,8 +32,14 @@
   {
     "id": 3,
     "title": "Garage Door Installation",
-    "description": "New garage doors installed for homes in Middle Tennessee. Professional setup and removal of old doors.",
-    "image": "@/assets/garage-install.jpg",
+    "shortDescription": "New garage doors installed for homes in Middle Tennessee. Professional setup and removal of old doors.",
+    "description": "Whether you're building a new home or upgrading an old garage door, we provide professional installation services throughout Middle Tennessee. We'll help you choose the right door based on style, insulation needs, and budget.",
+    "features": [
+      "Free removal and disposal of old doors",
+      "Full safety inspection included",
+      "Warranty on parts and labor"
+    ],
+    "image": "@/assets/homeGarage2.jpeg",
     "imageAlt": "New garage door installation for homes in Middle Tennessee",
     "cta": "Learn More",
     "href": "/services/installation"
@@ -29,8 +47,14 @@
   {
     "id": 4,
     "title": "Opener Repair and Installation",
-    "description": "Fixing non responsive garage door openers. Installing new LiftMaster and Chamberlain style openers.",
-    "image": "@/assets/garage-fix.jpg",
+    "shortDescription": "Fixing non responsive garage door openers. Installing new LiftMaster and Chamberlain style openers.",
+    "description": "A malfunctioning garage door opener can leave you stuck outside or inside your garage. We repair and install all major brands including LiftMaster, Chamberlain, Genie, and Craftsman.",
+    "features": [
+      "WiFi and smartphone enabled openers available",
+      "Remote programming included",
+      "Battery backup options for power outages"
+    ],
+    "image": "@/assets/garageOpener.jpeg",
     "imageAlt": "Garage door opener repair and installation with WiFi features",
     "cta": "Learn More",
     "href": "/services/opener"
@@ -38,8 +62,14 @@
   {
     "id": 5,
     "title": "Garage Door Maintenance",
-    "description": "Tune ups. Lubrication. Safety checks. Balance adjustments.",
-    "image": "@/assets/heroPlaceholder.jpg",
+    "shortDescription": "Tune ups. Lubrication. Safety checks. Balance adjustments.",
+    "description": "Regular maintenance keeps your garage door running smoothly and prevents costly repairs down the road. Most garage doors should be serviced once a year to stay in good condition.",
+    "features": [
+      "Complete tune-up and lubrication",
+      "Safety feature testing and inspection",
+      "Catches small problems before they grow"
+    ],
+    "image": "@/assets/homeGarage8.jpeg",
     "imageAlt": "Regular garage door maintenance and tune-up service",
     "cta": "Learn More",
     "href": "/services/maintenance"
@@ -47,8 +77,14 @@
   {
     "id": 6,
     "title": "24 Hour Emergency Service",
-    "description": "Fast emergency garage door repair in Estill Springs, Tullahoma, Murfreesboro and surrounding areas.",
-    "image": "@/assets/garage-emergency.jpg",
+    "shortDescription": "Fast emergency garage door repair in Estill Springs, Tullahoma, Murfreesboro and surrounding areas.",
+    "description": "Garage door emergencies don't wait for business hours. We offer 24-hour emergency service for urgent problems across Middle Tennessee, responding quickly and coming prepared to fix the issue on the spot.",
+    "features": [
+      "Available nights, weekends, and holidays",
+      "Fast response times for emergencies",
+      "Most repairs completed same day"
+    ],
+    "image": "@/assets/emergency.jpeg",
     "imageAlt": "24 hour emergency garage door repair service in Middle Tennessee",
     "cta": "Learn More",
     "href": "tel:615-555-0123"
