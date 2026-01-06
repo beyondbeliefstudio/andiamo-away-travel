@@ -44,7 +44,30 @@ import mailIcon from "@/assets/mail.svg";
       </div>
 
       <div class="CTA__form-wrapper">
-        <form class="CTA__form">
+        <form
+          data-netlify="true"
+          data-netlify-recaptcha="true"
+          netlify-honeypot="bot-field"
+          name="book-service"
+          class="CTA__form"
+          method="POST"
+          action="/submit-booking"
+        >
+          <!-- Honeypot field - hidden from users but visible to bots -->
+          <p
+            class="hidden"
+            style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;"
+          >
+            <label
+              >Don't fill this out if you're human: <input
+                name="bot-field"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              /></label
+            >
+          </p>
+
           <Heading tag="h3" size="l" fontFamily="primary" marginBottom="none" weight="fw500"
             >Book Your Service</Heading
           >
@@ -76,6 +99,9 @@ import mailIcon from "@/assets/mail.svg";
               <option value="emergency">24 Hour Emergency Service</option>
             </select>
           </div>
+
+          <!-- Netlify reCAPTCHA -->
+          <div data-netlify-recaptcha="true"></div>
 
           <!-- <button type="submit" class="CTA__submit">Make An Appointment</button> -->
           <Buttons variant="primary" type="submit">Make An Appointment</Buttons>
