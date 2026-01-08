@@ -11,6 +11,9 @@ import Buttons from "@/components/Buttons.astro";
   method="POST"
   action="/submit-contact"
 >
+  <!-- Hidden form name field for Netlify -->
+  <input type="hidden" name="form-name" value="contact" />
+
   <!-- Honeypot field - hidden from users but visible to bots -->
   <p class="hidden" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
     <label
@@ -128,6 +131,8 @@ import Buttons from "@/components/Buttons.astro";
 
         // Store submission time
         localStorage.setItem("lastContactSubmission", now.toString());
+
+        // Allow form to submit naturally to Netlify
       });
     }
   });
