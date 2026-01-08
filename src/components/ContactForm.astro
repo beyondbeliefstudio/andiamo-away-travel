@@ -11,9 +11,6 @@ import Buttons from "@/components/Buttons.astro";
   method="POST"
   action="/submit-contact"
 >
-  <!-- Hidden form name field for Netlify -->
-  <input type="hidden" name="form-name" value="contact" />
-
   <!-- Honeypot field - hidden from users but visible to bots -->
   <p class="hidden" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
     <label
@@ -92,7 +89,7 @@ import Buttons from "@/components/Buttons.astro";
   <!-- Netlify reCAPTCHA -->
   <div data-netlify-recaptcha="true"></div>
 
-  <Buttons type="submit" variant="primary">SEND A MESSAGE</Buttons>
+  <Buttons type="submit" variant="primary">Send Message</Buttons>
 </form>
 
 <style lang="scss">
@@ -102,38 +99,3 @@ import Buttons from "@/components/Buttons.astro";
     }
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const contactForm = document.querySelector(".contact-form__form") as HTMLFormElement;
-
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        // Check honeypot field
-        const honeypotField = contactForm.querySelector(
-          'input[name="bot-field"]'
-        ) as HTMLInputElement;
-        if (honeypotField && honeypotField.value.trim() !== "") {
-          e.preventDefault();
-          alert("Form submission failed. Please try again.");
-          return;
-        }
-
-        // Basic rate limiting check
-        const lastSubmission = localStorage.getItem("lastContactSubmission");
-        const now = Date.now();
-        if (lastSubmission && now - parseInt(lastSubmission) < 5000) {
-          // 5 second cooldown
-          e.preventDefault();
-          alert("Please wait a moment before submitting again.");
-          return;
-        }
-
-        // Store submission time
-        localStorage.setItem("lastContactSubmission", now.toString());
-
-        // Allow form to submit naturally to Netlify
-      });
-    }
-  });
-</script>
