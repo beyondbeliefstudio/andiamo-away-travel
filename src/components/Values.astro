@@ -20,36 +20,42 @@ const values = [
     description:
       "You deal directly with me from the first phone call until the job is done. No call centers or subcontractors.",
     icon: local,
+    iconAlt: "Local service icon",
   },
   {
     title: "Lambo on Every Job",
     description:
       "Lambo comes to every appointment. He sits calmly nearby while I work and brings a friendly, personal touch that customers appreciate.",
     icon: lambo,
+    iconAlt: "Dog paw icon",
   },
   {
     title: "Honest Pricing",
     description:
       "You get straightforward guidance on what is needed. No unnecessary repairs or sales tactics.",
     icon: pricing,
+    iconAlt: "Pricing tag icon",
   },
   {
     title: "Fast Response Times",
     description:
       "Most garage door repairs in Estill Springs, Tullahoma and Murfreesboro are completed the same day.",
     icon: fast,
+    iconAlt: "Fast service icon",
   },
   {
     title: "Available When You Need Me",
     description:
       "Open 7 days a week from 8 am to 11 pm with 24 hour emergency service for urgent issues.",
     icon: available,
+    iconAlt: "24/7 availability icon",
   },
   {
     title: "Quality Workmanship",
     description:
       "Every repair and installation is done right the first time with attention to detail and lasting results.",
     icon: quality,
+    iconAlt: "Quality workmanship icon",
   },
 ];
 ---
@@ -72,7 +78,7 @@ const values = [
           values.map(value => (
             <div class="values__card">
               <div class="values__icon">
-                <Image src={value.icon} alt="" aria-hidden="true" />
+                <Image src={value.icon} alt={value.iconAlt} />
               </div>
               <div class="values__content">
                 <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m" weight="fw500">

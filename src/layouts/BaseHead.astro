@@ -10,6 +10,12 @@ import { baseData } from "@/data/siteData";
 const { pageTitle = baseData.title, description = baseData.description } = Astro.props;
 const GA_MEASUREMENT_ID = "xxx";
 const AHREFS_DATA_KEY = "EWBDwpialEjcesfLXA6qGQ";
+
+// Open Graph
+const ogTitle = `Lambos Garage Door Service | ${pageTitle}`;
+const ogDescription = description;
+const ogImage = new URL("/og-image.jpg", Astro.site).toString();
+const ogUrl = Astro.url.toString();
 ---
 
 <head>
@@ -20,6 +26,20 @@ const AHREFS_DATA_KEY = "EWBDwpialEjcesfLXA6qGQ";
   <meta name="generator" content={Astro.generator} />
   <title>Lambos Garage Door Service | {pageTitle}</title>
   <meta name="description" content={description} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={ogUrl} />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={ogUrl} />
+  <meta property="twitter:title" content={ogTitle} />
+  <meta property="twitter:description" content={ogDescription} />
+  <meta property="twitter:image" content={ogImage} />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
