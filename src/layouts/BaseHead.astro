@@ -1,6 +1,7 @@
 ---
 // COMPONENTS
 import Analytics from "@/components/Analytics.astro";
+import AhrefsAnalytics from "@/components/AhrefsAnalytics.astro";
 
 // DATA
 import { baseData } from "@/data/siteData";
@@ -8,6 +9,7 @@ import { baseData } from "@/data/siteData";
 // PROPS
 const { pageTitle = baseData.title, description = baseData.description } = Astro.props;
 const GA_MEASUREMENT_ID = "xxx";
+const AHREFS_DATA_KEY = "EWBDwpialEjcesfLXA6qGQ";
 ---
 
 <head>
@@ -48,4 +50,5 @@ const GA_MEASUREMENT_ID = "xxx";
   <script src="@/js/app.js"></script>
 
   <!-- <Analytics measurementId={GA_MEASUREMENT_ID} /> -->
+  <AhrefsAnalytics dataKey={AHREFS_DATA_KEY} />
 </head>
