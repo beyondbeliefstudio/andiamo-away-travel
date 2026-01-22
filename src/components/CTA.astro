@@ -7,7 +7,7 @@ import Buttons from "@/components/Buttons.astro";
 import { baseData } from "@/data/siteData";
 
 // HELPERS
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 
 // IMAGES
 import garageHome from "@/assets/garageHome.jpg";
@@ -18,7 +18,20 @@ import mailIcon from "@/assets/mail.svg";
 <section class="CTA">
   <div class="container container-md CTA__container">
     <div class="CTA__content grid-auto-2">
-      <Image src={garageHome} alt="Garage door service" class="CTA__bg" />
+      <div class="CTA__bg">
+        <Picture
+          src={garageHome}
+          formats={["avif", "webp"]}
+          alt=""
+          width={1920}
+          height={1080}
+          widths={[640, 1024, 1920]}
+          sizes="100vw"
+          quality={60}
+          loading="eager"
+          decoding="async"
+        />
+      </div>
       <div class="CTA__overlay"></div>
       <div class="CTA__text">
         <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500"
@@ -132,12 +145,16 @@ import mailIcon from "@/assets/mail.svg";
       left: 0;
       right: 0;
       bottom: 0;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.2; // Adjust this value (0 to 1) to control image opacity
       z-index: 0;
-      background-attachment: fixed;
+      opacity: 0.2; // Adjust this value (0 to 1) to control image opacity
+
+      :global(picture),
+      :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
 
     &__overlay {
