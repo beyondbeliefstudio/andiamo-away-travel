@@ -1,6 +1,7 @@
 ---
 // COMPONENTS
 import Heading from "@/components/Heading.astro";
+import Links from "@/components/Links.astro";
 
 // HELPERS
 import type { HTMLAttributes } from "astro/types";
@@ -14,9 +15,26 @@ export interface HeroProps extends HTMLAttributes<"section"> {
   classes?: string;
   imageSrc?: string;
   imageAlt?: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
 }
 
-const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...rest } = Astro.props;
+const {
+  pageTitle,
+  title,
+  subtitle,
+  ariaLabel,
+  classes,
+  imageSrc,
+  imageAlt,
+  primaryCtaText,
+  primaryCtaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
+  ...rest
+} = Astro.props;
 ---
 
 <section class:list={["internal-hero", classes]} aria-label={ariaLabel} {...rest}>
@@ -36,9 +54,7 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
         >
       </div>
       <div class="internal-hero__copy">
-        <p class="">
-          {subtitle}
-        </p>
+        <slot />
       </div>
     </div>
     <div class="content-full internal-hero__img">
@@ -78,7 +94,7 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
 
     &__content {
       text-align: left;
-      align-items: end;
+      align-items: start;
     }
 
     .img-wrapper {
@@ -100,8 +116,19 @@ const { pageTitle, title, subtitle, ariaLabel, classes, imageSrc, imageAlt, ...r
     }
 
     &__copy {
+      text-wrap: pretty;
+
       p {
         margin-bottom: 0;
+      }
+    }
+
+    &__btn-group {
+      margin-top: 1.5rem;
+      justify-content: flex-start;
+
+      @media (max-width: 768px) {
+        margin-top: 1rem;
       }
     }
   }

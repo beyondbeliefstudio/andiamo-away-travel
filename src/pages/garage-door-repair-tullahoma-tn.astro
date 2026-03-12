@@ -1,0 +1,289 @@
+---
+// COMPONENTS
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/Heading.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import Links from "@/components/Links.astro";
+import CardGrid from "@/components/CardGrid.astro";
+import ServicesCard from "@/components/ServicesCard.astro";
+import FAQ from "@/components/FAQ.astro";
+
+// IMAGES
+import homeGarage from "@/assets/homeGarage10.jpeg";
+import seanGarage from "@/assets/seanGarage.png";
+import closingDoor from "@/assets/closingDoor.png";
+import repairingDoor from "@/assets/repairingDoor.png";
+import tuneUp from "@/assets/tuneup.png";
+
+// ICONS
+import quality from "@/assets/quality.svg";
+import pricing from "@/assets/pricing.svg";
+import available from "@/assets/available.svg";
+
+// DATA
+import { getCollection } from "astro:content";
+const faq = await getCollection("garageDoorRepairTullahomaFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
+
+const repairCardData = [
+  {
+    title: "Complete System Inspection",
+    description:
+      "We inspect springs, cables, rollers, tracks, hinges, opener components, and safety sensors to determine the root cause of the issue.",
+    icon: quality,
+    iconAlt: "Inspection checklist icon",
+  },
+  {
+    title: "Clear Diagnosis & Transparent Estimate",
+    description:
+      "Once we identify the problem, we explain the repair clearly and provide an upfront estimate before starting any work.",
+    icon: pricing,
+    iconAlt: "Transparent pricing icon",
+  },
+  {
+    title: "Professional Repair & Testing",
+    description:
+      "After completing the repair, we test door balance, smooth operation, and safety features to ensure everything functions properly.",
+    icon: available,
+    iconAlt: "Quality assurance icon",
+  },
+];
+
+const locationServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Garage Door Repair",
+  areaServed: {
+    "@type": "City",
+    name: "Tullahoma",
+    addressRegion: "TN",
+  },
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Lambo's Garage Door Service",
+  },
+};
+---
+
+<Layout
+  pageTitle="Garage Door Repair in Tullahoma, TN | Lambo's Garage Door Service"
+  description="Fast, reliable garage door repair in Tullahoma, TN. Broken springs, opener repair, and emergency service across Coffee County. Call today for service."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(locationServiceSchema)} />
+
+  <InternalHero
+    pageTitle="Garage Door Repair in Tullahoma, TN"
+    title="Fast, Reliable Garage Door Service for Tullahoma Homes"
+    ariaLabel="Garage Door Repair Hero Section"
+    imageSrc={homeGarage}
+    imageAlt="Home garage with a well-maintained garage door"
+    primaryCtaText="Schedule Garage Door Repair"
+    primaryCtaHref="/contact"
+    secondaryCtaText="Call Now for Service"
+    secondaryCtaHref="tel:+19312229963"
+  >
+    <p>
+      When your garage door stops working properly, it can quickly interrupt your day and create
+      safety concerns for your home. Lambo’s Garage Door Service provides professional garage door
+      repair in Tullahoma, Tennessee, helping homeowners restore safe and dependable operation
+      quickly.
+    </p>
+    <p>
+      Located just a short drive away in Estill Springs, we regularly provide garage door repair
+      throughout Tullahoma and surrounding Coffee County communities. Whether you're dealing with a
+      broken spring, a door that has come off track, damaged cables, or an opener malfunction, we
+      diagnose the issue and fix it correctly.
+    </p>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links variant="primary" href="/contact">Schedule Garage Door Repair</Links>
+      <Links variant="outline" href="tel:+19312229963">Call Now for Service</Links>
+    </div>
+  </InternalHero>
+
+  <SplitOverlay
+    title="Local Garage Door Repair Near Tullahoma"
+    imgSrc={tuneUp}
+    imgAlt="Garage door tune-up service"
+    background="bg-primary"
+    orientation="right"
+  >
+    <p>
+      Garage doors are one of the most frequently used systems in your home. Many homeowners in
+      Tullahoma rely on their garage doors multiple times each day, especially in neighborhoods
+      where the garage serves as the main entry point.
+    </p>
+
+    <p>
+      Over time, the constant movement of springs, rollers, hinges, and cables naturally causes wear
+      throughout the system. Weather conditions across Coffee County, including humidity and
+      seasonal temperature changes, can also contribute to metal fatigue and mechanical stress.
+    </p>
+
+    <p>
+      Because our shop is located nearby in Estill Springs, we are able to respond quickly to garage
+      door repair calls throughout Tullahoma and surrounding areas.
+    </p>
+
+    <p>
+      Our goal is simple: identify the root cause of the problem and restore smooth, reliable
+      operation for your garage door system.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Common Garage Door Problems We Repair in Tullahoma"
+    imgSrc={seanGarage}
+    imgAlt="Sean performing garage door maintenance service"
+    background="bg-light"
+    orientation="left"
+  >
+    <p>
+      Many garage door problems begin as small mechanical issues before becoming larger failures if
+      left untreated.
+    </p>
+
+    <p>Homeowners in Tullahoma commonly call us for repairs involving:</p>
+
+    <ul>
+      <li><p>Broken torsion or extension springs</p></li>
+      <li><p>Snapped or frayed lift cables</p></li>
+      <li><p>Garage doors that have come off track</p></li>
+      <li><p>Worn rollers causing loud grinding or vibration</p></li>
+      <li><p>Bent or misaligned tracks</p></li>
+      <li><p>Garage door opener motor failures</p></li>
+      <li><p>Remote or keypad connection issues</p></li>
+      <li><p>Safety sensor alignment problems</p></li>
+    </ul>
+
+    <p>
+      If your garage door suddenly becomes extremely heavy or refuses to lift, a broken spring is
+      often the cause. In that case, our <strong
+        ><a href="/garage-door-spring-replacement">Garage Door Spring Replacement</a></strong
+      > service can safely restore proper door balance.
+    </p>
+
+    <p>
+      If the opener motor runs but the door does not move properly, our <strong
+        ><a href="/garage-door-opener-repair">Garage Door Opener Repair</a></strong
+      > & <strong><a href="/garage-door-installation">Installation</a></strong> service can restore dependable
+      operation.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Why Prompt Garage Door Repair Matters"
+    imgSrc={repairingDoor}
+    imgAlt="Repairing a garage door"
+    background="bg-dark"
+    orientation="right"
+  >
+    <p>
+      Many homeowners continue using their garage door even after noticing unusual noises or
+      inconsistent operation. Unfortunately, small problems can quickly lead to more serious
+      mechanical failures.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Prevent Larger Repairs</Heading
+    >
+
+    <p>
+      When springs, cables, or rollers begin to wear down, the opener motor must work harder to move
+      the door. Over time this added strain can damage the opener or lead to additional component
+      failure.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Maintain Home Safety</Heading
+    >
+
+    <p>
+      Garage doors operate under high tension and can weigh hundreds of pounds. Damaged springs or
+      cables can fail unexpectedly and create safety risks.
+    </p>
+
+    <p>
+      Addressing problems early helps keep your garage door system operating safely and reliably.
+    </p>
+  </SplitOverlay>
+
+  <section class="bg-light">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Our Garage Door Repair Process
+        </Heading>
+        <p class="margin-bottom-xl">
+          When you schedule service in Tullahoma, we follow a straightforward process designed to
+          provide dependable results. Most garage door repairs can be completed during a single
+          service visit.
+        </p>
+      </div>
+      <div class="content-full">
+        <CardGrid cardData={repairCardData} />
+      </div>
+    </div>
+  </section>
+
+  <FAQ faq={faqData} />
+
+  <SplitOverlay
+    title="Serving Tullahoma and Surrounding Communities"
+    imgSrc={closingDoor}
+    imgAlt="Closing a garage door"
+    background="bg-primary"
+    orientation="left"
+  >
+    <p>
+      Our garage door repair services extend throughout Tullahoma and surrounding areas across
+      Coffee County and Franklin County.
+    </p>
+
+    <p>Because we are based nearby in Estill Springs, we regularly serve homeowners in:</p>
+
+    <ul>
+      <li>
+        <p><a href="/garage-door-repair-tullahoma-tn">Tullahoma</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-winchester-tn">Winchester</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-decherd-tn">Decherd</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-estill-springs-tn">Estill Springs</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-lynchburg-tn">Lynchburg</a></p>
+      </li>
+    </ul>
+
+    <p>If you're searching for garage door repair in Tullahoma, TN, our team is ready to help.</p>
+  </SplitOverlay>
+
+  <section>
+    <div class="container container-md column-main">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Garage Door Services Available in Tullahoma
+        </Heading>
+        <p class="margin-bottom-xl">
+          In addition to garage door repair, we provide a full range of garage door services
+          throughout Tullahoma and nearby communities.
+        </p>
+      </div>
+      <div class="content-full">
+        <div class="services-grid flex">
+          <ServicesCard descriptionType="short" excludeIds={[1]} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

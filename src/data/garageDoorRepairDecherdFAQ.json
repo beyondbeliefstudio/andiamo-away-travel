@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "question": "How quickly can you repair a garage door in Decherd?",
+    "answer": "Because we're located nearby in Estill Springs, we're often able to respond quickly to service calls in Decherd depending on scheduling availability.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "What causes garage door springs to break?",
+    "answer": "Springs wear out over time due to repeated opening and closing cycles. Temperature changes across Franklin County can also contribute to metal fatigue.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "Should I repair or replace my garage door?",
+    "answer": "If the issue is limited to specific components like springs, rollers, or cables, repair is usually the most cost-effective solution. If the door itself is older or severely damaged, replacement may be recommended.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "Do you offer emergency garage door repair near Decherd?",
+    "answer": "Yes. We provide emergency garage door repair throughout Central Tennessee including Decherd and surrounding communities.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "Can you repair all garage door brands?",
+    "answer": "Yes. We service and repair most major residential garage door brands and opener systems.",
+    "tag": "a5"
+  }
+]

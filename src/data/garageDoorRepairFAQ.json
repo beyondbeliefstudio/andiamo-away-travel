@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "How do I know if my garage door needs professional repair?",
+    "answer": "If your garage door is making unusual noises, moving unevenly, struggling to open or close, or reversing unexpectedly, those are signs something may be wrong. A door that suddenly feels heavier than normal often indicates a broken spring. Delaying repair can place additional strain on other components like cables and opener motors. If you’re unsure, it’s best to schedule an inspection so the issue can be diagnosed safely and accurately.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "What is the most common garage door repair?",
+    "answer": "The most common garage door repair involves broken torsion or extension springs. Springs carry most of the door’s weight and naturally wear out over time. Other frequent repairs include cable replacement, roller replacement, track alignment, and garage door opener troubleshooting. Many homeowners in Franklin and Coffee County experience spring failures due to normal wear combined with temperature fluctuations throughout the year.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "How much does garage door repair typically cost?",
+    "answer": "Garage door repair costs vary depending on the type of issue and the parts required. Minor repairs such as roller replacement or sensor adjustment are generally more affordable, while spring replacement or structural track repair requires more labor and specialized tools. We provide clear, upfront pricing before starting any work so you understand exactly what to expect.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "Can I repair my garage door myself?",
+    "answer": "Garage door systems operate under significant tension, especially the springs and cables. Attempting to repair high-tension components without proper tools and experience can result in serious injury. While minor maintenance like lubrication can be done by homeowners, most repairs should be handled by a trained professional to ensure safety and proper balance.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "How long does a typical garage door repair take?",
+    "answer": "Most garage door repairs can be completed in a single visit. Simple repairs may take less than an hour, while more involved repairs such as spring replacement or track realignment may take longer depending on the condition of the system. After completing the repair, we test the door for balance, smooth operation, and safety before considering the job finished.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Do you offer emergency garage door repair?",
+    "answer": "Yes. We provide 24/7 emergency garage door repair throughout Central Tennessee, including Franklin and Coffee County. If your garage door is stuck open, will not close before severe weather, or traps your vehicle inside, we can respond quickly to restore safe operation. Emergency service is available when immediate attention is needed.",
+    "tag": "a6"
+  }
+]

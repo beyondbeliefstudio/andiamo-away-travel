@@ -2,9 +2,6 @@
 // COMPONENTS
 import Heading from "@/components/Heading.astro";
 
-// HELPERS
-import { Image } from "astro:assets";
-
 // ICONS
 import local from "@/assets/local.svg";
 import lambo from "@/assets/lambo.svg";
@@ -12,6 +9,8 @@ import pricing from "@/assets/pricing.svg";
 import fast from "@/assets/fast.svg";
 import available from "@/assets/available.svg";
 import quality from "@/assets/quality.svg";
+
+import CardGrid from "./CardGrid.astro";
 
 // DATA
 const values = [
@@ -73,58 +72,7 @@ const values = [
       </p>
     </div>
     <div class="content-full">
-      <div class="values__grid grid-auto-3">
-        {
-          values.map(value => (
-            <div class="values__card">
-              <div class="values__icon">
-                <Image src={value.icon} alt={value.iconAlt} />
-              </div>
-              <div class="values__content">
-                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m" weight="fw500">
-                  {value.title}
-                </Heading>
-                <p>{value.description}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
+      <CardGrid cardData={values} />
     </div>
   </div>
 </section>
-
-<style lang="scss">
-  .values {
-    &__card {
-      padding: 1rem;
-      border-radius: var(--border-radius-small);
-      background-color: var(--light-100);
-      display: flex;
-      flex-direction: column;
-      gap: var(--_spacing---space--6);
-    }
-
-    &__icon {
-      width: 60px;
-      height: 60px;
-      background: var(--brand-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border: 1px solid var(--dark-900);
-
-      img {
-        width: 32px;
-        height: 32px;
-        filter: invert(1);
-      }
-    }
-
-    &__content {
-      text-align: left;
-    }
-  }
-</style>

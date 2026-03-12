@@ -6,23 +6,27 @@ import ContactForm from "@/components/ContactForm.astro";
 import Heading from "@/components/Heading.astro";
 
 // IMAGES
-import garageHome from "@/assets/garageHome.jpg";
 import garageHomeCompressed from "@/assets/garageHomeCompresed.jpg";
 ---
 
 <Layout
-  pageTitle="Contact Us"
-  description="Get in touch with Lambo's Garage Door Service for all your garage door needs. We're here to help with repairs, installations, and inquiries."
+  pageTitle="Contact Lambo’s Garage Door Service | Schedule Repair"
+  description="Need garage door repair or service? Contact Lambo’s Garage Door Service in Estill Springs to schedule fast, reliable service today."
   hideCTA={true}
 >
   <InternalHero
-    pageTitle="Contact Us"
+    pageTitle="Contact Lambo’s Garage Door Service"
     title="Get in Touch with Lambo's Garage Door Service"
-    subtitle="Whether you have questions about our services, need a quote, or want to schedule an appointment, we're here to help. Contact us today and experience the difference of working with a local garage door expert who cares about your satisfaction."
     ariaLabel="Contact Us Hero Section"
     imageSrc={garageHomeCompressed}
     imageAlt="Contact Lambo's Garage Door Service"
-  />
+  >
+    <p>
+      Whether you have questions about our services, need a quote, or want to schedule an
+      appointment, we're here to help. Contact us today and experience the difference of working
+      with a local garage door expert who cares about your satisfaction.
+    </p>
+  </InternalHero>
 
   <section class="contact bg-light">
     <div class="container container-lg">

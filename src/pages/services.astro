@@ -4,24 +4,29 @@ import InternalHero from "@/components/InternalHero.astro";
 import Layout from "@/layouts/Layout.astro";
 import ServicesCard from "@/components/ServicesCard.astro";
 import Heading from "@/components/Heading.astro";
-import Links from "@/components/Links.astro";
 
 // IMAGES
 import garageHome2 from "@/assets/garageHome2.jpg";
 ---
 
 <Layout
-  pageTitle="Services"
-  description="Professional garage door services in Estill Springs, Tullahoma & Murfreesboro TN. Spring replacement, opener repair, installation & 24/7 emergency service."
+  pageTitle="Garage Door Services | Repair, Installation & Openers"
+  description="Professional garage door services including repair, spring replacement, opener repair, installation, and maintenance across Franklin and Coffee County."
 >
   <InternalHero
-    pageTitle="Our Services"
+    pageTitle="Complete Garage Door Services for Your Home"
     title="Comprehensive Garage Door Solutions"
-    subtitle="From spring replacements and opener repairs to complete installations and emergency service, we provide a full suite of garage door services tailored to your needs throughout Estill Springs, Tullahoma, Murfreesboro, Winchester, Manchester, and surrounding Middle Tennessee areas."
     ariaLabel="Services Hero Section"
     imageSrc={garageHome2}
     imageAlt="Garage door service and repair"
-  />
+  >
+    <p>
+      From spring replacements and opener repairs to complete installations and emergency service,
+      we provide a full suite of garage door services tailored to your needs throughout Estill
+      Springs, Tullahoma, Murfreesboro, Winchester, Manchester, and surrounding Middle Tennessee
+      areas.
+    </p>
+  </InternalHero>
 
   <section class="bg-light">
     <div class="container container-md">

@@ -1,0 +1,319 @@
+---
+// COMPONENTS
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/Heading.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import Links from "@/components/Links.astro";
+import CardGrid from "@/components/CardGrid.astro";
+import ServicesCard from "@/components/ServicesCard.astro";
+import FAQ from "@/components/FAQ.astro";
+
+// IMAGES
+import garageFall from "@/assets/garageFall.jpg";
+import homeGarage from "@/assets/homeGarage10.jpeg";
+import fixingDoor from "@/assets/fixingDoor.png";
+import repairingDoor from "@/assets/repairingDoor.png";
+import closingDoor from "@/assets/closingDoor.png";
+
+// ICONS
+import quality from "@/assets/quality.svg";
+import pricing from "@/assets/pricing.svg";
+import available from "@/assets/available.svg";
+
+// DATA
+import { getCollection } from "astro:content";
+const faq = await getCollection("garageDoorRepairFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
+
+const repairCardData = [
+  {
+    title: "Comprehensive Inspection",
+    description:
+      "We evaluate springs, cables, rollers, hinges, tracks, opener components, and safety sensors to identify all contributing factors.",
+    icon: quality,
+    iconAlt: "Inspection checklist icon",
+  },
+  {
+    title: "Clear Diagnosis & Estimate",
+    description:
+      "We explain the issue in straightforward terms and provide transparent pricing before starting repairs.",
+    icon: pricing,
+    iconAlt: "Transparent pricing icon",
+  },
+  {
+    title: "Professional Repair & Testing",
+    description:
+      "After completing the repair, we test door balance, smooth operation, and safety reversal features to ensure proper performance.",
+    icon: available,
+    iconAlt: "Quality assurance icon",
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Garage Door Repair",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Lambo's Garage Door Service",
+  },
+  areaServed: ["Franklin County TN", "Coffee County TN"],
+};
+---
+
+<Layout
+  pageTitle="Garage Door Repair in Franklin & Coffee County, TN | Lambo’s"
+  description="Need garage door repair in Middle Tennessee? We fix broken springs, cables, openers & off-track doors. Fast service across Winchester & surrounding areas."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <InternalHero
+    pageTitle="Garage Door Repair in Central Tennessee"
+    title="When Your Garage Door Stops Working, We Get It Moving Again"
+    ariaLabel="Garage Door Repair Hero Section"
+    imageSrc={homeGarage}
+    imageAlt="Home with a new garage door installed"
+    primaryCtaText="Schedule Garage Door Repair"
+    primaryCtaHref="/contact"
+    secondaryCtaText="Call Now for Service"
+    secondaryCtaHref="tel:+19312229963"
+  >
+    <p>
+      Lambo’s Garage Door Service provides professional garage door repair throughout Franklin
+      County and Coffee County, Tennessee. From broken springs and off-track doors to opener
+      malfunctions and emergency repairs, we deliver dependable service backed by honest pricing and
+      quality workmanship.
+    </p>
+    <p>
+      We proudly serve Winchester, Tullahoma, Lynchburg, Estill Springs, Decherd, and surrounding
+      communities.
+    </p>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links variant="primary" href="/contact">Schedule Garage Door Repair</Links>
+      <Links variant="outline" href="tel:+19312229963">Call Now for Service</Links>
+    </div>
+  </InternalHero>
+
+  <!-- Content for the About Us page goes here -->
+  <section class="bg-primary">
+    <div class="container container-md">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500"
+          >Local Garage Door Repair You Can Trust
+        </Heading>
+        <p>
+          When your garage door stops working properly, it affects more than convenience. A door
+          that won’t open can delay your entire day. A door that won’t close securely creates safety
+          and security concerns for your home.
+        </p>
+
+        <p>
+          Garage doors are heavy mechanical systems built from springs, cables, rollers, tracks,
+          hinges, and opener components that must operate in balance. Over time, normal daily use
+          across homes in Franklin and Coffee County causes these components to wear down.
+          Temperature changes and humidity in this region can also contribute to metal fatigue and
+          mechanical stress.
+        </p>
+
+        <p>
+          We approach every repair with a full system inspection to identify the root cause of the
+          issue. Our goal is not just to get your door moving again, but to restore safe, reliable
+          operation that lasts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SplitOverlay
+    title="Common Garage Door Issues We Repair"
+    imgSrc={garageFall}
+    imgAlt="Garage door with fall leaves in front of it"
+    background="bg-light"
+    orientation="left"
+  >
+    <p>
+      Most repair calls in Winchester, Tullahoma, and surrounding areas involve wear-related
+      mechanical failures. These issues often develop gradually before becoming a full system
+      breakdown.
+    </p>
+
+    <p><strong>We regularly repair:</strong></p>
+
+    <ul>
+      <li><p>Broken torsion and extension springs</p></li>
+      <li><p>Snapped or frayed lift cables</p></li>
+      <li><p>Garage doors that have come off track</p></li>
+      <li><p>Bent or misaligned tracks</p></li>
+      <li><p>Worn rollers causing vibration or loud grinding noises</p></li>
+      <li><p>Doors stuck open or stuck closed</p></li>
+      <li><p>Safety sensor alignment problems</p></li>
+      <li><p>Garage door opener motor failures</p></li>
+      <li><p>Remote and keypad malfunctions</p></li>
+    </ul>
+
+    <p>
+      If your door suddenly becomes extremely heavy or refuses to lift, you may need <strong
+        ><a href="/garage-door-spring-replacement">Garage Door Spring Replacement</a></strong
+      >. If your opener runs but the door does not move properly, our <strong
+        ><a href="/garage-door-opener-repair">Garage Door Opener Repair</a></strong
+      > and <strong><a href="/garage-door-installation">Garage Door Installation</a></strong>
+      services may be the right solution.
+    </p>
+
+    <p>No matter the issue, we diagnose the problem accurately before recommending repairs.</p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Why Prompt Garage Door Repair Matters"
+    imgSrc={fixingDoor}
+    imgAlt="Repairing a garage door"
+    background="bg-dark"
+    orientation="right"
+  >
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Prevent Bigger Repairs Later</Heading
+    >
+
+    <p>
+      When one part of your garage door system fails, other components are forced to compensate. For
+      example, a weakened spring places additional strain on the opener motor. Over time, this
+      strain can lead to premature motor failure or cable damage.
+    </p>
+
+    <p>
+      Addressing issues early helps prevent higher repair costs and protects the lifespan of your
+      entire system.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Protect Your Home’s Safety & Security</Heading
+    >
+
+    <p>
+      Garage doors can weigh hundreds of pounds and operate under significant tension. Damaged
+      springs or cables can fail unexpectedly. A door that will not close properly can leave your
+      home vulnerable.
+    </p>
+
+    <p>
+      If you are facing an urgent issue, we provide 24/7 Emergency Garage Door Service throughout
+      Franklin and Coffee County.
+    </p>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links variant="outline-light" href={"tel:+19312229963"}>Call Now for Emergency Service</Links
+      >
+    </div>
+  </SplitOverlay>
+
+  <section class="bg-light">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Our Repair Process
+        </Heading>
+        <p class="margin-bottom-xl">
+          We follow a consistent repair process designed to deliver reliable results for homeowners
+          and businesses across Franklin and Coffee County.
+        </p>
+      </div>
+      <div class="content-full">
+        <CardGrid cardData={repairCardData} />
+      </div>
+    </div>
+  </section>
+
+  <SplitOverlay
+    title="Understanding Garage Door Repair Costs"
+    imgSrc={repairingDoor}
+    imgAlt="Repairing a garage door"
+    background="bg-primary"
+    orientation="left"
+  >
+    <p>
+      Repair pricing depends on the specific issue and the parts involved. Minor adjustments or
+      roller replacements are typically more affordable than replacing high-tension torsion springs
+      or repairing structural track damage.
+    </p>
+
+    <p><strong>Factors that influence cost include:</strong></p>
+
+    <ul>
+      <li><p>Type of component being repaired</p></li>
+      <li><p>Door size and weight</p></li>
+      <li><p>Extent of wear or structural damage</p></li>
+      <li><p>Emergency service timing</p></li>
+    </ul>
+
+    <p>
+      We provide transparent, upfront estimates before beginning any work so you know exactly what
+      to expect.
+    </p>
+
+    <p>
+      If your garage door is outdated or severely damaged, it may be more cost-effective to consider
+      <strong><a href="/garage-door-installation">Garage Door Installation</a></strong> as a long-term
+      solution.
+    </p>
+  </SplitOverlay>
+
+  <FAQ faq={faqData} />
+
+  <SplitOverlay
+    title="Garage Door Service Across Franklin & Coffee County"
+    imgSrc={closingDoor}
+    imgAlt="Closing a garage door"
+    background="bg-light"
+    orientation="right"
+  >
+    <p>
+      Lambo’s Garage Door Service proudly provides professional garage door repair, installation,
+      and maintenance throughout Franklin County, Coffee County, and surrounding Central Tennessee
+      communities.
+    </p>
+
+    <p>Because we are based nearby in Estill Springs, we regularly serve homeowners in:</p>
+
+    <ul>
+      <li>
+        <p><a href="/garage-door-repair-tullahoma-tn">Tullahoma</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-winchester-tn">Winchester</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-decherd-tn">Decherd</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-estill-springs-tn">Estill Springs</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-lynchburg-tn">Lynchburg</a></p>
+      </li>
+    </ul>
+  </SplitOverlay>
+
+  <section>
+    <div class="container container-md column-main">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Explore Our Other Garage Door Services
+        </Heading>
+        <p class="margin-bottom-xl">
+          To keep your entire system operating safely and efficiently, we also provide the following
+          services.
+        </p>
+      </div>
+      <div class="content-full">
+        <div class="services-grid flex">
+          <ServicesCard descriptionType="short" excludeIds={[1]} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

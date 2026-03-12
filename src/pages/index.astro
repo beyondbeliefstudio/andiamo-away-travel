@@ -11,12 +11,136 @@ import Links from "@/components/Links.astro";
 
 // IMAGES
 import seanLambo from "@/assets/SeanLambo.png";
+import CardGrid from "@/components/CardGrid.astro";
+import Heading from "@/components/Heading.astro";
+import homeGarage from "@/assets/homeGarage10.jpeg";
+
+// ICONS
+import local from "@/assets/local.svg";
+import lambo from "@/assets/lambo.svg";
+import pricing from "@/assets/pricing.svg";
+import fast from "@/assets/fast.svg";
+import available from "@/assets/available.svg";
+import quality from "@/assets/quality.svg";
+
+// DATA
+const values = [
+  {
+    title: "Local One on One Service",
+    description:
+      "You deal directly with me from the first phone call until the job is done. No call centers or subcontractors.",
+    icon: local,
+    iconAlt: "Local service icon",
+  },
+  {
+    title: "Lambo on Every Job",
+    description:
+      "Lambo comes to every appointment. He sits calmly nearby while I work and brings a friendly, personal touch that customers appreciate.",
+    icon: lambo,
+    iconAlt: "Dog paw icon",
+  },
+  {
+    title: "Honest Pricing",
+    description:
+      "You get straightforward guidance on what is needed. No unnecessary repairs or sales tactics.",
+    icon: pricing,
+    iconAlt: "Pricing tag icon",
+  },
+  {
+    title: "Fast Response Times",
+    description:
+      "Most garage door repairs in Estill Springs, Tullahoma and Murfreesboro are completed the same day.",
+    icon: fast,
+    iconAlt: "Fast service icon",
+  },
+  {
+    title: "Available When You Need Me",
+    description:
+      "Open 7 days a week from 8 am to 11 pm with 24 hour emergency service for urgent issues.",
+    icon: available,
+    iconAlt: "24/7 availability icon",
+  },
+  {
+    title: "Quality Workmanship",
+    description:
+      "Every repair and installation is done right the first time with attention to detail and lasting results.",
+    icon: quality,
+    iconAlt: "Quality workmanship icon",
+  },
+];
+
+const serviceAreas = [
+  {
+    title: "Winchester, TN",
+    description:
+      "As the county seat of Franklin County, Winchester is one of the areas we serve most frequently. From neighborhoods near Tims Ford Lake to homes throughout the city, we provide fast and reliable garage door repair for Winchester homeowners.",
+    href: "/garage-door-repair-winchester-tn",
+    ctaText: "Garage Door Repair in Winchester",
+  },
+  {
+    title: "Tullahoma, TN",
+    description:
+      "Tullahoma is one of the larger communities in the region, and many homeowners rely on their garage doors as a primary entrance to the home. We provide dependable garage door repair and installation services across Tullahoma and surrounding Coffee County neighborhoods.",
+    href: "/garage-door-repair-tullahoma-tn",
+    ctaText: "Garage Door Repair in Tullahoma",
+  },
+  {
+    title: "Estill Springs, TN",
+    description:
+      "Our business is proudly based right here in Estill Springs. Being located locally allows us to respond quickly to garage door repair calls throughout the community and nearby areas across Franklin County.",
+    href: "/garage-door-repair-estill-springs-tn",
+    ctaText: "Garage Door Repair in Estill Springs",
+  },
+  {
+    title: "Decherd, TN",
+    description:
+      "Located just outside Winchester, Decherd homeowners depend on their garage doors daily for security and convenience. We regularly provide garage door repairs, spring replacement, and opener service throughout the Decherd area.",
+    href: "/garage-door-repair-decherd-tn",
+    ctaText: "Garage Door Repair in Decherd",
+  },
+  {
+    title: "Lynchburg, TN",
+    description:
+      "Just a short drive from our Estill Springs location, Lynchburg homeowners trust us for dependable garage door repair and maintenance. We proudly serve the Lynchburg community and surrounding Moore County area.",
+    href: "/garage-door-repair-lynchburg-tn",
+    ctaText: "Garage Door Repair in Lynchburg",
+  },
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "GarageDoorService",
+  name: "Lambo's Garage Door Service",
+  url: "https://lambosgaragedoorservice.com",
+  image: "https://lambosgaragedoorservice.com/og-image.jpg",
+  telephone: "+19312229963",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Estill Springs",
+    addressRegion: "TN",
+    postalCode: "37330",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Estill Springs" },
+    { "@type": "City", name: "Winchester" },
+    { "@type": "City", name: "Tullahoma" },
+    { "@type": "City", name: "Decherd" },
+    { "@type": "City", name: "Lynchburg" },
+  ],
+  sameAs: [
+    "https://www.facebook.com/lambosgaragedoorservice",
+    "https://www.yelp.com/biz/lambo-s-garage-door-service-estill-springs-2",
+  ],
+};
 ---
 
 <Layout
-  pageTitle="Home"
-  description="Professional garage door services including installation, repair, and maintenance. Serving residential and commercial clients with quality workmanship."
+  pageTitle="Garage Door Repair in Franklin & Coffee County | Lambo’s"
+  description="Fast, reliable garage door repair, installation, & maintenance in Franklin & Coffee County. Serving Winchester, Tullahoma, Estill Springs & nearby areas."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
   <MainHero />
 
   <ScrollingText
@@ -25,12 +149,29 @@ import seanLambo from "@/assets/SeanLambo.png";
 
   <Services />
 
+  <section class="values bg-light">
+    <div class="container container-md column-main">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Why Choose Lambo's Garage Door Service
+        </Heading>
+        <p class="margin-bottom-xl">
+          When you hire Lambo's Garage Door Service, you are getting more than just a repair or
+          installation. You are working with a locally owned business that values quality, honesty
+          and personal service.
+        </p>
+      </div>
+      <div class="content-full">
+        <CardGrid cardData={values} />
+      </div>
+    </div>
+  </section>
+
   <SplitOverlay
     eyebrow="Meet Your Technician"
     title="Sean & Lambo"
     imgSrc={seanLambo}
     imgAlt="Sean and Lambo"
-    imgText="Your local garage door team"
     background="bg-dark"
     orientation="right"
   >
@@ -51,10 +192,125 @@ import seanLambo from "@/assets/SeanLambo.png";
       <span class="callout">Friendly</span>
     </div>
 
-    <Links href="/about" variant="outline-light">Learn More About Sean & Lambo</Links>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links href="/about" variant="outline-light">Learn More About Sean & Lambo</Links>
+    </div>
   </SplitOverlay>
 
   <ScrollingMarquee />
 
-  <Values />
+  <SplitOverlay
+    title="Local Garage Door Repair Near You"
+    imgSrc={homeGarage}
+    imgAlt="A home garage with a new garage door installed"
+    background="bg-primary"
+    orientation="left"
+  >
+    <p>
+      If you're searching for garage door repair near you, Lambo's Garage Door Service is ready to
+      help. Based in Estill Springs, Tennessee, we provide fast and reliable garage door services
+      for homeowners throughout Franklin County, Coffee County, Moore County, and nearby
+      communities.
+    </p>
+
+    <p>
+      Lambo's Garage Door Service regularly helps homeowners in <a
+        href="/garage-door-repair-winchester-tn">Winchester</a
+      >, <a href="/garage-door-repair-tullahoma-tn">Tullahoma</a>, <a
+        href="/garage-door-repair-decherd-tn">Decherd</a
+      >, <a href="/garage-door-repair-lynchburg-tn">Lynchburg</a>, <a
+        href="/garage-door-repair-estill-springs-tn">Estill Springs</a
+      >, and surrounding areas with everything from broken springs and opener issues to full garage
+      door installation and maintenance.
+    </p>
+
+    <p>
+      Because we're located locally, we're able to respond quickly when garage door problems happen
+      unexpectedly.
+    </p>
+
+    <p>Schedule service today and get your garage door working properly again.</p>
+
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links href="/contact" variant="light">Schedule Service</Links>
+      <Links href="tel:+19312229963" variant="outline-light-primary">Call Now</Links>
+    </div>
+  </SplitOverlay>
+
+  <section class="service-areas bg-light">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Garage Door Service Across Franklin & Coffee County
+        </Heading>
+        <p class="margin-bottom-xl">
+          Lambo’s Garage Door Service proudly provides professional garage door repair,
+          installation, and maintenance throughout Franklin County, Coffee County, and surrounding
+          Central Tennessee communities. Because our shop is located in Estill Springs, we’re able
+          to respond quickly to homeowners across the area when garage door problems arise.
+        </p>
+        <p><strong>Below are some of the primary communities we regularly serve.</strong></p>
+      </div>
+      <div class="content-md">
+        <div class="service-areas__grid flex">
+          {
+            serviceAreas.map(area => (
+              <article class="service-areas-card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500">
+                  {area.title}
+                </Heading>
+                <p>{area.description}</p>
+                <Links href={area.href} variant="primary" classes="service-areas-card__link">
+                  {area.ctaText}
+                </Links>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          We Also Serve Many Nearby Communities
+        </Heading>
+        <p>
+          While the locations above represent some of the primary areas we serve, our service area
+          extends well beyond them. We regularly provide garage door service to homeowners
+          throughout nearby communities including Cowan, Sewanee, Belvidere, Hillsboro, Normandy,
+          Manchester, Mulberry, Murfreesboro, and Viola.
+        </p>
+        <p>
+          If you're located anywhere in Franklin County, Coffee County, Moore County, or nearby
+          areas, there's a good chance we can help.
+        </p>
+        <p>Call today to schedule service or request a repair appointment.</p>
+        <div class="btn-wrapper">
+          <Links href="/contact" variant="primary">Schedule Service</Links>
+          <Links href="tel:+19312229963" variant="outline">Call Now</Links>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style lang="scss">
+  .service-areas-card {
+    background-color: var(--light-100);
+    border-radius: var(--border-radius-small);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--_spacing---space--4);
+    text-align: left;
+
+    &__link {
+      margin-top: auto;
+      width: fit-content;
+      margin-left: 0;
+    }
+  }
+</style>

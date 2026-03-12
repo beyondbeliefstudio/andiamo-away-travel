@@ -91,11 +91,13 @@ function initScrollerAnimations() {
 // ==========================================
 function initNavActiveStates() {
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll("a.nav-link");
+  const navLinks = document.querySelectorAll("a.nav-link[href]");
 
   const normalizePath = path => (path === "/" ? "/" : path.replace(/\/$/, ""));
 
   navLinks.forEach(link => {
+    if (!link.getAttribute("href")) return;
+
     const linkPath = new URL(link.href).pathname;
     const normalizedLinkPath = normalizePath(linkPath);
     const normalizedCurrentPath = normalizePath(currentPath);

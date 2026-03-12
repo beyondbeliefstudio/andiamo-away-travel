@@ -39,6 +39,8 @@ const {
   imgText,
   ...rest
 } = Astro.props;
+
+const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boolean(eyebrow);
 ---
 
 <section aria-label={title} class:list={["split", background]} {...rest}>
@@ -64,18 +66,22 @@ const {
         </div>
       </div>
       <div class="split__col split__content">
-        <Heading
-          tag="h2"
-          size="xs"
-          fontFamily="primary"
-          marginBottom="m"
-          weight="fw400"
-          class="split__eyebrow"
-          textTransform="uppercase"
-        >
-          {eyebrow}
-        </Heading>
-        <Heading tag="h3" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
+        {
+          hasEyebrow ? (
+            <Heading
+              tag="span"
+              size="xs"
+              fontFamily="primary"
+              marginBottom="m"
+              weight="fw400"
+              class="split__eyebrow"
+              textTransform="uppercase"
+            >
+              {eyebrow}
+            </Heading>
+          ) : null
+        }
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
           {title}
         </Heading>
         <slot />
@@ -117,12 +123,51 @@ const {
 
     &__content {
       text-align: left;
+      text-wrap: pretty;
+
+      h3 {
+        margin-top: 1rem;
+      }
 
       h4 {
         margin-bottom: 0.25rem;
         line-height: 1;
         font-size: 1.1rem;
         font-weight: 500;
+      }
+
+      ul {
+        margin: 1.25rem 0;
+        margin-top: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      li {
+        position: relative;
+        padding-left: 1.9rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0.78em;
+          width: 1.25rem;
+          height: 1.25rem;
+          background-image: url("/src/assets/gear-icon.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          transform: translateY(-50%);
+          filter: brightness(0) saturate(100%) invert(33%) sepia(78%) saturate(1030%)
+            hue-rotate(333deg) brightness(77%) contrast(91%);
+        }
+
+        p {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -204,6 +249,19 @@ const {
   .bg-light {
     .split__eyebrow {
       background: var(--light-100);
+    }
+  }
+
+  .bg-primary {
+    li:before {
+      filter: invert(1);
+    }
+    a:not(.btn) {
+      color: var(--light-100);
+
+      &:hover {
+        color: var(--light-200);
+      }
     }
   }
 </style>

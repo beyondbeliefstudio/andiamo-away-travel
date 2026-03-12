@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "How often should a garage door be serviced?",
+    "answer": "Most garage doors should be professionally serviced once per year. Homes with heavy daily usage may benefit from maintenance every 6-12 months.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "What happens during a garage door maintenance appointment?",
+    "answer": "A technician performs a full system inspection, lubricates moving components, tightens hardware, checks spring condition, and tests safety features to ensure everything operates properly.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "Can maintenance prevent garage door repairs?",
+    "answer": "While maintenance cannot prevent all repairs, it significantly reduces the chances of unexpected failures by identifying worn parts early.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "How long does garage door maintenance take?",
+    "answer": "Most maintenance appointments take less than an hour depending on the condition of the system.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "Is garage door lubrication something homeowners can do?",
+    "answer": "Basic lubrication can be performed by homeowners, but professional maintenance ensures the entire system is inspected and adjusted correctly.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Do you offer maintenance across Franklin and Coffee County?",
+    "answer": "Yes. We provide garage door maintenance throughout Central Tennessee including Winchester, Tullahoma, Lynchburg, Estill Springs, Decherd, and surrounding communities.",
+    "tag": "a6"
+  }
+]

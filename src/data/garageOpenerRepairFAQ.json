@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "Why won’t my garage door opener respond?",
+    "answer": "This can be caused by several issues including dead remote batteries, sensor misalignment, electrical problems, or worn motor components. A professional inspection can determine the exact cause.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "Can my existing opener be repaired instead of replaced?",
+    "answer": "In many cases yes. Issues such as gear wear, remote programming problems, or sensor misalignment can often be repaired without replacing the entire unit.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "What are the benefits of a smart garage door opener?",
+    "answer": "Smart openers allow you to control and monitor your garage door from your phone. They also provide alerts when the door opens or closes and allow remote access when you're away from home.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "How long does opener installation take?",
+    "answer": "Most garage door opener installations can be completed in one visit, including programming remotes and testing safety features.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "Are quieter garage door openers available?",
+    "answer": "Yes. Belt-drive openers are significantly quieter than traditional chain-drive systems and are a popular upgrade for homes with attached garages.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Do you service all opener brands?",
+    "answer": "Yes. We repair and install major brands including LiftMaster, Chamberlain, Genie, Craftsman, and other common residential opener systems.",
+    "tag": "a6"
+  }
+]

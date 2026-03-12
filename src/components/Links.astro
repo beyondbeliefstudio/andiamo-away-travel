@@ -54,14 +54,14 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
     &.light {
       border-color: var(--light-100);
       background-color: var(--light-100);
-      color: var(--dark-900);
+      color: var(--brand-primary);
 
       &:hover,
       &:active,
       &:focus {
         background-color: var(--light-200);
         border-color: var(--light-200);
-        color: var(--dark-900);
+        color: var(--brand-primary);
       }
     }
 
@@ -69,7 +69,6 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
       border-color: var(--brand-primary);
       color: var(--brand-primary);
       background: transparent;
-      backdrop-filter: blur(18px);
 
       &:hover,
       &:active,
@@ -84,7 +83,6 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
       border-color: var(--light-100);
       color: var(--light-100);
       background: transparent;
-      backdrop-filter: blur(18px);
 
       &:hover,
       &:active,
@@ -92,6 +90,20 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
         background-color: var(--light-100);
         border-color: var(--light-100);
         color: var(--dark-900);
+      }
+    }
+
+    &.outline-light-primary {
+      border-color: var(--light-100);
+      color: var(--light-100);
+      background: transparent;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: var(--light-100);
+        border-color: var(--light-100);
+        color: var(--brand-primary);
       }
     }
 

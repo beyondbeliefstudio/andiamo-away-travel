@@ -113,7 +113,7 @@ body {
   font-family: var(--secondary-family);
   font-weight: 300;
   font-size: var(--_typography---font-size--text-main);
-  line-height: 1.5rem;
+  line-height: 1.4rem;
   color: var(--content-primary);
   text-decoration: none;
   background-color: var(--surface-primary);
@@ -143,7 +143,7 @@ p {
   margin-top: 0rem;
   margin-bottom: var(--_spacing---space--4);
   font-family: var(--secondary-family);
-  line-height: 1.6;
+  line-height: 1.4;
   font-weight: 500;
   color: var(--content-primary);
 }
@@ -164,6 +164,16 @@ a {
   font-size: var(--_typography---font-size--text-main);
 }
 
+a:not(.btn) {
+  text-decoration: underline;
+  transition: 0.25s ease-in-out all;
+  font-weight: 700;
+
+  &:hover {
+    color: var(--brand-primary);
+  }
+}
+
 .eyebrow {
   text-transform: uppercase !important;
   letter-spacing: 2px;
@@ -173,7 +183,9 @@ a {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  font-size: var(--_typography---font-size--h6) !important;
+  // font-size: var(--_typography---font-size--h6) !important;
+  font-size: 1rem !important;
+  display: block;
 }
 
 .btn {
@@ -206,9 +218,14 @@ a {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: 1rem;
 
   .btn {
     margin: 0;
+  }
+
+  &--left {
+    justify-content: flex-start;
   }
 }
 
@@ -267,6 +284,10 @@ a {
 
 .bg-dark {
   background-color: var(--dark-800);
+
+  *:not(.btn) {
+    color: var(--light-200);
+  }
 }
 
 // LAYOUTS
@@ -287,6 +308,49 @@ a {
 
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: var(--_spacing---space--6);
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .card-3 {
+    width: calc(100% / 3 - (var(--_spacing---space--6) * 2 / 3));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background: var(--light-100);
+    padding: 0.5rem;
+    border-radius: var(--border-radius-small);
+    gap: 1rem;
+
+    @media screen and (max-width: 1024px) {
+      width: calc(100% / 2 - (var(--_spacing---space--6) / 2));
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .card-2 {
+    width: calc(100% / 2 - (var(--_spacing---space--6) / 2));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background: var(--light-100);
+    padding: 0.5rem;
+    border-radius: var(--border-radius-small);
+    gap: 1rem;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
   }
 }
 
@@ -355,6 +419,15 @@ a {
 .column-main {
   grid-column-gap: var(--_spacing---section-space--main);
   grid-row-gap: var(--_spacing---section-space--main);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.column-small {
+  grid-column-gap: var(--_spacing---section-space--main);
+  grid-row-gap: var(--_spacing---space--6);
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;

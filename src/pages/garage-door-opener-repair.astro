@@ -1,0 +1,320 @@
+---
+// COMPONENTS
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/Heading.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import Links from "@/components/Links.astro";
+import CardGrid from "@/components/CardGrid.astro";
+import ServicesCard from "@/components/ServicesCard.astro";
+import FAQ from "@/components/FAQ.astro";
+
+// IMAGES
+import seanLambo from "@/assets/seanLambo.png";
+import garageDoorOpenerHero from "@/assets/garageDoorOpenerHero.jpg";
+import closingDoor from "@/assets/closingDoor.png";
+import seanGarage from "@/assets/seanGarage.png";
+import garageClicker from "@/assets/garageClicker.png";
+
+// ICONS
+import quality from "@/assets/quality.svg";
+import pricing from "@/assets/pricing.svg";
+import available from "@/assets/available.svg";
+
+// DTA
+import { getCollection } from "astro:content";
+const faq = await getCollection("garageOpenerRepairFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
+
+const openerRepairProcess = [
+  {
+    title: "System Diagnosis",
+    description:
+      "We inspect the opener motor, drive system, sensors, remotes, and door balance to determine the root cause of the problem.",
+    icon: quality,
+    iconAlt: "System diagnosis icon",
+  },
+  {
+    title: "Repair or Installation",
+    description:
+      "If the issue can be repaired, we restore the opener using high-quality replacement parts. If replacement is recommended, we install a new system designed for long-term performance.",
+    icon: pricing,
+    iconAlt: "Repair or installation icon",
+  },
+  {
+    title: "Programming & Safety Testing",
+    description:
+      "After installation or repair, we program remotes, test safety sensors, verify door balance, and confirm smooth operation.",
+    icon: available,
+    iconAlt: "Programming and safety testing icon",
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Garage Door Opener Repair",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Lambo's Garage Door Service",
+  },
+  areaServed: ["Franklin County TN", "Coffee County TN"],
+};
+---
+
+<Layout
+  pageTitle="Garage Door Opener Repair in Franklin & Coffee County, TN"
+  description="Is your garage door opener not working? We provide professional garage door opener repair in Franklin & Coffee County. Call today."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <InternalHero
+    pageTitle="Garage Door Opener Repair in Central Tennessee"
+    title="When Your Garage Door Won’t Respond, We Get It Working Again"
+    ariaLabel="Garage Door Opener Repair Hero Section"
+    imageSrc={garageDoorOpenerHero}
+    imageAlt="Garage door opener repair service"
+    primaryCtaText="Schedule Garage Door Opener Repair"
+    primaryCtaHref="/contact"
+    secondaryCtaText="Call Now for Service"
+    secondaryCtaHref="tel:+19312229963"
+  >
+    <p>
+      A malfunctioning garage door opener can leave you stuck inside your garage or unable to get
+      your vehicle out when you need it most. Whether your opener has stopped responding, your
+      remote won’t connect, or you’re ready to upgrade to a modern smart garage system, we diagnose
+      the problem quickly and restore dependable operation.
+    </p>
+    <p>
+      We proudly serve homeowners in Winchester, Tullahoma, Lynchburg, Estill Springs, Decherd, and
+      surrounding communities across the area.
+    </p>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links variant="primary" href="/contact">Schedule Garage Door Opener Repair</Links>
+      <Links variant="outline" href="tel:+19312229963">Call Now for Service</Links>
+    </div>
+  </InternalHero>
+
+  <!-- Content for the About Us page goes here -->
+  <section class="bg-primary">
+    <div class="container container-md">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500"
+          >Reliable Garage Door Opener Service You Can Trust</Heading
+        >
+        <p>
+          Garage door openers are responsible for the everyday convenience most homeowners rely on
+          without thinking about it. When the opener stops working properly, the entire garage door
+          system becomes frustrating or unusable.
+        </p>
+
+        <p>
+          Across Franklin and Coffee County, homeowners frequently experience opener issues caused
+          by worn gears, electrical problems, misaligned sensors, or outdated systems. In some cases
+          the opener motor continues running but the door doesn’t move. In others, the remote or
+          wall control stops responding entirely.
+        </p>
+
+        <p>
+          Our goal is to determine whether your opener needs a repair or if a new system would
+          provide better long-term reliability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SplitOverlay
+    title="Common Garage Door Opener Problems We Repair"
+    imgSrc={seanGarage}
+    imgAlt="Sean performing garage door maintenance service"
+    background="bg-light"
+    orientation="left"
+  >
+    <p>Most opener issues begin as small inconveniences before becoming larger problems.</p>
+
+    <p><strong>We regularly repair opener systems experiencing:</strong></p>
+
+    <ul>
+      <li><p>Garage door opener not responding</p></li>
+      <li><p>Remote or keypad not working</p></li>
+      <li><p>Wall switch not activating the door</p></li>
+      <li><p>Opener motor running but door not moving</p></li>
+      <li><p>Loud grinding or humming noises</p></li>
+      <li><p>Intermittent door movement</p></li>
+      <li><p>Safety sensor alignment issues</p></li>
+      <li><p>Slow or inconsistent door operation</p></li>
+    </ul>
+
+    <p>
+      Many of these issues can be resolved with professional repair rather than replacing the entire
+      system.
+    </p>
+
+    <p>
+      If your opener failure is related to broken springs or mechanical damage, our <strong
+        ><a href="/garage-door-repair">Garage Door Repair</a></strong
+      > service may also be needed to restore full system performance.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Modern Garage Door Opener Upgrades"
+    imgSrc={garageClicker}
+    imgAlt="Garage door remote control"
+    background="bg-white"
+    orientation="right"
+  >
+    <p>
+      Older garage door openers can still function, but modern systems offer significant
+      improvements in reliability, safety, and convenience.
+    </p>
+
+    <p>
+      Homeowners in Winchester, Tullahoma, and surrounding communities often choose to upgrade their
+      opener for features such as:
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >WiFi & Smartphone Control</Heading
+    >
+
+    <p>
+      Modern openers allow you to control and monitor your garage door directly from your
+      smartphone. This provides remote access, activity alerts, and the ability to check whether
+      your door is open or closed from anywhere.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Quiet Belt-Drive Operation</Heading
+    >
+
+    <p>
+      Newer belt-drive opener systems operate much more quietly than older chain-drive models,
+      making them ideal for homes with attached garages.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Battery Backup Systems</Heading
+    >
+
+    <p>
+      Battery backup options allow your garage door opener to function during power outages,
+      ensuring you can still open and close your garage safely.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Remote & Keypad Programming</Heading
+    >
+
+    <p>
+      We set up and program all remotes, wireless keypads, and smart connectivity features so your
+      system is ready to use immediately.
+    </p>
+
+    <p>
+      We install and service all major brands including LiftMaster, Chamberlain, Genie, and
+      Craftsman.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Repair or Replace? How We Help You Decide"
+    imgSrc={seanLambo}
+    imgAlt="Photo of Sean and Lambo"
+    background="bg-primary"
+    orientation="left"
+  >
+    <p>
+      Not every opener problem requires a full replacement. In many cases, repairing worn components
+      can restore normal operation.
+    </p>
+
+    <p><strong>However, replacement may be the better option if:</strong></p>
+
+    <ul>
+      <li><p>The opener motor is severely worn</p></li>
+      <li><p>Replacement parts are no longer available</p></li>
+      <li><p>The unit lacks modern safety features</p></li>
+      <li><p>You want smart connectivity or quieter operation</p></li>
+    </ul>
+
+    <p>Our goal is to recommend the solution that makes the most sense for your home and budget.</p>
+  </SplitOverlay>
+
+  <section class="bg-light">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Our Garage Door Opener Service Process
+        </Heading>
+        <p class="margin-bottom-xl">
+          We follow a structured process to ensure every opener system operates reliably and safely.
+          Most opener repairs and installations can be completed in a single visit.
+        </p>
+      </div>
+      <div class="content-full">
+        <CardGrid cardData={openerRepairProcess} />
+      </div>
+    </div>
+  </section>
+
+  <FAQ faq={faqData} />
+
+  <SplitOverlay
+    title="Garage Door Service Across Franklin & Coffee County"
+    imgSrc={closingDoor}
+    imgAlt="Closing a garage door"
+    background="bg-light"
+    orientation="right"
+  >
+    <p>
+      Lambo’s Garage Door Service proudly provides professional garage door repair, installation,
+      and maintenance throughout Franklin County, Coffee County, and surrounding Central Tennessee
+      communities.
+    </p>
+
+    <p>Because we are based nearby in Estill Springs, we regularly serve homeowners in:</p>
+
+    <ul>
+      <li>
+        <p><a href="/garage-door-repair-tullahoma-tn">Tullahoma</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-winchester-tn">Winchester</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-decherd-tn">Decherd</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-estill-springs-tn">Estill Springs</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-lynchburg-tn">Lynchburg</a></p>
+      </li>
+    </ul>
+  </SplitOverlay>
+
+  <section>
+    <div class="container container-md column-main">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Explore Our Other Garage Door Services
+        </Heading>
+        <p class="margin-bottom-xl">
+          To keep your entire system operating safely and efficiently, we also provide the following
+          services.
+        </p>
+      </div>
+      <div class="content-full">
+        <div class="services-grid flex">
+          <ServicesCard descriptionType="short" excludeIds={[4]} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

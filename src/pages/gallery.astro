@@ -1,6 +1,5 @@
 ---
 // COMPONENTS
-import CTA from "@/components/CTA.astro";
 import GalleryComponent from "@/components/Gallery.astro";
 import Layout from "@/layouts/Layout.astro";
 import InternalHero from "@/components/InternalHero.astro";
@@ -28,17 +27,21 @@ const projects = [
 ---
 
 <Layout
-  pageTitle="Gallery"
-  description="Browse our gallery of garage door styles and installations in Middle Tennessee. See quality options and completed projects from Lambo's Garage Door Service."
+  pageTitle="Garage Door Projects & Repairs Gallery | Lambo’s"
+  description="See examples of garage door repairs, installations, and upgrades completed for homeowners across Franklin and Coffee County Tennessee."
 >
   <InternalHero
-    pageTitle="Gallery"
+    pageTitle="Garage Door Projects & Repairs"
     title="Garage Door Options & Installations"
-    subtitle="Explore our collection of garage door styles, recent installations, and quality options from trusted suppliers. Find inspiration for your next garage door project."
     ariaLabel="Gallery Hero Section"
     imageSrc={garageHome4}
     imageAlt="Lambo's Garage Door Service Gallery"
-  />
+  >
+    <p>
+      Explore our gallery of garage door styles, recent installations, and quality options from
+      trusted suppliers. Find inspiration for your next garage door project.
+    </p>
+  </InternalHero>
   <section class="projects bg-light" aria-label="Garage Door Gallery">
     <div class="container container-md projects__container">
       <GalleryComponent items={projects} />

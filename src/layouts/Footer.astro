@@ -23,7 +23,18 @@ import lambologo from "@/assets/lambo-logo.png";
         <a href="/">
           <Image src={lambologo} alt="Lambo Logo" class="footer__wordmark" />
         </a>
-        <p>{baseData.description}</p>
+        <p>
+          {baseData.description}
+        </p>
+        <p>
+          Based in
+          <a href="/garage-door-repair-estill-springs-tn">Estill Springs</a>, we proudly serve
+          Franklin County, Coffee County, Moore County, and surrounding communities including
+          <a href="/garage-door-repair-winchester-tn">Winchester</a>,
+          <a href="/garage-door-repair-tullahoma-tn">Tullahoma</a>,
+          <a href="/garage-door-repair-decherd-tn">Decherd</a>, and
+          <a href="/garage-door-repair-lynchburg-tn">Lynchburg</a>.
+        </p>
         <div class="social-grid">
           <a
             class="social"
@@ -49,14 +60,23 @@ import lambologo from "@/assets/lambo-logo.png";
             textTransform="uppercase">Quick Links</Heading
           >
           <nav class="footer__nav-links">
+            <Links variant="nav-link" href="/services">All Garage Services</Links>
             {
-              navData.map(i => {
-                return (
-                  <Links variant="nav-link" href={i.href}>
-                    {i.title}
-                  </Links>
-                );
-              })
+              navData
+                .filter(i => i.title !== "Garage Services" && i.title !== "Service Areas")
+                .map(i => {
+                  return (
+                    <div class="footer__link-group">
+                      {i.href ? (
+                        <Links variant="nav-link" href={i.href}>
+                          {i.title}
+                        </Links>
+                      ) : (
+                        <p class="footer__group-label">{i.title}</p>
+                      )}
+                    </div>
+                  );
+                })
             }
           </nav>
         </div>
@@ -67,11 +87,19 @@ import lambologo from "@/assets/lambo-logo.png";
             fontFamily="primary"
             marginBottom="m"
             weight="fw500"
-            textTransform="uppercase">Opening Hours</Heading
+            textTransform="uppercase">Garage Door Services</Heading
           >
           <nav class="footer__nav-links">
-            <p>{baseData.hours.regular.days}:<br /> {baseData.hours.regular.hours}</p>
-            <p>{baseData.hours.emergency.days} {baseData.hours.emergency.hours}</p>
+            <Links variant="nav-link" href="/garage-door-repair">Garage Door Repair</Links>
+            <Links variant="nav-link" href="/garage-door-opener-repair"
+              >Garage Door Opener Repair</Links
+            >
+            <Links variant="nav-link" href="/garage-door-installation"
+              >Garage Door Installation</Links
+            >
+            <Links variant="nav-link" href="/garage-door-maintenance">Garage Door Maintenance</Links
+            >
+            <Links variant="nav-link" href="/spring-replacement">Spring Replacement</Links>
           </nav>
         </div>
         <div class="footer__col">
@@ -128,6 +156,7 @@ import lambologo from "@/assets/lambo-logo.png";
 
       @media (max-width: 768px) {
         flex-direction: column;
+        gap: var(--_spacing---section-space--large);
       }
     }
 
@@ -137,7 +166,27 @@ import lambologo from "@/assets/lambo-logo.png";
       display: flex;
       max-width: 400px;
 
-      @media (max-width: 1010px) {
+      .social-grid {
+        margin-top: 0.5rem;
+      }
+
+      p,
+      a {
+        font-size: var(--_typography---font-size--text-small);
+        line-height: 1.4;
+      }
+
+      p a {
+        color: var(--content-primary);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+
+        &:hover {
+          color: var(--brand-primary);
+        }
+      }
+
+      @media (max-width: 1070px) {
         width: 50%;
       }
 
@@ -155,7 +204,7 @@ import lambologo from "@/assets/lambo-logo.png";
       grid-template-columns: auto auto auto;
       grid-gap: var(--_spacing---section-space--main);
 
-      @media (max-width: 1010px) {
+      @media (max-width: 1070px) {
         grid-template-columns: 1fr;
         width: 50%;
       }
@@ -179,6 +228,25 @@ import lambologo from "@/assets/lambo-logo.png";
       }
     }
 
+    &__link-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    &__group-label {
+      margin: 0;
+      font-size: var(--_typography---font-size--h6);
+      font-family: var(--primary-family);
+    }
+
+    &__sub-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding-left: 0.75rem;
+    }
+
     &__wordmark {
       max-width: 100%;
       background-size: contain;
@@ -194,7 +262,6 @@ import lambologo from "@/assets/lambo-logo.png";
     &__bottom {
       border-top: 1px solid var(--brand-secondary-dark);
       padding: 1.5rem 0;
-      margin-top: 2rem;
     }
 
     &__bottom-content {
@@ -205,8 +272,8 @@ import lambologo from "@/assets/lambo-logo.png";
       gap: 1rem;
 
       @media (max-width: 768px) {
-        flex-direction: column;
-        text-align: start;
+        flex-direction: column-reverse;
+        align-items: start;
       }
     }
 
@@ -222,6 +289,7 @@ import lambologo from "@/assets/lambo-logo.png";
         text-decoration: none;
         transition: color 0.2s ease;
         font-size: var(--_typography---font-size--text-main);
+        font-weight: 400;
 
         &:hover {
           color: var(--brand-primary-dark);

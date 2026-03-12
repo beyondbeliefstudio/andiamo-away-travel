@@ -1,7 +1,7 @@
 export const baseData = {
   title: "Lambo's Garage Door Service",
   description:
-    "Professional garage door services including installation, repair, and maintenance. Serving residential and commercial clients with quality workmanship.",
+    "Lambo’s Garage Door Service provides professional garage door installation, repair, and maintenance for residential and commercial properties.",
   address: {
     full: "Estill Springs, TN 37330",
   },

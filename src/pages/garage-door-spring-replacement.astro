@@ -1,0 +1,341 @@
+---
+// COMPONENTS
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/Heading.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import Links from "@/components/Links.astro";
+import CardGrid from "@/components/CardGrid.astro";
+import ServicesCard from "@/components/ServicesCard.astro";
+import FAQ from "@/components/FAQ.astro";
+
+// IMAGES
+import closingDoor from "@/assets/closingDoor.png";
+import sean from "@/assets/sean.jpg";
+import garageSpring from "@/assets/garageSprings.png";
+import garageClose from "@/assets/garageClose.jpg";
+import crookedDoor from "@/assets/crookedDoor.png";
+import springInstall from "@/assets/springInstall.png";
+import garageHomeExterior from "@/assets/garageHomeExterior.jpg";
+
+// ICONS
+import quality from "@/assets/quality.svg";
+import pricing from "@/assets/pricing.svg";
+import available from "@/assets/available.svg";
+
+// DATA
+import { getCollection } from "astro:content";
+const faq = await getCollection("springReplacementFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
+
+const springReplacementCardData = [
+  {
+    title: "Complete System Inspection",
+    description:
+      "Before touching the springs, we inspect the entire garage door system, including cables, rollers, tracks, and opener components. This ensures there is no secondary damage and confirms the correct spring size and cycle rating for your specific door.",
+    icon: quality,
+    iconAlt: "Complete system inspection icon",
+  },
+  {
+    title: "Safe Spring Removal & Precision Installation",
+    description:
+      "Using professional tools and proper tensioning techniques, we carefully release stored tension, remove the broken spring, and install high-cycle replacement springs designed for long-term durability and proper balance.",
+    icon: pricing,
+    iconAlt: "Safe spring removal and precision installation icon",
+  },
+  {
+    title: "Balance, Calibration & Safety Testing",
+    description:
+      "After installation, we fine-tune spring tension, test door balance, and verify smooth movement. We also check safety reversal features to ensure the system operates correctly and safely before completing the job.",
+    icon: available,
+    iconAlt: "Balance calibration and safety testing icon",
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Garage Door Spring Replacement",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Lambo's Garage Door Service",
+  },
+  areaServed: ["Franklin County TN", "Coffee County TN"],
+};
+---
+
+<Layout
+  pageTitle="Garage Door Spring Replacement in Franklin & Coffee County, TN"
+  description="Broken garage door spring? We provide fast, safe torsion and extension spring replacement in Franklin & Coffee County. Call today."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <InternalHero
+    pageTitle="Spring Replacement in Central Tennessee"
+    title="When a Spring Breaks, We Fix It Fast and Safely"
+    ariaLabel="Garage Door Spring Replacement Hero Section"
+    imageSrc={garageClose}
+    imageAlt="Close up of a garage door"
+    primaryCtaText="Schedule Garage Door Spring Replacement"
+    primaryCtaHref="/contact"
+    secondaryCtaText="Call Now for Service"
+    secondaryCtaHref="tel:+19312229963"
+  >
+    <p>
+      Lambo’s Garage Door Service provides professional garage door spring replacement throughout
+      Franklin County and Coffee County, Tennessee. If your garage door suddenly feels heavy,
+      refuses to open, or makes a loud snapping noise, there’s a strong chance a spring has failed.
+      We replace broken torsion and extension springs safely and restore proper balance to your
+      garage door system.
+    </p>
+    <p>
+      We proudly serve Winchester, Tullahoma, Lynchburg, Estill Springs, Decherd, and surrounding
+      communities across the area.
+    </p>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links variant="primary" href="/contact">Schedule Spring Replacement</Links>
+      <Links variant="outline" href="tel:+19312229963">Call Now for Service</Links>
+    </div>
+  </InternalHero>
+
+  <!-- Content for the About Us page goes here -->
+  <section class="bg-primary">
+    <div class="container container-md">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500"
+          >Local Garage Door Spring Replacement You Can Trust</Heading
+        >
+        <p>
+          Garage door springs are one of the most important components in your entire system. They
+          carry the majority of the door’s weight and make it possible for your opener to lift and
+          lower the door smoothly. When a spring breaks, your door can become extremely heavy or
+          stop working altogether.
+        </p>
+
+        <p>
+          Homes throughout Franklin and Coffee County experience normal spring wear due to daily
+          usage, temperature shifts, and seasonal humidity changes. Over time, metal fatigue sets in
+          and springs lose tension before eventually snapping.
+        </p>
+
+        <p>
+          When that happens, professional replacement is not optional. It’s necessary for safety and
+          proper operation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SplitOverlay
+    title="Signs Your Garage Door Spring Is Broken"
+    imgSrc={crookedDoor}
+    imgAlt="Crooked garage door indicating a broken spring"
+    background="bg-light"
+    orientation="left"
+  >
+    <p>
+      Spring failure often happens without warning, but there are common signs homeowners notice
+      before or after a break.
+    </p>
+
+    <p><strong>We frequently replace springs when customers report:</strong></p>
+
+    <ul>
+      <li><p>A loud bang from the garage</p></li>
+      <li><p>A door that suddenly feels extremely heavy</p></li>
+      <li><p>The opener motor running but the door not lifting</p></li>
+      <li><p>A visible gap in the torsion spring</p></li>
+      <li><p>Uneven or jerky door movement</p></li>
+      <li><p>A door that won’t stay open</p></li>
+    </ul>
+
+    <p>
+      If your garage door will not lift or feels unsafe to operate, avoid forcing it. Operating a
+      door with a broken spring can strain the opener motor and damage other components.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Torsion vs. Extension Springs"
+    imgSrc={garageSpring}
+    imgAlt="Garage door springs"
+    imgText="Trusted garage door solutions"
+    background="bg-dark"
+    orientation="right"
+  >
+    <p>
+      Not all garage door springs are the same. The type of spring system your garage door uses
+      determines the replacement process.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Torsion Springs</Heading
+    >
+
+    <p>
+      Mounted above the garage door opening, torsion springs twist to store and release energy.
+      These are the most common spring systems in residential homes across Winchester and Tullahoma.
+      They provide smoother operation and better weight control.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Extension Springs</Heading
+    >
+
+    <p>
+      Extension springs run along the sides of the door tracks and stretch to lift the door. While
+      still used in some homes, they are generally less durable than torsion systems.
+    </p>
+
+    <p>
+      No matter which system your garage door uses, we replace springs using proper tensioning
+      techniques and safety procedures.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Why Professional Spring Replacement Is Critical"
+    imgSrc={springInstall}
+    imgAlt="Installing a new sping on a garage door"
+    background="bg-white"
+    orientation="left"
+  >
+    <p>
+      Garage door springs operate under extreme tension. Attempting to replace a torsion or
+      extension spring without the proper tools and experience can lead to serious injury.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Prevent Damage to Other Components</Heading
+    >
+
+    <p>
+      A broken spring forces the opener motor to carry the full weight of the door. This added
+      strain can cause premature motor failure or cable damage.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Restore Proper Door Balance</Heading
+    >
+
+    <p>
+      Correctly calibrated springs ensure your door opens and closes evenly. Improperly sized or
+      poorly installed springs can create long-term operational problems.
+    </p>
+
+    <p>
+      For safety and reliability, spring replacement should always be handled by a trained
+      professional.
+    </p>
+
+    <p>
+      If your spring failure has caused additional issues, we also provide full <strong
+        ><a href="/garage-door-repair">Garage Door Repair</a></strong
+      > services.
+    </p>
+  </SplitOverlay>
+
+  <section class="bg-light">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Our Spring Replacement Process
+        </Heading>
+        <p class="margin-bottom-xl">
+          We follow a structured process to ensure your garage door operates safely and smoothly
+          after spring replacement. Most spring replacements can be completed in a single visit.
+        </p>
+      </div>
+      <div class="content-full">
+        <CardGrid cardData={springReplacementCardData} />
+      </div>
+    </div>
+  </section>
+
+  <SplitOverlay
+    title="Understanding Spring Replacement Costs"
+    imgSrc={garageHomeExterior}
+    imgAlt="Home exterior with a garage"
+    background="bg-primary"
+    orientation="left"
+  >
+    <p>Garage door spring replacement pricing depends on several factors, including:</p>
+
+    <ul>
+      <li><p>Type of spring system (torsion or extension)</p></li>
+      <li><p>Door size and weight</p></li>
+      <li><p>Number of springs required</p></li>
+      <li><p>Overall system condition</p></li>
+    </ul>
+
+    <p>
+      Many residential garage doors use two torsion springs. When one breaks, it is often
+      recommended to replace both to maintain balanced performance and extend lifespan.
+    </p>
+
+    <p>
+      We provide clear, upfront pricing before beginning any work so you understand the full scope
+      of the repair.
+    </p>
+  </SplitOverlay>
+
+  <FAQ faq={faqData} />
+
+  <SplitOverlay
+    title="Garage Door Service Across Franklin & Coffee County"
+    imgSrc={closingDoor}
+    imgAlt="Closing a garage door"
+    background="bg-light"
+    orientation="right"
+  >
+    <p>
+      Lambo’s Garage Door Service proudly provides professional garage door repair, installation,
+      and maintenance throughout Franklin County, Coffee County, and surrounding Central Tennessee
+      communities.
+    </p>
+
+    <p>Because we are based nearby in Estill Springs, we regularly serve homeowners in:</p>
+
+    <ul>
+      <li>
+        <p><a href="/garage-door-repair-tullahoma-tn">Tullahoma</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-winchester-tn">Winchester</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-decherd-tn">Decherd</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-estill-springs-tn">Estill Springs</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-lynchburg-tn">Lynchburg</a></p>
+      </li>
+    </ul>
+  </SplitOverlay>
+
+  <section>
+    <div class="container container-md column-main">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Explore Our Other Garage Door Services
+        </Heading>
+        <p class="margin-bottom-xl">
+          To keep your entire system operating safely and efficiently, we also provide the following
+          services.
+        </p>
+      </div>
+      <div class="content-full">
+        <div class="services-grid flex">
+          <ServicesCard descriptionType="short" excludeIds={[2]} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

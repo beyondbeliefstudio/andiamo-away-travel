@@ -27,6 +27,29 @@ import lambologo from "@/assets/lambo-logo.png";
     <nav class="nav__links">
       {
         navData.map(i => {
+          if (i.children?.length) {
+            return (
+              <div class="nav__item nav__item--has-children">
+                <button
+                  type="button"
+                  class="nav__desktop-toggle btn nav-link"
+                  aria-expanded="false"
+                  aria-label={`Toggle ${i.title} links`}
+                >
+                  <span>{i.title}</span>
+                  <span class="nav__chevron" aria-hidden="true" />
+                </button>
+                <div class="nav__sub-links">
+                  {i.children.map(child => (
+                    <Links variant="nav-link" href={child.href}>
+                      {child.title}
+                    </Links>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
           return (
             <Links variant="nav-link" href={i.href}>
               {i.title}
@@ -50,6 +73,29 @@ import lambologo from "@/assets/lambo-logo.png";
   <div class="nav__mobile" id="mobileNav">
     {
       navData.map(i => {
+        if (i.children?.length) {
+          return (
+            <div class="nav__mobile-item nav__mobile-item--has-children">
+              <button
+                type="button"
+                class="nav__mobile-toggle btn nav-link"
+                aria-expanded="false"
+                aria-label={`Toggle ${i.title} links`}
+              >
+                <span>{i.title}</span>
+                <span class="nav__mobile-chevron" aria-hidden="true" />
+              </button>
+              <div class="nav__mobile-sub-links">
+                {i.children.map(child => (
+                  <Links variant="nav-link" href={child.href}>
+                    {child.title}
+                  </Links>
+                ))}
+              </div>
+            </div>
+          );
+        }
+
         return (
           <Links variant="nav-link" href={i.href}>
             {i.title}
@@ -86,7 +132,7 @@ import lambologo from "@/assets/lambo-logo.png";
       border-radius: var(--border-radius-small);
       border: 1px solid var(--dark-900);
 
-      @media (max-width: 1010px) {
+      @media (max-width: 1070px) {
         margin: 0.5rem auto;
         max-width: calc(100% - 1rem);
         padding: 0.5rem;
@@ -103,7 +149,7 @@ import lambologo from "@/assets/lambo-logo.png";
         height: 50px !important;
         width: auto !important;
 
-        @media (max-width: 1010px) {
+        @media (max-width: 1070px) {
           height: 35px !important;
         }
       }
@@ -119,7 +165,7 @@ import lambologo from "@/assets/lambo-logo.png";
         height: 50px !important;
         width: auto !important;
 
-        @media (max-width: 1010px) {
+        @media (max-width: 1070px) {
           height: 35px !important;
         }
       }
@@ -130,12 +176,74 @@ import lambologo from "@/assets/lambo-logo.png";
       align-items: center;
       gap: var(--_spacing---space--8);
 
-      @media (max-width: 1010px) {
+      @media (max-width: 1070px) {
         display: none;
       }
 
       .btn {
         margin: 0;
+      }
+    }
+
+    &__item {
+      position: relative;
+
+      &--has-children.is-open .nav__sub-links {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      &--has-children.is-open .nav__chevron {
+        transform: rotate(225deg);
+      }
+    }
+
+    &__desktop-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: transparent;
+    }
+
+    &__chevron {
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--content-primary);
+      border-bottom: 2px solid var(--content-primary);
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+      pointer-events: none;
+      margin-top: -2px;
+    }
+
+    &__sub-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: max-content;
+      min-width: 180px;
+      background-color: var(--light-100);
+      padding: 0.75rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(0.25rem);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+      z-index: 20;
+
+      .nav-link {
+        text-align: left;
+      }
+
+      .btn.nav-link {
+        font-size: var(--_typography---font-size--text-main);
       }
     }
 
@@ -151,7 +259,7 @@ import lambologo from "@/assets/lambo-logo.png";
       .nav__container {
         background-color: var(--light-100);
 
-        @media (max-width: 1010px) {
+        @media (max-width: 1070px) {
           width: 100%;
           padding-left: 0.5rem;
         }
@@ -170,6 +278,7 @@ import lambologo from "@/assets/lambo-logo.png";
       flex-direction: column;
       gap: 1rem;
       justify-content: center;
+
       z-index: 1;
       transform: translateY(100%);
       height: fit-content;
@@ -177,6 +286,51 @@ import lambologo from "@/assets/lambo-logo.png";
       max-width: calc(100% - 1rem);
       left: 0.5rem;
       right: 0.5rem;
+    }
+
+    &__mobile-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: transparent;
+    }
+
+    &__mobile-chevron {
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--content-primary);
+      border-bottom: 2px solid var(--content-primary);
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+      margin-top: -2px;
+    }
+
+    &__mobile-sub-links {
+      display: grid;
+      gap: 0.5rem;
+      padding-left: 0.75rem;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.25s ease,
+        opacity 0.2s ease;
+
+      .nav-link {
+        font-size: var(--_typography---font-size--text-main);
+      }
+    }
+
+    &__mobile-item--has-children.is-open {
+      .nav__mobile-sub-links {
+        max-height: 180px;
+        opacity: 1;
+        margin: 0.5rem auto 0;
+      }
+
+      .nav__mobile-chevron {
+        transform: rotate(225deg);
+      }
     }
 
     &__mobile a:not(.btn) {
@@ -235,7 +389,7 @@ import lambologo from "@/assets/lambo-logo.png";
     justify-content: center;
     z-index: 1000;
 
-    @media (max-width: 1010px) {
+    @media (max-width: 1070px) {
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -278,12 +432,37 @@ import lambologo from "@/assets/lambo-logo.png";
   const middleLine = document.querySelector(".line.middle");
   const bottomLine = document.querySelector(".line.bottom");
   const circle = document.querySelector(".circle");
+  const desktopDropdownToggles = Array.from(document.querySelectorAll(".nav__desktop-toggle"));
+  const mobileDropdownToggles = Array.from(document.querySelectorAll(".nav__mobile-toggle"));
   let isOpen = false;
 
   const tl = gsap.timeline({ paused: true });
 
   function hideNav(): void {
     gsap.set(mobileNav, { display: "none" });
+  }
+
+  // Ensure the mobile nav starts hidden and only opens via the hamburger toggle.
+  hideNav();
+
+  function closeMobileDropdowns(): void {
+    mobileDropdownToggles.forEach(toggle => {
+      const mobileItem = toggle.closest(".nav__mobile-item--has-children") as HTMLElement | null;
+      if (!mobileItem) return;
+
+      mobileItem.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function closeDesktopDropdowns(): void {
+    desktopDropdownToggles.forEach(toggle => {
+      const desktopItem = toggle.closest(".nav__item--has-children") as HTMLElement | null;
+      if (!desktopItem) return;
+
+      desktopItem.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
   }
 
   tl.to(
@@ -347,6 +526,8 @@ import lambologo from "@/assets/lambo-logo.png";
         ease: "power2.in",
         onComplete: hideNav,
       });
+      closeMobileDropdowns();
+      closeDesktopDropdowns();
       tl.reverse();
       isOpen = false;
     }
@@ -355,6 +536,8 @@ import lambologo from "@/assets/lambo-logo.png";
   // Close menu when clicking overlay
   navOverlay.addEventListener("click", () => {
     if (isOpen) {
+      closeMobileDropdowns();
+      closeDesktopDropdowns();
       mobileNav.classList.remove("open");
       navOverlay.classList.remove("active");
       document.body.classList.remove("menu-open");
@@ -368,6 +551,43 @@ import lambologo from "@/assets/lambo-logo.png";
       });
       tl.reverse();
       isOpen = false;
+    }
+  });
+
+  desktopDropdownToggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      const desktopItem = toggle.closest(".nav__item--has-children") as HTMLElement | null;
+      if (!desktopItem) return;
+
+      const willOpen = !desktopItem.classList.contains("is-open");
+      closeDesktopDropdowns();
+      desktopItem.classList.toggle("is-open", willOpen);
+      toggle.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
+
+  mobileDropdownToggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      const mobileItem = toggle.closest(".nav__mobile-item--has-children") as HTMLElement | null;
+      if (!mobileItem) return;
+
+      const willOpen = !mobileItem.classList.contains("is-open");
+      mobileItem.classList.toggle("is-open", willOpen);
+      toggle.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
+
+  document.addEventListener("click", event => {
+    const target = event.target as HTMLElement;
+    if (!target.closest(".nav__item--has-children")) {
+      closeDesktopDropdowns();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeMobileDropdowns();
+      closeDesktopDropdowns();
     }
   });
 

@@ -1,0 +1,288 @@
+---
+// COMPONENTS
+import InternalHero from "@/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/Heading.astro";
+import SplitOverlay from "@/components/SplitOverlay.astro";
+import Links from "@/components/Links.astro";
+import CardGrid from "@/components/CardGrid.astro";
+import ServicesCard from "@/components/ServicesCard.astro";
+import FAQ from "@/components/FAQ.astro";
+
+// IMAGES
+import homeGarage from "@/assets/homeGarage10.jpeg";
+import seanGarage from "@/assets/seanGarage.png";
+import closingDoor from "@/assets/closingDoor.png";
+import repairingDoor from "@/assets/repairingDoor.png";
+import tuneUp from "@/assets/tuneup.png";
+
+// ICONS
+import quality from "@/assets/quality.svg";
+import pricing from "@/assets/pricing.svg";
+import available from "@/assets/available.svg";
+
+// DATA
+import { getCollection } from "astro:content";
+const faq = await getCollection("garageDoorRepairDecherdFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
+
+const repairCardData = [
+  {
+    title: "Complete System Inspection",
+    description:
+      "We inspect springs, cables, rollers, tracks, hinges, opener components, and safety sensors to identify the root cause of the problem.",
+    icon: quality,
+    iconAlt: "Inspection checklist icon",
+  },
+  {
+    title: "Clear Diagnosis & Transparent Estimate",
+    description:
+      "Once we identify the issue, we explain the repair in straightforward terms and provide a clear estimate before starting work.",
+    icon: pricing,
+    iconAlt: "Transparent pricing icon",
+  },
+  {
+    title: "Professional Repair & Testing",
+    description:
+      "After completing the repair, we test door balance, smooth movement, and safety features to ensure the system operates properly.",
+    icon: available,
+    iconAlt: "Quality assurance icon",
+  },
+];
+
+const locationServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Garage Door Repair",
+  areaServed: {
+    "@type": "City",
+    name: "Decherd",
+    addressRegion: "TN",
+  },
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Lambo's Garage Door Service",
+  },
+};
+---
+
+<Layout
+  pageTitle="Garage Door Repair in Decherd, TN | Lambo's Garage Door Service"
+  description="Fast, reliable garage door repair in Decherd, TN. Broken springs, opener repair, and emergency service across Franklin County. Call today for service."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(locationServiceSchema)} />
+
+  <InternalHero
+    pageTitle="Garage Door Repair in Decherd, TN"
+    title="Fast, Reliable Garage Door Service Just Minutes Away"
+    ariaLabel="Garage Door Repair Hero Section"
+    imageSrc={homeGarage}
+    imageAlt="Home garage with a well-maintained garage door"
+    primaryCtaText="Schedule Garage Door Repair"
+    primaryCtaHref="/contact"
+    secondaryCtaText="Call Now for Service"
+    secondaryCtaHref="tel:+19312229963"
+  >
+    <p>
+      If your garage door suddenly stops working, makes loud grinding noises, or refuses to open or
+      close, you need reliable service you can trust. Lambo’s Garage Door Service provides
+      professional garage door repair in Decherd, Tennessee, helping homeowners restore safe and
+      dependable operation quickly.
+    </p>
+    <p>
+      Located just a few minutes away in Estill Springs, we regularly serve homeowners throughout
+      Decherd and surrounding Franklin County communities. Whether the issue is a broken spring,
+      damaged cable, off-track door, or opener malfunction, we diagnose the problem and fix it the
+      right way.
+    </p>
+    <div class="btn-wrapper btn-wrapper--left">
+      <Links variant="primary" href="/contact">Schedule Garage Door Repair</Links>
+      <Links variant="outline" href="tel:+19312229963">Call Now for Service</Links>
+    </div>
+  </InternalHero>
+
+  <SplitOverlay
+    title="Local Garage Door Repair Near Decherd"
+    imgSrc={tuneUp}
+    imgAlt="Garage door tune-up service"
+    background="bg-primary"
+    orientation="right"
+  >
+    <p>
+      Garage doors are one of the most frequently used systems in your home. Many homeowners in
+      Decherd use their garage doors multiple times every day, often relying on them as the main
+      entry point into the house. Over time, constant use causes normal wear on springs, rollers,
+      cables, and opener components.
+    </p>
+
+    <p>
+      Temperature changes and humidity across Franklin County can also contribute to metal fatigue
+      and mechanical stress. When one component begins to fail, the entire door system can become
+      unbalanced or unreliable.
+    </p>
+
+    <p>
+      Because our shop is located nearby in Estill Springs, we’re able to respond quickly to garage
+      door repair calls throughout Decherd and surrounding areas.
+    </p>
+
+    <p>
+      Our goal is simple: identify the real cause of the problem and restore smooth, reliable
+      operation.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Common Garage Door Problems We Repair in Decherd"
+    imgSrc={seanGarage}
+    imgAlt="Sean performing garage door maintenance service"
+    background="bg-light"
+    orientation="left"
+  >
+    <p>
+      Most garage door issues develop gradually before becoming a complete system failure.
+      Homeowners in Decherd commonly call us for repairs involving:
+    </p>
+
+    <ul>
+      <li><p>Broken torsion or extension springs</p></li>
+      <li><p>Snapped or frayed lift cables</p></li>
+      <li><p>Doors that have come off track</p></li>
+      <li><p>Worn rollers causing vibration or loud grinding noises</p></li>
+      <li><p>Bent or misaligned tracks</p></li>
+      <li><p>Garage door opener motor failures</p></li>
+      <li><p>Remote or keypad connectivity issues</p></li>
+      <li><p>Safety sensor alignment problems</p></li>
+    </ul>
+
+    <p>
+      If your garage door suddenly feels extremely heavy or refuses to lift, a spring may have
+      broken. In that case, our <strong
+        ><a href="/garage-door-spring-replacement">Garage Door Spring Replacement</a></strong
+      >
+      service can safely restore proper door balance.
+    </p>
+
+    <p>
+      If the opener motor runs but the door doesn't move properly, our <strong
+        ><a href="/garage-door-opener-repair">Garage Door Opener Repair</a></strong
+      > and <strong><a href="/garage-door-installation">Garage Door Installation</a></strong> service
+      may be the right solution.
+    </p>
+  </SplitOverlay>
+
+  <SplitOverlay
+    title="Why Prompt Garage Door Repair Matters"
+    imgSrc={repairingDoor}
+    imgAlt="Repairing a garage door"
+    background="bg-dark"
+    orientation="right"
+  >
+    <p>
+      Many homeowners continue using their garage door even after noticing small issues.
+      Unfortunately, this often leads to larger and more expensive repairs.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Prevent Additional Mechanical Damage</Heading
+    >
+
+    <p>
+      When a garage door becomes unbalanced due to worn springs or cables, the opener motor must
+      work harder than intended. Over time this strain can lead to motor failure or additional
+      mechanical damage.
+    </p>
+
+    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s" weight="fw500"
+      >Protect the Safety of Your Home</Heading
+    >
+
+    <p>
+      Garage doors operate under high tension and can weigh hundreds of pounds. Damaged components
+      such as springs or cables can fail unexpectedly, creating safety risks for your household.
+    </p>
+
+    <p>
+      Addressing problems early helps keep your garage door system operating safely and reliably.
+    </p>
+  </SplitOverlay>
+
+  <section class="bg-light">
+    <div class="container container-md column-small">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Our Garage Door Repair Process
+        </Heading>
+        <p class="margin-bottom-xl">
+          When you schedule service in Decherd, we follow a simple process designed to deliver
+          dependable results. Most garage door repairs in Decherd can be completed during a single
+          service visit.
+        </p>
+      </div>
+      <div class="content-full">
+        <CardGrid cardData={repairCardData} />
+      </div>
+    </div>
+  </section>
+
+  <FAQ faq={faqData} />
+
+  <SplitOverlay
+    title="Serving Decherd and Nearby Franklin County Communities"
+    imgSrc={closingDoor}
+    imgAlt="Closing a garage door"
+    background="bg-primary"
+    orientation="left"
+  >
+    <p>
+      Our garage door repair services extend throughout Decherd and surrounding communities across
+      Franklin County and nearby Coffee County.
+    </p>
+
+    <p>Because we are based in Estill Springs, we frequently serve homeowners in:</p>
+
+    <ul>
+      <li>
+        <p><a href="/garage-door-repair-decherd-tn">Decherd</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-winchester-tn">Winchester</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-estill-springs-tn">Estill Springs</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-lynchburg-tn">Lynchburg</a></p>
+      </li>
+      <li>
+        <p><a href="/garage-door-repair-tullahoma-tn">Tullahoma</a></p>
+      </li>
+    </ul>
+
+    <p>If you're searching for garage door repair near Decherd, our team is ready to help.</p>
+  </SplitOverlay>
+
+  <section>
+    <div class="container container-md column-main">
+      <div class="content-md">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l" weight="fw500">
+          Garage Door Services Available in Decherd
+        </Heading>
+        <p class="margin-bottom-xl">
+          In addition to general garage door repair, we provide a full range of garage door services
+          for homeowners throughout the area.
+        </p>
+      </div>
+      <div class="content-full">
+        <div class="services-grid flex">
+          <ServicesCard descriptionType="short" excludeIds={[1]} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
