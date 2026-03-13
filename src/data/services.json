@@ -12,7 +12,7 @@
     "image": "@/assets/homeGarage1.jpeg",
     "imageAlt": "Professional garage door repair service in Middle Tennessee",
     "cta": "Learn More about Garage Door Repair",
-    "href": "garage-door-repair"
+    "href": "/garage-door-repair"
   },
   {
     "id": 2,
@@ -27,7 +27,7 @@
     "image": "@/assets/springs.png",
     "imageAlt": "Same day garage door spring replacement service",
     "cta": "Learn More about Spring Replacement",
-    "href": "garage-door-spring-replacement"
+    "href": "/garage-door-spring-replacement"
   },
   {
     "id": 3,
@@ -42,7 +42,7 @@
     "image": "@/assets/homeGarage2.jpeg",
     "imageAlt": "New garage door installation for homes in Middle Tennessee",
     "cta": "Learn More about Garage Door Installation",
-    "href": "garage-door-installation"
+    "href": "/garage-door-installation"
   },
   {
     "id": 4,
@@ -57,7 +57,7 @@
     "image": "@/assets/garageOpener.jpeg",
     "imageAlt": "Garage door opener repair and installation with WiFi features",
     "cta": "Learn More about Opener Repair",
-    "href": "garage-door-opener-repair"
+    "href": "/garage-door-opener-repair"
   },
   {
     "id": 5,
