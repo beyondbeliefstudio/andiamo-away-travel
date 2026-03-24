@@ -10,29 +10,13 @@ import { baseData } from "@/data/siteData";
 import { Image, Picture } from "astro:assets";
 
 // IMAGES
-import garageHome from "@/assets/garageHome.jpg";
 import callIcon from "@/assets/call.svg";
 import mailIcon from "@/assets/mail.svg";
 ---
 
 <section class="CTA">
-  <div class="container container-md CTA__container">
+  <div class="container container-lg CTA__container">
     <div class="CTA__content grid-auto-2">
-      <div class="CTA__bg">
-        <Picture
-          src={garageHome}
-          formats={["avif", "webp"]}
-          alt="Garage door service background"
-          width={1920}
-          height={1080}
-          widths={[640, 1024, 1920]}
-          sizes="100vw"
-          quality={60}
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-      <div class="CTA__overlay"></div>
       <div class="CTA__text">
         <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500"
           >We're Just A Call Away
@@ -135,6 +119,7 @@ import mailIcon from "@/assets/mail.svg";
       padding: var(--_spacing---section-space--main);
       overflow: hidden;
       border-radius: var(--border-radius-small);
+      background: var(--brand-primary);
 
       @media (max-width: 1024px) {
         grid-template-columns: 1fr;

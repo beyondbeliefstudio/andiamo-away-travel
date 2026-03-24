@@ -1,7 +1,5 @@
-@import "expose.css";
-
 html {
-  font-size: 18px;
+  font-size: 20px;
   scroll-behavior: smooth;
 }
 
@@ -18,7 +16,7 @@ section {
 
 :root {
   /* SWATCHES */
-  --brand-primary: #be3e2e;
+  --brand-primary: #d0332d;
   --brand-primary-light: #d35a4a;
   --brand-primary-dark: #943124;
 
@@ -49,13 +47,13 @@ section {
 
   /* STYLING */
   --border-width: 1.5px;
-  --border-radius-small: 8px;
+  --border-radius-small: 4px;
   --border-radius-medium: 16px;
   --border-radius-round: 999px;
 
   /* TYPOGRAPHY */
-  --primary-family: "Anton", sans-serif;
-  --secondary-family: "Instrument Sans", sans-serif;
+  --primary-family: "Inter", sans-serif;
+  --secondary-family: "Inter Tight", serif;
 
   // SIZING
   --site--margin: clamp(1rem, 0.428rem + 2.86vw, 3rem);
@@ -74,10 +72,10 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 4.75rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.71rem);
-  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.9rem);
-  --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2.26rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 3.75rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.25rem);
+  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.5rem);
+  --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
   --_typography---font-size--h5: clamp(1.19rem, 1.136rem + 0.27vw, 1.38rem);
   --_typography---font-size--h6: clamp(0.9rem, 1.016rem + 0.07vw, 1.08rem);
@@ -110,7 +108,7 @@ section {
 
 body {
   box-sizing: border-box;
-  font-family: var(--secondary-family);
+  font-family: var(--primary-family);
   font-weight: 300;
   font-size: var(--_typography---font-size--text-main);
   line-height: 1.4rem;
@@ -186,6 +184,7 @@ a:not(.btn) {
   // font-size: var(--_typography---font-size--h6) !important;
   font-size: 1rem !important;
   display: block;
+  margin-left: 0;
 }
 
 .btn {
@@ -194,11 +193,11 @@ a:not(.btn) {
   border-style: solid;
   border-width: 1px;
   transition: 0.25s ease-in-out all;
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: 0.5px;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: var(--border-radius-small);
   text-transform: uppercase;
   line-height: 1.4;
   margin: 0.5rem 0.25rem;
@@ -208,7 +207,7 @@ a:not(.btn) {
   font-size: inherit;
   font-family: var(--primary-family);
   color: var(--content-primary);
-  font-size: var(--_typography---font-size--text-large);
+  font-size: var(--_typography---font-size--text-main);
 }
 
 .btn-wrapper {
@@ -231,7 +230,7 @@ a:not(.btn) {
 
 .nav-link {
   text-transform: capitalize !important;
-  font-weight: 400;
+  font-weight: 800;
   letter-spacing: 0px;
   width: fit-content;
   font-size: var(--_typography---font-size--h6);
@@ -477,7 +476,7 @@ a:not(.btn) {
 }
 
 .content-full {
-  text-align: center;
+  text-align: left;
   max-width: 100%;
   margin: auto;
   width: 100%;
@@ -609,6 +608,10 @@ select {
   align-items: start;
   justify-content: start;
 
+  * {
+    color: var(--dark-900) !important;
+  }
+
   &__glass {
     background: var(--glass);
     border: 1px solid var(--border-color);
@@ -622,7 +625,6 @@ select {
 
   span.icon {
     background: var(--brand-primary);
-    border: 1px solid var(--brand-primary-dark);
     width: 50px;
     height: 50px;
     display: block;
@@ -632,6 +634,7 @@ select {
     align-items: center;
     justify-content: center;
     color: var(--dark-900);
+    padding: 7px;
 
     @media screen and (max-width: 768px) {
       width: 60px;

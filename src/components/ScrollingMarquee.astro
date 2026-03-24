@@ -2,29 +2,24 @@
 // HELPERS
 import { Picture } from "astro:assets";
 
+// COMPONENTS
+import Heading from "./Heading.astro";
+
 // IMAGES
-import lambo1 from "@/assets/lambo1.jpeg";
-import lambo2 from "@/assets/lambo2.jpeg";
-import lambo3 from "@/assets/lambo3.jpg";
-import lambo4 from "@/assets/lambo4.jpg";
-import lambo5 from "@/assets/lambo5.mp4";
-import lambo6 from "@/assets/lambo6.jpg";
-import lambo7 from "@/assets/lamboCustomer1.jpeg";
-import lambo8 from "@/assets/lamboCustomer2.jpeg";
-import lambo9 from "@/assets/lamboCustomer3.jpeg";
-import lambo10 from "@/assets/lamboCustomer4.jpeg";
+import stainRemover from "@/assets/stainRemover.jpg";
+import upholstery from "@/assets/upholstery.jpg";
+import waterDamage from "@/assets/waterDamage.jpg";
+import carpetCleaning from "@/assets/carpetCleaning.jpg";
+import floodCleanUp from "@/assets/floodCleanUp.jpg";
+import groutCleaning from "@/assets/groutCleaning.jpg";
 
 const items = [
-  { src: lambo1, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo2, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo3, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo4, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo5, alt: "Lambo the dog video", type: "video" },
-  { src: lambo6, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo7, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo8, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo9, alt: "Lambo and a customer", type: "photo" },
-  { src: lambo10, alt: "Lambo and a customer", type: "photo" },
+  { src: stainRemover, alt: "Stain Remover", type: "photo" },
+  { src: upholstery, alt: "Upholstery Cleaning", type: "photo" },
+  { src: waterDamage, alt: "Water Damage Cleanup", type: "photo" },
+  { src: carpetCleaning, alt: "Carpet Cleaning", type: "photo" },
+  { src: floodCleanUp, alt: "Flood Cleanup", type: "photo" },
+  { src: groutCleaning, alt: "Grout Cleaning", type: "photo" },
 ];
 ---
 
@@ -35,33 +30,29 @@ const items = [
         items.map(item => (
           <div class="scrolling-photos__item">
             <div class="scrolling-photos__img-wrapper">
-              {item.type === "video" ? (
-                <video
-                  src={item.src as any}
-                  class="scrolling-photos__img"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  aria-label={item.alt}
-                  disablepictureinpicture
-                  preload="metadata"
-                />
-              ) : (
-                <Picture
-                  src={item.src as any}
-                  formats={["avif", "webp"]}
-                  alt={item.alt}
-                  class="scrolling-photos__img"
-                  loading="lazy"
-                  quality={60}
-                  width={500}
-                  height={500}
-                  widths={[300, 500]}
-                  sizes="(max-width: 768px) 300px, 500px"
-                />
-              )}
+              <Picture
+                src={item.src as any}
+                formats={["avif", "webp"]}
+                alt={item.alt}
+                class="scrolling-photos__img"
+                loading="lazy"
+                quality={60}
+                width={500}
+                height={500}
+                widths={[300, 500]}
+                sizes="(max-width: 768px) 300px, 500px"
+              />
             </div>
+            <Heading
+              tag="h3"
+              size="l"
+              fontFamily="primary"
+              marginBottom="s"
+              weight="fw800"
+              class="scrolling-photos__text"
+            >
+              {item.alt}
+            </Heading>
           </div>
         ))
       }
@@ -86,27 +77,51 @@ const items = [
       gap: 1rem;
       width: max-content;
       flex-wrap: nowrap;
-      animation: scrollPhotos 140s reverse linear infinite;
+      animation: scrollPhotos 140s linear infinite;
 
       @media screen and (max-width: 768px) {
-        animation: scrollPhotos 150s reverse linear infinite;
+        animation: scrollPhotos 150s linear infinite;
       }
     }
 
     &__item {
       position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-small);
+    }
+
+    &__text {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      color: #fff;
+      z-index: 999;
+      text-wrap: balance;
+      width: 50%;
     }
 
     &__img-wrapper {
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      border-radius: var(--border-radius-small);
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 1;
+      }
 
       img,
       video {
         height: 500px;
         max-width: 100vw;
+        aspect-ratio: 5/6;
         width: auto !important;
         object-fit: cover;
         vertical-align: middle;

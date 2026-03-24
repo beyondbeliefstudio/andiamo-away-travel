@@ -11,29 +11,19 @@ import { baseData } from "@/data/siteData";
 
 // Images
 import facebook from "@/assets/facebook.png";
-import yelp from "@/assets/yelp.svg";
 import Heading from "@/components/Heading.astro";
-import lambologo from "@/assets/lambo-logo.png";
+import mercyLogo from "@/assets/mercy-logo.png";
 ---
 
 <footer class="footer">
-  <div class="container container-md">
+  <div class="container container-lg">
     <div class="content-full footer__content">
       <div class="footer__info">
         <a href="/">
-          <Image src={lambologo} alt="Lambo Logo" class="footer__wordmark" />
+          <Image src={mercyLogo} alt="Mercy Logo" class="footer__wordmark" />
         </a>
         <p>
           {baseData.description}
-        </p>
-        <p>
-          Based in
-          <a href="/garage-door-repair-estill-springs-tn">Estill Springs</a>, we proudly serve
-          Franklin County, Coffee County, Moore County, and surrounding communities including
-          <a href="/garage-door-repair-winchester-tn">Winchester</a>,
-          <a href="/garage-door-repair-tullahoma-tn">Tullahoma</a>,
-          <a href="/garage-door-repair-decherd-tn">Decherd</a>, and
-          <a href="/garage-door-repair-lynchburg-tn">Lynchburg</a>.
         </p>
         <div class="social-grid">
           <a
@@ -43,9 +33,6 @@ import lambologo from "@/assets/lambo-logo.png";
             rel="noopener noreferrer"
           >
             <Image src={facebook} alt="Facebook Icon" />
-          </a>
-          <a class="social" href={baseData.social.yelp} target="_blank" rel="noopener noreferrer">
-            <Image src={yelp} alt="Yelp Icon" />
           </a>
         </div>
       </div>
@@ -126,7 +113,7 @@ import lambologo from "@/assets/lambo-logo.png";
       </div>
     </div>
   </div>
-  <div class="footer__bottom container container-md">
+  <div class="footer__bottom container container-lg">
     <div class="footer__bottom-content">
       <p class="footer__copyright">
         © {new Date().getFullYear()}

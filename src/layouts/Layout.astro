@@ -20,12 +20,10 @@ const { hideCTA = false } = Astro.props;
 <html lang="en">
   <BaseHead {...Astro.props} />
   <body>
-    <Alert />
     <Nav />
     <main>
       <slot />
     </main>
-    <Reviews />
     {!hideCTA && <CTA />}
     <Footer />
     <!-- <UserBack /> -->

@@ -1,12 +1,12 @@
 export const baseData = {
-  title: "Lambo's Garage Door Service",
+  title: "Mercy Carpet Cleaning & Restoration",
   description:
-    "Lambo’s Garage Door Service provides professional garage door installation, repair, and maintenance for residential and commercial properties.",
+    "Cleaning and restoration firm offering professional services at affordable prices, from homes and offices to commercial properties.",
   address: {
-    full: "Estill Springs, TN 37330",
+    full: "912 W Sewell St, Pageland, SC 29728",
   },
-  phone: "(931) 222-9963",
-  email: "lambosgaragedoor@gmail.com",
+  phone: "(980) 859-0399",
+  email: "mercycarpetcleaning@gmail.com",
   hours: {
     regular: {
       days: "Sunday - Saturday",
@@ -18,7 +18,6 @@ export const baseData = {
     },
   },
   social: {
-    facebook: "https://www.facebook.com/lambosgaragedoorservice",
-    yelp: "https://www.yelp.com/biz/lambo-s-garage-door-service-estill-springs-2",
+    facebook: "https://www.facebook.com/mercycarpetcleaning/",
   },
 };

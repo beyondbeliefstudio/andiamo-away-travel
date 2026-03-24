@@ -1,13 +1,10 @@
 ---
 import Heading from "@/components/Heading.astro";
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 
 interface CardItem {
   title: string;
   description: string;
-  icon: ImageMetadata;
-  iconAlt: string;
+  number?: number;
 }
 
 interface Props {
@@ -17,15 +14,15 @@ interface Props {
 const { cardData } = Astro.props as Props;
 ---
 
-<div class="card-grid grid-auto-3">
+<div class="card-grid grid-auto-4">
   {
-    cardData.map(card => (
+    cardData.map((card, index) => (
       <div class="card-grid__card">
         <div class="card-grid__icon">
-          <Image src={card.icon} alt={card.iconAlt} />
+          <span>{card.number ?? index + 1}</span>
         </div>
         <div class="card-grid__content">
-          <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m" weight="fw500">
+          <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m" weight="fw800">
             {card.title}
           </Heading>
           <p>{card.description}</p>
@@ -62,14 +59,14 @@ const { cardData } = Astro.props as Props;
         height: 40px;
       }
 
-      img {
-        width: 32px;
-        height: 32px;
-        filter: invert(1);
+      span {
+        color: var(--light-100);
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1;
 
         @media screen and (max-width: 768px) {
-          width: 25px;
-          height: 25px;
+          font-size: 1rem;
         }
       }
     }
