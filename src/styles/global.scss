@@ -1,5 +1,5 @@
 html {
-  font-size: 20px;
+  font-size: 18px;
   scroll-behavior: smooth;
 }
 
@@ -72,9 +72,9 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 3.75rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.25rem);
-  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.5rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 3.25rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 2.75rem);
+  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.25rem);
   --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
   --_typography---font-size--h5: clamp(1.19rem, 1.136rem + 0.27vw, 1.38rem);
@@ -110,6 +110,7 @@ body {
   box-sizing: border-box;
   font-family: var(--primary-family);
   font-weight: 300;
+  letter-spacing: 1px;
   font-size: var(--_typography---font-size--text-main);
   line-height: 1.4rem;
   color: var(--content-primary);
