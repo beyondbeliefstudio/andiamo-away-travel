@@ -11,18 +11,27 @@ const { reviews } = Astro.props;
 const { description, name, stars } = reviews.data;
 ---
 
-<li class="card bg-light">
+<li class="card bg-glass">
   <div class="stars" data-rating={stars}>
     {Array.from({ length: 5 }, (_, i) => <span class={i < stars ? "star filled" : "star"} />)}
   </div>
-  <p class="review">{description}</p>
-  <Heading tag="h3" size="s" fontFamily="primary" marginBottom="xs" weight="fw500">{name}</Heading>
+  <p class="review">"{description}""</p>
+  <Heading
+    tag="h3"
+    size="xxs"
+    fontFamily="primary"
+    marginBottom="xs"
+    weight="fw800"
+    textTransform="uppercase">{name}</Heading
+  >
 </li>
 
 <style lang="scss">
   li {
     cursor: pointer;
     align-items: start;
+    max-width: 500px;
+    height: fit-content;
 
     @media screen and (max-width: 768px) {
       max-width: 350px;
@@ -54,8 +63,10 @@ const { description, name, stars } = reviews.data;
     &::before {
       content: "\2606";
       position: absolute;
-      font-size: 0.95rem;
-      color: #ddd;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      line-height: 1;
+      color: #fbbc04 !important;
     }
 
     &.filled::before {

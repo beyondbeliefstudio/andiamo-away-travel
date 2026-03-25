@@ -8,35 +8,38 @@ import Links from "@/components/Links.astro";
 
 // IMAGES
 import heroCarpet from "@/assets/hero_carpet.jpg";
+import carpetHero from "@/assets/carpetHero.jpg";
 ---
 
-<section aria-label="title" class="hero bg-light">
-  <div class="container container-lg">
+<section aria-label="title" class="hero bg-dark">
+  <div class="container container-md">
     <div class="content-full hero__grid">
       <div class="hero__col hero__content">
         <div class="hero__content-bottom">
-          <div class="hero__reviews">
-            <div class="hero__reviews-wrapper">
-              <img
-                src="https://www.gstatic.com/images/branding/product/1x/googleg_24dp.png"
-                alt="Google"
-                class="hero__reviews-logo"
-              />
-              <div class="hero__reviews-stars">
-                <span>★★★★★</span>
-              </div>
-            </div>
-            <p class="hero__reviews-text small">5 Based on 90+ Reviews</p>
-          </div>
-          <Heading tag="h1" size="display" fontFamily="secondary" marginBottom="m" weight="fw800">
-            Carpet Cleaning & Restoration That Delivers Results
-          </Heading>
+          <Heading
+            tag="h1"
+            size="xs"
+            fontFamily="primary"
+            marginBottom="s"
+            weight="fw800"
+            class="internal-hero__title eyebrow">Carpet Cleaning & Restoration</Heading
+          >
           <Heading
             tag="h2"
+            size="display"
+            fontFamily="secondary"
+            marginBottom="m"
+            weight="fw800"
+            textTransform="capitalize"
+          >
+            Keep your home dry and beautiful
+          </Heading>
+          <Heading
+            tag="h3"
             size="s"
             fontFamily="primary"
             marginBottom="none"
-            weight="fw400"
+            weight="fw500"
             lineHeight={1.25}
           >
             Carpet, tile, grout, upholstery, and water damage cleanup with fast response times and
@@ -45,16 +48,16 @@ import heroCarpet from "@/assets/hero_carpet.jpg";
           <ul class="hero__key-points">
             <li><p>Locally Owned and Operated</p></li>
             <li><p>24/7 Emergency Service</p></li>
-            <li><p>Licensed and Insured</p></li>
+            <li><p>Female-Owned Business</p></li>
           </ul>
           <div class="btn-wrapper btn-wrapper--left">
             <Links
-              variant="primary"
+              variant="light"
               href="/contact"
               ariaLabel="Schedule your carpet cleaning in Monroe, NC">Schedule Your Cleaning</Links
             >
             <Links
-              variant="outline"
+              variant="outline-light"
               href="/services"
               ariaLabel="View our carpet cleaning services in Monroe, NC">View Our Services</Links
             >
@@ -62,9 +65,22 @@ import heroCarpet from "@/assets/hero_carpet.jpg";
         </div>
       </div>
       <div class="hero__col">
+        <div class="hero__reviews">
+          <div class="hero__reviews-wrapper">
+            <img
+              src="https://www.gstatic.com/images/branding/product/1x/googleg_24dp.png"
+              alt="Google"
+              class="hero__reviews-logo"
+            />
+            <div class="hero__reviews-stars">
+              <span>★★★★★</span>
+            </div>
+          </div>
+          <p class="hero__reviews-text">Based on 90+ Reviews</p>
+        </div>
         <div class="hero__img-wrapper">
           <Picture
-            src={heroCarpet}
+            src={carpetHero}
             formats={["avif", "webp"]}
             alt="Carpet cleaning hero image"
             class="hero__img"
@@ -115,12 +131,11 @@ import heroCarpet from "@/assets/hero_carpet.jpg";
     &__content {
       text-align: left;
       text-wrap: pretty;
-      background-color: var(--light-200);
       display: flex;
       flex-direction: column;
       align-items: start;
       justify-content: center;
-
+      padding: 5rem 0;
       h3 {
         margin-top: 1rem;
       }
@@ -131,16 +146,6 @@ import heroCarpet from "@/assets/hero_carpet.jpg";
         font-size: 1.1rem;
         font-weight: 500;
       }
-    }
-
-    &__eyebrow {
-      width: fit-content;
-      letter-spacing: 0px;
-      width: fit-content;
-      letter-spacing: 1px;
-      background: var(--light-200);
-      padding: 0.5rem 0.5rem;
-      border-radius: 5px;
     }
 
     .btn {
@@ -157,6 +162,11 @@ import heroCarpet from "@/assets/hero_carpet.jpg";
       width: fit-content;
       margin-bottom: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 999;
+      margin-bottom: 0;
 
       @media screen and (max-width: 768px) {
         padding: 0.5rem;
@@ -190,8 +200,8 @@ import heroCarpet from "@/assets/hero_carpet.jpg";
       display: flex;
 
       span {
-        color: #fbbc04;
-        font-size: 1.1rem;
+        color: #fbbc04 !important;
+        font-size: var(--_typography---font-size--text-main);
         letter-spacing: 2px;
         line-height: 1;
 

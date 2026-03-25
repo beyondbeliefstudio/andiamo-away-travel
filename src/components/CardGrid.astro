@@ -14,15 +14,15 @@ interface Props {
 const { cardData } = Astro.props as Props;
 ---
 
-<div class="card-grid grid-auto-4">
+<div class="card-grid grid-auto-3">
   {
     cardData.map((card, index) => (
-      <div class="card-grid__card">
-        <div class="card-grid__icon">
-          <span>{card.number ?? index + 1}</span>
-        </div>
+      <div class="card bg-white">
+        <span class="card__number">
+          <p>Step {card.number ?? index + 1}</p>
+        </span>
         <div class="card-grid__content">
-          <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m" weight="fw800">
+          <Heading tag="h3" size="s" fontFamily="primary" marginBottom="m" weight="fw800">
             {card.title}
           </Heading>
           <p>{card.description}</p>
@@ -34,45 +34,28 @@ const { cardData } = Astro.props as Props;
 
 <style lang="scss">
   .card-grid {
-    &__card {
-      padding: 1rem;
-      border-radius: var(--border-radius-small);
-      background-color: var(--light-100);
-      display: flex;
-      flex-direction: column;
-      gap: var(--_spacing---space--6);
-    }
+    .card {
+      &__number {
+        width: fit-content;
+        padding: 0.4rem 0.75rem;
+        border-radius: var(--border-radius-round);
+        background: var(--dark-900);
+        margin-bottom: 1rem;
 
-    &__icon {
-      width: 60px;
-      height: 60px;
-      background: var(--brand-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border: 1px solid var(--dark-900);
+        p {
+          color: var(--light-100);
+          font-weight: 700;
+          font-size: 0.8rem;
+          line-height: 1;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-bottom: 0;
 
-      @media screen and (max-width: 768px) {
-        width: 40px;
-        height: 40px;
-      }
-
-      span {
-        color: var(--light-100);
-        font-weight: 700;
-        font-size: 1.25rem;
-        line-height: 1;
-
-        @media screen and (max-width: 768px) {
-          font-size: 1rem;
+          @media screen and (max-width: 768px) {
+            font-size: 1rem;
+          }
         }
       }
-    }
-
-    &__content {
-      text-align: left;
     }
   }
 </style>

@@ -6,8 +6,13 @@ import Heading from "@/components/Heading.astro";
 import Links from "@/components/Links.astro";
 import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
 import SplitOverlay from "@/components/SplitOverlay.astro";
+import Process from "@/components/Process.astro";
 
 import cleaningWorks from "@/assets/cleaningWorks.jpg";
+import carpet from "@/assets/carpet.jpg";
+import flooring from "@/assets/flooring.jpg";
+import mattress from "@/assets/mattress.jpg";
+import kitchen from "@/assets/kitchen.jpg";
 
 // ICONS
 import local from "@/assets/local.svg";
@@ -17,13 +22,10 @@ import pets from "@/assets/pets.svg";
 import price from "@/assets/price.svg";
 import available from "@/assets/available.svg";
 
-import CardGrid from "@/components/CardGrid.astro";
-import ReviewsCard from "@/components/ReviewsCard.astro";
-
 // REVIEWS DATA
 import { getCollection } from "astro:content";
-
-const reviews = await getCollection("reviews", ({ data }) => data.isFeatured);
+import FullOverlay from "@/components/FullOverlay.astro";
+import Reviews from "@/components/Reviews.astro";
 
 // Data for "values" section
 const values = [
@@ -64,33 +66,6 @@ const values = [
     icon: local.src,
   },
 ];
-
-const process = [
-  {
-    number: 1,
-    title: "Call or Text Us for a Quote",
-    description:
-      "Reach out with a quick call or text and tell us what you need cleaned. We will provide clear pricing and help you choose the right service.",
-  },
-  {
-    number: 2,
-    title: "Schedule a Time That Works for You",
-    description:
-      "Pick a day and time that fits your schedule. We offer flexible appointment windows so service is convenient and stress-free.",
-  },
-  {
-    number: 3,
-    title: "We Show Up and Get to Work",
-    description:
-      "Our team arrives on time with professional equipment and gets started right away, focusing on deep, detailed cleaning from the start.",
-  },
-  {
-    number: 4,
-    title: "You Enjoy a Cleaner, Fresher Space",
-    description:
-      "After service, your home or business looks better, feels fresher, and is ready for everyday life with results you can see and smell.",
-  },
-];
 ---
 
 <Layout
@@ -100,16 +75,16 @@ const process = [
   <MainHero />
 
   <section>
-    <div class="container container-lg">
-      <div class="content-full">
-        <Heading tag="h2" size="xl" fontFamily="secondary" marginBottom="m" weight="fw800">
+    <div class="container container-md">
+      <div class="content-md">
+        <Heading tag="h2" size="xxl" fontFamily="secondary" marginBottom="m" weight="fw800">
           Complete Cleaning & Restoration Services
         </Heading>
         <p>
           From everyday cleaning to emergency restoration, we offer a full range of services
           designed to keep your home or business looking its best.
         </p>
-        <div class="btn-wrapper btn-wrapper--left">
+        <div class="btn-wrapper">
           <Links
             variant="primary"
             href="/services"
@@ -121,54 +96,29 @@ const process = [
   </section>
   <ScrollingMarquee />
 
-  <SplitOverlay
-    title="Our Results Speak for Themselves"
-    imgSrc={cleaningWorks}
-    imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
-  >
-    <p>
-      There’s a big difference between a surface clean and a deep clean. We focus on pulling out
-      dirt, buildup, and stains from deep within your floors and furniture so your space looks and
-      feels truly clean again.
-    </p>
-    <p>
-      If your carpets look worn, your tile is dull, or your home just doesn’t feel as fresh as it
-      should, we can fix that.
-    </p>
-  </SplitOverlay>
-
-  <section id="values" class="bg-dark">
-    <div class="container container-lg column-main">
-      <div class="content-full">
-        <Heading
-          tag="h2"
-          size="xs"
-          fontFamily="secondary"
-          marginBottom="m"
-          weight="fw800"
-          class="eyebrow">Our Values</Heading
-        >
+  <section id="values" class="bg-primary">
+    <div class="container container-md column-main">
+      <div class="content-md">
         <Heading tag="h3" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800"
-          >Why People in Monroe Call Mercy</Heading
+          >Why People in Chesterfield Call Mercy</Heading
         >
         <p>
           Our values guide everything we do, from the way we treat our clients to the quality of our
           work. Here's how our commitment to these principles benefits you.
         </p>
-        <Links variant="primary" href="/contact">Book Your Cleaning Today</Links>
       </div>
       <div class="content-full">
         <div class="card-grid grid-auto-3">
           {
             values.map(item => (
-              <div class="card bg-light">
+              <div class="card bg-primary-dark">
                 <span class="icon">
                   <img src={item.icon} alt="" />
                 </span>
                 <div class="card__content">
                   <Heading
                     tag="h3"
-                    size="m"
+                    size="s"
                     fontFamily="primary"
                     marginBottom="s"
                     weight="fw800"
@@ -187,8 +137,40 @@ const process = [
   </section>
 
   <SplitOverlay
+    title="Our Results Speak for Themselves"
+    imgSrc={carpet}
+    imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
+  >
+    <p>
+      There’s a big difference between a surface clean and a deep clean. We focus on pulling out
+      dirt, buildup, and stains from deep within your floors and furniture so your space looks and
+      feels truly clean again.
+    </p>
+    <p>
+      If your carpets look worn, your tile is dull, or your home just doesn’t feel as fresh as it
+      should, we can fix that.
+    </p>
+  </SplitOverlay>
+
+  <FullOverlay backgroundImage={kitchen}>
+    <Heading
+      tag="h2"
+      size="xxl"
+      fontFamily="primary"
+      marginBottom="m"
+      weight="fw800"
+      textTransform="capitalize">Proudly Serving North & South Carolina</Heading
+    >
+    <p>
+      We serve homeowners and businesses throughout Monroe, Indian Trail, Waxhaw, Matthews, and
+      surrounding areas. If you’re nearby and need cleaning or restoration, we’re just a call or
+      text away.
+    </p>
+  </FullOverlay>
+
+  <SplitOverlay
     title="24/7 Emergency Water Damage Cleanup"
-    imgSrc={cleaningWorks}
+    imgSrc={mattress}
     imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
     orientation="left"
   >
@@ -203,44 +185,23 @@ const process = [
     </p>
   </SplitOverlay>
 
-  <section class="bg-light">
-    <div class="container container-lg column-main">
-      <div class="content-full">
-        <Heading tag="h2" size="xxl" fontFamily="primary" marginBottom="l" weight="fw800">
-          Simple, Fast, and Done Right
-        </Heading>
-        <p class="margin-bottom-xl">
-          We make it easy to get the cleaning and restoration you need with a simple process that
-          focuses on clear communication, fast response times, and quality results.
-        </p>
-      </div>
-      <div class="content-full">
-        <CardGrid cardData={process} />
-      </div>
-    </div>
-  </section>
+  <Process />
 
   <section>
-    <div class="container container-lg column-main">
-      <div class="content-full">
-        <Heading
-          tag="h2"
-          size="xs"
-          fontFamily="secondary"
-          marginBottom="s"
-          weight="fw500"
-          class="eyebrow"
-        >
-          Testimonials
-        </Heading>
+    <div class="container container-full column-small">
+      <div class="content-md">
         <Heading tag="h3" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800">
           What Our Clients Are Saying
         </Heading>
+        <p>
+          We take pride in our work and it shows in the feedback we get from our clients. Here are
+          just a few of the reviews that highlight our commitment to quality, professionalism, and
+          customer satisfaction.
+        </p>
       </div>
+
       <div class="content-full">
-        <div class="grid-auto-3">
-          {reviews.map(review => <ReviewsCard reviews={review} />)}
-        </div>
+        <Reviews />
       </div>
     </div>
   </section>

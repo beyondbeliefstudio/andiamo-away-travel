@@ -2,26 +2,22 @@
 // COMPONENTS
 import Heading from "@/components/Heading.astro";
 import Links from "@/components/Links.astro";
-import ServicesCard from "@/components/ServicesCard.astro";
+import ProcessCard from "@/components/ProcessCard.astro";
 ---
 
-<section class="services">
+<section class="services bg-primary">
   <div class="container container-md column-main services__container">
     <div class="services__intro">
-      <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
-        Our Garage Door Services
+      <Heading tag="h2" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800">
+        Simple, Fast, and Done Right
       </Heading>
       <p>
-        At Lambo's Garage Door Service, I provide a full range of garage door services to homeowners
-        throughout Middle Tennessee. Whether you need a quick repair, a new door installation or
-        regular maintenance, I am here to help. Below are some of the most popular services I offer:
+        We make it easy to get the cleaning and restoration you need with a simple process that
+        focuses on clear communication, fast response times, and quality results.
       </p>
-      <div class="btn-wrapper btn-wrapper--left">
-        <Links href="/services" variant="primary"> View All Services </Links>
-      </div>
     </div>
     <div class="services__grid">
-      <ServicesCard descriptionType="short" />
+      <ProcessCard />
     </div>
   </div>
 </section>
@@ -39,7 +35,7 @@ import ServicesCard from "@/components/ServicesCard.astro";
 
     &__intro {
       position: sticky !important;
-      top: 15rem;
+      top: 7rem;
       width: 50%;
 
       @media (max-width: 1024px) {

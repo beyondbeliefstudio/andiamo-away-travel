@@ -16,7 +16,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
 ---
 
 <footer class="footer">
-  <div class="container container-lg">
+  <div class="container container-md">
     <div class="content-full footer__content">
       <div class="footer__info">
         <a href="/">
@@ -40,14 +40,13 @@ import mercyLogo from "@/assets/mercy-logo.png";
         <div class="footer__col">
           <Heading
             tag="h3"
-            size="m"
+            size="s"
             fontFamily="primary"
             marginBottom="m"
-            weight="fw500"
+            weight="fw800"
             textTransform="uppercase">Quick Links</Heading
           >
           <nav class="footer__nav-links">
-            <Links variant="nav-link" href="/services">All Garage Services</Links>
             {
               navData
                 .filter(i => i.title !== "Garage Services" && i.title !== "Service Areas")
@@ -70,34 +69,10 @@ import mercyLogo from "@/assets/mercy-logo.png";
         <div class="footer__col">
           <Heading
             tag="h3"
-            size="m"
+            size="s"
             fontFamily="primary"
             marginBottom="m"
-            weight="fw500"
-            textTransform="uppercase">Garage Door Services</Heading
-          >
-          <nav class="footer__nav-links">
-            <Links variant="nav-link" href="/garage-door-repair">Garage Door Repair</Links>
-            <Links variant="nav-link" href="/garage-door-opener-repair"
-              >Garage Door Opener Repair</Links
-            >
-            <Links variant="nav-link" href="/garage-door-installation"
-              >Garage Door Installation</Links
-            >
-            <Links variant="nav-link" href="/garage-door-maintenance">Garage Door Maintenance</Links
-            >
-            <Links variant="nav-link" href="/garage-door-spring-replacement"
-              >Spring Replacement</Links
-            >
-          </nav>
-        </div>
-        <div class="footer__col">
-          <Heading
-            tag="h3"
-            size="m"
-            fontFamily="primary"
-            marginBottom="m"
-            weight="fw500"
+            weight="fw800"
             textTransform="uppercase">Contact Us</Heading
           >
           <nav class="footer__nav-links">
@@ -107,13 +82,18 @@ import mercyLogo from "@/assets/mercy-logo.png";
             <Links variant="nav-link" href={`tel:${baseData.phone.replace(/\D/g, "")}`}
               >{baseData.phone}</Links
             >
-            <p>{baseData.address.full}</p>
+            <Links
+              variant="nav-link"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(baseData.address.full)}`}
+              target="_blank"
+              rel="noopener noreferrer">{baseData.address.full}</Links
+            >
           </nav>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer__bottom container container-lg">
+  <div class="footer__bottom container container-md">
     <div class="footer__bottom-content">
       <p class="footer__copyright">
         © {new Date().getFullYear()}
@@ -190,7 +170,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
       min-width: fit-content;
       display: grid;
       max-width: 850px;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto;
       grid-gap: var(--_spacing---section-space--main);
 
       @media (max-width: 1070px) {
@@ -240,7 +220,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
       max-width: 100%;
       background-size: contain;
       height: fit-content;
-      max-width: 250px;
+      max-width: 150px;
       margin-bottom: 1rem;
 
       @media screen and (max-width: 768px) {
@@ -267,7 +247,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
     }
 
     &__copyright {
-      font-size: var(--_typography---font-size--text-main);
+      font-size: var(--_typography---font-size--text-small);
       color: var(--dark-900);
       margin: 0;
       font-family: var(--primary-family);
@@ -277,8 +257,8 @@ import mercyLogo from "@/assets/mercy-logo.png";
         color: var(--brand-primary);
         text-decoration: none;
         transition: color 0.2s ease;
-        font-size: var(--_typography---font-size--text-main);
-        font-weight: 400;
+        font-size: var(--_typography---font-size--text-small);
+        font-weight: 800;
 
         &:hover {
           color: var(--brand-primary-dark);
@@ -302,8 +282,8 @@ import mercyLogo from "@/assets/mercy-logo.png";
       }
 
       .nav-link {
-        font-size: var(--_typography---font-size--text-main);
-        font-weight: 400;
+        font-size: var(--_typography---font-size--text-small);
+        font-weight: 800;
         text-transform: capitalize;
       }
     }

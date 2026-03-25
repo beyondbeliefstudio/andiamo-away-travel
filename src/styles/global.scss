@@ -18,7 +18,7 @@ section {
   /* SWATCHES */
   --brand-primary: #d0332d;
   --brand-primary-light: #d35a4a;
-  --brand-primary-dark: #943124;
+  --brand-primary-dark: #a72925;
 
   --brand-secondary: #cad0d0;
   --brand-secondary-light: #dfe2e2;
@@ -72,9 +72,9 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 3.25rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 2.75rem);
-  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.25rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 3.75rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.25rem);
+  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.5rem);
   --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
   --_typography---font-size--h5: clamp(1.19rem, 1.136rem + 0.27vw, 1.38rem);
@@ -175,15 +175,12 @@ a:not(.btn) {
 
 .eyebrow {
   text-transform: uppercase !important;
-  letter-spacing: 2px;
-  background-color: var(--light-100);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--border-radius-small);
+  letter-spacing: 1px;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   // font-size: var(--_typography---font-size--h6) !important;
-  font-size: 1rem !important;
+  font-size: 1.15rem !important;
   display: block;
   margin-left: 0;
 }
@@ -274,6 +271,14 @@ a:not(.btn) {
   background-color: var(--brand-primary-light);
 }
 
+.bg-primary-dark {
+  background-color: var(--brand-primary-dark);
+
+  *:not(.btn) {
+    color: var(--light-200);
+  }
+}
+
 .bg-white {
   background-color: var(--light-100);
 }
@@ -288,6 +293,12 @@ a:not(.btn) {
   *:not(.btn) {
     color: var(--light-200);
   }
+}
+
+.bg-glass {
+  background: rgb(248 248 248 / 70%);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(18px);
 }
 
 // LAYOUTS
@@ -483,6 +494,13 @@ a:not(.btn) {
   width: 100%;
 }
 
+.content-left {
+  text-align: left;
+  max-width: 55rem;
+  margin-left: 0;
+  width: 100%;
+}
+
 // GALLERY
 .gallery {
   display: grid;
@@ -602,22 +620,12 @@ select {
 // CARD STYLING
 .card {
   border-radius: var(--border-radius-small);
-  padding: 1.5rem 1.5rem 0.5rem;
+  padding: 1.5rem 1.5rem 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
-
-  * {
-    color: var(--dark-900) !important;
-  }
-
-  &__glass {
-    background: var(--glass);
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(18px);
-  }
 
   &__centered {
     text-align: center;
@@ -625,17 +633,12 @@ select {
   }
 
   span.icon {
-    background: var(--brand-primary);
-    width: 50px;
-    height: 50px;
-    display: block;
+    width: 30px;
+    height: 30px;
     margin: 0 auto 1rem 0;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--dark-900);
-    padding: 7px;
 
     @media screen and (max-width: 768px) {
       width: 60px;
@@ -690,7 +693,7 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: var(--dark-900);
+  color: var(--dark-900) !important;
   font-size: var(--_typography---font-size--text-main);
   text-align: left;
 
@@ -708,6 +711,7 @@ textarea {
   border: 1px solid var(--border-color);
   width: 100%;
   transition: all 0.2s ease;
+  color: var(--dark-900) !important;
 
   &:hover {
     border-color: #9ca3af;

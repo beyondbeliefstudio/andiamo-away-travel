@@ -14,34 +14,9 @@ import callIcon from "@/assets/call.svg";
 import mailIcon from "@/assets/mail.svg";
 ---
 
-<section class="CTA">
-  <div class="container container-lg CTA__container">
+<section class="CTA bg-dark">
+  <div class="container container-md CTA__container">
     <div class="CTA__content grid-auto-2">
-      <div class="CTA__text">
-        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500"
-          >We're Just A Call Away
-        </Heading>
-        <p class="large">
-          If your garage door is not operating properly, do not wait for the problem to worsen.
-          Lambo’s Garage Door Service provides professional garage door repair across Franklin
-          County and Coffee County with honest pricing and dependable workmanship.
-        </p>
-        <div class="CTA__contact-info">
-          <a href={`tel:${baseData.phone.replace(/\D/g, "")}`} class="CTA__contact-item">
-            <span class="CTA__icon">
-              <Image src={callIcon} alt="Phone" width={24} height={24} />
-            </span>
-            {baseData.phone}
-          </a>
-          <a href={`mailto:${baseData.email}`} class="CTA__contact-item">
-            <span class="CTA__icon">
-              <Image src={mailIcon} alt="Email" width={24} height={24} />
-            </span>
-            {baseData.email}
-          </a>
-        </div>
-      </div>
-
       <div class="CTA__form-wrapper">
         <form
           data-netlify="true"
@@ -67,9 +42,9 @@ import mailIcon from "@/assets/mail.svg";
             >
           </p>
 
-          <Heading tag="h3" size="l" fontFamily="primary" marginBottom="none" weight="fw500"
+          <!-- <Heading tag="h3" size="l" fontFamily="primary" marginBottom="none" weight="fw500"
             >Book Your Service</Heading
-          >
+          > -->
 
           <div class="form-group">
             <label for="name">Name</label>
@@ -90,12 +65,16 @@ import mailIcon from "@/assets/mail.svg";
             <label for="service">Service</label>
             <select id="service" name="service" required>
               <option value="">Select a service</option>
-              <option value="repair">Garage Door Repair</option>
-              <option value="spring">Spring Replacement</option>
-              <option value="installation">Garage Door Installation</option>
-              <option value="opener">Opener Repair and Installation</option>
-              <option value="maintenance">Garage Door Maintenance</option>
-              <option value="emergency">24 Hour Emergency Service</option>
+              <option value="carpet-cleaning">Carpet Cleaning</option>
+              <option value="tile-grout-cleaning">Tile and Grout Cleaning</option>
+              <option value="upholstery-cleaning">Upholstery Cleaning</option>
+              <option value="air-duct-cleaning">Air Duct Cleaning</option>
+              <option value="dryer-vent-cleaning">Dryer Vent Cleaning</option>
+              <option value="lvp-laminate-cleaning">LVP and Laminate Floor Cleaning</option>
+              <option value="hardwood-floor-cleaning">Hardwood Floor Cleaning</option>
+              <option value="water-damage-restoration">Water Damage Restoration</option>
+              <option value="emergency-flood-cleanup">Emergency Flood Cleanup</option>
+              <option value="odor-stain-removal">Odor and Stain Removal</option>
             </select>
           </div>
 
@@ -105,6 +84,35 @@ import mailIcon from "@/assets/mail.svg";
           <!-- <button type="submit" class="CTA__submit">Make An Appointment</button> -->
           <Buttons variant="primary" type="submit">Make An Appointment</Buttons>
         </form>
+      </div>
+      <div class="CTA__text">
+        <Heading
+          tag="h2"
+          size="xxl"
+          fontFamily="primary"
+          marginBottom="m"
+          weight="fw800"
+          textTransform="capitalize"
+          >Book your cleaning service today.
+        </Heading>
+        <p>
+          Whether you need a deep carpet cleaning or emergency restoration, Mercy Carpet Cleaning &
+          Restoration is ready to help. We make it easy, we show up on time, and we get results.
+        </p>
+        <div class="CTA__contact-info">
+          <a href={`tel:${baseData.phone.replace(/\D/g, "")}`} class="CTA__contact-item">
+            <span class="CTA__icon">
+              <Image src={callIcon} alt="Phone" width={24} height={24} />
+            </span>
+            {baseData.phone}
+          </a>
+          <a href={`mailto:${baseData.email}`} class="CTA__contact-item">
+            <span class="CTA__icon">
+              <Image src={mailIcon} alt="Email" width={24} height={24} />
+            </span>
+            {baseData.email}
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -116,10 +124,6 @@ import mailIcon from "@/assets/mail.svg";
       position: relative;
       gap: var(--_spacing---section-space--main);
       align-items: center;
-      padding: var(--_spacing---section-space--main);
-      overflow: hidden;
-      border-radius: var(--border-radius-small);
-      background: var(--brand-primary);
 
       @media (max-width: 1024px) {
         grid-template-columns: 1fr;
@@ -179,7 +183,7 @@ import mailIcon from "@/assets/mail.svg";
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: var(--_typography---font-size--text-large);
+      // font-size: var(--_typography---font-size--text-large);
       color: var(--light-100);
       text-decoration: none;
       transition: all 0.2s ease;
@@ -194,14 +198,9 @@ import mailIcon from "@/assets/mail.svg";
 
     &__icon {
       font-size: 1.5rem;
-      width: 60px;
-      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--brand-primary);
-      border-radius: 50%;
-      border: 1px solid var(--dark-900);
 
       @media screen and (max-width: 768px) {
         width: 40px;
