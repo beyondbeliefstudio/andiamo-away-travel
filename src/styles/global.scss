@@ -1,5 +1,5 @@
 html {
-  font-size: 18px;
+  font-size: 20px;
   scroll-behavior: smooth;
 }
 
@@ -16,9 +16,9 @@ section {
 
 :root {
   /* SWATCHES */
-  --brand-primary: #d0332d;
-  --brand-primary-light: #d35a4a;
-  --brand-primary-dark: #a72925;
+  --brand-primary: #e57831;
+  --brand-primary-light: #ea955d;
+  --brand-primary-dark: #d35a4a;
 
   --brand-secondary: #cad0d0;
   --brand-secondary-light: #dfe2e2;
@@ -26,7 +26,7 @@ section {
 
   --light-100: #fff;
   --light-100--transparency: #ffffff11;
-  --light-200: #f0f0f0;
+  --light-200: #dedede;
   --light-200--transparency: #fdfbf9;
   --light-glass: rgba(255, 255, 255, 0.7);
 
@@ -52,8 +52,8 @@ section {
   --border-radius-round: 999px;
 
   /* TYPOGRAPHY */
-  --primary-family: "Inter", sans-serif;
-  --secondary-family: "Inter Tight", serif;
+  --primary-family: "Bebas Neue", sans-serif;
+  --secondary-family: "Roboto", serif;
 
   // SIZING
   --site--margin: clamp(1rem, 0.428rem + 2.86vw, 3rem);
@@ -72,8 +72,8 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 3.75rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.25rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 6rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 5rem);
   --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.5rem);
   --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
@@ -110,7 +110,7 @@ body {
   box-sizing: border-box;
   font-family: var(--primary-family);
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   font-size: var(--_typography---font-size--text-main);
   line-height: 1.4rem;
   color: var(--content-primary);
@@ -192,9 +192,9 @@ a:not(.btn) {
   border-width: 1px;
   transition: 0.25s ease-in-out all;
   font-weight: 800;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.4rem;
   border-radius: var(--border-radius-small);
   text-transform: uppercase;
   line-height: 1.4;
@@ -205,7 +205,7 @@ a:not(.btn) {
   font-size: inherit;
   font-family: var(--primary-family);
   color: var(--content-primary);
-  font-size: var(--_typography---font-size--text-main);
+  font-size: var(--_typography---font-size--h5);
 }
 
 .btn-wrapper {
@@ -229,9 +229,8 @@ a:not(.btn) {
 .nav-link {
   text-transform: capitalize !important;
   font-weight: 800;
-  letter-spacing: 0px;
   width: fit-content;
-  font-size: var(--_typography---font-size--h6);
+  font-size: var(--_typography---font-size--h5);
 }
 
 .social-grid {
@@ -253,11 +252,11 @@ a:not(.btn) {
     img {
       width: 20px;
       height: 20px;
-      filter: invert(1);
+      // filter: invert(1);
     }
 
     &:hover {
-      background: var(--dark-900);
+      background: var(--light-100);
     }
   }
 }
@@ -265,6 +264,10 @@ a:not(.btn) {
 // UTILITIES
 .bg-primary {
   background-color: var(--brand-primary);
+
+  *:not(.btn) {
+    color: var(--dark-900);
+  }
 }
 
 .bg-primary-light {
@@ -288,10 +291,10 @@ a:not(.btn) {
 }
 
 .bg-dark {
-  background-color: var(--dark-800);
+  background-color: var(--dark-900);
 
   *:not(.btn) {
-    color: var(--light-200);
+    color: var(--light-100);
   }
 }
 
@@ -639,6 +642,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
+    filter: invert(1);
 
     @media screen and (max-width: 768px) {
       width: 60px;
@@ -694,7 +698,7 @@ label {
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: var(--dark-900) !important;
-  font-size: var(--_typography---font-size--text-main);
+  font-size: var(--_typography---font-size--text-large);
   text-align: left;
 
   .required {

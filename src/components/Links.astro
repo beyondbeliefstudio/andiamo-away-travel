@@ -26,7 +26,7 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
     &.primary {
       border-color: var(--brand-primary);
       background-color: var(--brand-primary);
-      color: var(--light-100);
+      color: var(--dark-900);
 
       &:hover,
       &:active,
@@ -59,9 +59,12 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
       &:hover,
       &:active,
       &:focus {
-        background-color: var(--light-200);
-        border-color: var(--light-200);
-        color: var(--brand-primary);
+        // background-color: var(--light-200);
+        // border-color: var(--light-200);
+        // color: var(--dark-800);
+        border-color: var(--brand-primary);
+        background-color: var(--brand-primary);
+        color: var(--dark-900);
       }
     }
 
@@ -127,12 +130,12 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
       padding: 0;
       position: relative; /* Added for :after pseudo-element positioning */
       transition: color 0.3s;
-      color: var(--content-primary);
+      color: var(--light-100);
       margin: 0;
 
       &:hover,
       &.active {
-        color: var(--content-primary);
+        color: var(--light-100);
 
         &:after {
           transform: scaleX(1);

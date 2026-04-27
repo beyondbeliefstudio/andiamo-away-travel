@@ -10,8 +10,7 @@ import { navData } from "@/data/navData";
 import type { NavItem } from "@/data/navData";
 
 // IMAGES
-import lambologo from "@/assets/lambo-logo.png";
-import mercyLogo from "@/assets/mercy-logo-white.png";
+import rageLogo from "@/assets/rage-logo.png";
 ---
 
 <!--=============== HEADER ===============-->
@@ -19,10 +18,10 @@ import mercyLogo from "@/assets/mercy-logo-white.png";
   <div class="nav__container container container-md">
     <div class="nav__logo">
       <a href="/" class="nav__logo-img">
-        <Image src={mercyLogo} alt="Mercy Logo" />
+        <Image src={rageLogo} alt="Rage Logo" />
       </a>
       <a href="/" class="nav__logo-img__sticky">
-        <Image src={mercyLogo} alt="Mercy Logo" />
+        <Image src={rageLogo} alt="Rage Logo" />
       </a>
     </div>
 
@@ -59,7 +58,7 @@ import mercyLogo from "@/assets/mercy-logo-white.png";
           );
         })
       }
-      <Links variant="primary" href={"tel:+19808590399"}>Call (980) 859-0399</Links>
+      <Links variant="light" href={"tel:+19808590399"}>Call (980) 859-0399</Links>
     </nav>
 
     <!-- Hamburger -->
@@ -116,7 +115,7 @@ import mercyLogo from "@/assets/mercy-logo-white.png";
   .nav {
     width: 100%;
     z-index: 1000;
-    background: var(--light-100);
+    background: var(--dark-900);
 
     &__container {
       display: flex;
@@ -140,7 +139,7 @@ import mercyLogo from "@/assets/mercy-logo-white.png";
 
       svg,
       img {
-        height: 75px !important;
+        height: 100px !important;
         width: auto !important;
 
         @media (max-width: 1070px) {
@@ -156,7 +155,7 @@ import mercyLogo from "@/assets/mercy-logo-white.png";
 
       svg,
       img {
-        height: 75px !important;
+        height: 100px !important;
         width: auto !important;
 
         @media (max-width: 1070px) {
@@ -256,7 +255,7 @@ import mercyLogo from "@/assets/mercy-logo-white.png";
       }
 
       .nav__container {
-        background-color: var(--light-100);
+        background-color: var(--dark-900);
 
         @media (max-width: 1070px) {
           width: 100%;

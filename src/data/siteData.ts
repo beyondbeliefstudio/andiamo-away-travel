@@ -1,12 +1,9 @@
 export const baseData = {
-  title: "Mercy Carpet Cleaning & Restoration",
+  title: "All The Rage Carpet Cleaning",
   description:
     "Cleaning and restoration firm offering professional services at affordable prices, from homes and offices to commercial properties.",
-  address: {
-    full: "912 W Sewell St, Pageland, SC 29728",
-  },
-  phone: "(980) 859-0399",
-  email: "mercycarpetcleaning@gmail.com",
+  phone: "(704) 292-5259",
+  email: "Alltheragecarpet@gmail.com",
   hours: {
     regular: {
       days: "Sunday - Saturday",
@@ -18,6 +15,6 @@ export const baseData = {
     },
   },
   social: {
-    facebook: "https://www.facebook.com/mercycarpetcleaning/",
+    facebook: "https://www.facebook.com/people/All-The-Rage/61551532937655/",
   },
 };

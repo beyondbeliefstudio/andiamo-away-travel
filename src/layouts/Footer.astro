@@ -12,15 +12,15 @@ import { baseData } from "@/data/siteData";
 // Images
 import facebook from "@/assets/facebook.png";
 import Heading from "@/components/Heading.astro";
-import mercyLogo from "@/assets/mercy-logo.png";
+import rageLogo from "@/assets/rage-logo.png";
 ---
 
-<footer class="footer">
+<footer class="footer bg-dark" aria-label="footer">
   <div class="container container-md">
     <div class="content-full footer__content">
       <div class="footer__info">
         <a href="/">
-          <Image src={mercyLogo} alt="Mercy Logo" class="footer__wordmark" />
+          <Image src={rageLogo} alt="All The Rage Logo" class="footer__wordmark" />
         </a>
         <p>
           {baseData.description}
@@ -40,7 +40,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
         <div class="footer__col">
           <Heading
             tag="h3"
-            size="s"
+            size="l"
             fontFamily="primary"
             marginBottom="m"
             weight="fw800"
@@ -69,7 +69,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
         <div class="footer__col">
           <Heading
             tag="h3"
-            size="s"
+            size="l"
             fontFamily="primary"
             marginBottom="m"
             weight="fw800"
@@ -81,12 +81,6 @@ import mercyLogo from "@/assets/mercy-logo.png";
             >
             <Links variant="nav-link" href={`tel:${baseData.phone.replace(/\D/g, "")}`}
               >{baseData.phone}</Links
-            >
-            <Links
-              variant="nav-link"
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(baseData.address.full)}`}
-              target="_blank"
-              rel="noopener noreferrer">{baseData.address.full}</Links
             >
           </nav>
         </div>
@@ -195,6 +189,10 @@ import mercyLogo from "@/assets/mercy-logo.png";
       .lowercase {
         text-transform: lowercase !important;
       }
+
+      .nav-link {
+        font-size: var(--_typography---font-size--h6);
+      }
     }
 
     &__link-group {
@@ -220,7 +218,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
       max-width: 100%;
       background-size: contain;
       height: fit-content;
-      max-width: 150px;
+      max-width: 250px;
       margin-bottom: 1rem;
 
       @media screen and (max-width: 768px) {
@@ -247,7 +245,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
     }
 
     &__copyright {
-      font-size: var(--_typography---font-size--text-small);
+      font-size: var(--_typography---font-size--text-main);
       color: var(--dark-900);
       margin: 0;
       font-family: var(--primary-family);
@@ -257,7 +255,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
         color: var(--brand-primary);
         text-decoration: none;
         transition: color 0.2s ease;
-        font-size: var(--_typography---font-size--text-small);
+        font-size: var(--_typography---font-size--text-main);
         font-weight: 800;
 
         &:hover {
@@ -282,7 +280,7 @@ import mercyLogo from "@/assets/mercy-logo.png";
       }
 
       .nav-link {
-        font-size: var(--_typography---font-size--text-small);
+        font-size: var(--_typography---font-size--text-main);
         font-weight: 800;
         text-transform: capitalize;
       }
