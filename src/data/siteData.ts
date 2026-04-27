@@ -17,4 +17,11 @@ export const baseData = {
   social: {
     facebook: "https://www.facebook.com/people/All-The-Rage/61551532937655/",
   },
+  address: {
+    street: "",
+    city: "",
+    state: "NC",
+    zip: "",
+    full: "Charlotte, NC",
+  },
 };
