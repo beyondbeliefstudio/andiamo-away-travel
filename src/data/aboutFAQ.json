@@ -1,50 +1,38 @@
 [
   {
     "id": 1,
-    "question": "What areas do you serve?",
-    "answer": "We serve homeowners across Middle Tennessee, including Estill Springs, Tullahoma, Murfreesboro and surrounding towns.",
+    "question": "How long does a typical cleaning take?",
+    "answer": "It depends on the size of the job and what needs to be done, but most residential jobs are completed within a few hours.",
     "tag": "a1"
   },
   {
     "id": 2,
-    "question": "Do you offer emergency garage door repair?",
-    "answer": "Yes. We offer 24 hour emergency garage door service for urgent issues like broken springs or stuck doors.",
+    "question": "How long does it take for carpets to dry?",
+    "answer": "Dry time can vary, but most carpets are dry within 6-12 hours depending on airflow and conditions.",
     "tag": "a2"
   },
   {
     "id": 3,
-    "question": "Do you install new garage doors?",
-    "answer": "Yes. We provide professional garage door installation and can help you choose the right door for your home.",
+    "question": "Do you move furniture?",
+    "answer": "We can move light furniture as needed. For heavier items, we may ask that they are moved ahead of time or work around them.",
     "tag": "a3"
   },
   {
     "id": 4,
-    "question": "Can you replace broken garage door springs?",
-    "answer": "Yes. Spring replacement is one of our most common services and can usually be completed the same day.",
+    "question": "Can you remove all stains?",
+    "answer": "We do our best to remove as much as possible, and in many cases, we can dramatically improve or fully remove stains. Some older or set-in stains may not come out completely, but we'll always be upfront about what to expect.",
     "tag": "a4"
   },
   {
     "id": 5,
-    "question": "Do you repair garage door openers?",
-    "answer": "Yes. We repair and install most major garage door opener brands.",
+    "question": "Do you offer emergency or same-day service?",
+    "answer": "Yes. We do our best to accommodate urgent situations like spills, pet accidents, or last-minute needs. Calling is the fastest way to check availability.",
     "tag": "a5"
   },
   {
     "id": 6,
-    "question": "Will Sean be the technician who comes to my home?",
-    "answer": "Yes. Sean handles every job personally. No subcontractors.",
+    "question": "Do you service both homes and businesses?",
+    "answer": "Yes. We work with residential homes, rental properties, and commercial spaces.",
     "tag": "a6"
-  },
-  {
-    "id": 7,
-    "question": "Is Lambo always on the job?",
-    "answer": "Yes. Lambo rides along to every appointment and stays nearby while work is completed.",
-    "tag": "a7"
-  },
-  {
-    "id": 8,
-    "question": "How do I schedule service?",
-    "answer": "You can call, text or request service through the website. We respond quickly and schedule appointments as soon as possible.",
-    "tag": "a8"
   }
 ]

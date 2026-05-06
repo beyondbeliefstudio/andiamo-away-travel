@@ -26,7 +26,7 @@ section {
 
   --light-100: #fff;
   --light-100--transparency: #ffffff11;
-  --light-200: #dedede;
+  --light-200: #eeeeee;
   --light-200--transparency: #fdfbf9;
   --light-glass: rgba(255, 255, 255, 0.7);
 
@@ -433,6 +433,15 @@ a:not(.btn) {
 .column-main {
   grid-column-gap: var(--_spacing---section-space--main);
   grid-row-gap: var(--_spacing---section-space--main);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.column-medium {
+  grid-column-gap: var(--_spacing---section-space--main);
+  grid-row-gap: var(--_spacing---space--8);
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;

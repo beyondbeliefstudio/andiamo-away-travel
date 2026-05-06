@@ -7,6 +7,7 @@ import Links from "@/components/Links.astro";
 import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
 import SplitOverlay from "@/components/SplitOverlay.astro";
 import Process from "@/components/Process.astro";
+import ValuesSection from "@/components/ValuesSection.astro";
 
 import cleaningWorks from "@/assets/cleaningWorks.jpg";
 import carpet from "@/assets/carpet.jpg";
@@ -14,58 +15,10 @@ import flooring from "@/assets/flooring.jpg";
 import mattress from "@/assets/mattress.jpg";
 import kitchen from "@/assets/kitchen.jpg";
 
-// ICONS
-import local from "@/assets/local.svg";
-import fast from "@/assets/fast.svg";
-import vacuum from "@/assets/vacuum.svg";
-import pets from "@/assets/pets.svg";
-import price from "@/assets/price.svg";
-import available from "@/assets/available.svg";
-
 // REVIEWS DATA
 import { getCollection } from "astro:content";
 import FullOverlay from "@/components/FullOverlay.astro";
 import Reviews from "@/components/Reviews.astro";
-
-// Data for "values" section
-const values = [
-  {
-    title: "Fast response times and flexible scheduling",
-    description:
-      "We make it easy to get service when it works for you, with quick call-backs, prompt arrivals, and appointment windows that fit your day.",
-    icon: fast.src,
-  },
-  {
-    title: "24/7 emergency service when you need it most",
-    description:
-      "When spills, flooding, or urgent cleanup issues happen after hours, our team is ready to respond fast and help prevent further damage.",
-    icon: available.src,
-  },
-  {
-    title: "Honest pricing with real value",
-    description:
-      "You get straightforward recommendations and transparent pricing, so you know exactly what to expect without surprise upsells or hidden fees.",
-    icon: price.src,
-  },
-  {
-    title: "Professional equipment that gets deeper results",
-    description:
-      "Our commercial-grade tools lift embedded dirt, grime, and residue that standard consumer machines often leave behind, giving you a deeper clean.",
-    icon: vacuum.src,
-  },
-  {
-    title: "Safe cleaning for kids and pets",
-    description:
-      "We use methods and products designed to be tough on buildup but safe for the people and pets who live, play, and relax in your home.",
-    icon: pets.src,
-  },
-  {
-    title: "Local, family-owned business that takes pride in the work",
-    description:
-      "As a locally owned team, we treat every job like it matters because it does. We focus on quality work, clear communication, and long-term customer trust.",
-    icon: local.src,
-  },
-];
 ---
 
 <Layout
@@ -82,9 +35,8 @@ const values = [
         </Heading>
         <p>
           Most people don’t realize how much dirt, buildup, and wear is sitting in their floors and
-          furniture until it’s actually cleaned the right way.
+          furniture until it’s actually cleaned the right way. That’s what we focus on.
         </p>
-        <p>That’s what we focus on.</p>
         <p>
           At All The Rage Carpet Cleaning, we go beyond surface-level cleaning. We take the time to
           do it right so your carpets, floors, and furniture don’t just look better for a day, they
@@ -106,60 +58,25 @@ const values = [
   </section>
   <ScrollingMarquee />
 
-  <section id="values" class="bg-primary">
-    <div class="container container-md column-main">
-      <div class="content-md">
-        <Heading tag="h3" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800"
-          >Why People in Marshville Call All The Rage</Heading
-        >
-        <p>
-          Our values guide everything we do, from the way we treat our clients to the quality of our
-          work. Here's how our commitment to these principles benefits you.
-        </p>
-      </div>
-      <div class="content-full">
-        <div class="card-grid grid-auto-3">
-          {
-            values.map(item => (
-              <div class="card bg-white">
-                <span class="icon">
-                  <img src={item.icon} alt="" />
-                </span>
-                <div class="card__content">
-                  <Heading
-                    tag="h3"
-                    size="m"
-                    fontFamily="primary"
-                    marginBottom="s"
-                    weight="fw800"
-                    textTransform="capitalize"
-                  >
-                    {item.title}
-                  </Heading>
-                  <p>{item.description}</p>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
+  <ValuesSection />
 
   <SplitOverlay
-    title="Our Results Speak for Themselves"
+    title="Serving Monroe and Surrounding Areas"
     imgSrc={carpet}
     imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
   >
-    <p>
-      There’s a big difference between a surface clean and a deep clean. We focus on pulling out
-      dirt, buildup, and stains from deep within your floors and furniture so your space looks and
-      feels truly clean again.
-    </p>
-    <p>
-      If your carpets look worn, your tile is dull, or your home just doesn’t feel as fresh as it
-      should, we can fix that.
-    </p>
+    <p>We're based in Monroe and regularly work throughout the surrounding communities.</p>
+    <p><strong>Areas we serve:</strong></p>
+    <ul>
+      <li><p>Indian Trail</p></li>
+      <li><p>Waxhaw</p></li>
+      <li><p>Weddington</p></li>
+      <li><p>Marshville</p></li>
+      <li><p>Wingate</p></li>
+      <li><p>Matthews</p></li>
+      <li><p>Mint Hill</p></li>
+    </ul>
+    <p>If you're nearby and not sure if we cover your area, just reach out.</p>
   </SplitOverlay>
 
   <FullOverlay backgroundImage={kitchen}>
@@ -167,32 +84,46 @@ const values = [
       tag="h2"
       size="xxl"
       fontFamily="primary"
-      marginBottom="m"
+      marginBottom="s"
       weight="fw800"
-      textTransform="capitalize">Proudly Serving North & South Carolina</Heading
+      textTransform="capitalize">Ready to Get Things Clean Again?</Heading
     >
     <p>
-      We serve homeowners and businesses throughout Monroe, Indian Trail, Waxhaw, Matthews, and
-      surrounding areas. If you’re nearby and need cleaning or restoration, we’re just a call or
-      text away.
+      If your carpets, floors, or furniture need attention, we're ready when you are. Call us or
+      fill out the form below and we'll get back to you quickly.
     </p>
+    <Links variant="primary" href="tel:7042543754" ariaLabel="Call All The Rage Carpet Cleaning"
+      >(704) 254-3754</Links
+    >
   </FullOverlay>
 
   <SplitOverlay
-    title="24/7 Emergency Water Damage Cleanup"
+    title="When Something Happens, You Don't Want to Wait"
     imgSrc={mattress}
     imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
     orientation="left"
   >
     <p>
-      When water hits your home, waiting is not an option. The longer it sits, the worse the damage
-      gets.
+      Spills, water issues, pet accidents, or last-minute situations don't give you much time to
+      think. And the longer they sit, the worse they get.
     </p>
-
     <p>
-      We offer after-hours and emergency service so you can get help right away. From burst pipes to
-      flooding, we respond quickly and start the cleanup process immediately.
+      We offer fast-response cleaning to help you take care of the problem before it turns into
+      something bigger. Whether it's a soaked carpet, a strong odor, or a stain that needs immediate
+      attention, we'll do our best to get there quickly and handle it the right way.
     </p>
+    <p><strong>Common emergency calls:</strong></p>
+    <ul>
+      <li><p>Water spills or minor flooding</p></li>
+      <li><p>Pet accidents and odor issues</p></li>
+      <li><p>Heavy stains that need immediate attention</p></li>
+      <li><p>Move-out or last-minute cleanups</p></li>
+    </ul>
+    <p><em>If it feels urgent, it probably is.</em></p>
+    <p><strong>Need help right now?</strong> Call us directly for the fastest response.</p>
+    <Links variant="primary" href="tel:7042543754" ariaLabel="Call us for emergency carpet cleaning"
+      >(704) 254-3754</Links
+    >
   </SplitOverlay>
 
   <Process />
@@ -200,7 +131,7 @@ const values = [
   <section>
     <div class="container container-full column-small">
       <div class="content-md">
-        <Heading tag="h3" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800">
+        <Heading tag="h3" size="xxl" fontFamily="primary" marginBottom="s" weight="fw800">
           What Our Clients Are Saying
         </Heading>
         <p>

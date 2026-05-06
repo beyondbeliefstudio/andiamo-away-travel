@@ -1,0 +1,113 @@
+---
+import { Picture } from "astro:assets";
+
+import Heading from "@/components/Heading.astro";
+import carpetCleaning from "@/assets/carpetCleaning.jpg";
+import cleaningWorks from "@/assets/cleaningWorks.jpg";
+
+type Owner = {
+  name: string;
+  role: string;
+  description: string;
+  imageSrc: ImageMetadata;
+  imageAlt: string;
+};
+
+const defaultOwners: Owner[] = [
+  {
+    name: "Chris",
+    role: "Co-Owner",
+    imageSrc: carpetCleaning,
+    imageAlt: "Chris from All The Rage Carpet Cleaning on the job",
+    description:
+      "Chris brings years of hands-on experience in carpet and floor cleaning, with a strong focus on doing the job right the first time. He's known for being straightforward, reliable, and easy to work with from start to finish. Whether it's a routine cleaning or a tougher job, he takes pride in delivering results customers can actually see.",
+  },
+  {
+    name: "Lee",
+    role: "Co-Owner",
+    imageSrc: cleaningWorks,
+    imageAlt: "Lee from All The Rage Carpet Cleaning at work",
+    description:
+      "Lee has been working in the cleaning industry for years and brings a strong attention to detail to every project. He focuses on the small things that make a big difference, especially when it comes to stubborn stains and high-traffic areas. Customers often mention his professionalism, work ethic, and the care he puts into every job.",
+  },
+];
+
+const {
+  id = "owners",
+  heading = "Meet the Owners",
+  intro = "Behind every job is a small, experienced team that takes pride in the work. We're hands-on, we show up, and we make sure things are done right from start to finish.",
+  owners = defaultOwners,
+} = Astro.props as {
+  id?: string;
+  heading?: string;
+  intro?: string;
+  owners?: Owner[];
+};
+---
+
+<section id={id} class="bg-light owners-section">
+  <div class="container container-md column-medium">
+    <div class="content-md owners-section__intro">
+      <Heading tag="h2" size="xxl" fontFamily="primary" marginBottom="s" weight="fw800">
+        {heading}
+      </Heading>
+      <p>{intro}</p>
+    </div>
+
+    <div class="content-full grid-auto-2 owners-grid">
+      {
+        owners.map(owner => (
+          <article class="card bg-white owner-card">
+            <div class="owner-card__media">
+              <Picture
+                src={owner.imageSrc}
+                formats={["avif", "webp"]}
+                alt={owner.imageAlt}
+                class="owner-card__image"
+                loading="lazy"
+                quality={68}
+                width={720}
+                height={540}
+                widths={[480, 720, 960]}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div class="owner-card__body">
+              <div class="owner-card__header">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="xs" weight="fw800">
+                  {owner.name}
+                </Heading>
+                <p class="owner-card__role">{owner.role}</p>
+              </div>
+              <p class="owner-card__description">{owner.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .owner-card {
+    gap: 1.5rem;
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__media {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    &__role {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: var(--_typography---font-size--text-small);
+      color: var(--dark-700);
+    }
+  }
+</style>

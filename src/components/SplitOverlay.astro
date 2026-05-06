@@ -37,13 +37,14 @@ const {
   bgImgSrc,
   bgImgAlt,
   imgText,
+  class: customClass,
   ...rest
 } = Astro.props;
 
 const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boolean(eyebrow);
 ---
 
-<section aria-label={title} class:list={["split", background]} {...rest}>
+<section aria-label={title} class:list={["split", background, customClass]} {...rest}>
   <div class="container container-md">
     <div
       class="content-full split__grid"
@@ -81,7 +82,14 @@ const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boo
             </Heading>
           ) : null
         }
-        <Heading tag="h2" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800">
+        <Heading
+          tag="h2"
+          size="xxl"
+          fontFamily="primary"
+          marginBottom="s"
+          weight="fw800"
+          lineHeight={1}
+        >
           {title}
         </Heading>
         <slot />

@@ -1,6 +1,6 @@
 ---
 // HELPERS
-import { Picture } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 
 // COMPONENTS
 import Heading from "@/components/Heading.astro";
@@ -9,6 +9,7 @@ import Links from "@/components/Links.astro";
 // IMAGES
 import heroCarpet from "@/assets/hero_carpet.jpg";
 import carpetHero from "@/assets/carpetHero.jpg";
+import angiCertified from "@/assets/angi-certified-logo.svg";
 ---
 
 <section aria-label="title" class="hero bg-dark">
@@ -29,7 +30,7 @@ import carpetHero from "@/assets/carpetHero.jpg";
             tag="h2"
             size="display"
             fontFamily="primary"
-            marginBottom="m"
+            marginBottom="s"
             weight="fw800"
             textTransform="uppercase"
             lineHeight={1}
@@ -70,16 +71,15 @@ import carpetHero from "@/assets/carpetHero.jpg";
       <div class="hero__col">
         <div class="hero__reviews">
           <div class="hero__reviews-wrapper">
-            <img
-              src="https://www.gstatic.com/images/branding/product/1x/googleg_24dp.png"
-              alt="Google"
+            <Image
+              src={angiCertified}
+              alt="Angi Certified logo"
               class="hero__reviews-logo"
+              width={24}
+              height={24}
             />
-            <div class="hero__reviews-stars">
-              <span>★★★★★</span>
-            </div>
           </div>
-          <p class="hero__reviews-text">Based on 15+ Reviews</p>
+          <p class="hero__reviews-text">Angi Approved</p>
         </div>
         <div class="hero__img-wrapper">
           <Picture
@@ -192,25 +192,11 @@ import carpetHero from "@/assets/carpetHero.jpg";
     &__reviews-logo {
       width: 24px;
       height: 24px;
+      object-fit: contain;
 
       @media screen and (max-width: 768px) {
         width: 18px;
         height: 18px;
-      }
-    }
-
-    &__reviews-stars {
-      display: flex;
-
-      span {
-        color: #fbbc04 !important;
-        font-size: var(--_typography---font-size--text-main);
-        letter-spacing: 2px;
-        line-height: 1;
-
-        @media screen and (max-width: 768px) {
-          font-size: 0.9rem;
-        }
       }
     }
 

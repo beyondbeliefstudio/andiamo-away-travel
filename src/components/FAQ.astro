@@ -199,7 +199,7 @@ const { id, ariaLabel, ...rest } = Astro.props;
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const accordionQuestions = document.querySelectorAll(".accordion__question");
+    const accordionQuestions = document.querySelectorAll<HTMLElement>(".accordion__question");
 
     accordionQuestions.forEach(question => {
       question.addEventListener("click", () => {
@@ -230,9 +230,9 @@ const { id, ariaLabel, ...rest } = Astro.props;
       });
 
       // Optional: Allow keyboard accessibility
-      question.addEventListener("keydown", (e: KeyboardEvent) => {
+      question.addEventListener("keydown", e => {
         if (e.key === "Enter" || e.key === " ") {
-          (question as HTMLElement).click();
+          question.click();
         }
       });
     });
