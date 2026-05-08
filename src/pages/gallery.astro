@@ -1,0 +1,54 @@
+---
+// COMPONENTS
+import GalleryComponent from "@/components/Gallery.astro";
+import Layout from "@/layouts/Layout.astro";
+import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
+
+// PHOTOS
+import beforeAfter from "@/assets/beforeAfter.jpg";
+import carpet1 from "@/assets/carpet1.jpg";
+import carpet2 from "@/assets/carpet2.jpg";
+import carpet3 from "@/assets/carpet3.jpg";
+import carpet4 from "@/assets/carpet4.jpg";
+import carpet5 from "@/assets/carpet5.jpg";
+import carpet6 from "@/assets/carpet6.jpg";
+import carpet7 from "@/assets/carpet7.jpg";
+import flood from "@/assets/flood.jpg";
+import hardwood from "@/assets/hardwood.jpg";
+import pool from "@/assets/pool.jpg";
+
+// Data for Image Slider
+const projects = [
+  { src: beforeAfter, alt: "Carpet Cleaning", id: "slide-1" },
+  { src: carpet1, alt: "Carpet Cleaning", id: "slide-2" },
+  { src: carpet2, alt: "Carpet Cleaning", id: "slide-3" },
+  { src: carpet3, alt: "Carpet Cleaning", id: "slide-4" },
+  { src: carpet4, alt: "Carpet Cleaning", id: "slide-5" },
+  { src: carpet5, alt: "Carpet Cleaning", id: "slide-6" },
+  { src: carpet6, alt: "Carpet Cleaning", id: "slide-7" },
+  { src: carpet7, alt: "Carpet Cleaning", id: "slide-8" },
+  { src: flood, alt: "Water Damage Restoration", id: "slide-9" },
+  { src: hardwood, alt: "Hardwood Floor Cleaning", id: "slide-10" },
+  { src: pool, alt: "Stone Surface Cleaning", id: "slide-11" },
+];
+---
+
+<Layout
+  pageTitle="Carpet Cleaning Projects & Results Gallery | All The Rage"
+  description="See examples of carpet cleaning, upholstery cleaning, and floor cleaning completed for homeowners across Monroe and nearby areas."
+>
+  <InternalHeroAlt title="See the Results for Yourself" ariaLabel="Gallery Hero Section">
+    <p>
+      A proper cleaning isn’t subtle. You should be able to see it right away. Below are real
+      examples of the work we do every day. From heavily used carpets to stained upholstery and worn
+      tile, these are the kinds of results you can expect when the job is done right. Every home is
+      different, but the goal is always the same. Leave it cleaner than we found it.
+    </p>
+  </InternalHeroAlt>
+
+  <section class="projects bg-light" aria-label="Carpet Cleaning Gallery">
+    <div class="container container-md projects__container">
+      <GalleryComponent items={projects} />
+    </div>
+  </section>
+</Layout>

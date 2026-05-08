@@ -1,10 +1,13 @@
 ---
+// COMPONENTS
 import { Picture } from "astro:assets";
-
 import Heading from "@/components/Heading.astro";
-import carpetCleaning from "@/assets/carpetCleaning.jpg";
-import cleaningWorks from "@/assets/cleaningWorks.jpg";
 
+// PHOTOS
+import headshot1 from "@/assets/headshot1.jpg";
+import headshot2 from "@/assets/headshot2.jpg";
+
+// TYPES
 type Owner = {
   name: string;
   role: string;
@@ -13,11 +16,12 @@ type Owner = {
   imageAlt: string;
 };
 
+// PROPS
 const defaultOwners: Owner[] = [
   {
     name: "Chris",
     role: "Co-Owner",
-    imageSrc: carpetCleaning,
+    imageSrc: headshot1,
     imageAlt: "Chris from All The Rage Carpet Cleaning on the job",
     description:
       "Chris brings years of hands-on experience in carpet and floor cleaning, with a strong focus on doing the job right the first time. He's known for being straightforward, reliable, and easy to work with from start to finish. Whether it's a routine cleaning or a tougher job, he takes pride in delivering results customers can actually see.",
@@ -25,7 +29,7 @@ const defaultOwners: Owner[] = [
   {
     name: "Lee",
     role: "Co-Owner",
-    imageSrc: cleaningWorks,
+    imageSrc: headshot2,
     imageAlt: "Lee from All The Rage Carpet Cleaning at work",
     description:
       "Lee has been working in the cleaning industry for years and brings a strong attention to detail to every project. He focuses on the small things that make a big difference, especially when it comes to stubborn stains and high-traffic areas. Customers often mention his professionalism, work ethic, and the care he puts into every job.",
@@ -99,7 +103,7 @@ const {
     }
 
     &__media {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 3 /4;
       overflow: hidden;
     }
 

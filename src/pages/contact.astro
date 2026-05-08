@@ -4,34 +4,39 @@ import Layout from "@/layouts/Layout.astro";
 import InternalHero from "@/components/InternalHero.astro";
 import ContactForm from "@/components/ContactForm.astro";
 import Heading from "@/components/Heading.astro";
+import FAQ from "@/components/FAQ.astro";
 
 // IMAGES
 import stainRemover from "@/assets/stainRemover.jpg";
+import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
+
+// Data for FAQ section
+import { getCollection } from "astro:content";
+const faq = await getCollection("aboutFAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
 ---
 
 <Layout
-  pageTitle="Contact Lambo’s Garage Door Service | Schedule Repair"
-  description="Need garage door repair or service? Contact Lambo’s Garage Door Service in Estill Springs to schedule fast, reliable service today."
+  pageTitle="Get in Touch"
+  description="Call, text, or fill out the form below and we’ll get back to you as soon as we can. If it’s something urgent, calling is always the fastest way to reach us."
   hideCTA={true}
 >
-  <InternalHero
-    pageTitle="Contact Lambo’s Garage Door Service"
-    title="Get in Touch with Lambo's Garage Door Service"
-    ariaLabel="Contact Us Hero Section"
-    imageSrc={stainRemover}
-    imageAlt="Contact Lambo's Garage Door Service"
-  >
+  <InternalHeroAlt title="Get In Touch" ariaLabel="Get In Touch Hero Section">
     <p>
-      Whether you have questions about our services, need a quote, or want to schedule an
-      appointment, we're here to help. Contact us today and experience the difference of working
-      with a local garage door expert who cares about your satisfaction.
+      Call, text, or fill out the form below and we’ll get back to you as soon as we can. If it’s
+      something urgent, calling is always the fastest way to reach us.
     </p>
-  </InternalHero>
+  </InternalHeroAlt>
 
   <section class="contact bg-light">
     <div class="container container-lg">
       <div class="content-lg contact__form">
-        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw400"
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw800"
           >Send Us a Message</Heading
         >
         <p>Please fill out the form below and we will get back to you as soon as possible.</p>
@@ -39,4 +44,6 @@ import stainRemover from "@/assets/stainRemover.jpg";
       </div>
     </div>
   </section>
+
+  <FAQ faq={faqData} />
 </Layout>

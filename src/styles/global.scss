@@ -3,10 +3,17 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --address-height: 0px;
+  --nav-offset: 0px;
+  --nav-height: 0px;
+}
+
 main {
-  // overflow: hidden;
+  padding-top: var(--nav-height);
+  overflow: hidden;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 section {
@@ -30,9 +37,9 @@ section {
   --light-200--transparency: #fdfbf9;
   --light-glass: rgba(255, 255, 255, 0.7);
 
-  --dark-900: #0a0a0a;
+  --dark-900: #000000;
   --dark-900--transparency: rgba(25, 25, 25, 0.6);
-  --dark-800: #202020;
+  --dark-800: #1c1c1c;
   --dark-700: #656565;
 
   --border-light: #ffffff21;
@@ -290,8 +297,16 @@ a:not(.btn) {
   background-color: var(--light-200);
 }
 
-.bg-dark {
+.bg-black {
   background-color: var(--dark-900);
+
+  *:not(.btn) {
+    color: var(--light-100);
+  }
+}
+
+.bg-dark {
+  background-color: var(--dark-800);
 
   *:not(.btn) {
     color: var(--light-100);
@@ -651,7 +666,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: invert(1);
+    filter: brightness(0);
 
     @media screen and (max-width: 768px) {
       width: 60px;

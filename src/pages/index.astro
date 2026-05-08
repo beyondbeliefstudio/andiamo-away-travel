@@ -9,11 +9,18 @@ import SplitOverlay from "@/components/SplitOverlay.astro";
 import Process from "@/components/Process.astro";
 import ValuesSection from "@/components/ValuesSection.astro";
 
-import cleaningWorks from "@/assets/cleaningWorks.jpg";
-import carpet from "@/assets/carpet.jpg";
-import flooring from "@/assets/flooring.jpg";
-import mattress from "@/assets/mattress.jpg";
-import kitchen from "@/assets/kitchen.jpg";
+// PHOTOS
+import beforeAfter from "@/assets/beforeAfter.jpg";
+import carpet1 from "@/assets/carpet1.jpg";
+import carpet2 from "@/assets/carpet2.jpg";
+import carpet3 from "@/assets/carpet3.jpg";
+import carpet4 from "@/assets/carpet4.jpg";
+import carpet5 from "@/assets/carpet5.jpg";
+import carpet6 from "@/assets/carpet6.jpg";
+import carpet7 from "@/assets/carpet7.jpg";
+import flood from "@/assets/flood.jpg";
+import hardwood from "@/assets/hardwood.jpg";
+import pool from "@/assets/pool.jpg";
 
 // REVIEWS DATA
 import { getCollection } from "astro:content";
@@ -62,7 +69,7 @@ import Reviews from "@/components/Reviews.astro";
 
   <SplitOverlay
     title="Serving Monroe and Surrounding Areas"
-    imgSrc={carpet}
+    imgSrc={carpet1}
     imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
   >
     <p>We're based in Monroe and regularly work throughout the surrounding communities.</p>
@@ -79,7 +86,7 @@ import Reviews from "@/components/Reviews.astro";
     <p>If you're nearby and not sure if we cover your area, just reach out.</p>
   </SplitOverlay>
 
-  <FullOverlay backgroundImage={kitchen}>
+  <FullOverlay backgroundImage={carpet2}>
     <Heading
       tag="h2"
       size="xxl"
@@ -99,7 +106,7 @@ import Reviews from "@/components/Reviews.astro";
 
   <SplitOverlay
     title="When Something Happens, You Don't Want to Wait"
-    imgSrc={mattress}
+    imgSrc={flood}
     imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
     orientation="left"
   >

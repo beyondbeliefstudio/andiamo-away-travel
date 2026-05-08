@@ -116,6 +116,9 @@ import rageLogo from "@/assets/rage-logo.png";
     width: 100%;
     z-index: 1000;
     background: var(--dark-900);
+    position: fixed;
+    top: 0;
+    left: 0;
 
     &__container {
       display: flex;
@@ -597,4 +600,13 @@ import rageLogo from "@/assets/rage-logo.png";
       header.classList.remove("scrolled");
     }
   });
+
+  function updateNavLayout(): void {
+    const header = document.querySelector(".nav") as HTMLElement;
+    if (!header) return;
+
+    document.documentElement.style.setProperty("--nav-height", `${header.offsetHeight}px`);
+  }
+
+  updateNavLayout();
 </script>
