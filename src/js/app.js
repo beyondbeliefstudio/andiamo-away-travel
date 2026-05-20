@@ -116,6 +116,7 @@ function initNavActiveStates() {
   if (hashLinks.length > 0) {
     const setActiveHash = hash => {
       navLinks.forEach(link => link.classList.remove("active"));
+      if (!hash) return;
       hashLinks.forEach(item => {
         if (item.hash === hash) item.link.classList.add("active");
       });
@@ -128,7 +129,7 @@ function initNavActiveStates() {
 
     const updateActiveSection = () => {
       const offset = getNavOffset();
-      let currentHash = hashLinks[0].hash;
+      let currentHash = null;
 
       hashLinks.forEach(item => {
         if (item.section.getBoundingClientRect().top - offset <= 0) {
