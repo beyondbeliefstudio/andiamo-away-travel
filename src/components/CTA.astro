@@ -8,13 +8,20 @@ import { baseData } from "@/data/siteData";
 
 // HELPERS
 import { Image, Picture } from "astro:assets";
+import type { HTMLAttributes } from "astro/types";
+
+export interface CTAProps extends HTMLAttributes<"section"> {
+  classes?: string;
+}
+
+const { classes, ...rest } = Astro.props;
 
 // IMAGES
 import callIcon from "@/assets/call.svg";
 import mailIcon from "@/assets/mail.svg";
 ---
 
-<section class="CTA bg-secondary">
+<section class:list={["CTA bg-secondary", classes]} {...rest}>
   <div class="container container-md CTA__container">
     <div class="CTA__content grid-auto-2">
       <div class="CTA__form-wrapper">

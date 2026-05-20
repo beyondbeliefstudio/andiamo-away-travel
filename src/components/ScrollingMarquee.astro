@@ -1,5 +1,12 @@
 ---
 import { Picture } from "astro:assets";
+import type { HTMLAttributes } from "astro/types";
+
+export interface ScrollingMarqueeProps extends HTMLAttributes<"section"> {
+  classes?: string;
+}
+
+const { classes, ...rest } = Astro.props;
 
 import greece from "@/assets/marquee-temp/greece.jpg";
 import italy from "@/assets/marquee-temp/italy.jpg";
@@ -66,7 +73,7 @@ const items = [
 ];
 ---
 
-<section>
+<section class:list={classes} {...rest}>
   <div class="scrolling-photos">
     <div class="scrolling-photos-inner">
       {

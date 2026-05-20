@@ -91,16 +91,70 @@ function initScrollerAnimations() {
 // ==========================================
 function initNavActiveStates() {
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll("a.nav-link[href]");
+  const navLinks = document.querySelectorAll(".nav a.nav-link[href]");
 
   const normalizePath = path => (path === "/" ? "/" : path.replace(/\/$/, ""));
+  const normalizedCurrentPath = normalizePath(currentPath);
+
+  const hashLinks = [];
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const parsed = new URL(href, window.location.origin);
+    const normalizedLinkPath = normalizePath(parsed.pathname);
+
+    if (parsed.hash && normalizedLinkPath === normalizedCurrentPath) {
+      const section = document.querySelector(parsed.hash);
+      if (section) {
+        hashLinks.push({ link, hash: parsed.hash, section });
+      }
+    }
+  });
+
+  if (hashLinks.length > 0) {
+    const setActiveHash = hash => {
+      navLinks.forEach(link => link.classList.remove("active"));
+      hashLinks.forEach(item => {
+        if (item.hash === hash) item.link.classList.add("active");
+      });
+    };
+
+    const getNavOffset = () => {
+      const navContainer = document.querySelector(".nav__container");
+      return (navContainer?.offsetHeight ?? 72) + 24;
+    };
+
+    const updateActiveSection = () => {
+      const offset = getNavOffset();
+      let currentHash = hashLinks[0].hash;
+
+      hashLinks.forEach(item => {
+        if (item.section.getBoundingClientRect().top - offset <= 0) {
+          currentHash = item.hash;
+        }
+      });
+
+      setActiveHash(currentHash);
+    };
+
+    if (window.location.hash) {
+      setActiveHash(window.location.hash);
+    }
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", () => setActiveHash(window.location.hash));
+    return;
+  }
 
   navLinks.forEach(link => {
     if (!link.getAttribute("href")) return;
 
     const linkPath = new URL(link.href).pathname;
     const normalizedLinkPath = normalizePath(linkPath);
-    const normalizedCurrentPath = normalizePath(currentPath);
 
     if (normalizedLinkPath === normalizedCurrentPath) {
       link.classList.add("active");
