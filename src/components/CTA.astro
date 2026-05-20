@@ -14,8 +14,8 @@ import callIcon from "@/assets/call.svg";
 import mailIcon from "@/assets/mail.svg";
 ---
 
-<section class="CTA bg-primary">
-  <div class="container container-md CTA__container">
+<section class="CTA bg-secondary">
+  <div class="container container-lg CTA__container">
     <div class="CTA__content grid-auto-2">
       <div class="CTA__form-wrapper">
         <form
@@ -41,8 +41,8 @@ import mailIcon from "@/assets/mail.svg";
               /></label
             >
           </p>
-          <Heading tag="h3" size="xl" fontFamily="primary" marginBottom="none" weight="fw800"
-            >Request an Appointment</Heading
+          <Heading tag="h3" size="l" fontFamily="primary" marginBottom="none" weight="fw500"
+            >Trip Information</Heading
           >
 
           <!-- <Heading tag="h3" size="l" fontFamily="primary" marginBottom="none" weight="fw500"
@@ -65,17 +65,35 @@ import mailIcon from "@/assets/mail.svg";
           </div>
 
           <div class="form-group">
-            <label for="service">Service</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="carpet-cleaning">Carpet Cleaning</option>
-              <option value="upholstery-cleaning">Upholstery Cleaning</option>
-              <option value="tile-grout-cleaning">Tile &amp; Grout Cleaning</option>
-              <option value="hardwood-floor-cleaning">Hardwood Floor Cleaning</option>
-              <option value="stone-surface-cleaning">Stone Surface Cleaning</option>
-              <option value="emergency-flood-cleanup">Emergency Flood Cleanup</option>
+            <label for="tripType">Trip Type</label>
+            <select id="tripType" name="tripType" required>
+              <option value="">Select a trip type</option>
+              <option value="luxury-all-inclusive-resorts"
+                >Luxury &amp; All-Inclusive Resorts</option
+              >
+              <option value="cruises">Cruises</option>
+              <option value="european-adventures">European Adventures</option>
+              <option value="family-vacations">Family Vacations</option>
+              <option value="honeymoons-romantic-getaways"
+                >Honeymoons &amp; Romantic Getaways</option
+              >
+              <option value="disney-destinations">Disney Destinations</option>
+              <option value="custom-multi-destination-itinerary"
+                >Custom Multi-Destination Itinerary</option
+              >
+              <option value="not-sure-yet">Not Sure Yet</option>
               <option value="other">Other</option>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label for="tripDetails">Tell Us About Your Trip</label>
+            <textarea
+              id="tripDetails"
+              name="tripDetails"
+              rows="6"
+              placeholder="Share your destinations, dates, budget range, travelers, and any must-haves."
+            ></textarea>
           </div>
 
           <!-- Netlify reCAPTCHA -->
@@ -88,31 +106,34 @@ import mailIcon from "@/assets/mail.svg";
       <div class="CTA__text">
         <Heading
           tag="h2"
-          size="xxl"
+          size="xl"
+          fontFamily="primary"
+          marginBottom="l"
+          weight="fw500"
+          textTransform="capitalize"
+          >Start Planning Your Next Getaway
+        </Heading>
+        <Heading
+          tag="h3"
+          size="s"
           fontFamily="primary"
           marginBottom="s"
-          weight="fw800"
+          weight="fw700"
           textTransform="capitalize"
-          >Book your cleaning service today.
+          >Let’s Talk About The Trip You’ve Been Dreaming About
         </Heading>
         <p>
-          Whether you need a deep carpet cleaning or emergency restoration, All The Rage Carpet
-          Cleaning is ready to help. We make it easy, we show up on time, and we get results.
+          Every great vacation starts with a conversation. Fill out the short form below and Kathy
+          will personally reach out to learn more about your travel goals, preferred destinations,
+          budget, timeline, and the type of experience you’re hoping to create.
         </p>
-        <div class="CTA__contact-info">
-          <a href={`tel:${baseData.phone.replace(/\D/g, "")}`} class="CTA__contact-item">
-            <span class="CTA__icon">
-              <Image src={callIcon} alt="Phone" width={24} height={24} />
-            </span>
-            {baseData.phone}
-          </a>
-          <a href={`mailto:${baseData.email}`} class="CTA__contact-item">
-            <span class="CTA__icon">
-              <Image src={mailIcon} alt="Email" width={24} height={24} />
-            </span>
-            {baseData.email}
-          </a>
-        </div>
+        <p>
+          Whether you already have a destination in mind or are still exploring ideas, this initial
+          conversation helps us better understand how to guide you toward the right trip. From
+          relaxing beach escapes and cruises to bucket-list European adventures, Andiamo Away is
+          here to help make the planning process feel easier, more personalized, and far less
+          overwhelming.
+        </p>
       </div>
     </div>
   </div>
@@ -172,31 +193,6 @@ import mailIcon from "@/assets/mail.svg";
       // }
     }
 
-    &__contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    &__contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: var(--_typography---font-size--text-large);
-      color: var(--dark-900) !important;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      font-family: var(--primary-family);
-      font-weight: 700;
-      letter-spacing: 1px;
-
-      &:hover {
-        color: var(--dark-900);
-        text-decoration: underline;
-      }
-    }
-
     &__icon {
       font-size: 1.5rem;
       display: flex;
@@ -222,6 +218,13 @@ import mailIcon from "@/assets/mail.svg";
     &__form-wrapper {
       h3 {
         text-align: center;
+        color: var(--brand-primary);
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 12rem;
+        resize: vertical;
       }
     }
   }

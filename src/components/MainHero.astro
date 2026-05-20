@@ -7,105 +7,133 @@ import Heading from "@/components/Heading.astro";
 import Links from "@/components/Links.astro";
 
 // IMAGES
-import carpet4 from "@/assets/carpet4.jpg";
-import angiCertified from "@/assets/angi-certified-logo.svg";
+import heroGraphic from "@/assets/hero__graphic.svg";
+import tuscanyImage from "@/assets/tuscany.jpg";
 ---
 
-<section aria-label="title" class="hero bg-dark">
-  <div class="container container-md">
+<section aria-label="title" class="hero">
+  <!-- Background decorative elements -->
+  <div class="hero__bg-graphics">
+    <img src={heroGraphic.src} alt="" class="hero__bg-graphic" />
+  </div>
+
+  <!-- Hero content -->
+  <div class="container container-lg">
     <div class="content-full hero__grid">
+      <!-- Left Side -->
       <div class="hero__col hero__content">
         <div class="hero__content-bottom">
           <Heading
             tag="h1"
             size="xs"
-            fontFamily="secondary"
+            fontFamily="primary"
             marginBottom="s"
-            weight="fw800"
+            weight="fw500"
             textTransform="uppercase"
-            class="internal-hero__title">Trusted Carpet Cleaning in Monroe</Heading
+            class="eyebrow">Personalized Vacation Planning Services</Heading
           >
           <Heading
             tag="h2"
-            size="display"
+            size="xxl"
             fontFamily="primary"
-            marginBottom="s"
-            weight="fw800"
-            textTransform="uppercase"
+            marginBottom="l"
+            weight="fw500"
+            textTransform="capitalize"
             lineHeight={1}
           >
-            We Clean Anything You Don’t Want To
+            Travel Better With Someone In Your Corner
           </Heading>
-          <Heading
-            tag="h3"
-            size="xs"
-            fontFamily="secondary"
-            marginBottom="none"
-            weight="fw500"
-            lineHeight={1.25}
-          >
-            Veteran-owned carpet and floor cleaning in Monroe. Over 25 years of experience helping
-            homes and businesses get back to clean. If it’s stained, worn down, or just overdue,
-            we’ll take care of it.
-          </Heading>
-          <ul class="hero__key-points">
-            <li><p>Remove stains, odors, and built-up grime</p></li>
-            <li><p>Restore carpets, floors, and surfaces</p></li>
-            <li><p>Get it done right without the runaround</p></li>
-          </ul>
+          <p class="large">
+            From cruises and luxury resorts to unforgettable European adventures, Andiamo Away helps
+            travelers plan seamless vacations with expert guidance, personalized recommendations,
+            and support every step of the way.
+          </p>
           <div class="btn-wrapper btn-wrapper--left">
             <Links
-              variant="light"
+              variant="primary"
               href="/contact"
-              ariaLabel="Schedule your carpet cleaning in Monroe, NC">Get A Free Quote</Links
+              ariaLabel="Schedule your trip with Andiamo Away">Start Planning Your Trip</Links
             >
             <Links
-              variant="outline-light"
+              variant="outline"
               href="/services"
-              ariaLabel="View our carpet cleaning services in Monroe, NC">View Our Services</Links
+              ariaLabel="Schedule a consultation with Andiamo Away">Schedule a Consultation</Links
             >
           </div>
         </div>
       </div>
+
+      <!-- Right Side -->
       <div class="hero__col">
-        <div class="hero__reviews">
-          <div class="hero__reviews-wrapper">
-            <Image
-              src={angiCertified}
-              alt="Angi Certified logo"
-              class="hero__reviews-logo"
-              width={24}
-              height={24}
+        <div class="hero__polaroid">
+          <div class="hero__img-wrapper">
+            <Picture
+              src={tuscanyImage}
+              formats={["avif", "webp"]}
+              alt="Tuscany hero image"
+              class="hero__img"
+              loading="lazy"
+              quality={65}
+              width={800}
+              height={800}
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1010px) 90vw, 50vw"
             />
           </div>
-          <p class="hero__reviews-text">Angi Approved</p>
-        </div>
-        <div class="hero__img-wrapper">
-          <Picture
-            src={carpet4}
-            formats={["avif", "webp"]}
-            alt="Carpet cleaning hero image"
-            class="hero__img"
-            loading="lazy"
-            quality={65}
-            width={800}
-            height={800}
-            widths={[400, 600, 800]}
-            sizes="(max-width: 768px) 100vw, (max-width: 1010px) 90vw, 50vw"
-          />
+          <p>Let's travel!</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<style lang="scss" is:global>
+<style lang="scss">
   .hero {
+    overflow: hidden;
+    position: relative;
+
+    &__bg-graphics {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &__bg-graphic {
+      position: absolute;
+      top: 140px;
+      left: 0;
+      opacity: 0.4;
+      width: 100%;
+      height: auto;
+      min-width: 800px;
+      transition: opacity 0.3s ease;
+      object-fit: cover;
+      object-position: top left;
+
+      @media (max-width: 1024px) {
+        min-width: 700px;
+        opacity: 0.7;
+      }
+
+      @media (max-width: 768px) {
+        min-width: 600px;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 480px) {
+        min-width: 500px;
+        opacity: 0.5;
+      }
+    }
+
     &__grid {
       display: grid;
       gap: var(--_spacing---section-space--main);
       grid-template-columns: 1fr 1fr;
-      min-height: 50vh;
 
       @media (max-width: 1010px) {
         grid-template-columns: 1fr;
@@ -118,16 +146,7 @@ import angiCertified from "@/assets/angi-certified-logo.svg";
       justify-content: center;
       height: 100%;
       position: relative;
-    }
-
-    &__img-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      margin-right: 0;
-      margin-left: auto;
-      overflow: hidden;
-      border-radius: var(--border-radius-small);
+      z-index: 9;
     }
 
     &__content {
@@ -138,6 +157,11 @@ import angiCertified from "@/assets/angi-certified-logo.svg";
       align-items: start;
       justify-content: center;
       padding: 5rem 0;
+
+      @media screen and (max-width: 768px) {
+        padding: 0rem 0 1rem;
+      }
+
       h3 {
         margin-top: 1rem;
       }
@@ -150,107 +174,37 @@ import angiCertified from "@/assets/angi-certified-logo.svg";
       }
     }
 
+    .btn-wrapper {
+      margin-top: 2rem;
+    }
+
     .btn {
       width: fit-content;
     }
 
-    &__reviews {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 0.5rem;
-      border-radius: var(--border-radius-small);
-      width: fit-content;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-      z-index: 999;
-      margin-bottom: 0;
-
-      @media screen and (max-width: 768px) {
-        padding: 0.5rem;
-        gap: 0.5rem;
-      }
+    &__img-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1/1;
     }
 
-    &__reviews-wrapper {
+    &__polaroid {
+      background: #fff;
+      padding: 1rem;
+      padding-bottom: 0;
+      border-radius: 0;
+      transform: rotate(1deg);
+      filter: drop-shadow(2px 4px 15px rgba(20, 20, 20, 0.1));
       width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 0.75rem;
 
-      @media screen and (max-width: 768px) {
-        gap: 0.5rem;
-      }
-    }
-
-    &__reviews-logo {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-
-      @media screen and (max-width: 768px) {
-        width: 18px;
-        height: 18px;
-      }
-    }
-
-    &__reviews-text {
-      margin: 0;
-      color: var(--dark-900) !important;
-      font-weight: 600;
-      line-height: 1;
-      min-width: fit-content;
-    }
-
-    &__key-points {
-      list-style: none;
-      padding: 0;
-      margin: 1.5rem 0;
-      display: grid;
-      gap: 0;
-
-      li {
-        position: relative;
-        width: fit-content;
-        padding: 0.5rem;
-        padding-left: 0;
+      p {
+        height: 6rem;
+        width: 100%;
         display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
         align-items: center;
-
-        p {
-          font-size: var(--_typography---font-size--h5);
-          font-family: var(--primary-family);
-          margin-bottom: 0;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          width: 100%;
-          text-wrap: auto;
-          line-height: 1.3;
-        }
-
-        &::before {
-          content: "";
-          display: block;
-          left: 0;
-          top: 0;
-          width: 24px;
-          height: 24px;
-          background-color: var(--brand-primary);
-          background-image: url("/src/assets/check.svg");
-          background-size: 16px 16px;
-          background-repeat: no-repeat;
-          background-position: center;
-          border-radius: 50%;
-          aspect-ratio: 1/1;
-        }
+        justify-content: center;
+        font-size: 3rem;
+        font-family: var(--secondary-family);
       }
     }
   }

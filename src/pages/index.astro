@@ -3,156 +3,123 @@
 import Layout from "@/layouts/Layout.astro";
 import MainHero from "@/components/MainHero.astro";
 import Heading from "@/components/Heading.astro";
-import Links from "@/components/Links.astro";
-import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
+import TravelAdvisorBenefits from "@/components/TravelAdvisorBenefits.astro";
+import TripTypes from "@/components/TripTypes.astro";
 import SplitOverlay from "@/components/SplitOverlay.astro";
-import Process from "@/components/Process.astro";
-import ValuesSection from "@/components/ValuesSection.astro";
+import ScrollingText from "@/components/ScrollingText.astro";
+import FAQ from "@/components/FAQ.astro";
 
 // PHOTOS
-import beforeAfter from "@/assets/beforeAfter.jpg";
-import carpet1 from "@/assets/carpet1.jpg";
-import carpet2 from "@/assets/carpet2.jpg";
-import carpet3 from "@/assets/carpet3.jpg";
-import carpet4 from "@/assets/carpet4.jpg";
-import carpet5 from "@/assets/carpet5.jpg";
-import carpet6 from "@/assets/carpet6.jpg";
-import carpet7 from "@/assets/carpet7.jpg";
-import flood from "@/assets/flood.jpg";
-import hardwood from "@/assets/hardwood.jpg";
-import pool from "@/assets/pool.jpg";
+import familyCruise from "@/assets/family-cruise.jpg";
+import lima from "@/assets/lima.jpg";
+import amalfi from "@/assets/amalfi.jpg";
+import kathyLondon from "@/assets/kathy-london.jpg";
 
 // REVIEWS DATA
+
+// Data for FAQ section
 import { getCollection } from "astro:content";
-import FullOverlay from "@/components/FullOverlay.astro";
-import Reviews from "@/components/Reviews.astro";
+const faq = await getCollection("FAQ");
+
+const faqData = faq.map(item => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer,
+}));
 ---
 
 <Layout
-  pageTitle="All The Rage Carpet Cleaning | Professional Cleaning Services in Monroe, NC"
-  description="All The Rage Carpet Cleaning offers expert carpet cleaning, tile and grout cleaning, upholstery cleaning, and water damage restoration services in Monroe, NC. Book your cleaning today!"
+  pageTitle="Andiamo Away | Travel and Adventure Services"
+  description="Andiamo Away offers personalized travel and adventure experiences, creating unforgettable journeys for every traveler."
 >
   <MainHero />
 
-  <section>
-    <div class="container container-md">
-      <div class="content-md">
-        <Heading tag="h2" size="xxl" fontFamily="primary" marginBottom="m" weight="fw800">
-          A Proper Clean Makes a Big Difference
+  <ScrollingText>
+    <Heading tag="h2" size="xl" fontFamily="secondary" marginBottom="m" weight="fw500">
+      Let's Make Your Travel Dreams Real
+    </Heading>
+  </ScrollingText>
+
+  <SplitOverlay
+    eyebrow="Transparent, Commission-Based Pricing"
+    title="Travel Planning Designed Around Your Needs"
+    imgSrc={familyCruise}
+    imgAlt="Kathy Nervegna"
+    imgText="Cruise 2023"
+    background="bg-secondary-light"
+    bgImgSrc={lima}
+    bgImgAlt="Amalfi"
+    orientation="right"
+  >
+    <p>
+      Most clients work with Andiamo Away for vacation booking services such as cruises, resorts,
+      hotels, tours, and experiences. In many cases, these bookings are commission-based through
+      trusted travel partners, allowing clients to benefit from professional travel planning and
+      support without additional service fees.
+    </p>
+
+    <p>
+      For travelers looking for a more elevated and detailed experience, custom itinerary planning
+      services are also available for an additional planning fee. These curated itineraries are
+      ideal for multi-destination trips, international travel, and travelers wanting a fully
+      personalized day-by-day experience.
+    </p>
+  </SplitOverlay>
+
+  <TravelAdvisorBenefits />
+
+  <TripTypes />
+
+  <section class="bg-white">
+    <div class="container container-lg">
+      <div class="content-lg">
+        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
+          Why Choose Andiamo Away?
         </Heading>
         <p>
-          Most people don’t realize how much dirt, buildup, and wear is sitting in their floors and
-          furniture until it’s actually cleaned the right way. That’s what we focus on.
+          Travel isn’t just about escaping—it’s about waking up. It’s about stepping into new
+          cultures, seeing the world through different eyes, and coming home with stories,
+          confidence and perspective.
         </p>
         <p>
-          At All The Rage Carpet Cleaning, we go beyond surface-level cleaning. We take the time to
-          do it right so your carpets, floors, and furniture don’t just look better for a day, they
-          stay cleaner longer.
+          Whether you’re watching the sunrise over ancient ruins or savoring a gelato on a cobbled
+          street, these are the moments that stay with you forever. At Andiamo Away I’m here to help
+          make yours unforgettable.
         </p>
-        <p>
-          Whether it’s one room or an entire home, we approach every job with the same attention to
-          detail.
-        </p>
-        <div class="btn-wrapper">
-          <Links
-            variant="primary"
-            href="/services"
-            ariaLabel="View our carpet cleaning services in Monroe, NC">Explore Our Services</Links
-          >
-        </div>
       </div>
     </div>
   </section>
-  <ScrollingMarquee />
-
-  <ValuesSection />
 
   <SplitOverlay
-    title="Serving Monroe and Surrounding Areas"
-    imgSrc={carpet1}
-    imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
-  >
-    <p>We're based in Monroe and regularly work throughout the surrounding communities.</p>
-    <p><strong>Areas we serve:</strong></p>
-    <ul>
-      <li><p>Indian Trail</p></li>
-      <li><p>Waxhaw</p></li>
-      <li><p>Weddington</p></li>
-      <li><p>Marshville</p></li>
-      <li><p>Wingate</p></li>
-      <li><p>Matthews</p></li>
-      <li><p>Mint Hill</p></li>
-    </ul>
-    <p>If you're nearby and not sure if we cover your area, just reach out.</p>
-  </SplitOverlay>
-
-  <FullOverlay backgroundImage={carpet2}>
-    <Heading
-      tag="h2"
-      size="xxl"
-      fontFamily="primary"
-      marginBottom="s"
-      weight="fw800"
-      textTransform="capitalize">Ready to Get Things Clean Again?</Heading
-    >
-    <p>
-      If your carpets, floors, or furniture need attention, we're ready when you are. Call us or
-      fill out the form below and we'll get back to you quickly.
-    </p>
-    <Links variant="primary" href="tel:7042543754" ariaLabel="Call All The Rage Carpet Cleaning"
-      >(704) 254-3754</Links
-    >
-  </FullOverlay>
-
-  <SplitOverlay
-    title="When Something Happens, You Don't Want to Wait"
-    imgSrc={flood}
-    imgAlt="Before and after photo of carpet cleaning in Monroe, NC"
+    eyebrow="Get To Know Your"
+    title="Travel Queen"
+    imgSrc={kathyLondon}
+    imgAlt="Kathy Nervegna"
+    imgText="Kathy Nervegna"
+    background="bg-secondary-light"
+    bgImgSrc={amalfi}
+    bgImgAlt="Amalfi"
     orientation="left"
   >
     <p>
-      Spills, water issues, pet accidents, or last-minute situations don't give you much time to
-      think. And the longer they sit, the worse they get.
+      Hi, I’m Kathy Nervegna, your personal travel advisor and the heart behind Andiamo Away. With
+      years of experience crafting unforgettable journeys, I’m passionate about turning your travel
+      dreams into reality. From hidden gems to iconic landmarks, I know the ins and outs of the best
+      destinations worldwide. Let’s work together to create a trip that’s uniquely you—filled with
+      adventure, relaxation, and memories that will last a lifetime.
     </p>
-    <p>
-      We offer fast-response cleaning to help you take care of the problem before it turns into
-      something bigger. Whether it's a soaked carpet, a strong odor, or a stain that needs immediate
-      attention, we'll do our best to get there quickly and handle it the right way.
-    </p>
-    <p><strong>Common emergency calls:</strong></p>
+    <br />
+    <p><strong>Some of my favorite trips to plan:</strong></p>
     <ul>
-      <li><p>Water spills or minor flooding</p></li>
-      <li><p>Pet accidents and odor issues</p></li>
-      <li><p>Heavy stains that need immediate attention</p></li>
-      <li><p>Move-out or last-minute cleanups</p></li>
+      <li><p>Family cruise to the Caribbean</p></li>
+      <li><p>Custom Italy itinerary with Rome, Florence, and Amalfi</p></li>
+      <li><p>Luxury resort stay in the Maldives</p></li>
+      <li><p>European river cruise through France and Germany</p></li>
+      <li><p>Multi-generational trip to Disney World</p></li>
     </ul>
-    <p><em>If it feels urgent, it probably is.</em></p>
-    <p><strong>Need help right now?</strong> Call us directly for the fastest response.</p>
-    <Links variant="primary" href="tel:7042543754" ariaLabel="Call us for emergency carpet cleaning"
-      >(704) 254-3754</Links
-    >
   </SplitOverlay>
 
-  <Process />
-
-  <section>
-    <div class="container container-full column-small">
-      <div class="content-md">
-        <Heading tag="h3" size="xxl" fontFamily="primary" marginBottom="s" weight="fw800">
-          What Our Clients Are Saying
-        </Heading>
-        <p>
-          We take pride in our work and it shows in the feedback we get from our clients. Here are
-          just a few of the reviews that highlight our commitment to quality, professionalism, and
-          customer satisfaction.
-        </p>
-      </div>
-
-      <div class="content-full">
-        <Reviews />
-      </div>
-    </div>
-  </section>
+  <FAQ faq={faqData} />
 </Layout>
 
 <style lang="scss">

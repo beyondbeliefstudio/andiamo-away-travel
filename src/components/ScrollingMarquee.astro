@@ -1,78 +1,37 @@
 ---
-// HELPERS
 import { Picture } from "astro:assets";
 
-// COMPONENTS
-import Heading from "./Heading.astro";
-
-// IMAGES
-import couch from "@/assets/couch.jpg";
-import carpet5 from "@/assets/carpet5.jpg";
-import hardwood from "@/assets/hardwood.jpg";
-import groutCleaning from "@/assets/groutCleaning.jpg";
-import kitchen from "@/assets/kitchen.jpg";
+import amalfi from "@/assets/amalfi.jpg";
+import familyCruise from "@/assets/family-cruise.jpg";
+import kathyLondon from "@/assets/kathy-london.jpg";
+import lima from "@/assets/lima.jpg";
+import tuscany from "@/assets/tuscany.jpg";
 
 const items = [
-  {
-    src: carpet5,
-    title: "Carpet Cleaning",
-    description: "Ideal for high-traffic areas, pet stains, and general wear.",
-  },
-  {
-    src: couch,
-    title: "Upholstery Cleaning",
-    description: "Couches, chairs, and fabric surfaces that need a refresh.",
-  },
-  {
-    src: groutCleaning,
-    title: "Tile and Grout Cleaning",
-    description: "Cuts through built-up grime and restores the original look.",
-  },
-  {
-    src: hardwood,
-    title: "Hardwood Floor Cleaning",
-    description: "Safe, effective cleaning that enhances the natural finish.",
-  },
-  {
-    src: kitchen,
-    title: "Stone Surface Cleaning",
-    description: "Quartz, marble, and granite cleaned with care.",
-  },
+  { src: amalfi, alt: "Amalfi Coast, Italy", imgText: "Amalfi Coast, Italy" },
+  { src: tuscany, alt: "Tuscany, Italy", imgText: "Tuscany, Italy" },
+  { src: familyCruise, alt: "Family cruise vacation", imgText: "Family Cruise" },
+  { src: lima, alt: "Lima, Peru cityscape", imgText: "Lima, Peru" },
+  { src: kathyLondon, alt: "Traveler in London", imgText: "London, England" },
 ];
 ---
 
 <section>
   <div class="scrolling-photos">
-    <div class="scrolling-photos__inner">
+    <div class="scrolling-photos-inner">
       {
         items.map(item => (
-          <div class="scrolling-photos__item">
-            <div class="scrolling-photos__img-wrapper">
+          <div class="polaroids">
+            <div class="polaroids__img-wrapper">
               <Picture
-                src={item.src as any}
-                formats={["avif", "webp"]}
-                alt={`${item.title} service photo`}
-                class="scrolling-photos__img"
-                loading="lazy"
-                quality={60}
-                width={500}
-                height={500}
-                widths={[300, 500]}
-                sizes="(max-width: 768px) 300px, 500px"
+                src={item.src}
+                alt={item.alt ?? "Travel destination"}
+                class="polaroids__img"
+                loading="eager"
+                width={2000}
+                height={1000}
               />
-            </div>
-            <div class="scrolling-photos__content">
-              <Heading
-                tag="h3"
-                size="l"
-                fontFamily="primary"
-                marginBottom="none"
-                weight="fw800"
-                class="scrolling-photos__text"
-              >
-                {item.title}
-              </Heading>
-              <p class="scrolling-photos__description">{item.description}</p>
+              <p>{item.imgText}</p>
             </div>
           </div>
         ))
@@ -88,98 +47,64 @@ const items = [
     width: fit-content;
     margin: auto;
     overflow: hidden;
-    background-color: var(--light-100);
 
-    &__inner {
+    &-inner {
       margin: 0;
-      padding: 1rem 0;
+      padding: 3rem 0;
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 3rem;
       width: max-content;
       flex-wrap: nowrap;
-      animation: scrollPhotos 140s linear infinite;
+      animation: scrollPhotos 60s forwards linear infinite;
+    }
+  }
 
-      @media screen and (max-width: 768px) {
-        animation: scrollPhotos 150s linear infinite;
-      }
+  .polaroids {
+    background: #fff;
+    padding: 0.5rem;
+    padding-bottom: 5rem;
+    border-radius: 0;
+    filter: drop-shadow(2px 4px 15px rgba(20, 20, 20, 0.1));
+    height: 500px;
+    width: 100%;
+    transform: rotate(-2deg);
+    position: relative;
+
+    &:nth-of-type(3n + 1) {
+      transform: rotate(2deg) translateY(10px);
     }
 
-    &__item {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--border-radius-small);
-      aspect-ratio: 4 / 5;
-      height: 500px;
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      justify-content: end;
-    }
-
-    &__content {
-      position: relative;
-      z-index: 999;
-      padding: 1rem;
-    }
-
-    &__text {
-      color: #fff;
-      z-index: 999;
-      text-wrap: balance;
-      width: calc(100% - 2rem);
-      line-height: 1.2;
-      font-size: clamp(1.15rem, 1.2vw + 0.75rem, 1.6rem);
-    }
-
-    &__description {
-      margin: 0;
-      color: #fff;
-      z-index: 999;
-      font-family: var(--secondary-family);
-      font-size: var(--_typography---font-size--text-main);
-      line-height: 1.3;
-      text-wrap: pretty;
+    &:nth-of-type(3n + 2) {
+      transform: rotate(1deg) translateY(-5px);
     }
 
     &__img-wrapper {
-      position: absolute;
-      height: 100%;
+      aspect-ratio: 1/1;
       width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
 
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-        opacity: 1;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      img,
-      video {
-        height: 100%;
-        width: 100%;
-        aspect-ratio: 4 / 5;
-        width: auto !important;
-        object-fit: cover;
-        vertical-align: middle;
-        display: inline-block;
-
-        @media screen and (max-width: 768px) {
-          // height: 300px;
-        }
-      }
+    p {
+      height: 5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-family: var(--secondary-family);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      margin-bottom: 0;
     }
   }
 
   @keyframes scrollPhotos {
     to {
-      transform: translate(calc(-50% - 0.5rem));
+      transform: translate(calc(-50% - 1.5rem));
     }
   }
 </style>
@@ -196,9 +121,8 @@ const items = [
     scrollPhotos.forEach((scroller: HTMLElement) => {
       scroller.setAttribute("data-animated", "true");
 
-      const scrollPhotosInner: HTMLElement | null = scroller.querySelector<HTMLElement>(
-        ".scrolling-photos__inner"
-      );
+      const scrollPhotosInner: HTMLElement | null =
+        scroller.querySelector<HTMLElement>(".scrolling-photos-inner");
       if (scrollPhotosInner) {
         const scrollContent: HTMLElement[] = Array.from(
           scrollPhotosInner.children

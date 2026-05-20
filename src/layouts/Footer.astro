@@ -10,17 +10,17 @@ import { navData } from "@/data/navData";
 import { baseData } from "@/data/siteData";
 
 // Images
-import facebook from "@/assets/facebook.png";
+import instagram from "@/assets/instagram.png";
 import Heading from "@/components/Heading.astro";
-import rageLogo from "@/assets/rage-logo.png";
+import wordmark from "@/assets/wordmark.svg";
 ---
 
-<footer class="footer bg-black" aria-label="footer">
-  <div class="container container-md">
+<footer class="footer bg-light" aria-label="footer">
+  <div class="container container-lg">
     <div class="content-full footer__content">
       <div class="footer__info">
         <a href="/">
-          <Image src={rageLogo} alt="All The Rage Logo" class="footer__wordmark" />
+          <Image src={wordmark} alt="Andiamo Away Logo" class="footer__wordmark" />
         </a>
         <p>
           {baseData.description}
@@ -28,11 +28,11 @@ import rageLogo from "@/assets/rage-logo.png";
         <div class="social-grid">
           <a
             class="social"
-            href={baseData.social.facebook}
+            href={baseData.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={facebook} alt="Facebook Icon" />
+            <Image src={instagram} alt="Instagram Icon" />
           </a>
         </div>
       </div>
@@ -40,11 +40,11 @@ import rageLogo from "@/assets/rage-logo.png";
         <div class="footer__col">
           <Heading
             tag="h3"
-            size="l"
+            size="m"
             fontFamily="primary"
             marginBottom="m"
-            weight="fw800"
-            textTransform="uppercase">Quick Links</Heading
+            weight="fw600"
+            textTransform="capitalize">Quick Links</Heading
           >
           <nav class="footer__nav-links">
             {
@@ -69,11 +69,11 @@ import rageLogo from "@/assets/rage-logo.png";
         <div class="footer__col">
           <Heading
             tag="h3"
-            size="l"
+            size="m"
             fontFamily="primary"
             marginBottom="m"
-            weight="fw800"
-            textTransform="uppercase">Contact Us</Heading
+            weight="fw600"
+            textTransform="capitalize">Contact Us</Heading
           >
           <nav class="footer__nav-links">
             <Links variant="nav-link" href={`mailto:${baseData.email}`} classes="lowercase"
@@ -87,7 +87,7 @@ import rageLogo from "@/assets/rage-logo.png";
       </div>
     </div>
   </div>
-  <div class="footer__bottom container container-md">
+  <div class="footer__bottom container container-lg">
     <div class="footer__bottom-content">
       <p class="footer__copyright">
         © {new Date().getFullYear()}
@@ -135,7 +135,7 @@ import rageLogo from "@/assets/rage-logo.png";
 
       p,
       a {
-        font-size: var(--_typography---font-size--text-small);
+        font-size: var(--_typography---font-size--text-main);
         line-height: 1.4;
       }
 
@@ -246,7 +246,7 @@ import rageLogo from "@/assets/rage-logo.png";
 
     &__copyright {
       font-size: var(--_typography---font-size--text-main);
-      color: var(--dark-900);
+      color: var(--brand-primary);
       margin: 0;
       font-family: var(--primary-family);
       text-wrap: balance;
@@ -256,7 +256,7 @@ import rageLogo from "@/assets/rage-logo.png";
         text-decoration: none;
         transition: color 0.2s ease;
         font-size: var(--_typography---font-size--text-main);
-        font-weight: 800;
+        font-weight: 600;
 
         &:hover {
           color: var(--brand-primary-dark);
@@ -281,7 +281,7 @@ import rageLogo from "@/assets/rage-logo.png";
 
       .nav-link {
         font-size: var(--_typography---font-size--text-main);
-        font-weight: 800;
+        font-weight: 600;
         text-transform: capitalize;
       }
     }

@@ -1,8 +1,8 @@
 import { glob, file } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
-const aboutFAQ = defineCollection({
-  loader: file("src/data/aboutFAQ.json"),
+const FAQ = defineCollection({
+  loader: file("src/data/FAQ.json"),
   schema: z.object({
     question: z.string(),
     answer: z.string(),
@@ -22,6 +22,6 @@ const reviews = defineCollection({
 });
 
 export const collections = {
-  aboutFAQ,
+  FAQ,
   reviews,
 };

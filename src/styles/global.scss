@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Apricots";
+  src: url(/fonts/Apricots.otf);
+  font-display: swap;
+}
+
 html {
-  font-size: 20px;
+  font-size: 18px;
   scroll-behavior: smooth;
 }
 
@@ -11,7 +17,7 @@ html {
 
 main {
   padding-top: var(--nav-height);
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   z-index: 1;
 }
@@ -23,44 +29,41 @@ section {
 
 :root {
   /* SWATCHES */
-  --brand-primary: #e57831;
-  --brand-primary-light: #ea955d;
-  --brand-primary-dark: #d35a4a;
+  --brand-primary: #856044;
+  --brand-primary-light: #ceb5a1;
+  --brand-primary-dark: #433123;
 
-  --brand-secondary: #cad0d0;
-  --brand-secondary-light: #dfe2e2;
-  --brand-secondary-dark: #b3bcbc;
+  --brand-secondary: #dac0c1;
+  --brand-secondary-light: #f7f2f2;
 
   --light-100: #fff;
-  --light-100--transparency: #ffffff11;
-  --light-200: #eeeeee;
-  --light-200--transparency: #fdfbf9;
-  --light-glass: rgba(255, 255, 255, 0.7);
+  --light-100--transparency: rgba(255, 255, 255, 0.5);
+  --light-200: #f9f8f5;
+  --light-200--transparency: rgba(249, 248, 245, 0.5);
 
-  --dark-900: #000000;
-  --dark-900--transparency: rgba(25, 25, 25, 0.6);
-  --dark-800: #1c1c1c;
-  --dark-700: #656565;
+  --dark-900: #141414;
+  --dark-900--transparency: rgba(20, 20, 20, 0.5);
+  --dark-800: #333333;
+  --dark-glass: rgba(51, 51, 51, 0.5);
 
   --border-light: #ffffff21;
 
   /* SEMANTIC ALIASES - Light theme (screenprinting) */
-  --surface-primary: var(--light-100);
-  --surface-secondary: var(--light-200);
-  --content-primary: var(--dark-900);
+  --surface-primary: var(--light-200);
+  --surface-secondary: var(--light-100);
+  --content-primary: var(--brand-primary);
   --content-secondary: var(--dark-800);
-  --border-color: var(--light-200);
-  --glass: var(--light-glass);
+  --border-color: var(--light-100);
 
   /* STYLING */
   --border-width: 1.5px;
-  --border-radius-small: 4px;
+  --border-radius-small: 8px;
   --border-radius-medium: 16px;
   --border-radius-round: 999px;
 
   /* TYPOGRAPHY */
-  --primary-family: "Bebas Neue", sans-serif;
-  --secondary-family: "Roboto", serif;
+  --primary-family: "Montserrat", sans-serif;
+  --secondary-family: "Apricots", sans-serif;
 
   // SIZING
   --site--margin: clamp(1rem, 0.428rem + 2.86vw, 3rem);
@@ -79,10 +82,10 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 6rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 5rem);
-  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.5rem);
-  --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 4.5rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 4rem);
+  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 3.25rem);
+  --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2.5rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
   --_typography---font-size--h5: clamp(1.19rem, 1.136rem + 0.27vw, 1.38rem);
   --_typography---font-size--h6: clamp(0.9rem, 1.016rem + 0.07vw, 1.08rem);
@@ -140,17 +143,12 @@ ul {
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 p {
   margin-top: 0rem;
   margin-bottom: var(--_spacing---space--4);
-  font-family: var(--secondary-family);
+  font-family: var(--primary-family);
   line-height: 1.4;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--content-primary);
 }
 
@@ -167,7 +165,7 @@ a {
   font-size: inherit;
   font-family: inherit;
   color: var(--content-primary);
-  font-size: var(--_typography---font-size--text-main);
+  font-size: 1rem;
 }
 
 a:not(.btn) {
@@ -182,14 +180,15 @@ a:not(.btn) {
 
 .eyebrow {
   text-transform: uppercase !important;
-  letter-spacing: 1px;
+  font-family: var(--primary-family);
+  letter-spacing: 2px !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  background-color: var(--light-100);
+  padding: 0.5rem;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  // font-size: var(--_typography---font-size--h6) !important;
-  font-size: 1.15rem !important;
-  display: block;
-  margin-left: 0;
+  border-radius: var(--border-radius-small);
+  color: var(--brand-primary);
 }
 
 .btn {
@@ -198,12 +197,12 @@ a:not(.btn) {
   border-style: solid;
   border-width: 1px;
   transition: 0.25s ease-in-out all;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0px;
   text-decoration: none;
-  padding: 0.5rem 1rem 0.4rem;
-  border-radius: var(--border-radius-small);
-  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-round);
+  text-transform: capitalize;
   line-height: 1.4;
   margin: 0.5rem 0.25rem;
   text-align: center;
@@ -212,7 +211,7 @@ a:not(.btn) {
   font-size: inherit;
   font-family: var(--primary-family);
   color: var(--content-primary);
-  font-size: var(--_typography---font-size--h5);
+  font-size: var(--_typography---font-size--text-main);
 }
 
 .btn-wrapper {
@@ -235,9 +234,9 @@ a:not(.btn) {
 
 .nav-link {
   text-transform: capitalize !important;
-  font-weight: 800;
+  font-weight: 600;
   width: fit-content;
-  font-size: var(--_typography---font-size--h5);
+  font-size: var(--_typography---font-size--text-main);
 }
 
 .social-grid {
@@ -259,11 +258,11 @@ a:not(.btn) {
     img {
       width: 20px;
       height: 20px;
-      // filter: invert(1);
+      filter: invert(1);
     }
 
     &:hover {
-      background: var(--light-100);
+      background: var(--brand-secondary);
     }
   }
 }
@@ -271,10 +270,6 @@ a:not(.btn) {
 // UTILITIES
 .bg-primary {
   background-color: var(--brand-primary);
-
-  *:not(.btn) {
-    color: var(--dark-900);
-  }
 }
 
 .bg-primary-light {
@@ -287,6 +282,18 @@ a:not(.btn) {
   *:not(.btn) {
     color: var(--light-200);
   }
+}
+
+.bg-secondary {
+  background-color: var(--brand-secondary);
+
+  *:not(.btn) {
+    color: var(--brand-primary-dark) !important;
+  }
+}
+
+.bg-secondary-light {
+  background-color: var(--brand-secondary-light);
 }
 
 .bg-white {
@@ -666,7 +673,8 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: brightness(0);
+    filter: brightness(0) saturate(100%) invert(31%) sepia(62%) saturate(281%) hue-rotate(343deg)
+      brightness(99%) contrast(92%);
 
     @media screen and (max-width: 768px) {
       width: 60px;
@@ -735,8 +743,9 @@ select,
 textarea {
   padding: 0.75rem;
   border-radius: 8px;
+  font-family: var(--primary-family);
   font-size: var(--_typography---font-size--text-main);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--brand-primary-light);
   width: 100%;
   transition: all 0.2s ease;
   color: var(--dark-900) !important;

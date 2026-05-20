@@ -3,14 +3,12 @@
 import BaseHead from "@/layouts/BaseHead.astro";
 import Footer from "@/layouts/Footer.astro";
 import Nav from "@/layouts/Nav.astro";
-import Alert from "@/components/Alert.astro";
 import CTA from "@/components/CTA.astro";
-import UserBack from "@/components/UserBack.astro";
-import Reviews from "@/components/Reviews.astro";
 import LighthouseGalleryModal from "@/components/LighthouseGalleryModal.astro";
 
 // STYLES
 import "@/styles/global.scss";
+import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
 
 // PROPS
 const { hideCTA = false } = Astro.props;
@@ -25,6 +23,7 @@ const { hideCTA = false } = Astro.props;
       <slot />
     </main>
     {!hideCTA && <CTA />}
+    <ScrollingMarquee />
     <Footer />
     <!-- <UserBack /> -->
     <LighthouseGalleryModal />

@@ -1,0 +1,176 @@
+---
+// COMPONENTS
+import Heading from "@/components/Heading.astro";
+
+// IMAGES
+import globeTravel from "@/assets/globe-travel.svg";
+import calendar from "@/assets/calendar.svg";
+import hotel from "@/assets/hotel.svg";
+import phone from "@/assets/phone.svg";
+import pinEdit from "@/assets/pin-edit.svg";
+import travelPin from "@/assets/travel-pin.svg";
+import travel from "@/assets/travel.svg";
+
+const travelAdvisorBenefits = [
+  {
+    icon: globeTravel.src,
+    title: "Personalized Destination & Resort Recommendations",
+    description:
+      "Not every destination or resort is the right fit for every traveler. We take the time to understand your travel style, priorities, budget, and overall vision so we can recommend experiences that genuinely align with what you’re looking for, rather than overwhelming you with endless options online.",
+  },
+  {
+    icon: calendar.src,
+    title: "Expert Guidance Throughout The Planning Process",
+    description:
+      "Planning a trip involves far more than simply booking flights and hotels. From narrowing down destinations and selecting accommodations to understanding logistics, timing, and travel requirements, we help guide you through each step with clarity and confidence.",
+  },
+  {
+    icon: hotel.src,
+    title: "Help Coordinating Hotels, Cruises, Excursions & Experiences",
+    description:
+      "The small details are often what make or break a vacation. We help coordinate the moving pieces of your trip so your accommodations, excursions, transportation, and experiences work together seamlessly and create a smoother overall travel experience.",
+  },
+  {
+    icon: phone.src,
+    title: "Someone In Your Corner When Plans Change",
+    description:
+      "Travel doesn’t always go perfectly according to plan. Flight delays, schedule changes, weather issues, and unexpected disruptions can happen, and having someone available to help navigate those situations can make a stressful moment feel significantly more manageable.",
+  },
+  {
+    icon: travel.src,
+    title: "A More Seamless, Hands-Off Planning Experience",
+    description:
+      "Instead of spending hours researching destinations, comparing resorts, and trying to piece everything together yourself, we help simplify the process and remove much of the stress that comes with travel planning. Our goal is to help you feel excited about your trip, not overwhelmed by it.",
+  },
+];
+---
+
+<section class="travel-benefits bg-white">
+  <div class="container container-lg travel-benefits__container column-main">
+    <div class="content-md travel-benefits__description">
+      <Heading
+        tag="h2"
+        size="s"
+        fontFamily="primary"
+        marginBottom="m"
+        weight="fw500"
+        class="eyebrow"
+      >
+        Services & Vacation Planning
+      </Heading>
+      <Heading tag="h3" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
+        Why Work With A Travel Advisor?
+      </Heading>
+      <p>
+        Booking a trip online is easy. Booking the right trip for you is where experience matters.
+      </p>
+      <p>
+        At Andiamo Away, Kathy works closely with each client to help simplify the planning process,
+        avoid common travel frustrations, and create vacations that feel thoughtfully tailored
+        instead of one-size-fits-all.
+      </p>
+      <p>
+        From helping narrow down destinations and resorts to assisting when flights change or plans
+        unexpectedly shift, having a dedicated travel advisor means you’re never navigating the
+        process alone.
+      </p>
+    </div>
+    <div class="content-md travel-benefits__content">
+      <div class="travel-benefits__card-wrapper">
+        {
+          travelAdvisorBenefits.map(benefits => (
+            <div class="travel-benefits__card card">
+              <span class="icon__wrapper">
+                <span class="icon">
+                  <img src={benefits.icon} alt="" />
+                </span>
+              </span>
+              <Heading
+                tag="h3"
+                size="m"
+                fontFamily="primary"
+                marginBottom="m"
+                weight="fw600"
+                class="travel-benefits__card-heading"
+              >
+                {benefits.title}
+              </Heading>
+              <p>{benefits.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .travel-benefits {
+    &__container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      @media screen and (max-width: 1024px) {
+        flex-direction: column;
+      }
+    }
+
+    &__content {
+      margin-top: 0;
+    }
+
+    &__description {
+      text-align: left;
+      margin-top: 0;
+      position: sticky !important;
+      top: 6rem;
+
+      @media screen and (max-width: 1024px) {
+        position: static !important;
+        top: auto;
+      }
+
+      .eyebrow {
+        background-color: var(--light-200) !important;
+      }
+    }
+
+    &__card-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &__card {
+      background-color: var(--brand-secondary-light);
+      padding: 2rem;
+      border: 1px solid var(--light-300);
+      border-radius: var(--border-radius-medium);
+      text-align: left;
+
+      p {
+        margin-bottom: 0;
+        color: var(--dark-700);
+        line-height: 1.6;
+      }
+
+      .icon__wrapper {
+        background: var(--light-100);
+        display: block;
+        margin-bottom: 1rem;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--border-radius-round);
+
+        .icon {
+          margin: auto;
+        }
+      }
+    }
+  }
+</style>

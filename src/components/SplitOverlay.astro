@@ -1,14 +1,9 @@
 ---
-// HELPERS
 import { Picture } from "astro:assets";
+import Heading from "./Heading.astro";
 
-// COMPONENTS
-import Heading from "@/components/Heading.astro";
-
-// TYPES
 import type { HTMLAttributes } from "astro/types";
 
-// PROPS
 export interface SplitProps extends HTMLAttributes<"section"> {
   title: string;
   eyebrow?: string;
@@ -37,15 +32,22 @@ const {
   bgImgSrc,
   bgImgAlt,
   imgText,
-  class: customClass,
   ...rest
 } = Astro.props;
-
-const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boolean(eyebrow);
 ---
 
-<section aria-label={title} class:list={["split", background, customClass]} {...rest}>
-  <div class="container container-md">
+<section aria-label={title} class:list={["split", background]} {...rest}>
+  <div class:list={["split__bg-wrapper", orientation === "left" ? "split__bg-wrapper--left" : ""]}>
+    <Picture
+      src={bgImgSrc}
+      alt={bgImgAlt}
+      class="split__bg-img"
+      loading="eager"
+      width={2000}
+      height={2000}
+    />
+  </div>
+  <div class="container container-lg">
     <div
       class="content-full split__grid"
       class:list={orientation === "left" ? "split--reverse" : ""}
@@ -54,42 +56,27 @@ const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boo
         <div class="split__img-wrapper">
           <Picture
             src={imgSrc}
-            formats={["avif", "webp"]}
             alt={imgAlt}
             class="split__img"
-            loading="lazy"
-            quality={65}
-            width={800}
-            height={800}
-            widths={[400, 600, 800]}
-            sizes="(max-width: 768px) 100vw, (max-width: 1010px) 90vw, 50vw"
+            loading="eager"
+            width={1000}
+            height={1000}
           />
+          <p>{imgText}</p>
         </div>
       </div>
       <div class="split__col split__content">
-        {
-          hasEyebrow ? (
-            <Heading
-              tag="span"
-              size="xs"
-              fontFamily="primary"
-              marginBottom="m"
-              weight="fw400"
-              class="split__eyebrow"
-              textTransform="uppercase"
-            >
-              {eyebrow}
-            </Heading>
-          ) : null
-        }
         <Heading
           tag="h2"
-          size="xxl"
+          size="xs"
           fontFamily="primary"
-          marginBottom="s"
-          weight="fw800"
-          lineHeight={1}
+          marginBottom="m"
+          weight="fw700"
+          class="eyebrow"
         >
+          {eyebrow}
+        </Heading>
+        <Heading tag="h3" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
           {title}
         </Heading>
         <slot />
@@ -102,13 +89,12 @@ const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boo
   .split {
     &__grid {
       display: grid;
-      gap: var(--_spacing---section-space--main);
-      grid-template-columns: 1fr 1fr;
-      min-height: 65vh;
+      gap: var(--_spacing---section-space--xl);
+      grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+    }
 
-      @media (max-width: 1010px) {
-        grid-template-columns: 1fr;
-      }
+    &__wrapper {
+      padding: 10rem;
     }
 
     &__col {
@@ -116,26 +102,36 @@ const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boo
       flex-direction: column;
       justify-content: center;
       height: 100%;
-      position: relative;
     }
 
     &__img-wrapper {
-      width: 100%;
       height: 100%;
-      position: relative;
-      margin-right: 0;
-      margin-left: auto;
       border-radius: var(--border-radius-small);
       overflow: hidden;
+      width: 100%;
+      background: #fff;
+      padding: 1rem;
+      padding-bottom: 6rem;
+      border-radius: 0;
+      transform: rotate(-1deg);
+      filter: drop-shadow(2px 4px 15px rgba(20, 20, 20, 0.1));
+      width: 100%;
+      aspect-ratio: 1/1;
+
+      p {
+        height: 6rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-family: var(--secondary-family);
+      }
     }
 
     &__content {
       text-align: left;
-      text-wrap: pretty;
-
-      h3 {
-        margin-top: 1rem;
-      }
+      padding: 3rem 0;
 
       h4 {
         margin-bottom: 0.25rem;
@@ -150,127 +146,65 @@ const hasEyebrow = typeof eyebrow === "string" ? eyebrow.trim().length > 0 : Boo
         padding: 0;
         list-style: none;
         display: grid;
-        gap: 0.5rem;
+        gap: 1rem;
       }
 
       li {
         position: relative;
-        padding-left: 1.9rem;
+        padding-left: 2.5rem;
+
+        p {
+          margin-bottom: 0;
+        }
 
         &::before {
           content: "";
           position: absolute;
           left: 0;
-          top: 0.78em;
-          width: 1.25rem;
-          height: 1.25rem;
-          background-image: url("/src/assets/waterDrop.svg");
+          top: 50%;
+          width: 1.75rem;
+          height: 1.75rem;
+          background-image: url("/src/assets/plane.svg");
           background-repeat: no-repeat;
-          background-size: contain;
+          background-size: 1.1rem;
           background-position: center;
+          background-color: #fff;
+          border-radius: 8px;
           transform: translateY(-50%);
-          filter: brightness(0) saturate(100%) invert(82%) sepia(58%) saturate(5951%)
-            hue-rotate(336deg) brightness(90%) contrast(87%);
-        }
-
-        p {
-          margin-bottom: 0;
         }
       }
     }
 
-    &__eyebrow {
-      width: fit-content;
-      letter-spacing: 0px;
-      width: fit-content;
-      letter-spacing: 1px;
-      background: var(--light-200);
-      padding: 0.5rem 0.5rem;
-      border-radius: 5px;
-    }
+    &__bg-wrapper {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40%;
+      height: 100%;
+      opacity: 0.8;
 
-    .btn {
-      width: fit-content;
-      margin-left: 0;
-    }
-
-    .callouts {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem 0;
-      flex-wrap: wrap;
-
-      @media (max-width: 600px) {
-        flex-direction: column;
-      }
-    }
-
-    .callout {
-      position: relative;
-      padding: 0.5rem 1rem;
-      padding-left: 2.75rem;
-      border-radius: var(--border-radius-small);
-      font-weight: 500;
-      font-size: var(--_typography---font-size--text-large);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-family: var(--primary-family);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: fit-content;
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0.5rem;
-        width: 30px;
-        height: 30px;
-        background-color: var(--brand-primary);
-        background-image: url("/src/assets/waterDrop.svg");
-        background-size: 24px 24px;
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 50%;
+      &--left {
+        right: 0;
+        left: auto;
       }
     }
   }
 
   .split--reverse .split__col:first-child {
     order: 2;
+  }
 
-    @media (max-width: 1010px) {
+  .bg-dark .split__content * {
+    color: var(--light-200);
+  }
+
+  @media (max-width: 1010px) {
+    .split--reverse .split__col:first-child {
       order: -1 !important;
     }
-  }
 
-  .bg-dark .split__content {
-    *:not(.btn) {
-      color: var(--light-200);
-    }
-
-    .split__eyebrow {
-      color: var(--dark-900);
-    }
-  }
-
-  .bg-light {
-    .split__eyebrow {
-      background: var(--light-100);
-    }
-  }
-
-  .bg-primary {
-    li:before {
-      filter: invert(1);
-    }
-    a:not(.btn) {
-      color: var(--light-100);
-
-      &:hover {
-        color: var(--light-200);
-      }
+    .split__content {
+      padding: 0;
     }
   }
 </style>

@@ -1,38 +1,11 @@
 ---
-// IMAGES
-import gear from "@/assets/gear-icon.svg";
 
-// HELPERS
-import { Image } from "astro:assets";
-
-// DATA
-const towns = [
-  "Estill Springs",
-  "Tullahoma",
-  "Murfreesboro",
-  "Winchester",
-  "Decherd",
-  "Manchester",
-  "Lynchburg",
-  "Shelbyville",
-  "Fayetteville",
-  "Franklin County",
-  "Coffee County",
-  "Moore County",
-];
 ---
 
 <section class="bg-primary">
   <div class="scrolling-marquee">
     <div class="scrolling-marquee-inner">
-      {
-        towns.map(town => (
-          <>
-            <span class="town-item">{town}</span>
-            <Image src={gear} alt="Gear icon separator" class="gear-icon" aria-hidden="true" />
-          </>
-        ))
-      }
+      <slot />
     </div>
   </div>
 </section>
@@ -44,17 +17,20 @@ const towns = [
 
   /* SCROLLING MARQUEE */
   .scrolling-marquee {
+    --gap: 4rem;
+
     max-width: 100%;
     width: fit-content;
     margin: auto;
     overflow: hidden;
+    color: var(--light-200);
 
     &-inner {
       margin: 0;
-      padding: 2rem 0 1.75rem;
+      padding: 2rem 0 1rem;
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: var(--gap);
       width: max-content;
       flex-wrap: nowrap;
       animation: scroll 120s forwards linear infinite;
@@ -62,29 +38,9 @@ const towns = [
     }
   }
 
-  .town-item {
-    font-size: var(--_typography---font-size--h3);
-    font-weight: 400;
-    color: var(--light-100);
-    white-space: nowrap;
-    font-family: var(--primary-family);
-    text-transform: uppercase;
-  }
-
-  .gear-icon {
-    width: 2rem;
-    height: 2rem;
-    filter: invert(1);
-
-    @media (max-width: 768px) {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-
   @keyframes scroll {
     to {
-      transform: translate(calc(-50% - 2.5rem));
+      transform: translate(calc(-50% - var(--gap)));
     }
   }
 </style>

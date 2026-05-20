@@ -1,0 +1,167 @@
+---
+// COMPONENTS
+import { Picture } from "astro:assets";
+import Heading from "@/components/Heading.astro";
+
+// IMAGES
+import lima from "@/assets/lima.jpg";
+
+import type { HTMLAttributes } from "astro/types";
+
+export interface ProcessStepsProps extends HTMLAttributes<"section"> {
+  classes?: string;
+}
+
+const { classes, ...rest } = Astro.props;
+
+const tripTypes = [
+  {
+    id: "luxury-all-inclusive",
+    number: "01",
+    title: "Luxury & All-Inclusive Resorts",
+    description:
+      "Beautiful destinations designed for relaxation, comfort, and unforgettable experiences.",
+    img: lima,
+    imgAlt: "Traveler discussing plans with a travel designer",
+  },
+  {
+    id: "cruises",
+    number: "02",
+    title: "Cruises",
+    description: "Ocean and river cruises tailored to your travel style, pace, and interests.",
+    img: lima,
+    imgAlt: "Traveler discussing plans with a travel designer",
+  },
+  {
+    id: "european-adventures",
+    number: "03",
+    title: "European Adventures",
+    description: "Custom trips filled with culture, food, history, and once-in-a-lifetime moments.",
+    img: lima,
+    imgAlt: "Traveler discussing plans with a travel designer",
+  },
+  {
+    id: "family-vacations",
+    number: "04",
+    title: "Family Vacations",
+    description: "Stress-free travel planning designed to make family memories easier to enjoy.",
+    img: lima,
+    imgAlt: "Traveler discussing plans with a travel designer",
+  },
+  {
+    id: "honeymoons-romantic-getaways",
+    number: "05",
+    title: "Honeymoons & Romantic Getaways",
+    description: "Thoughtfully planned escapes designed around meaningful experiences together.",
+    img: lima,
+    imgAlt: "Traveler discussing plans with a travel designer",
+  },
+  {
+    id: "disney-destinations",
+    number: "06",
+    title: "Disney Destinations",
+    description: "Magical vacations made simpler with expert guidance and planning support.",
+    img: lima,
+    imgAlt: "Traveler discussing plans with a travel designer",
+  },
+];
+---
+
+<section class:list={["trip-types", classes]} {...rest}>
+  <div class="container container-lg column-main">
+    <div class="content-lg">
+      <Heading
+        tag="h2"
+        size="xs"
+        fontFamily="primary"
+        marginBottom="m"
+        weight="fw700"
+        class="eyebrow"
+      >
+        Trip Types
+      </Heading>
+      <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
+        Explore The Trip Types We Love Planning
+      </Heading>
+      <p>From cruises to custom Europe itineraries, we plan travel that fits your style.</p>
+    </div>
+    <div class="content-full">
+      <div class="trip-types__main grid-auto-3" id="trip-types-container">
+        <!-- Steps -->
+        {
+          tripTypes.map((trip, index) => (
+            <div class="trip-types__content">
+              <div class="trip-types__img-wrapper">
+                <Picture
+                  src={trip.img}
+                  alt={trip.imgAlt}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  class="trip-types__image"
+                />
+              </div>
+              <div class="trip-types__text">
+                <Heading
+                  tag="h3"
+                  size="xs"
+                  fontFamily="primary"
+                  marginBottom="s"
+                  weight="fw700"
+                  textTransform="uppercase"
+                  class="trip-types__heading"
+                >
+                  {trip.title}
+                </Heading>
+                <p class="trip-types__description">{trip.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <style lang="scss">
+    .trip-types {
+      &__main {
+        gap: var(--_spacing---section-space--small);
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      &__text {
+        background: var(--light-100);
+        width: calc(100% - 2rem);
+        margin: auto;
+        margin-top: -1rem;
+        padding: 1rem;
+        border-radius: var(--border-radius-medium);
+      }
+
+      &__heading {
+        text-transform: uppercase !important;
+        letter-spacing: 3px;
+      }
+
+      &__description {
+        line-height: 1.3;
+      }
+
+      &__img-wrapper {
+        border-radius: 500px 500px 8px 8px;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+      }
+
+      .eyebrow {
+        margin-inline: auto;
+      }
+    }
+  </style>
+</section>

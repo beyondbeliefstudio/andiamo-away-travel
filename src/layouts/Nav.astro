@@ -7,21 +7,20 @@ import Links from "@/components/Links.astro";
 
 // DATA
 import { navData } from "@/data/navData";
-import type { NavItem } from "@/data/navData";
 
-// IMAGES
-import rageLogo from "@/assets/rage-logo.png";
+// IMAGES\
+import wordmark from "@/assets/wordmark.svg";
 ---
 
 <!--=============== HEADER ===============-->
 <header class="nav">
-  <div class="nav__container container container-md">
+  <div class="nav__container container container-lg">
     <div class="nav__logo">
       <a href="/" class="nav__logo-img">
-        <Image src={rageLogo} alt="Rage Logo" />
+        <Image src={wordmark} alt="Andiamo Away Logo" />
       </a>
       <a href="/" class="nav__logo-img__sticky">
-        <Image src={rageLogo} alt="Rage Logo" />
+        <Image src={wordmark} alt="Andiamo Away Logo" />
       </a>
     </div>
 
@@ -58,7 +57,7 @@ import rageLogo from "@/assets/rage-logo.png";
           );
         })
       }
-      <Links variant="light" href={"tel:+7042925259"}>Call (704) 292-5259</Links>
+      <Links variant="primary" href={"tel:+19084199557"}>Call (908) 419-9557</Links>
     </nav>
 
     <!-- Hamburger -->
@@ -104,7 +103,7 @@ import rageLogo from "@/assets/rage-logo.png";
         );
       })
     }
-    <Links variant="primary" href={"tel:+7042925259"}>Call (704) 292-5259</Links>
+    <Links variant="primary" href={"tel:+19084199557"}>Call (908) 419-9557</Links>
   </div>
 
   <!-- Mobile Menu Overlay -->
@@ -115,7 +114,6 @@ import rageLogo from "@/assets/rage-logo.png";
   .nav {
     width: 100%;
     z-index: 1000;
-    background: var(--dark-900);
     position: fixed;
     top: 0;
     left: 0;
@@ -124,9 +122,15 @@ import rageLogo from "@/assets/rage-logo.png";
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background-color: var(--light-100);
+      padding: 0.5rem;
+      border-radius: var(--border-radius-small);
+      margin: 1rem auto;
+      width: 100%;
       gap: 3rem;
+      position: relative;
       z-index: 10;
-      padding: 0.5rem 0;
+      outline: 1px solid var(--brand-primary-light);
 
       @media (max-width: 1070px) {
         margin: 0.5rem auto;
@@ -142,7 +146,7 @@ import rageLogo from "@/assets/rage-logo.png";
 
       svg,
       img {
-        height: 100px !important;
+        height: 70px !important;
         width: auto !important;
 
         @media (max-width: 1070px) {
@@ -158,7 +162,7 @@ import rageLogo from "@/assets/rage-logo.png";
 
       svg,
       img {
-        height: 100px !important;
+        height: 50px !important;
         width: auto !important;
 
         @media (max-width: 1070px) {
@@ -170,7 +174,7 @@ import rageLogo from "@/assets/rage-logo.png";
     &__links {
       display: flex;
       align-items: center;
-      gap: var(--_spacing---space--8);
+      gap: 1.5rem;
 
       @media (max-width: 1070px) {
         display: none;
@@ -258,7 +262,10 @@ import rageLogo from "@/assets/rage-logo.png";
       }
 
       .nav__container {
-        background-color: var(--dark-900);
+        background-color: var(--light-100);
+        width: fit-content;
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        box-shadow: 0px 0px 13px #00000029;
 
         @media (max-width: 1070px) {
           width: 100%;

@@ -1,27 +1,17 @@
 export const baseData = {
-  title: "All The Rage Carpet Cleaning",
+  title: "Andiamo Away",
   description:
-    "Cleaning and restoration firm offering professional services at affordable prices, from homes and offices to commercial properties.",
-  phone: "(704) 292-5259",
-  email: "Alltheragecarpet@gmail.com",
-  hours: {
-    regular: {
-      days: "Sunday - Saturday",
-      hours: "8am - 11pm",
-    },
-    emergency: {
-      days: "24/7",
-      hours: "For Emergencies",
-    },
-  },
+    "Travel and adventure services offering personalized experiences and unforgettable journeys.",
+  phone: "(908) 419-9557",
+  email: "kathy@andiamoaway.com",
   social: {
-    facebook: "https://www.facebook.com/people/All-The-Rage/61551532937655/",
+    instagram: "https://www.instagram.com/andiamoaway/",
   },
   address: {
-    street: "",
-    city: "",
+    street: "5108 Swedish Ivy Lane",
+    city: "Monroe",
     state: "NC",
-    zip: "",
-    full: "Charlotte, NC",
+    zip: "28110",
+    full: "5108 Swedish Ivy Lane, Monroe, NC 28110",
   },
 };

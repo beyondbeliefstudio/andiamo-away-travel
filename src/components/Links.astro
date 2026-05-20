@@ -26,14 +26,14 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
     &.primary {
       border-color: var(--brand-primary);
       background-color: var(--brand-primary);
-      color: var(--dark-900);
+      color: var(--light-100);
 
       &:hover,
       &:active,
       &:focus {
-        background-color: var(--dark-800);
-        border-color: var(--dark-800);
-        color: var(--light-200);
+        background-color: var(--brand-primary-dark);
+        border-color: var(--brand-primary-dark);
+        color: var(--light-100);
       }
     }
 
@@ -130,12 +130,12 @@ const { href, variant = "primary", classes, ...rest } = Astro.props;
       padding: 0;
       position: relative; /* Added for :after pseudo-element positioning */
       transition: color 0.3s;
-      color: var(--light-100);
+      color: var(--content-primary);
       margin: 0;
 
       &:hover,
       &.active {
-        color: var(--light-100);
+        color: var(--content-primary);
 
         &:after {
           transform: scaleX(1);

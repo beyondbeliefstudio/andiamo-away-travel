@@ -17,14 +17,14 @@ const { id, ariaLabel, ...rest } = Astro.props;
 ---
 
 <section id={id} aria-label={ariaLabel}>
-  <div class="container container-md column-main">
+  <div class="container container-lg column-main">
     <div class="content-lg">
       <Heading
         tag="h2"
-        size="xxl"
+        size="xl"
         fontFamily="primary"
         marginBottom="none"
-        weight="fw800"
+        weight="fw500"
         data-reveal>Frequently Asked Questions</Heading
       >
     </div>
@@ -49,10 +49,10 @@ const { id, ariaLabel, ...rest } = Astro.props;
                 <Heading
                   tag="h3"
                   size="s"
-                  fontFamily="secondary"
+                  fontFamily="primary"
                   marginBottom="none"
                   class="accordion__headings"
-                  weight="fw600"
+                  weight="fw500"
                 >
                   {data.question}
                 </Heading>
@@ -80,7 +80,7 @@ const { id, ariaLabel, ...rest } = Astro.props;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      background-color: var(--light-200);
+      background-color: var(--brand-secondary-light);
     }
 
     &__question {
@@ -140,7 +140,6 @@ const { id, ariaLabel, ...rest } = Astro.props;
       width: fit-content;
       text-align: left;
       max-width: calc(100% - calc(35px + var(--_spacing---space--8)));
-      font-size: var(--_typography---font-size--text-large) !important;
     }
 
     &__content {
