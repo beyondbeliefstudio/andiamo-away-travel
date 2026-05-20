@@ -10,18 +10,6 @@ const FAQ = defineCollection({
   }),
 });
 
-const reviews = defineCollection({
-  loader: file("src/data/reviews.json"),
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      stars: z.number(),
-      description: z.string(),
-      isFeatured: z.boolean(),
-    }),
-});
-
 export const collections = {
   FAQ,
-  reviews,
 };

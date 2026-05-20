@@ -9,16 +9,6 @@ import FAQ from "@/components/FAQ.astro";
 // IMAGES
 import stainRemover from "@/assets/stainRemover.jpg";
 import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
-
-// Data for FAQ section
-import { getCollection } from "astro:content";
-const faq = await getCollection("aboutFAQ");
-
-const faqData = faq.map(item => ({
-  tag: item.data.tag,
-  question: item.data.question,
-  answer: item.data.answer,
-}));
 ---
 
 <Layout
@@ -44,6 +34,4 @@ const faqData = faq.map(item => ({
       </div>
     </div>
   </section>
-
-  <FAQ faq={faqData} />
 </Layout>

@@ -1,18 +1,68 @@
 ---
 import { Picture } from "astro:assets";
 
-import amalfi from "@/assets/amalfi.jpg";
-import familyCruise from "@/assets/family-cruise.jpg";
-import kathyLondon from "@/assets/kathy-london.jpg";
-import lima from "@/assets/lima.jpg";
-import tuscany from "@/assets/tuscany.jpg";
+import greece from "@/assets/marquee-temp/greece.jpg";
+import italy from "@/assets/marquee-temp/italy.jpg";
+import paris from "@/assets/marquee-temp/paris.jpg";
+import china from "@/assets/marquee-temp/china.jpg";
+import mexico from "@/assets/marquee-temp/mexico.jpg";
+import japan from "@/assets/marquee-temp/japan.jpg";
+import spain from "@/assets/marquee-temp/spain.jpg";
+import thailand from "@/assets/marquee-temp/thailand.jpg";
+import turkey from "@/assets/marquee-temp/turkey.jpg";
+import switzerland from "@/assets/marquee-temp/switzerland.jpg";
 
 const items = [
-  { src: amalfi, alt: "Amalfi Coast, Italy", imgText: "Amalfi Coast, Italy" },
-  { src: tuscany, alt: "Tuscany, Italy", imgText: "Tuscany, Italy" },
-  { src: familyCruise, alt: "Family cruise vacation", imgText: "Family Cruise" },
-  { src: lima, alt: "Lima, Peru cityscape", imgText: "Lima, Peru" },
-  { src: kathyLondon, alt: "Traveler in London", imgText: "London, England" },
+  {
+    src: greece,
+    alt: "Traveler by whitewashed hillside buildings in Santorini, Greece",
+    imgText: "Santorini, Greece",
+  },
+  {
+    src: italy,
+    alt: "Traveler enjoying a scenic Mediterranean view in Positano, Italy",
+    imgText: "Positano, Italy",
+  },
+  {
+    src: paris,
+    alt: "Traveler in front of the Eiffel Tower in Paris, France",
+    imgText: "Paris, France",
+  },
+  {
+    src: china,
+    alt: "Traveler with skyline view in Shanghai, China",
+    imgText: "Shanghai, China",
+  },
+  {
+    src: mexico,
+    alt: "Traveler exploring colorful streets in Mexico City, Mexico",
+    imgText: "Mexico City, Mexico",
+  },
+  {
+    src: japan,
+    alt: "Traveler crossing a busy district in Tokyo, Japan",
+    imgText: "Tokyo, Japan",
+  },
+  {
+    src: spain,
+    alt: "Traveler on historic streets in Barcelona, Spain",
+    imgText: "Barcelona, Spain",
+  },
+  {
+    src: thailand,
+    alt: "Traveler relaxing on a tropical beach in Phuket, Thailand",
+    imgText: "Phuket, Thailand",
+  },
+  {
+    src: turkey,
+    alt: "Traveler enjoying sunset views over Istanbul, Turkey",
+    imgText: "Istanbul, Turkey",
+  },
+  {
+    src: switzerland,
+    alt: "Traveler overlooking alpine scenery in Interlaken, Switzerland",
+    imgText: "Interlaken, Switzerland",
+  },
 ];
 ---
 
@@ -56,7 +106,7 @@ const items = [
       gap: 3rem;
       width: max-content;
       flex-wrap: nowrap;
-      animation: scrollPhotos 60s forwards linear infinite;
+      animation: scrollPhotos 200s forwards linear infinite;
     }
   }
 

@@ -4,7 +4,12 @@ import { Picture } from "astro:assets";
 import Heading from "@/components/Heading.astro";
 
 // IMAGES
-import lima from "@/assets/lima.jpg";
+import luxuryResortImg from "@/assets/trip-types/luxury-resort.jpg";
+import cruisesImg from "@/assets/trip-types/cruises.jpg";
+import europeanAdventuresImg from "@/assets/trip-types/european-adventures.jpg";
+import familyVacationsImg from "@/assets/trip-types/family-vacations.jpg";
+import honeymoonsImg from "@/assets/trip-types/honeymoons.jpg";
+import disneyDestinationsImg from "@/assets/trip-types/disney-destinations.jpg";
 
 import type { HTMLAttributes } from "astro/types";
 
@@ -21,48 +26,48 @@ const tripTypes = [
     title: "Luxury & All-Inclusive Resorts",
     description:
       "Beautiful destinations designed for relaxation, comfort, and unforgettable experiences.",
-    img: lima,
-    imgAlt: "Traveler discussing plans with a travel designer",
+    img: luxuryResortImg,
+    imgAlt: "Aerial view of a luxury beachfront resort with multiple pools and palm trees",
   },
   {
     id: "cruises",
     number: "02",
     title: "Cruises",
     description: "Ocean and river cruises tailored to your travel style, pace, and interests.",
-    img: lima,
-    imgAlt: "Traveler discussing plans with a travel designer",
+    img: cruisesImg,
+    imgAlt: "Large cruise ship sailing across open ocean on a bright day",
   },
   {
     id: "european-adventures",
     number: "03",
     title: "European Adventures",
     description: "Custom trips filled with culture, food, history, and once-in-a-lifetime moments.",
-    img: lima,
-    imgAlt: "Traveler discussing plans with a travel designer",
+    img: europeanAdventuresImg,
+    imgAlt: "Dramatic coastal landscape in Scotland representing European adventure travel",
   },
   {
     id: "family-vacations",
     number: "04",
     title: "Family Vacations",
     description: "Stress-free travel planning designed to make family memories easier to enjoy.",
-    img: lima,
-    imgAlt: "Traveler discussing plans with a travel designer",
+    img: familyVacationsImg,
+    imgAlt: "Family walking together on a beach during vacation",
   },
   {
     id: "honeymoons-romantic-getaways",
     number: "05",
     title: "Honeymoons & Romantic Getaways",
     description: "Thoughtfully planned escapes designed around meaningful experiences together.",
-    img: lima,
-    imgAlt: "Traveler discussing plans with a travel designer",
+    img: honeymoonsImg,
+    imgAlt: "Couple holding hands on a tropical beach with turquoise water",
   },
   {
     id: "disney-destinations",
     number: "06",
     title: "Disney Destinations",
     description: "Magical vacations made simpler with expert guidance and planning support.",
-    img: lima,
-    imgAlt: "Traveler discussing plans with a travel designer",
+    img: disneyDestinationsImg,
+    imgAlt: "Iconic Disney castle viewed from below against a bright sky",
   },
 ];
 ---
@@ -107,13 +112,13 @@ const tripTypes = [
                   size="xs"
                   fontFamily="primary"
                   marginBottom="s"
-                  weight="fw700"
+                  weight="fw600"
                   textTransform="uppercase"
                   class="trip-types__heading"
                 >
                   {trip.title}
                 </Heading>
-                <p class="trip-types__description">{trip.description}</p>
+                <p class="trip-types__description small">{trip.description}</p>
               </div>
             </div>
           ))

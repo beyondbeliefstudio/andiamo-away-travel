@@ -17,7 +17,11 @@ export interface HeroProps extends HTMLAttributes<"section"> {
 const { pageTitle, title, subtitle, ariaLabel, classes, ...rest } = Astro.props;
 ---
 
-<section class:list={["internal-hero", "bg-dark", classes]} aria-label={ariaLabel} {...rest}>
+<section
+  class:list={["internal-hero", "bg-secondary-light", classes]}
+  aria-label={ariaLabel}
+  {...rest}
+>
   <div class="container container-md internal-hero__container">
     <div class="content-md internal-hero__content">
       <!-- <Heading
