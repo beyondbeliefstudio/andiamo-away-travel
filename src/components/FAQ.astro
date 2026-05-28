@@ -16,7 +16,7 @@ export interface LinkProps extends HTMLAttributes<"section"> {
 const { id, ariaLabel, ...rest } = Astro.props;
 ---
 
-<section id={id} aria-label={ariaLabel}>
+<section id={id} aria-label={ariaLabel} class="bg-white">
   <div class="container container-lg column-main">
     <div class="content-lg">
       <Heading

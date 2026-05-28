@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 17px;
   scroll-behavior: smooth;
 }
 
@@ -82,9 +82,9 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 4.5rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 4rem);
-  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 3.25rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 4rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.5rem);
+  --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.8rem);
   --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2.5rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
   --_typography---font-size--h5: clamp(1.19rem, 1.136rem + 0.27vw, 1.38rem);
@@ -246,8 +246,8 @@ a:not(.btn) {
   .social {
     background: var(--brand-primary);
     border-radius: 100%;
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -256,8 +256,8 @@ a:not(.btn) {
     cursor: pointer;
 
     img {
-      width: 20px;
-      height: 20px;
+      width: 17px;
+      height: 17px;
       filter: invert(1);
     }
 
@@ -722,7 +722,7 @@ form {
   border-radius: var(--border-radius-small);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 label {
@@ -730,7 +730,7 @@ label {
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: var(--dark-900) !important;
-  font-size: var(--_typography---font-size--text-large);
+  font-size: var(--_typography---font-size--text-small);
   text-align: left;
 
   .required {
@@ -744,7 +744,7 @@ textarea {
   padding: 0.75rem;
   border-radius: 8px;
   font-family: var(--primary-family);
-  font-size: var(--_typography---font-size--text-main);
+  font-size: var(--_typography---font-size--text-small);
   border: 1px solid var(--brand-primary-light);
   width: 100%;
   transition: all 0.2s ease;
