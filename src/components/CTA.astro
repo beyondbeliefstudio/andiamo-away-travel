@@ -79,12 +79,13 @@ import mailIcon from "@/assets/mail.svg";
                 >Luxury &amp; All-Inclusive Resorts</option
               >
               <option value="cruises">Cruises</option>
-              <option value="european-adventures">European Adventures</option>
+              <option value="global-adventures">Global Adventures</option>
               <option value="family-vacations">Family Vacations</option>
               <option value="honeymoons-romantic-getaways"
                 >Honeymoons &amp; Romantic Getaways</option
               >
-              <option value="disney-destinations">Disney Destinations</option>
+              <option value="milestones-or-celebrations">Milestones or Celebrations</option>
+              <option value="golf-trips">Golf Trips</option>
               <option value="custom-multi-destination-itinerary"
                 >Custom Multi-Destination Itinerary</option
               >
@@ -103,11 +104,28 @@ import mailIcon from "@/assets/mail.svg";
             ></textarea>
           </div>
 
+          <div class="form-group">
+            <label>Preferred Method of Contact</label>
+            <div class="form-checkboxes">
+              <label class="checkbox-label">
+                <input type="checkbox" name="contactMethod" value="text" />
+                Text
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="contactMethod" value="call" />
+                Call
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="contactMethod" value="email" />
+                Email
+              </label>
+            </div>
+          </div>
+
           <!-- Netlify reCAPTCHA -->
           <div data-netlify-recaptcha="true"></div>
 
-          <!-- <button type="submit" class="CTA__submit">Make An Appointment</button> -->
-          <Buttons variant="primary" type="submit">Make An Appointment</Buttons>
+          <Buttons variant="primary" type="submit">Submit</Buttons>
         </form>
       </div>
       <div class="CTA__text">
@@ -232,6 +250,27 @@ import mailIcon from "@/assets/mail.svg";
         width: 100%;
         min-height: 8rem;
         resize: vertical;
+      }
+
+      .form-checkboxes {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+          width: 1.1rem;
+          height: 1.1rem;
+          accent-color: var(--brand-primary);
+          cursor: pointer;
+        }
       }
     }
   }

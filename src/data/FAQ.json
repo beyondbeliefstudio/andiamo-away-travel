@@ -2,43 +2,37 @@
   {
     "id": 1,
     "question": "Do you charge for bookings?",
-    "answer": "Nope. You pay the same rate you'd pay if you booked directly. I'm compensated by the suppliers—so no added cost to you.",
+    "answer": "For most bookings, there's no service fee to you. I'm compensated by the suppliers, which means you get expert planning and support without any added cost on your end.",
     "tag": "a1"
   },
   {
     "id": 2,
     "question": "Why not just book it myself?",
-    "answer": "You could. But I'll handle the research, logistics, coordination, price monitoring, and support before & during your trip—all for the same price you'd find yourself.",
+    "answer": "You could. But I'll handle the research, logistics, coordination, price monitoring, and support before & during your trip.",
     "tag": "a2"
   },
   {
     "id": 3,
-    "question": "What if I want more assistance?",
-    "answer": "Then one of my planning packages is for you. For a flat fee, I'll create and manage a full, personalized itinerary and take care of every detail.",
+    "question": "Can you help if I already booked part of my trip?",
+    "answer": "Absolutely. If you've already booked flights, a hotel, or part of your itinerary, I can jump in, coordinate the rest, and make sure everything flows smoothly. And if you booked a cruise directly within the last 30 to 60 days, you can transfer it over to Andiamo Away — so you still get the support and expertise without starting over.",
     "tag": "a3"
   },
   {
     "id": 4,
-    "question": "Can you help if I already booked part of my trip?",
-    "answer": "Absolutely. If you've already booked flights, a hotel, or part of your itinerary, I can jump in, coordinate the rest, and make sure everything flows smoothly.",
+    "question": "Do you recommend travel insurance, and do you offer it?",
+    "answer": "Yes and yes. I highly recommend travel insurance, and I do offer it. It can protect your investment and give you extra peace of mind if unexpected issues come up before or during your trip.",
     "tag": "a4"
   },
   {
     "id": 5,
-    "question": "Do you recommend travel insurance, and do you sell it?",
-    "answer": "Yes and yes. I highly recommend travel insurance, and I do offer it. It can protect your investment and give you extra peace of mind if unexpected issues come up before or during your trip.",
+    "question": "How far in advance should I reach out?",
+    "answer": "The earlier, the better, especially for peak seasons and high-demand resorts or cruises. But even if your trip is coming up soon, reach out and I'll help you find the best options available.",
     "tag": "a5"
   },
   {
     "id": 6,
-    "question": "How far in advance should I reach out?",
-    "answer": "The earlier, the better, especially for peak seasons and high-demand resorts or cruises. But even if your trip is coming up soon, reach out and I'll help you find the best options available.",
-    "tag": "a6"
-  },
-  {
-    "id": 7,
     "question": "What happens if something goes wrong while I'm traveling?",
     "answer": "You're not on your own. If delays, schedule changes, or other surprises happen, I'll help you navigate next steps and work with suppliers so you can get back to enjoying your trip.",
-    "tag": "a7"
+    "tag": "a6"
   }
 ]

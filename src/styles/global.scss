@@ -82,8 +82,8 @@ section {
   --container--main--full: 100%;
 
   /* SPACING */
-  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 4rem);
-  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.5rem);
+  --_typography---font-size--display: clamp(2.5rem, 1.858rem + 3.21vw, 2.75rem);
+  --_typography---font-size--h1: clamp(2.16rem, 1.718rem + 2.21vw, 3.25rem);
   --_typography---font-size--h2: clamp(1.86rem, 1.562rem + 1.49vw, 2.8rem);
   --_typography---font-size--h3: clamp(1.6rem, 1.412rem + 0.94vw, 2.5rem);
   --_typography---font-size--h4: clamp(1.38rem, 1.268rem + 0.56vw, 1.77rem);
@@ -519,6 +519,7 @@ a:not(.btn) {
   max-width: 55rem;
   margin: auto;
   width: 100%;
+  text-wrap: balance;
 }
 
 .content-full {

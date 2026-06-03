@@ -9,7 +9,10 @@ import cruisesImg from "@/assets/trip-types/cruises.jpg";
 import europeanAdventuresImg from "@/assets/trip-types/european-adventures.jpg";
 import familyVacationsImg from "@/assets/trip-types/family-vacations.jpg";
 import honeymoonsImg from "@/assets/trip-types/honeymoons.jpg";
-import disneyDestinationsImg from "@/assets/trip-types/disney-destinations.jpg";
+import golfTripsImg from "@/assets/trip-types/golf-trips.jpg";
+import manarolaCinqueTerreImg from "@/assets/manarola_cinque_terre_italy.jpg";
+import golfTrips from "@/assets/golfTrips.jpg";
+import milestones from "@/assets/milestones.jpg";
 
 import type { HTMLAttributes } from "astro/types";
 
@@ -38,36 +41,38 @@ const tripTypes = [
     imgAlt: "Large cruise ship sailing across open ocean on a bright day",
   },
   {
-    id: "european-adventures",
+    id: "global-adventures",
     number: "03",
-    title: "European Adventures",
+    title: "Global Adventures",
     description: "Custom trips filled with culture, food, history, and once-in-a-lifetime moments.",
     img: europeanAdventuresImg,
-    imgAlt: "Dramatic coastal landscape in Scotland representing European adventure travel",
+    imgAlt: "Dramatic coastal landscape representing global adventure travel",
   },
   {
     id: "family-vacations",
     number: "04",
     title: "Family Vacations",
     description: "Stress-free travel planning designed to make family memories easier to enjoy.",
-    img: familyVacationsImg,
+    img: manarolaCinqueTerreImg,
     imgAlt: "Family walking together on a beach during vacation",
   },
   {
-    id: "honeymoons-romantic-getaways",
+    id: "milestone-celebrations",
     number: "05",
-    title: "Honeymoons & Romantic Getaways",
-    description: "Thoughtfully planned escapes designed around meaningful experiences together.",
-    img: honeymoonsImg,
-    imgAlt: "Couple holding hands on a tropical beach with turquoise water",
+    title: "Milestone & Celebration Trips",
+    description:
+      "Thoughtfully planned trips for honeymoons, anniversaries, bachelorettes, and milestone moments.",
+    img: milestones,
+    imgAlt: "Couple celebrating a milestone on a tropical beach with turquoise water",
   },
   {
-    id: "disney-destinations",
+    id: "golf-trips",
     number: "06",
-    title: "Disney Destinations",
-    description: "Magical vacations made simpler with expert guidance and planning support.",
-    img: disneyDestinationsImg,
-    imgAlt: "Iconic Disney castle viewed from below against a bright sky",
+    title: "Golf Trips",
+    description:
+      "Scenic golf getaways to world-class courses and resorts, planned around your game.",
+    img: golfTrips,
+    imgAlt: "Aerial view of a scenic golf course with rolling fairways and sand bunkers",
   },
 ];
 ---
@@ -100,8 +105,7 @@ const tripTypes = [
                 <Picture
                   src={trip.img}
                   alt={trip.imgAlt}
-                  width={800}
-                  height={600}
+                  width={600}
                   loading="lazy"
                   class="trip-types__image"
                 />

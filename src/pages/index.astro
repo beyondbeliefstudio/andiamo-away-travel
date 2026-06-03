@@ -11,9 +11,11 @@ import FAQ from "@/components/FAQ.astro";
 
 // PHOTOS
 import familyCruise from "@/assets/family-cruise.jpg";
-import lima from "@/assets/lima.jpg";
+import cruiseBg from "@/assets/cruise-bg.jpg";
 import amalfi from "@/assets/amalfi.jpg";
 import kathyLondon from "@/assets/kathy-london.jpg";
+import cococay from "@/assets/cococay_royal_caribbean_bahamas.jpg";
+import cruise from "@/assets/cruise-split.jpg";
 
 // REVIEWS DATA
 
@@ -36,19 +38,19 @@ const faqData = faq.map(item => ({
 
   <ScrollingText>
     <Heading tag="h2" size="xl" fontFamily="secondary" marginBottom="m" weight="fw500">
-      Let's Make Your Travel Dreams Real
+      Let's Bring Your Travel Vision to Life
     </Heading>
   </ScrollingText>
 
   <SplitOverlay
     eyebrow="Stress-Free Travel Planning"
     title="Travel Planning Designed Around Your Needs"
-    imgSrc={familyCruise}
-    imgAlt="Kathy Nervegna"
-    imgText="Cruise 2023"
+    imgSrc={cococay}
+    imgAlt="cococay royal caribbean bahamas"
+    imgText="Family Cruise, 2023"
     background="bg-secondary-light"
-    bgImgSrc={lima}
-    bgImgAlt="Amalfi"
+    bgImgSrc={cruise}
+    bgImgAlt="Cruise vacation"
     orientation="right"
   >
     <p>
@@ -60,9 +62,8 @@ const faqData = faq.map(item => ({
 
     <p>
       For travelers looking for a more elevated and detailed experience, custom itinerary planning
-      services are also available for an additional planning fee. These curated itineraries are
-      ideal for multi-destination trips, international travel, and travelers wanting a fully
-      personalized day-by-day experience.
+      services are also available. These curated itineraries are ideal for multi-destination trips,
+      international travel, and travelers wanting a fully personalized day-by-day experience.
     </p>
   </SplitOverlay>
 
@@ -73,8 +74,15 @@ const faqData = faq.map(item => ({
   <section class="bg-white" id="about">
     <div class="container container-lg">
       <div class="content-lg">
-        <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m" weight="fw500">
-          Why Choose Andiamo Away?
+        <Heading
+          tag="h2"
+          size="xl"
+          fontFamily="primary"
+          marginBottom="m"
+          weight="fw500"
+          textTransform="capitalize"
+        >
+          Stop saying someday. Andiamo!
         </Heading>
         <p>
           Travel isn’t just about escaping—it’s about waking up. It’s about stepping into new
@@ -83,8 +91,8 @@ const faqData = faq.map(item => ({
         </p>
         <p>
           Whether you’re watching the sunrise over ancient ruins or savoring a gelato on a cobbled
-          street, these are the moments that stay with you forever. At Andiamo Away I’m here to help
-          make yours unforgettable.
+          street, these are the moments that stay with you forever. At Andiamo Away — Italian for
+          "let’s go" — I’m here to help make yours unforgettable.
         </p>
       </div>
     </div>
@@ -109,13 +117,24 @@ const faqData = faq.map(item => ({
       adventure, relaxation, and memories that will last a lifetime.
     </p>
     <br />
-    <p><strong>Some of my favorite trips to plan:</strong></p>
+    <p><strong>Some of my recent trips:</strong></p>
     <ul>
-      <li><p>Family cruise to the Caribbean</p></li>
-      <li><p>Custom Italy itinerary with Rome, Florence, and Amalfi</p></li>
-      <li><p>Luxury resort stay in the Maldives</p></li>
-      <li><p>European river cruise through France and Germany</p></li>
-      <li><p>Multi-generational trip to Disney World</p></li>
+      <li>
+        <p>
+          A four-generation cruise with family ranging from grandparents all the way down to
+          great-grandkids
+        </p>
+      </li>
+      <li>
+        <p>
+          A family road trip through Italy, winding through the Italian Riviera, Tuscany, and Lake
+          Como
+        </p>
+      </li>
+      <li><p>A mother-daughter trip to Amsterdam, just the two of us</p></li>
+      <li><p>A 30th anniversary cruise through Turkey and Greece</p></li>
+      <li><p>47 states down, 3 to go — a family road trip tradition that's now spanning generations</p></li>
+      <li><p>A long weekend in London that reminded me why short trips are always worth it</p></li>
     </ul>
   </SplitOverlay>
 
