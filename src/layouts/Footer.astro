@@ -13,6 +13,7 @@ import { baseData } from "@/data/siteData";
 import instagram from "@/assets/instagram.png";
 import Heading from "@/components/Heading.astro";
 import wordmark from "@/assets/wordmark.svg";
+import fullLogo from "@/assets/full-logo.svg";
 ---
 
 <footer class="footer bg-light" aria-label="footer">
@@ -20,7 +21,7 @@ import wordmark from "@/assets/wordmark.svg";
     <div class="content-full footer__content">
       <div class="footer__info">
         <a href="/">
-          <Image src={wordmark} alt="Andiamo Away Logo" class="footer__wordmark" />
+          <Image src={fullLogo} alt="Andiamo Away Logo" class="footer__wordmark" />
         </a>
         <p>
           {baseData.description}
@@ -227,7 +228,7 @@ import wordmark from "@/assets/wordmark.svg";
     }
 
     &__bottom {
-      border-top: 1px solid var(--brand-secondary-dark);
+      border-top: 1px solid var(--brand-primary);
       padding: 1.5rem 0;
     }
 

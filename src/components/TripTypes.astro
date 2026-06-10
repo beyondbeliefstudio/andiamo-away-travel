@@ -13,6 +13,7 @@ import golfTripsImg from "@/assets/trip-types/golf-trips.jpg";
 import manarolaCinqueTerreImg from "@/assets/manarola_cinque_terre_italy.jpg";
 import golfTrips from "@/assets/golfTrips.jpg";
 import milestones from "@/assets/milestones.jpg";
+import global from "@/assets/trip-types/chianti_vineyard_hilltop_tuscany_italy.jpeg";
 
 import type { HTMLAttributes } from "astro/types";
 
@@ -45,8 +46,9 @@ const tripTypes = [
     number: "03",
     title: "Global Adventures",
     description: "Custom trips filled with culture, food, history, and once-in-a-lifetime moments.",
-    img: europeanAdventuresImg,
-    imgAlt: "Dramatic coastal landscape representing global adventure travel",
+    img: global,
+    imgAlt:
+      "Traveler exploring a scenic vineyard hilltop in Chianti, Tuscany, Italy with rolling hills and cypress trees",
   },
   {
     id: "family-vacations",
@@ -134,7 +136,7 @@ const tripTypes = [
   <style lang="scss">
     .trip-types {
       &__main {
-        gap: var(--_spacing---section-space--small);
+        gap: 1rem;
       }
 
       &__content {
@@ -151,6 +153,7 @@ const tripTypes = [
         margin-top: -1rem;
         padding: 1rem;
         border-radius: var(--border-radius-medium);
+        text-wrap: balance;
       }
 
       &__heading {

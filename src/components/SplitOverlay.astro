@@ -20,6 +20,7 @@ export interface SplitProps extends HTMLAttributes<"section"> {
     | "bg-secondary-light"
     | "bg-pattern";
   orientation?: "left" | "right";
+  mobileImage?: "top" | "bottom";
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   imgAlt,
   background,
   orientation,
+  mobileImage,
   bgImgSrc,
   bgImgAlt,
   imgText,
@@ -36,7 +38,11 @@ const {
 } = Astro.props;
 ---
 
-<section aria-label={title} class:list={["split", background]} {...rest}>
+<section
+  aria-label={title}
+  class:list={["split", background, mobileImage === "bottom" && "split--mobile-img-bottom"]}
+  {...rest}
+>
   <div class:list={["split__bg-wrapper", orientation === "left" ? "split__bg-wrapper--left" : ""]}>
     <Picture
       src={bgImgSrc}
@@ -48,20 +54,10 @@ const {
     />
   </div>
   <div class="container container-md">
-    <div
-      class="content-full split__grid"
-      class:list={orientation === "left" ? "split--reverse" : ""}
-    >
+    <div class:list={["content-full split__grid", orientation === "left" && "split--reverse"]}>
       <div class="split__col">
         <div class="split__img-wrapper">
-          <Picture
-            src={imgSrc}
-            alt={imgAlt}
-            class="split__img"
-            loading="eager"
-            width={1000}
-            height={1000}
-          />
+          <Picture src={imgSrc} alt={imgAlt} class="split__img" loading="eager" width={1000} />
           <p>{imgText}</p>
         </div>
       </div>
@@ -117,6 +113,10 @@ const {
       filter: drop-shadow(2px 4px 15px rgba(20, 20, 20, 0.1));
       width: 100%;
       aspect-ratio: 1/1;
+
+      img {
+        aspect-ratio: 1/1;
+      }
 
       p {
         height: 6rem;
@@ -198,13 +198,71 @@ const {
     color: var(--light-200);
   }
 
-  @media (max-width: 1010px) {
+  // JS toggles split--stacked when the grid columns actually wrap, replacing a fixed breakpoint.
+  .split--stacked {
     .split--reverse .split__col:first-child {
-      order: -1 !important;
+      order: 0;
     }
 
     .split__content {
       padding: 0;
     }
+
+    // Stretch bg full-width and pin it behind the polaroid.
+    // Height is driven by JS (--_split-bg-h); 50% is the no-JS fallback.
+    .split__bg-wrapper {
+      width: 100%;
+      height: var(--_split-bg-h, 50%);
+      top: 0;
+      bottom: auto;
+      left: 0;
+    }
+
+    .split__bg-wrapper--left {
+      right: auto;
+    }
+
+    &.split--mobile-img-bottom {
+      .split__col:first-child {
+        order: 2;
+      }
+
+      .split__bg-wrapper {
+        top: auto;
+        bottom: 0;
+      }
+    }
   }
 </style>
+
+<script>
+  function syncSplitSection(section: HTMLElement): void {
+    const cols = section.querySelectorAll<HTMLElement>(".split__col");
+    if (cols.length < 2) return;
+
+    // Detect stacking by comparing the rendered top position of both columns.
+    // Same top = side-by-side (desktop). Different top = stacked (mobile).
+    const isStacked =
+      Math.round(cols[0].getBoundingClientRect().top) !==
+      Math.round(cols[1].getBoundingClientRect().top);
+
+    section.classList.toggle("split--stacked", isStacked);
+
+    if (!isStacked) {
+      section.style.removeProperty("--_split-bg-h");
+      return;
+    }
+
+    const imgWrapper = section.querySelector<HTMLElement>(".split__img-wrapper");
+    if (!imgWrapper) return;
+    const h = Math.round(imgWrapper.getBoundingClientRect().height);
+    section.style.setProperty("--_split-bg-h", `${h}px`);
+  }
+
+  document.querySelectorAll<HTMLElement>(".split").forEach(section => {
+    const observer = new ResizeObserver(() =>
+      requestAnimationFrame(() => syncSplitSection(section))
+    );
+    observer.observe(section);
+  });
+</script>

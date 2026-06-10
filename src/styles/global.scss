@@ -91,7 +91,7 @@ section {
   --_typography---font-size--h6: clamp(0.9rem, 1.016rem + 0.07vw, 1.08rem);
   --_typography---font-size--text-large: clamp(1rem, 0.942rem + 0.29vw, 1.2rem);
   --_typography---font-size--text-main: clamp(0.88rem, 0.846rem + 0.17vw, 1rem);
-  --_typography---font-size--text-small: clamp(0.77rem, 0.752rem + 0.09vw, 0.83rem);
+  --_typography---font-size--text-small: clamp(0.77rem, 0.82rem + 0.09vw, 0.95rem);
 
   --_spacing---section-space--xl: clamp(3.69rem, 3.01rem + 3.4vw, 6.75rem);
   --_spacing---section-space--large: clamp(2.33rem, 1.558rem + 3.86vw, 5.03rem);
@@ -262,7 +262,7 @@ a:not(.btn) {
     }
 
     &:hover {
-      background: var(--brand-secondary);
+      background: var(--brand-primary-dark);
     }
   }
 }
@@ -678,8 +678,8 @@ select {
       brightness(99%) contrast(92%);
 
     @media screen and (max-width: 768px) {
-      width: 60px;
-      height: 60px;
+      // width: 60px;
+      // height: 60px;
     }
 
     svg {

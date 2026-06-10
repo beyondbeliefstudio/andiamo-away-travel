@@ -8,67 +8,67 @@ export interface ScrollingMarqueeProps extends HTMLAttributes<"section"> {
 
 const { classes, ...rest } = Astro.props;
 
-import greece from "@/assets/marquee-temp/greece.jpg";
-import italy from "@/assets/marquee-temp/italy.jpg";
-import paris from "@/assets/marquee-temp/paris.jpg";
-import china from "@/assets/marquee-temp/china.jpg";
-import mexico from "@/assets/marquee-temp/mexico.jpg";
-import japan from "@/assets/marquee-temp/japan.jpg";
-import spain from "@/assets/marquee-temp/spain.jpg";
-import thailand from "@/assets/marquee-temp/thailand.jpg";
-import turkey from "@/assets/marquee-temp/turkey.jpg";
-import switzerland from "@/assets/marquee-temp/switzerland.jpg";
+import amsterdam from "@/assets/scrolling-images/Amsterdam.jpeg";
+import croatia from "@/assets/scrolling-images/Croatia.jpeg";
+import greece from "@/assets/scrolling-images/Greece.jpeg";
+import london from "@/assets/scrolling-images/London.jpeg";
+import montreal from "@/assets/scrolling-images/Montreal.jpeg";
+import paris from "@/assets/scrolling-images/Paris.jpeg";
+import portofino from "@/assets/scrolling-images/Portofino.jpeg";
+import portugal from "@/assets/scrolling-images/Portugal.jpeg";
+import puntaCana from "@/assets/scrolling-images/Punta Cana.jpeg";
+import santorini from "@/assets/scrolling-images/Santorini.jpeg";
 
 const items = [
   {
-    src: greece,
-    alt: "Traveler by whitewashed hillside buildings in Santorini, Greece",
-    imgText: "Santorini, Greece",
+    src: amsterdam,
+    alt: "Scenic canal lined with historic buildings in Amsterdam, Netherlands",
+    imgText: "Amsterdam, Netherlands",
   },
   {
-    src: italy,
-    alt: "Traveler enjoying a scenic Mediterranean view in Positano, Italy",
-    imgText: "Positano, Italy",
+    src: croatia,
+    alt: "Stunning coastal view of the old town and Adriatic Sea in Dubrovnik, Croatia",
+    imgText: "Dubrovnik, Croatia",
+  },
+  {
+    src: greece,
+    alt: "Traveler among ancient ruins and olive groves in Athens, Greece",
+    imgText: "Athens, Greece",
+  },
+  {
+    src: london,
+    alt: "Iconic view of Tower Bridge and the Thames River in London, England",
+    imgText: "London, England",
+  },
+  {
+    src: montreal,
+    alt: "Vibrant street scene in the historic Old Port district of Montreal, Canada",
+    imgText: "Montreal, Canada",
   },
   {
     src: paris,
-    alt: "Traveler in front of the Eiffel Tower in Paris, France",
+    alt: "Traveler strolling along the Seine with a view of the Eiffel Tower in Paris, France",
     imgText: "Paris, France",
   },
   {
-    src: china,
-    alt: "Traveler with skyline view in Shanghai, China",
-    imgText: "Shanghai, China",
+    src: portofino,
+    alt: "Colorful harbor village nestled along the cliffs of Portofino, Italy",
+    imgText: "Portofino, Italy",
   },
   {
-    src: mexico,
-    alt: "Traveler exploring colorful streets in Mexico City, Mexico",
-    imgText: "Mexico City, Mexico",
+    src: portugal,
+    alt: "Traveler exploring the tiled facades and hillside streets of Lisbon, Portugal",
+    imgText: "Lisbon, Portugal",
   },
   {
-    src: japan,
-    alt: "Traveler crossing a busy district in Tokyo, Japan",
-    imgText: "Tokyo, Japan",
+    src: puntaCana,
+    alt: "Pristine white sand beach with turquoise water in Punta Cana, Dominican Republic",
+    imgText: "Punta Cana, D.R.",
   },
   {
-    src: spain,
-    alt: "Traveler on historic streets in Barcelona, Spain",
-    imgText: "Barcelona, Spain",
-  },
-  {
-    src: thailand,
-    alt: "Traveler relaxing on a tropical beach in Phuket, Thailand",
-    imgText: "Phuket, Thailand",
-  },
-  {
-    src: turkey,
-    alt: "Traveler enjoying sunset views over Istanbul, Turkey",
-    imgText: "Istanbul, Turkey",
-  },
-  {
-    src: switzerland,
-    alt: "Traveler overlooking alpine scenery in Interlaken, Switzerland",
-    imgText: "Interlaken, Switzerland",
+    src: santorini,
+    alt: "Traveler overlooking whitewashed buildings and blue-domed churches in Santorini, Greece",
+    imgText: "Santorini, Greece",
   },
 ];
 ---
@@ -85,7 +85,7 @@ const items = [
                 alt={item.alt ?? "Travel destination"}
                 class="polaroids__img"
                 loading="eager"
-                width={2000}
+                width={1000}
                 height={1000}
               />
               <p>{item.imgText}</p>
@@ -128,6 +128,11 @@ const items = [
     transform: rotate(-2deg);
     position: relative;
 
+    @media (max-width: 768px) {
+      height: 300px;
+      padding-bottom: 3rem;
+    }
+
     &:nth-of-type(3n + 1) {
       transform: rotate(2deg) translateY(10px);
     }
@@ -156,6 +161,10 @@ const items = [
       left: 0;
       z-index: 10;
       margin-bottom: 0;
+
+      @media (max-width: 768px) {
+        height: 3rem;
+      }
     }
   }
 
