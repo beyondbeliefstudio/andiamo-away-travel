@@ -82,11 +82,15 @@ const items = [
             <div class="polaroids__img-wrapper">
               <Picture
                 src={item.src}
+                formats={["avif", "webp"]}
                 alt={item.alt ?? "Travel destination"}
                 class="polaroids__img"
                 loading="eager"
-                width={1000}
-                height={1000}
+                width={700}
+                height={700}
+                widths={[300, 500, 700]}
+                sizes="(max-width: 768px) 280px, 450px"
+                quality={70}
               />
               <p>{item.imgText}</p>
             </div>

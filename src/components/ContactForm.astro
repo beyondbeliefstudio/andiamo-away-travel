@@ -9,8 +9,10 @@ import Buttons from "@/components/Buttons.astro";
   name="contact"
   class="contact-form__form"
   method="POST"
-  action="/submit-contact"
+  action="/thank-you"
 >
+  <input type="hidden" name="form-name" value="contact" />
+
   <!-- Honeypot field - hidden from users but visible to bots -->
   <p class="hidden" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
     <label

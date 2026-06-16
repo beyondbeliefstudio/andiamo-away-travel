@@ -1,0 +1,38 @@
+---
+import Heading from "@/components/Heading.astro";
+import InternalHeroAlt from "@/components/InternalHeroAlt.astro";
+import Layout from "@/layouts/Layout.astro";
+import Links from "@/components/Links.astro";
+---
+
+<Layout
+  pageTitle="Thank You | Andiamo Away"
+  description="Thank you for reaching out to Andiamo Away. Kathy will be in touch with you shortly to start planning your trip."
+>
+  <InternalHeroAlt
+    pageTitle="Thank You"
+    title="We'll Be In Touch Soon"
+    subtitle="Your message has been received. Kathy will personally reach out to you shortly to start the conversation about your next trip."
+    ariaLabel="Thank You Hero Section"
+    class:list={["bg-primary-dark"]}
+  />
+
+  <section class="bg-white">
+    <div class="container container-md">
+      <div class="content-md" style="text-align: center; padding: 4rem 0;">
+        <Heading tag="h2" size="l" fontFamily="primary" marginBottom="m" weight="fw500">
+          What Happens Next?
+        </Heading>
+        <p>
+          Kathy reviews every inquiry personally and will reach out within 1–2 business days to
+          learn more about your travel goals and how Andiamo Away can help make your trip a reality.
+        </p>
+        <p>
+          In the meantime, feel free to explore the site to learn more about the types of trips we
+          love planning.
+        </p>
+        <Links variant="primary" href="/">Back to Homepage</Links>
+      </div>
+    </div>
+  </section>
+</Layout>

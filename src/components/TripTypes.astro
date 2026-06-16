@@ -106,9 +106,14 @@ const tripTypes = [
               <div class="trip-types__img-wrapper">
                 <Picture
                   src={trip.img}
+                  formats={["avif", "webp"]}
                   alt={trip.imgAlt}
                   width={600}
+                  height={600}
+                  widths={[300, 450, 600]}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
+                  quality={70}
                   class="trip-types__image"
                 />
               </div>

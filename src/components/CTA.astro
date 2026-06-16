@@ -7,7 +7,7 @@ import Buttons from "@/components/Buttons.astro";
 import { baseData } from "@/data/siteData";
 
 // HELPERS
-import { Image, Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { HTMLAttributes } from "astro/types";
 
 export interface CTAProps extends HTMLAttributes<"section"> {
@@ -19,6 +19,7 @@ const { classes, ...rest } = Astro.props;
 // IMAGES
 import callIcon from "@/assets/call.svg";
 import mailIcon from "@/assets/mail.svg";
+import planeIcon from "@/assets/plane.svg";
 ---
 
 <section class:list={["CTA bg-secondary", classes]} {...rest}>
@@ -32,8 +33,10 @@ import mailIcon from "@/assets/mail.svg";
           name="book-service"
           class="CTA__form"
           method="POST"
-          action="/submit-booking"
+          action="/thank-you"
         >
+          <input type="hidden" name="form-name" value="book-service" />
+
           <!-- Honeypot field - hidden from users but visible to bots -->
           <p
             class="hidden"
@@ -57,22 +60,22 @@ import mailIcon from "@/assets/mail.svg";
           > -->
 
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name <span class="required">*</span></label>
             <input type="text" id="name" name="name" placeholder="Your Name" required />
           </div>
 
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email <span class="required">*</span></label>
             <input type="email" id="email" name="email" placeholder="demo@mail.com" required />
           </div>
 
           <div class="form-group">
-            <label for="phone">Phone</label>
+            <label for="phone">Phone <span class="required">*</span></label>
             <input type="tel" id="phone" name="phone" placeholder="xxx-xxx-xxx" required />
           </div>
 
           <div class="form-group">
-            <label for="tripType">Trip Type</label>
+            <label for="tripType">Trip Type <span class="required">*</span></label>
             <select id="tripType" name="tripType" required>
               <option value="">Select a trip type</option>
               <option value="luxury-all-inclusive-resorts"
@@ -95,18 +98,19 @@ import mailIcon from "@/assets/mail.svg";
           </div>
 
           <div class="form-group">
-            <label for="tripDetails">Tell Us About Your Trip</label>
+            <label for="tripDetails">Tell Us About Your Trip <span class="required">*</span></label>
             <textarea
               id="tripDetails"
               name="tripDetails"
               rows="6"
               placeholder="Share your destinations, dates, budget range, travelers, and any must-haves."
+              required
             ></textarea>
           </div>
 
           <div class="form-group">
-            <label>Preferred Method of Contact</label>
-            <div class="form-checkboxes">
+            <label>Preferred Method of Contact <span class="required">*</span></label>
+            <div class="form-checkboxes" id="contactMethodGroup">
               <label class="checkbox-label">
                 <input type="checkbox" name="contactMethod" value="text" />
                 Text
@@ -120,6 +124,7 @@ import mailIcon from "@/assets/mail.svg";
                 Email
               </label>
             </div>
+            <p class="form-error" id="contactMethodError" hidden>Please select at least one preferred method of contact.</p>
           </div>
 
           <!-- Netlify reCAPTCHA -->
@@ -163,6 +168,18 @@ import mailIcon from "@/assets/mail.svg";
     </div>
   </div>
 </section>
+
+<div class="form-success-modal" id="cta-success-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cta-success-title">
+  <div class="form-success-modal__backdrop"></div>
+  <div class="form-success-modal__box">
+    <button class="form-success-modal__close" aria-label="Close">&#x2715;</button>
+    <Image src={planeIcon} alt="" aria-hidden="true" class="form-success-modal__icon" width={48} height={48} />
+    <Heading tag="h3" size="l" fontFamily="primary" marginBottom="s" weight="fw500" id="cta-success-title">
+      You're all set!
+    </Heading>
+    <p>Kathy will personally reach out within 1–2 business days to start planning your trip.</p>
+  </div>
+</div>
 
 <style lang="scss">
   .CTA {
@@ -276,6 +293,136 @@ import mailIcon from "@/assets/mail.svg";
           cursor: pointer;
         }
       }
+
+      .form-error {
+        margin-top: 0.4rem;
+        font-size: 0.85rem;
+        color: #d32f2f;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .form-success-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+
+    &.is-open {
+      display: flex;
+    }
+
+    &__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      cursor: pointer;
+    }
+
+    &__box {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-radius: var(--border-radius-medium);
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: calc(100% - 2rem);
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+
+      p {
+        margin-bottom: 0;
+        color: var(--dark-700);
+      }
+    }
+
+    &__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--dark-500);
+      line-height: 1;
+      padding: 0.25rem 0.5rem;
+
+      &:hover {
+        color: var(--dark-900);
+      }
+    }
+
+    &__icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
     }
   }
 </style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(".CTA__form");
+  const modal = document.getElementById("cta-success-modal");
+  const closeBtn = modal?.querySelector<HTMLButtonElement>(".form-success-modal__close");
+  const backdrop = modal?.querySelector<HTMLDivElement>(".form-success-modal__backdrop");
+
+  function openModal() {
+    modal?.classList.add("is-open");
+    modal?.setAttribute("aria-hidden", "false");
+    closeBtn?.focus();
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal?.classList.remove("is-open");
+    modal?.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  const checkboxGroup = document.getElementById("contactMethodGroup");
+  const checkboxError = document.getElementById("contactMethodError");
+
+  form?.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const checked = checkboxGroup?.querySelectorAll<HTMLInputElement>("input:checked").length ?? 0;
+    if (checked === 0) {
+      if (checkboxError) checkboxError.hidden = false;
+      checkboxGroup?.querySelector("input")?.focus();
+      return;
+    }
+    if (checkboxError) checkboxError.hidden = true;
+
+    const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      });
+
+      if (res.ok) {
+        form.reset();
+        openModal();
+      } else {
+        form.submit();
+      }
+    } catch {
+      form.submit();
+    }
+  });
+
+  closeBtn?.addEventListener("click", closeModal);
+  backdrop?.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal?.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+</script>
