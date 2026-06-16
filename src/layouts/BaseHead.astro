@@ -14,7 +14,7 @@ const AHREFS_DATA_KEY = "OkCrcv09gmYD/a/pn6W4Sw";
 // Open Graph
 const ogTitle = `${pageTitle}`;
 const ogDescription = description;
-const ogImage = new URL("/og-image.jpg", Astro.site).toString();
+const ogImage = new URL("/andiamo-away-og-image.jpg", Astro.site).toString();
 const ogUrl = Astro.url.toString();
 ---
 
@@ -22,11 +22,12 @@ const ogUrl = Astro.url.toString();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={Astro.url} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />

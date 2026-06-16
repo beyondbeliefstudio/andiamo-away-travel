@@ -14,24 +14,28 @@ import travel from "@/assets/travel.svg";
 const travelAdvisorBenefits = [
   {
     icon: globeTravel.src,
+    alt: "Globe icon representing destination discovery",
     title: "Personalized Destination & Resort Recommendations",
     description:
       "Not every destination or resort is the right fit for every traveler. We take the time to understand your travel style, priorities, budget, and overall vision so we can recommend experiences that genuinely align with what you’re looking for, rather than overwhelming you with endless options online.",
   },
   {
     icon: hotel.src,
+    alt: "Hotel building icon representing accommodations and trip coordination",
     title: "Help Coordinating Hotels, Cruises, Excursions & Experiences",
     description:
       "The small details are often what make or break a vacation. We help coordinate the moving pieces of your trip so your accommodations, excursions, transportation, and experiences work together seamlessly and create a smoother overall travel experience.",
   },
   {
     icon: phone.src,
+    alt: "Phone icon representing advisor support and communication",
     title: "Someone In Your Corner When Plans Change",
     description:
       "Travel doesn’t always go perfectly according to plan. Flight delays, schedule changes, weather issues, and unexpected disruptions can happen, and having someone available to help navigate those situations can make a stressful moment feel significantly more manageable.",
   },
   {
     icon: travel.src,
+    alt: "Suitcase icon representing stress-free travel planning",
     title: "A More Seamless, Hands-Off Planning Experience",
     description:
       "Instead of spending hours researching destinations, comparing resorts, and trying to piece everything together yourself, we help simplify the process and remove much of the stress that comes with travel planning. Our goal is to help you feel excited about your trip, not overwhelmed by it.",
@@ -76,7 +80,7 @@ const travelAdvisorBenefits = [
             <div class="travel-benefits__card card">
               <span class="icon__wrapper">
                 <span class="icon">
-                  <img src={benefits.icon} alt="" />
+                  <img src={benefits.icon} alt={benefits.alt} />
                 </span>
               </span>
               <Heading
