@@ -47,17 +47,32 @@ const {
     <Picture
       src={bgImgSrc}
       alt={bgImgAlt}
+      formats={["avif", "webp"]}
       class="split__bg-img"
       loading="eager"
-      width={2000}
-      height={2000}
+      width={900}
+      height={900}
+      widths={[480, 760, 900]}
+      sizes="(max-width: 1024px) 100vw, 40vw"
+      quality={70}
     />
   </div>
   <div class="container container-md">
     <div class:list={["content-full split__grid", orientation === "left" && "split--reverse"]}>
       <div class="split__col">
         <div class="split__img-wrapper">
-          <Picture src={imgSrc} alt={imgAlt} class="split__img" loading="eager" width={1000} />
+          <Picture
+            src={imgSrc}
+            alt={imgAlt}
+            formats={["avif", "webp"]}
+            class="split__img"
+            loading="eager"
+            width={800}
+            height={800}
+            widths={[400, 560, 800]}
+            sizes="(max-width: 1010px) 90vw, 45vw"
+            quality={70}
+          />
           <p>{imgText}</p>
         </div>
       </div>
