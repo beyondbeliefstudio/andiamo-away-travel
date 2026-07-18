@@ -669,7 +669,7 @@ const cabinCategories = [
               }
 
               <fieldset class="trip-inquiry__fieldset">
-                <legend>Cabin Category</legend>
+                <legend>Cabin Category <span class="required">*</span></legend>
                 <div class="trip-inquiry__choices">
                   {
                     cabinCategories.map((category) => (
@@ -683,7 +683,7 @@ const cabinCategories = [
               </fieldset>
 
               <fieldset class="trip-inquiry__fieldset">
-                <legend>Cabin Assignment</legend>
+                <legend>Cabin Assignment <span class="required">*</span></legend>
                 <div class="trip-inquiry__choices">
                   <label class="trip-inquiry__choice">
                     <input type="radio" name="cabin2-assignment" value="I pick my cabin" />
@@ -868,6 +868,67 @@ const cabinCategories = [
     input.addEventListener("input", update);
     update();
   });
+
+  // Travelers added via the "+ Add Traveler" / "+ Add a Second Cabin" toggles
+  // get the same required fields as the lead passenger — but only while their
+  // section is open, so an unused (collapsed) section never blocks submission.
+  const REQUIRED_FIELD_SUFFIXES = [
+    "-full-name",
+    "-dob",
+    "-email",
+    "-phone",
+    "-citizenship",
+    "-street-address",
+    "-city",
+    "-state",
+    "-zip",
+  ];
+
+  const syncRequired = () => {
+    document
+      .querySelectorAll<HTMLDetailsElement>("details.trip-inquiry__toggle")
+      .forEach((toggle) => {
+        toggle.querySelectorAll<HTMLInputElement>("input").forEach((input) => {
+          if (!REQUIRED_FIELD_SUFFIXES.some((suffix) => input.name.endsWith(suffix))) return;
+
+          // Required only if this input's section and every ancestor section is open
+          let details: HTMLDetailsElement | null = input.closest("details");
+          let active = true;
+          while (details) {
+            if (!details.open) active = false;
+            details = details.parentElement?.closest("details") ?? null;
+          }
+          input.required = active;
+
+          const label = document.querySelector(`label[for="${input.id}"]`);
+          if (label) {
+            const mark = label.querySelector(".required");
+            if (active && !mark) {
+              const span = document.createElement("span");
+              span.className = "required";
+              span.textContent = "*";
+              label.append(" ", span);
+            } else if (!active && mark) {
+              mark.remove();
+            }
+          }
+        });
+      });
+
+    // Cabin 2's category & assignment choices are required only when Cabin 2 is open
+    const cabin2 = document.querySelector<HTMLDetailsElement>("details.trip-inquiry__toggle--cabin");
+    if (cabin2) {
+      ["cabin2-category", "cabin2-assignment"].forEach((name) => {
+        const firstRadio = document.querySelector<HTMLInputElement>(`input[name="${name}"]`);
+        if (firstRadio) firstRadio.required = cabin2.open;
+      });
+    }
+  };
+
+  document
+    .querySelectorAll("details.trip-inquiry__toggle")
+    .forEach((toggle) => toggle.addEventListener("toggle", syncRequired));
+  syncRequired();
 </script>
 
 <style lang="scss">
@@ -962,12 +1023,12 @@ const cabinCategories = [
       &[open] {
         border-style: solid;
 
-        summary {
+        > summary {
           margin-bottom: 1rem;
         }
       }
 
-      &--cabin[open] summary {
+      &--cabin[open] > summary {
         margin-bottom: 1.5rem;
       }
     }
