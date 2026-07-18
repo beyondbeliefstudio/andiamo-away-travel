@@ -7,7 +7,11 @@ import AhrefsAnalytics from "@/components/AhrefsAnalytics.astro";
 import { baseData } from "@/data/siteData";
 
 // PROPS
-const { pageTitle = baseData.title, description = baseData.description } = Astro.props;
+const {
+  pageTitle = baseData.title,
+  description = baseData.description,
+  noindex = false,
+} = Astro.props;
 const GA_MEASUREMENT_ID = "G-WETXP1S8Y7";
 const AHREFS_DATA_KEY = "OkCrcv09gmYD/a/pn6W4Sw";
 
@@ -26,6 +30,7 @@ const ogUrl = Astro.url.toString();
   <meta name="generator" content={Astro.generator} />
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
   <link rel="canonical" href={Astro.url} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 

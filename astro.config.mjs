@@ -9,7 +9,9 @@ export default defineConfig({
   site: "https://andiamoaway.com",
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes("/trip-inquiry"),
+    }),
     icon({
       iconDir: "src/icons",
     }),

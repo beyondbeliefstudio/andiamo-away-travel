@@ -767,6 +767,11 @@ textarea {
   resize: vertical;
 }
 
+::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
 select {
   cursor: pointer;
   appearance: none;
