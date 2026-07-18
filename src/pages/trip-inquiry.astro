@@ -183,6 +183,59 @@ const cabinCategories = [
                     name="cabin1-traveler1-passport-expiration"
                   />
                 </div>
+                <div class="form-group">
+                  <label for="c1-t1-loyalty">Loyalty Number (if applicable)</label>
+                  <input
+                    type="text"
+                    id="c1-t1-loyalty"
+                    name="cabin1-traveler1-loyalty-number"
+                    placeholder="e.g. 123456789"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="c1-t1-street">Street Address <span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="c1-t1-street"
+                  name="cabin1-traveler1-street-address"
+                  placeholder="123 Main St"
+                  required
+                />
+              </div>
+
+              <div class="form-row form-row--thirds">
+                <div class="form-group">
+                  <label for="c1-t1-city">City <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="c1-t1-city"
+                    name="cabin1-traveler1-city"
+                    placeholder="Springfield"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="c1-t1-state">State <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="c1-t1-state"
+                    name="cabin1-traveler1-state"
+                    placeholder="NJ"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="c1-t1-zip">ZIP Code <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="c1-t1-zip"
+                    name="cabin1-traveler1-zip"
+                    placeholder="07901"
+                    required
+                  />
+                </div>
               </div>
             </div>
 
@@ -207,6 +260,26 @@ const cabinCategories = [
                           type="date"
                           id={`c1-t${t}-dob`}
                           name={`cabin1-traveler${t}-dob`}
+                        />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for={`c1-t${t}-email`}>Email Address</label>
+                        <input
+                          type="email"
+                          id={`c1-t${t}-email`}
+                          name={`cabin1-traveler${t}-email`}
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for={`c1-t${t}-phone`}>Phone Number</label>
+                        <input
+                          type="tel"
+                          id={`c1-t${t}-phone`}
+                          name={`cabin1-traveler${t}-phone`}
+                          placeholder="+1 234 5678"
                         />
                       </div>
                     </div>
@@ -237,6 +310,53 @@ const cabinCategories = [
                           type="date"
                           id={`c1-t${t}-passport-exp`}
                           name={`cabin1-traveler${t}-passport-expiration`}
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for={`c1-t${t}-loyalty`}>Loyalty Number (if applicable)</label>
+                        <input
+                          type="text"
+                          id={`c1-t${t}-loyalty`}
+                          name={`cabin1-traveler${t}-loyalty-number`}
+                          placeholder="e.g. 123456789"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for={`c1-t${t}-street`}>Street Address</label>
+                      <input
+                        type="text"
+                        id={`c1-t${t}-street`}
+                        name={`cabin1-traveler${t}-street-address`}
+                        placeholder="123 Main St"
+                      />
+                    </div>
+                    <div class="form-row form-row--thirds">
+                      <div class="form-group">
+                        <label for={`c1-t${t}-city`}>City</label>
+                        <input
+                          type="text"
+                          id={`c1-t${t}-city`}
+                          name={`cabin1-traveler${t}-city`}
+                          placeholder="Springfield"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for={`c1-t${t}-state`}>State</label>
+                        <input
+                          type="text"
+                          id={`c1-t${t}-state`}
+                          name={`cabin1-traveler${t}-state`}
+                          placeholder="NJ"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for={`c1-t${t}-zip`}>ZIP Code</label>
+                        <input
+                          type="text"
+                          id={`c1-t${t}-zip`}
+                          name={`cabin1-traveler${t}-zip`}
+                          placeholder="07901"
                         />
                       </div>
                     </div>
@@ -370,6 +490,55 @@ const cabinCategories = [
                       name="cabin2-traveler1-passport-expiration"
                     />
                   </div>
+                  <div class="form-group">
+                    <label for="c2-t1-loyalty">Loyalty Number (if applicable)</label>
+                    <input
+                      type="text"
+                      id="c2-t1-loyalty"
+                      name="cabin2-traveler1-loyalty-number"
+                      placeholder="e.g. 123456789"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="c2-t1-street">Street Address</label>
+                  <input
+                    type="text"
+                    id="c2-t1-street"
+                    name="cabin2-traveler1-street-address"
+                    placeholder="123 Main St"
+                  />
+                </div>
+
+                <div class="form-row form-row--thirds">
+                  <div class="form-group">
+                    <label for="c2-t1-city">City</label>
+                    <input
+                      type="text"
+                      id="c2-t1-city"
+                      name="cabin2-traveler1-city"
+                      placeholder="Springfield"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="c2-t1-state">State</label>
+                    <input
+                      type="text"
+                      id="c2-t1-state"
+                      name="cabin2-traveler1-state"
+                      placeholder="NJ"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="c2-t1-zip">ZIP Code</label>
+                    <input
+                      type="text"
+                      id="c2-t1-zip"
+                      name="cabin2-traveler1-zip"
+                      placeholder="07901"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -394,6 +563,26 @@ const cabinCategories = [
                             type="date"
                             id={`c2-t${t}-dob`}
                             name={`cabin2-traveler${t}-dob`}
+                          />
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for={`c2-t${t}-email`}>Email Address</label>
+                          <input
+                            type="email"
+                            id={`c2-t${t}-email`}
+                            name={`cabin2-traveler${t}-email`}
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for={`c2-t${t}-phone`}>Phone Number</label>
+                          <input
+                            type="tel"
+                            id={`c2-t${t}-phone`}
+                            name={`cabin2-traveler${t}-phone`}
+                            placeholder="+1 234 5678"
                           />
                         </div>
                       </div>
@@ -424,6 +613,53 @@ const cabinCategories = [
                             type="date"
                             id={`c2-t${t}-passport-exp`}
                             name={`cabin2-traveler${t}-passport-expiration`}
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for={`c2-t${t}-loyalty`}>Loyalty Number (if applicable)</label>
+                          <input
+                            type="text"
+                            id={`c2-t${t}-loyalty`}
+                            name={`cabin2-traveler${t}-loyalty-number`}
+                            placeholder="e.g. 123456789"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for={`c2-t${t}-street`}>Street Address</label>
+                        <input
+                          type="text"
+                          id={`c2-t${t}-street`}
+                          name={`cabin2-traveler${t}-street-address`}
+                          placeholder="123 Main St"
+                        />
+                      </div>
+                      <div class="form-row form-row--thirds">
+                        <div class="form-group">
+                          <label for={`c2-t${t}-city`}>City</label>
+                          <input
+                            type="text"
+                            id={`c2-t${t}-city`}
+                            name={`cabin2-traveler${t}-city`}
+                            placeholder="Springfield"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for={`c2-t${t}-state`}>State</label>
+                          <input
+                            type="text"
+                            id={`c2-t${t}-state`}
+                            name={`cabin2-traveler${t}-state`}
+                            placeholder="NJ"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for={`c2-t${t}-zip`}>ZIP Code</label>
+                          <input
+                            type="text"
+                            id={`c2-t${t}-zip`}
+                            name={`cabin2-traveler${t}-zip`}
+                            placeholder="07901"
                           />
                         </div>
                       </div>
@@ -653,8 +889,16 @@ const cabinCategories = [
       grid-template-columns: 1fr 1fr;
       gap: 1rem 1.5rem;
 
+      &--thirds {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
+
+        &--thirds {
+          grid-template-columns: 1fr;
+        }
       }
     }
 
@@ -692,6 +936,8 @@ const cabinCategories = [
 
     &__toggle {
       border: 1px dashed var(--brand-primary-light);
+      border-radius: var(--border-radius-small);
+      padding: 0.75rem 1rem;
 
       // Chrome wraps <details> content in a ::details-content pseudo-element,
       // which the global `* { box-sizing: inherit }` reset can't reach — inputs
@@ -700,8 +946,6 @@ const cabinCategories = [
       & * {
         box-sizing: border-box;
       }
-      border-radius: var(--border-radius-small);
-      padding: 0.75rem 1rem;
 
       summary {
         cursor: pointer;
