@@ -70,32 +70,28 @@ const cabinCategories = [
             >
 
             <div class="form-group">
-              <label for="group-name">Group Name <span class="required">*</span></label>
+              <label for="group-name">Group Name</label>
               <input
                 type="text"
                 id="group-name"
                 name="group-name"
                 placeholder="e.g. Smith Family Reunion"
-                required
               />
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="cruise-line-ship"
-                  >Cruise Line / Ship <span class="required">*</span></label
-                >
+                <label for="cruise-line-ship">Cruise Line / Ship</label>
                 <input
                   type="text"
                   id="cruise-line-ship"
                   name="cruise-line-ship"
                   placeholder="e.g. Royal Caribbean — Wonder of the Seas"
-                  required
                 />
               </div>
               <div class="form-group">
-                <label for="sail-date">Sail Date <span class="required">*</span></label>
-                <input type="date" id="sail-date" name="sail-date" required />
+                <label for="sail-date">Sail Date</label>
+                <input type="date" id="sail-date" name="sail-date" />
               </div>
             </div>
           </div>
@@ -111,55 +107,49 @@ const cabinCategories = [
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="c1-t1-name"
-                    >Full Name (as on passport) <span class="required">*</span></label
-                  >
+                  <label for="c1-t1-name">Full Name (as on passport)</label>
                   <input
                     type="text"
                     id="c1-t1-name"
                     name="cabin1-traveler1-full-name"
                     placeholder="Jane Marie Smith"
-                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="c1-t1-dob">Date of Birth <span class="required">*</span></label>
-                  <input type="date" id="c1-t1-dob" name="cabin1-traveler1-dob" required />
+                  <label for="c1-t1-dob">Date of Birth</label>
+                  <input type="date" id="c1-t1-dob" name="cabin1-traveler1-dob" />
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="c1-t1-email">Email Address <span class="required">*</span></label>
+                  <label for="c1-t1-email">Email Address</label>
                   <input
                     type="email"
                     id="c1-t1-email"
                     name="cabin1-traveler1-email"
                     placeholder="Enter your email"
-                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="c1-t1-phone">Phone Number <span class="required">*</span></label>
+                  <label for="c1-t1-phone">Phone Number</label>
                   <input
                     type="tel"
                     id="c1-t1-phone"
                     name="cabin1-traveler1-phone"
                     placeholder="+1 234 5678"
-                    required
                   />
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="c1-t1-citizenship">Citizenship <span class="required">*</span></label>
+                  <label for="c1-t1-citizenship">Citizenship</label>
                   <input
                     type="text"
                     id="c1-t1-citizenship"
                     name="cabin1-traveler1-citizenship"
                     placeholder="e.g. United States"
-                    required
                   />
                 </div>
                 <div class="form-group">
@@ -194,45 +184,41 @@ const cabinCategories = [
               </div>
 
               <div class="form-group">
-                <label for="c1-t1-street">Street Address <span class="required">*</span></label>
+                <label for="c1-t1-street">Street Address</label>
                 <input
                   type="text"
                   id="c1-t1-street"
                   name="cabin1-traveler1-street-address"
                   placeholder="123 Main St"
-                  required
                 />
               </div>
 
               <div class="form-row form-row--thirds">
                 <div class="form-group">
-                  <label for="c1-t1-city">City <span class="required">*</span></label>
+                  <label for="c1-t1-city">City</label>
                   <input
                     type="text"
                     id="c1-t1-city"
                     name="cabin1-traveler1-city"
                     placeholder="Springfield"
-                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="c1-t1-state">State <span class="required">*</span></label>
+                  <label for="c1-t1-state">State</label>
                   <input
                     type="text"
                     id="c1-t1-state"
                     name="cabin1-traveler1-state"
                     placeholder="NJ"
-                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="c1-t1-zip">ZIP Code <span class="required">*</span></label>
+                  <label for="c1-t1-zip">ZIP Code</label>
                   <input
                     type="text"
                     id="c1-t1-zip"
                     name="cabin1-traveler1-zip"
                     placeholder="07901"
-                    required
                   />
                 </div>
               </div>
@@ -365,7 +351,7 @@ const cabinCategories = [
             }
 
             <fieldset class="trip-inquiry__fieldset">
-              <legend>Cabin Category <span class="required">*</span></legend>
+              <legend>Cabin Category</legend>
               <div class="trip-inquiry__choices">
                 {
                   cabinCategories.map((category, i) => (
@@ -374,7 +360,6 @@ const cabinCategories = [
                         type="radio"
                         name="cabin1-category"
                         value={category}
-                        required={i === 0}
                       />
                       {category}
                     </label>
@@ -384,10 +369,10 @@ const cabinCategories = [
             </fieldset>
 
             <fieldset class="trip-inquiry__fieldset">
-              <legend>Cabin Assignment <span class="required">*</span></legend>
+              <legend>Cabin Assignment</legend>
               <div class="trip-inquiry__choices">
                 <label class="trip-inquiry__choice">
-                  <input type="radio" name="cabin1-assignment" value="I pick my cabin" required />
+                  <input type="radio" name="cabin1-assignment" value="I pick my cabin" />
                   I pick my cabin
                 </label>
                 <label class="trip-inquiry__choice">
@@ -400,12 +385,12 @@ const cabinCategories = [
                 </label>
               </div>
               <div class="form-group trip-inquiry__room-number">
-                <label for="c1-room">Desired Room # (if you pick your cabin)</label>
+                <label for="c1-location">Deck / Location Preference (if you pick your cabin)</label>
                 <input
                   type="text"
-                  id="c1-room"
-                  name="cabin1-desired-room-number"
-                  placeholder="e.g. 9204"
+                  id="c1-location"
+                  name="cabin1-location-preference"
+                  placeholder="e.g. Higher deck, midship, away from elevators"
                 />
               </div>
             </fieldset>
@@ -668,7 +653,7 @@ const cabinCategories = [
               }
 
               <fieldset class="trip-inquiry__fieldset">
-                <legend>Cabin Category <span class="required">*</span></legend>
+                <legend>Cabin Category</legend>
                 <div class="trip-inquiry__choices">
                   {
                     cabinCategories.map((category) => (
@@ -682,7 +667,7 @@ const cabinCategories = [
               </fieldset>
 
               <fieldset class="trip-inquiry__fieldset">
-                <legend>Cabin Assignment <span class="required">*</span></legend>
+                <legend>Cabin Assignment</legend>
                 <div class="trip-inquiry__choices">
                   <label class="trip-inquiry__choice">
                     <input type="radio" name="cabin2-assignment" value="I pick my cabin" />
@@ -698,12 +683,12 @@ const cabinCategories = [
                   </label>
                 </div>
                 <div class="form-group trip-inquiry__room-number">
-                  <label for="c2-room">Desired Room # (if you pick your cabin)</label>
+                  <label for="c2-location">Deck / Location Preference (if you pick your cabin)</label>
                   <input
                     type="text"
-                    id="c2-room"
-                    name="cabin2-desired-room-number"
-                    placeholder="e.g. 9204"
+                    id="c2-location"
+                    name="cabin2-location-preference"
+                    placeholder="e.g. Higher deck, midship, away from elevators"
                   />
                 </div>
               </fieldset>
@@ -717,14 +702,13 @@ const cabinCategories = [
             >
 
             <fieldset class="trip-inquiry__fieldset">
-              <legend>Travel Insurance <span class="required">*</span></legend>
+              <legend>Travel Insurance</legend>
               <div class="trip-inquiry__choices">
                 <label class="trip-inquiry__choice">
                   <input
                     type="radio"
                     name="travel-insurance"
                     value="Yes, add travel insurance"
-                    required
                   />
                   Yes, add travel insurance to protect my trip.
                 </label>
@@ -736,14 +720,13 @@ const cabinCategories = [
             </fieldset>
 
             <fieldset class="trip-inquiry__fieldset">
-              <legend>Pre-Paid Gratuities <span class="required">*</span></legend>
+              <legend>Pre-Paid Gratuities</legend>
               <div class="trip-inquiry__choices">
                 <label class="trip-inquiry__choice">
                   <input
                     type="radio"
                     name="prepaid-gratuities"
                     value="Yes, pre-pay gratuities"
-                    required
                   />
                   Yes, pre-pay gratuities now (added to booking total).
                 </label>
@@ -814,25 +797,20 @@ const cabinCategories = [
             </ol>
 
             <label class="trip-inquiry__choice trip-inquiry__agree">
-              <input type="checkbox" name="terms-agreement" value="Agreed" required />
-              I have read and agree to the terms and conditions above. <span class="required"
-                >*</span
-              >
+              <input type="checkbox" name="terms-agreement" value="Agreed" />
+              I have read and agree to the terms and conditions above.
             </label>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="signature-cabin1"
-                  >Lead Passenger Signature — Cabin 1 (type full name) <span class="required"
-                    >*</span
-                  ></label
+                  >Lead Passenger Signature — Cabin 1 (type full name)</label
                 >
                 <input
                   type="text"
                   id="signature-cabin1"
                   name="signature-cabin1"
                   placeholder="Type your full legal name"
-                  required
                 />
               </div>
               <div class="form-group">
@@ -864,67 +842,6 @@ const cabinCategories = [
     input.addEventListener("input", update);
     update();
   });
-
-  // Travelers added via the "+ Add Traveler" / "+ Add a Second Cabin" toggles
-  // get the same required fields as the lead passenger — but only while their
-  // section is open, so an unused (collapsed) section never blocks submission.
-  const REQUIRED_FIELD_SUFFIXES = [
-    "-full-name",
-    "-dob",
-    "-email",
-    "-phone",
-    "-citizenship",
-    "-street-address",
-    "-city",
-    "-state",
-    "-zip",
-  ];
-
-  const syncRequired = () => {
-    document
-      .querySelectorAll<HTMLDetailsElement>("details.trip-inquiry__toggle")
-      .forEach((toggle) => {
-        toggle.querySelectorAll<HTMLInputElement>("input").forEach((input) => {
-          if (!REQUIRED_FIELD_SUFFIXES.some((suffix) => input.name.endsWith(suffix))) return;
-
-          // Required only if this input's section and every ancestor section is open
-          let details: HTMLDetailsElement | null = input.closest("details");
-          let active = true;
-          while (details) {
-            if (!details.open) active = false;
-            details = details.parentElement?.closest("details") ?? null;
-          }
-          input.required = active;
-
-          const label = document.querySelector(`label[for="${input.id}"]`);
-          if (label) {
-            const mark = label.querySelector(".required");
-            if (active && !mark) {
-              const span = document.createElement("span");
-              span.className = "required";
-              span.textContent = "*";
-              label.append(" ", span);
-            } else if (!active && mark) {
-              mark.remove();
-            }
-          }
-        });
-      });
-
-    // Cabin 2's category & assignment choices are required only when Cabin 2 is open
-    const cabin2 = document.querySelector<HTMLDetailsElement>("details.trip-inquiry__toggle--cabin");
-    if (cabin2) {
-      ["cabin2-category", "cabin2-assignment"].forEach((name) => {
-        const firstRadio = document.querySelector<HTMLInputElement>(`input[name="${name}"]`);
-        if (firstRadio) firstRadio.required = cabin2.open;
-      });
-    }
-  };
-
-  document
-    .querySelectorAll("details.trip-inquiry__toggle")
-    .forEach((toggle) => toggle.addEventListener("toggle", syncRequired));
-  syncRequired();
 </script>
 
 <style lang="scss">
@@ -1041,10 +958,6 @@ const cabinCategories = [
         color: var(--dark-900);
         margin-bottom: 0.5rem;
         text-align: left;
-
-        .required {
-          color: #d32f2f;
-        }
       }
     }
 
@@ -1086,7 +999,6 @@ const cabinCategories = [
 
     &__room-number {
       margin-top: 0.5rem;
-      max-width: 20rem;
     }
 
     &__note {
@@ -1110,10 +1022,6 @@ const cabinCategories = [
       li {
         line-height: 1.6;
       }
-    }
-
-    .required {
-      color: #d32f2f;
     }
   }
 </style>
